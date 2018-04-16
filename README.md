@@ -1,5 +1,37 @@
 # Ask Izzy
 
+## SWEN90013
+
+In order to get the project running you will need to install [Node.js](https://nodejs.org/en/).
+Once this is done, you will also need to install [Bower](https://bower.io/#install-bower).
+
+Next, (and after you've cloned __this__ repo locally), you can begin to install
+the local dependencies for the project like so (run these commands from the root of the project directory):
+
+```bash
+$ npm install
+$ bower install
+```
+
+__Note:__ if you are running this on OSX, you will need to install `gnu-sed` like follows (skip if using cygwin or linux):
+
+This command required homebrew. If you don't have homebrew, you can install it [here](https://brew.sh/)
+
+```bash
+$ brew install gnu-sed
+```
+
+For the sake of brevity, I have created a script that launches the project locally with a single command.
+To run, issue this command from the __root directory of this project__.
+
+```bash
+$ ./script/launch
+```
+
+My fear that this is an outdated version of the repository was indeed confirmed.
+The layout is quite different from the version of AskIzzy that is running on
+the production site.
+
 ## Dependencies
 
 [![Dependency Status](https://gemnasium.com/badges/b91820f574d095d55ce62975008f0151.svg)](https://gemnasium.com/8f187dc904fea1417227ff718eb4200d)
