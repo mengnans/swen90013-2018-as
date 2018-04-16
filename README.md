@@ -13,12 +13,20 @@ $ npm install
 $ bower install
 ```
 
-__Note:__ if you are running this on OSX, you will need to install `gnu-sed` like follows (skip if using cygwin or linux):
+__Note:__ if you are running this on OSX, you will need to install `gnu-sed` like follows (skip if using cygwin/msys/git-bash or linux):
 
 This command required homebrew. If you don't have homebrew, you can install it [here](https://brew.sh/)
 
 ```bash
 $ brew install gnu-sed
+```
+
+__Note:__ if you are running this on Windows, you will need to install `windows-build-tools` like follows (skip if using OSX or cygwin/msys/git-bash):
+
+First search in the start menu for Powershell, then right click and open it as administrator. Then run the following command:
+
+```bash
+$ npm install -g windows-build-tools
 ```
 
 For the sake of brevity, I have created a script that launches the project locally with a single command.
