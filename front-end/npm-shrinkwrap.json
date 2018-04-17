@@ -7899,6 +7899,9 @@
             "lodash._baseisequal": "3.0.7",
             "lodash._bindcallback": "3.0.1"
           }
+        },
+        "react-prop-types-element-of-type": {
+          "version": "git+https://git@github.com/ask-izzy/react-prop-types-element-of-type.git#b64b75327648e75ba3a89580079fa4c6693d3bc2"
         }
       }
     },
@@ -7920,9 +7923,6 @@
         "object-assign": "4.1.1",
         "smart-mixin": "2.0.0"
       }
-    },
-    "react-prop-types-element-of-type": {
-      "version": "git+https://git@github.com/ask-izzy/react-prop-types-element-of-type.git#b64b75327648e75ba3a89580079fa4c6693d3bc2"
     },
     "react-router": {
       "version": "2.3.0",
