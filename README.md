@@ -31,7 +31,7 @@ $ cd C:\cygwin64\home\<username>\year-long-project\front-end # or wherever you c
 $ dos2unix ./script/*
 ```
 
-See the [Project Installation](#project-installation) section below to continue.
+See the [Project Installation](#markdown-header-project-installation) section below to continue.
 
 ### OSX Preparation
 
@@ -43,9 +43,9 @@ The gnu-sed installation command required homebrew. If you don't have homebrew, 
 $ brew install gnu-sed
 ```
 
-See the [Project Installation](#project-installation) section below to continue.
+See the [Project Installation](#markdown-header-project-installation) section below to continue.
 
-### <a name="project-installation"></a> Project Installation
+### Project Installation
 
 Once you've followed the above preparation, you will also need to install [Bower](https://bower.io/#install-bower). You
 can install it using npm like this:
