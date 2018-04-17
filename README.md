@@ -2,6 +2,20 @@
 
 ## SWEN90013
 
+### Windows quickstart
+In order to get the project running you will need to install Cygwin [Cygwin](https://cygwin.com/install.html).
+__NOTE:__ During installation, you need to select to install wget package (Search 'wget', choose 'Web', single click 'Skip').
+You will need to use Cygwin terminal to run the code.
+
+git clone our code(development branch) inside C:\cygwin64\home\<username>\year-long-project
+
+
+
+
+
+### OSX quick start
+
+
 In order to get the project running you will need to install [Node.js](https://nodejs.org/en/).
 Once this is done, you will also need to install [Bower](https://bower.io/#install-bower).
 
