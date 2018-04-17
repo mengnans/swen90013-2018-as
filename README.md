@@ -1,40 +1,61 @@
 # Ask Izzy
 
-## SWEN90013
+## SWEN90013 QUICKSTART
 
-### Windows Installation
+In order to get the project running you will need to install [Node.js](https://nodejs.org/en/).
 
-In order to get the project running you will need to install Cygwin [Cygwin](https://cygwin.com/install.html).
-__NOTE:__ During installation, you need to select to install wget package (Search 'wget', choose 'Web', single click 'Skip').
-You will need to use Cygwin terminal to run the code.
+### Windows Preparation
 
-git clone our code(development branch) inside C:\cygwin64\home\<username>\year-long-project
+For windows, you will need to install [Cygwin](https://cygwin.com/install.html).
 
-You will also need to install `windows-build-tools` like follows:
+__Note:__ During installation, you need to select the option to install the wget package (Search 'wget', choose 'Web', single click 'Skip'), you will also need to select dos2unix package (Search 'dos2unix').
 
-First open Powershell or Cygwin as an administrator, then right click and open it as administrator. Then run the following command:
+You will need to the Cygwin terminal to run the project. Next, we git clone the repository (development branch) inside C:\cygwin64\home\<username>\year-long-project
+
+Now you will now need to install `nodemon` and `windows-build-tools` like follows:
+
+First open Cygwin as an administrator (right click top open it as administrator). Then run the following commands:
 
 ```bash
+$ npm install -g nodemon
 $ npm install -g windows-build-tools
 ```
 
-### OSX Installation
+Finally, you need to convert the script files from the windows format line-break format to the unix line-break format
+(this won't affect the repository as line-breaks are merged automatically).
+
+You need to run this command from the __front-end directory of this project__.
+
+```bash
+$ cd C:\cygwin64\home\<username>\year-long-project\front-end # or wherever you cloned the project
+$ dos2unix ./script/*
+```
+
+See the [Project Installation](#project-installation) section below to continue.
+
+### OSX Preparation
 
 You will need to install `gnu-sed` like follows (skip if using cygwin/msys/git-bash or linux):
 
-This command required homebrew. If you don't have homebrew, you can install it [here](https://brew.sh/)
+The gnu-sed installation command required homebrew. If you don't have homebrew, you can install it [here](https://brew.sh/)
 
 ```bash
 $ brew install gnu-sed
 ```
 
-### General Installaion
+See the [Project Installation](#project-installation) section below to continue.
 
-In order to get the project running you will need to install [Node.js](https://nodejs.org/en/).
-Once this is done, you will also need to install [Bower](https://bower.io/#install-bower).
+### <a name="project-installation"></a> Project Installation
 
-Next, (and after you've cloned __this__ repo locally), you can begin to install
-the local dependencies for the project like so (run these commands from the root of the project directory):
+Once you've followed the above preparation, you will also need to install [Bower](https://bower.io/#install-bower). You
+can install it using npm like this:
+
+```bash
+$ npm install -g bower
+```
+
+After you've cloned __this__ repo locally, you can begin to install
+the local dependencies for the project like so (run these commands from the front-end directory of this project):
 
 ```bash
 $ npm install
@@ -44,11 +65,13 @@ $ bower install
 ### Running
 
 For the sake of brevity, I have created a script that launches the project locally with a single command.
-To run, issue this command from the __root directory of this project__.
+To run, issue this command from the __front-end directory of this project__.
 
 ```bash
 $ ./script/launch
 ```
+
+Congratulations, check [http://localhost:8000](http://localhost:8000).
 
 My fear that this is an outdated version of the repository was indeed confirmed.
 The layout is quite different from the version of AskIzzy that is running on
