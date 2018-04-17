@@ -1,22 +1,29 @@
 #!/usr/bin/env bash
 set -euo pipefail
 IFS=$'\n\t'
-PATH=`npm bin`:$PATH
+
+if [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]]; then
+    PATH=$(echo "/$(npm bin)" | sed 's/\\/\//g' | sed 's/://'):$PATH
+else
+	PATH=`npm bin`:$PATH
+fi
 
 ./script/recreate-dev-env-file
 ./script/build-gmaps-file
 
 if which xdg-open; then
     OPEN=xdg-open
+elif [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
+    OPEN="start chrome"
 else
-    OPEN=open
+	OPEN=open
 fi
 
 export PORT=${PORT-8000}
 export NODE_ENV=development
 export DEBUG=web
 
-(sleep 3; $OPEN http://localhost:$PORT) &
+(sleep 3; eval $OPEN http://localhost:$PORT) &
 
 nodemon --ext js --watch webpack/ index.js webpack/server &
 WEBPACK_PID="$!"

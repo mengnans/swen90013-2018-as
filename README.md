@@ -2,7 +2,43 @@
 
 ## SWEN90013
 
-__IMPORTANT:__ Please see [the development branch](https://bitbucket.cis.unimelb.edu.au:8445/projects/SWEN90013/repos/swen90013-2018-as/browse?at=refs%2Fheads%2Fdevelopment)
+In order to get the project running you will need to install [Node.js](https://nodejs.org/en/).
+Once this is done, you will also need to install [Bower](https://bower.io/#install-bower).
+
+Next, (and after you've cloned __this__ repo locally), you can begin to install
+the local dependencies for the project like so (run these commands from the root of the project directory):
+
+```bash
+$ npm install
+$ bower install
+```
+
+__Note:__ if you are running this on OSX, you will need to install `gnu-sed` like follows (skip if using cygwin/msys/git-bash or linux):
+
+This command required homebrew. If you don't have homebrew, you can install it [here](https://brew.sh/)
+
+```bash
+$ brew install gnu-sed
+```
+
+__Note:__ if you are running this on Windows, you will need to install `windows-build-tools` like follows (skip if using OSX or cygwin/msys/git-bash):
+
+First search in the start menu for Powershell, then right click and open it as administrator. Then run the following command:
+
+```bash
+$ npm install -g windows-build-tools
+```
+
+For the sake of brevity, I have created a script that launches the project locally with a single command.
+To run, issue this command from the __root directory of this project__.
+
+```bash
+$ ./script/launch
+```
+
+My fear that this is an outdated version of the repository was indeed confirmed.
+The layout is quite different from the version of AskIzzy that is running on
+the production site.
 
 ## Dependencies
 
