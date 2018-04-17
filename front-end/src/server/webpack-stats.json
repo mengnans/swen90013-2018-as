@@ -1,0 +1,12 @@
+{
+    "script": [
+        "http://localhost:8001/static/webpack-runtime-815424d6399e57029d12.js",
+        "http://localhost:8001/static/hotload-815424d6399e57029d12.js",
+        "http://localhost:8001/static/vendor-815424d6399e57029d12.js",
+        "http://localhost:8001/static/main-815424d6399e57029d12.js",
+        "http://localhost:8001/static/googleanalytics-815424d6399e57029d12.js"
+    ],
+    "css": [
+        "http://localhost:8001/static/main-eafee35c71e47ef496fb.css"
+    ]
+}
