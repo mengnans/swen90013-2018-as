@@ -2,19 +2,33 @@
 
 ## SWEN90013
 
-### Windows quickstart
+### Windows Installation
+
 In order to get the project running you will need to install Cygwin [Cygwin](https://cygwin.com/install.html).
 __NOTE:__ During installation, you need to select to install wget package (Search 'wget', choose 'Web', single click 'Skip').
 You will need to use Cygwin terminal to run the code.
 
 git clone our code(development branch) inside C:\cygwin64\home\<username>\year-long-project
 
+You will also need to install `windows-build-tools` like follows:
 
+First open Powershell or Cygwin as an administrator, then right click and open it as administrator. Then run the following command:
 
+```bash
+$ npm install -g windows-build-tools
+```
 
+### OSX Installation
 
-### OSX quick start
+You will need to install `gnu-sed` like follows (skip if using cygwin/msys/git-bash or linux):
 
+This command required homebrew. If you don't have homebrew, you can install it [here](https://brew.sh/)
+
+```bash
+$ brew install gnu-sed
+```
+
+### General Installaion
 
 In order to get the project running you will need to install [Node.js](https://nodejs.org/en/).
 Once this is done, you will also need to install [Bower](https://bower.io/#install-bower).
@@ -27,21 +41,7 @@ $ npm install
 $ bower install
 ```
 
-__Note:__ if you are running this on OSX, you will need to install `gnu-sed` like follows (skip if using cygwin/msys/git-bash or linux):
-
-This command required homebrew. If you don't have homebrew, you can install it [here](https://brew.sh/)
-
-```bash
-$ brew install gnu-sed
-```
-
-__Note:__ if you are running this on Windows, you will need to install `windows-build-tools` like follows (skip if using OSX or cygwin/msys/git-bash):
-
-First search in the start menu for Powershell, then right click and open it as administrator. Then run the following command:
-
-```bash
-$ npm install -g windows-build-tools
-```
+### Running
 
 For the sake of brevity, I have created a script that launches the project locally with a single command.
 To run, issue this command from the __root directory of this project__.
