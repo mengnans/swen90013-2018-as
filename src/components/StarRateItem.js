@@ -2,14 +2,9 @@
 
 import React from "react";
 import classnames from "classnames";
-import icons from "../icons";
-import Star from "./Stars";
+import StarRatings from "react-star-ratings";
 
 class StarRateItem extends React.Component {
-    static defaultProps = {
-        compact: false,
-    };
-
     constructor() {
         super();
     }
@@ -26,7 +21,6 @@ class StarRateItem extends React.Component {
                     )}
                 >
                     {this.renderStars(rating)}
-                    {this.renderViewAllAccessibility()}
                 </div>
             </div>
         );
@@ -38,40 +32,28 @@ class StarRateItem extends React.Component {
             <div
                 className="travel-time"
             >
-                <icons.Accessibility
-                    className="ColoredIcon"
-                    iconType="wheelChair"
-                    aria-label="By public transport"
-                />
                 Accessibility Rating<br/>
-                <Star
+                <StarRatings
                     rating={rating}
-                    starDimension={this.props.starDimension}
-                    starSpacing={this.props.starSpacing}
+                    starRatedColor="rgb(255, 221, 81)"
+                    starEmptyColor="grey"
+                    starDimension={'32px'}
+                    starSpacing={'5px'}
+                    numberOfStars={3}
                 />
             </div>
         );
     }
 
-    viewAllAccessibilityClick(): void {
-        console.log("viewAllAccessibility clicked");
-    }
-
-    renderViewAllAccessibility() {
+    renderDivider() {
         if (!this.props.compact) {
             return (
-                <div
-                    className="getDirections"
-                    onClick={this.viewAllAccessibilityClick.bind(this)}
-                >
-                    View all
-                </div>
+                <hr/>
             );
+        } else {
+            return null;
         }
-        return <span/>;
     }
-
-
 }
 
 export default StarRateItem;
