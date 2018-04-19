@@ -124,10 +124,7 @@ class ResultListItem extends React.Component {
 
                 <IndigenousServiceIcon object={object} />
                 <StarRateItem
-                    rating={rating}
-                    starSpacing={starSpacing}
-                    starDimension={starDimension}
-                    compact={true}
+                    rating={2}
                 />
                 {this.props.nServiceProvisions > 0 ?
                     <div>
