@@ -15,6 +15,7 @@ import Accessibility from "./Accessibility";
 import OpeningTimes from "./OpeningTimes";
 import Ndis from "./Ndis";
 import TransportTime from "./TransportTime";
+import StarRateItem from './StarRateItem';
 import sendEvent from "../google-tag-manager";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import { titleize } from "underscore.string";
@@ -115,6 +116,9 @@ class ResultListItem extends React.Component {
                 />
 
                 <IndigenousServiceIcon object={object} />
+                <StarRateItem
+                    rating={2}
+                />
                 {this.props.nServiceProvisions > 0 ?
                     <div>
                         <ul className="related">{
