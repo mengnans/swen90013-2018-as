@@ -13,6 +13,7 @@ import DebugServiceRecord from "./DebugServiceRecord";
 import LinkListItem from "./LinkListItem";
 import OpeningTimes from "./OpeningTimes";
 import TransportTime from "./TransportTime";
+import StarRateItem from './StarRateItem';
 import sendEvent from "../google-tag-manager";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import { titleize } from "underscore.string";
@@ -102,6 +103,9 @@ class ResultListItem extends React.Component {
                 <TransportTime
                     compact={true}
                     location={object.Location()}
+                />
+                <StarRateItem
+                    rating={2}
                 />
                 {this.props.nServiceProvisions > 0 ?
                     <div>
