@@ -55,7 +55,7 @@ RUN npm install && \
     $(npm bin)/bower install --allow-root
 
 # Install and build the app
-ADD . /app
+ADD front-end /app
 
 RUN git describe > public/VERSION && \
     script/build-assets && \
