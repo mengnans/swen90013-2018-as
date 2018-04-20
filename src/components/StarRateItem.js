@@ -37,8 +37,8 @@ class StarRateItem extends React.Component {
                     rating={rating}
                     starRatedColor="rgb(255, 221, 81)"
                     starEmptyColor="grey"
-                    starDimension={'32px'}
-                    starSpacing={'5px'}
+                    starDimension={this.props.starDimension}
+                    starSpacing={this.props.starSpacing}
                     numberOfStars={3}
                 />
             </div>

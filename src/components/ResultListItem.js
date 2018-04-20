@@ -81,6 +81,12 @@ class ResultListItem extends React.Component {
             object,
         } = this.props;
 
+        // TODO: random rating, test-only
+        const min = 0;
+        const max = 3;
+        const rating = Math.random() * (max - min);
+        const starSpacing = '5px';
+        const starDimension = '32px';
         return (
             <LinkListItem
                 className="plain-text ResultListItem"
@@ -105,7 +111,9 @@ class ResultListItem extends React.Component {
                     location={object.Location()}
                 />
                 <StarRateItem
-                    rating={2}
+                    rating={rating}
+                    starSpacing={starSpacing}
+                    starDimension={starDimension}
                 />
                 {this.props.nServiceProvisions > 0 ?
                     <div>
