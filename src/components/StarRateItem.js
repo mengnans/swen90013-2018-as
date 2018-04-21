@@ -5,6 +5,10 @@ import classnames from "classnames";
 import StarRatings from "react-star-ratings";
 
 class StarRateItem extends React.Component {
+    static defaultProps = {
+        compact: false,
+    };
+
     constructor() {
         super();
     }
@@ -21,6 +25,7 @@ class StarRateItem extends React.Component {
                     )}
                 >
                     {this.renderStars(rating)}
+                    {this.renderViewAllAccessibility()}
                 </div>
             </div>
         );
@@ -45,15 +50,25 @@ class StarRateItem extends React.Component {
         );
     }
 
-    renderDivider() {
+    viewAllAccessibilityClick(): void {
+        console.log("viewAllAccessibility clicked");
+    }
+
+    renderViewAllAccessibility() {
         if (!this.props.compact) {
             return (
-                <hr/>
+                <div
+                    className="getDirections"
+                    onClick={this.viewAllAccessibilityClick.bind(this)}
+                >
+                    View all accessibility
+                </div>
             );
-        } else {
-            return null;
         }
+        return <span/>;
     }
+
+
 }
 
 export default StarRateItem;
