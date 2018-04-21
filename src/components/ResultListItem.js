@@ -89,6 +89,7 @@ class ResultListItem extends React.Component {
         const rating = Math.random() * (max - min);
         const starSpacing = '5px';
         const starDimension = '32px';
+
         return (
             <LinkListItem
                 className="plain-text ResultListItem"
@@ -126,6 +127,7 @@ class ResultListItem extends React.Component {
                     rating={rating}
                     starSpacing={starSpacing}
                     starDimension={starDimension}
+                    compact={true}
                 />
                 {this.props.nServiceProvisions > 0 ?
                     <div>
