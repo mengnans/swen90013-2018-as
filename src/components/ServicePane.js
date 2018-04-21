@@ -27,7 +27,6 @@ import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import type {Service} from "../iss";
 import StarRateItem from "./StarRateItem";
 import classnames from "classnames";
-import FlatButton from "./FlatButton";
 
 export default class ServicePane extends React.Component {
     props: {
@@ -51,10 +50,6 @@ export default class ServicePane extends React.Component {
             this.getSiblingServices();
         }
     }
-
-    static contextTypes = {
-        router: React.PropTypes.object.isRequired,
-    };
 
     static sampleProps = {
         default: {
@@ -106,6 +101,10 @@ export default class ServicePane extends React.Component {
 
     render() {
         const object = this.props.service;
+        // TODO: random rating, test-only
+        const min = 0;
+        const max = 3;
+        const rating = Math.random() * (max - min);
         const starSpacing = '3px';
         const starDimension = '28px';
 
@@ -155,18 +154,16 @@ export default class ServicePane extends React.Component {
                         />
                         <Spacer/>
 
-                        <div
-                            className=
-                                {classnames("GoogleMapsLink", "plain-text")}
-                            onClick={this.goToFeedbackViewPage.bind(this)}
-                        >
+                        <span>
                             <StarRateItem
-                                rating={object.feedback.overAllRating}
+                                rating={rating}
+                                starRatedColor="rgb(255, 221, 81)"
+                                starEmptyColor="grey"
                                 starDimension={starDimension}
                                 starSpacing={starSpacing}
                                 numberOfStars={3}
                             />
-                        </div>
+                        </span>
 
                         <Spacer/>
 
