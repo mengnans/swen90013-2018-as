@@ -22,12 +22,14 @@ import BoxedTextDivider from "./BoxedTextDivider";
 import Chevron from "../icons/Chevron";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import type {Service} from "../iss";
+import StarRateItem from "./StarRateItem";
+import classnames from "classnames";
 
 export default class ServicePane extends React.Component {
     props: {
         service: Service,
     };
-    state: {siblings: ?Array<Service>};
+    state: { siblings: ?Array<Service> };
 
     constructor(props: Object) {
         super(props);
@@ -46,9 +48,11 @@ export default class ServicePane extends React.Component {
         }
     }
 
-    static sampleProps = {default: {
-        service: ServiceFactory(fixtures.youthSupportNet),
-    }};
+    static sampleProps = {
+        default: {
+            service: ServiceFactory(fixtures.youthSupportNet),
+        }
+    };
 
     async getSiblingServices(): Promise<void> {
         let response = await this.props.service.getSiblingServices();
@@ -73,12 +77,18 @@ export default class ServicePane extends React.Component {
 
     render() {
         const object = this.props.service;
+        // TODO: random rating, test-only
+        const min = 0;
+        const max = 3;
+        const rating = Math.random() * (max - min);
+        const starSpacing = '3px';
+        const starDimension = '28px';
 
         return (
             <div className="ServicePane">
                 <div className="header">
                     <h2 className="name">
-                        <IndigenousServiceIcon object={object} />
+                        <IndigenousServiceIcon object={object}/>
                         {object.name}
                     </h2>
                     <h3 className="description">
@@ -98,7 +108,7 @@ export default class ServicePane extends React.Component {
 
                 </div>
 
-                <BoxedTextDivider />
+                <BoxedTextDivider/>
 
                 <BoxedText>
                     <div className="practicalities-container">
@@ -106,18 +116,31 @@ export default class ServicePane extends React.Component {
                             object={object.open}
                             serviceId={object.id}
                         />
-                        <Spacer />
+                        <Spacer/>
+
+                        <span>
+                            <StarRateItem
+                                rating={rating}
+                                starRatedColor="rgb(255, 221, 81)"
+                                starEmptyColor="grey"
+                                starDimension={starDimension}
+                                starSpacing={starSpacing}
+                                numberOfStars={3}
+                            />
+                        </span>
+
+                        <Spacer/>
 
                         <GoogleMapsLink
                             className="plain-text"
                             to={object.Location()}
                         >
-                            <Address location={object.Location()} />
+                            <Address location={object.Location()}/>
                             <TransportTime location={object.Location()}/>
                         </GoogleMapsLink>
 
-                        <Spacer />
-                        <ContactMethods object={object} />
+                        <Spacer/>
+                        <ContactMethods object={object}/>
                     </div>
                 </BoxedText>
 
@@ -151,7 +174,7 @@ export default class ServicePane extends React.Component {
                 >
                     Report an error
                 </a>
-                <DebugServiceRecord object={object} />
+                <DebugServiceRecord object={object}/>
             </div>
         );
     }
@@ -160,7 +183,7 @@ export default class ServicePane extends React.Component {
         let object = this.props.service;
 
         if (_.isEmpty(object.serviceProvisions)) {
-            return <div />;
+            return <div/>;
         }
 
         return (
@@ -171,7 +194,7 @@ export default class ServicePane extends React.Component {
                 <ul>
                     {object.serviceProvisions.map(
                         (provision, index) =>
-                        <li key={index}>{provision}</li>
+                            <li key={index}>{provision}</li>
                     )}
                 </ul>
             </div>
@@ -182,11 +205,11 @@ export default class ServicePane extends React.Component {
         const siblings = this.state.siblings;
 
         if (!siblings) {
-            return <span />;
+            return <span/>;
         }
 
         if (_.isEmpty(siblings)) {
-            return <span />;
+            return <span/>;
         }
 
         return (
@@ -205,7 +228,7 @@ export default class ServicePane extends React.Component {
                             }
                             primaryText={service.name}
                             secondaryText={service.shortDescription[0]}
-                            rightIcon={<Chevron />}
+                            rightIcon={<Chevron/>}
                         />
                     )}
                 </div>
