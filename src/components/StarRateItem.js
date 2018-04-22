@@ -38,7 +38,7 @@ class StarRateItem extends React.Component {
             <div
                 className="travel-time"
             >
-                <icons.Tram
+                <icons.Accessibility
                     className="ColoredIcon"
                     aria-label="By public transport"
                 />
