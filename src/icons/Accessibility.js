@@ -8,19 +8,17 @@ import classnames from "classnames";
 export default class SvgIconAccessibility extends React.Component {
     props: {
         className?: string,
-        iconType?: string,
     };
     state: void;
 
     render() {
-        const {className, iconType, ...rest} = this.props;
+        const {className, ...rest} = this.props;
         const classes = classnames(
             "AccessibilityIcon",
             "disallow-override-color",
             "Icon",
             "SvgIcon",
-            className,
-            iconType
+            className
         );
 
         if (iconType == "wheelChair" ) {
