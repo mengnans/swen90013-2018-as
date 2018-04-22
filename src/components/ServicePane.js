@@ -118,7 +118,13 @@ export default class ServicePane extends React.Component {
                         />
                         <Spacer/>
 
-                        <span>
+                        <a
+                            className=
+                                {classnames("GoogleMapsLink", "plain-text")}
+                            target="_blank"
+                            aria-label="Open accessiblity page"
+                            href={''}
+                        >
                             <StarRateItem
                                 rating={rating}
                                 starRatedColor="rgb(255, 221, 81)"
@@ -127,7 +133,7 @@ export default class ServicePane extends React.Component {
                                 starSpacing={starSpacing}
                                 numberOfStars={3}
                             />
-                        </span>
+                        </a>
 
                         <Spacer/>
 

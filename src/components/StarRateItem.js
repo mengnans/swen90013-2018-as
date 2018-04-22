@@ -3,6 +3,7 @@
 import React from "react";
 import classnames from "classnames";
 import StarRatings from "react-star-ratings";
+import icons from "../icons";
 
 class StarRateItem extends React.Component {
     static defaultProps = {
@@ -37,10 +38,14 @@ class StarRateItem extends React.Component {
             <div
                 className="travel-time"
             >
+                <icons.Tram
+                    className="ColoredIcon"
+                    aria-label="By public transport"
+                />
                 Accessibility Rating<br/>
                 <StarRatings
                     rating={rating}
-                    starRatedColor="rgb(255, 221, 81)"
+                    starRatedColor="rgb(237, 138, 25)"
                     starEmptyColor="grey"
                     starDimension={this.props.starDimension}
                     starSpacing={this.props.starSpacing}
@@ -61,7 +66,7 @@ class StarRateItem extends React.Component {
                     className="getDirections"
                     onClick={this.viewAllAccessibilityClick.bind(this)}
                 >
-                    View all accessibility
+                    View all
                 </div>
             );
         }
