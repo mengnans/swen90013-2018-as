@@ -50,6 +50,7 @@
     "react-helmet": "5.0.2",
     "react-mixin": "3.0.5",
     "react-router": "2.3.0",
+    "react-star-rating-component": "1.4.1",
     "react-star-ratings": "2.2.0",
     "sass-lint": "1.10.2",
     "sass-loader": "6.0.3",
