@@ -24,6 +24,8 @@ import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import type {Service} from "../iss";
 import StarRateItem from "./StarRateItem";
 import classnames from "classnames";
+import FlatButton from "./FlatButton";
+import FloatFromBottom from "./FloatFromBottom";
 
 export default class ServicePane extends React.Component {
     props: {
@@ -122,7 +124,7 @@ export default class ServicePane extends React.Component {
                             className=
                                 {classnames("GoogleMapsLink", "plain-text")}
                             target="_blank"
-                            aria-label="Open accessiblity page"
+                            aria-label="Open accessibility page"
                             href={''}
                         >
                             <StarRateItem
@@ -144,6 +146,21 @@ export default class ServicePane extends React.Component {
                             <Address location={object.Location()}/>
                             <TransportTime location={object.Location()}/>
                         </GoogleMapsLink>
+
+                        <Spacer/>
+
+                        <FloatFromBottom
+                            ref="floatingDone"
+                            includeOffsetElement={false}
+                        >
+                            <div className="Done">
+                                <div className="done-button">
+                                    <FlatButton
+                                        label="Provide your feedback"
+                                    />
+                                </div>
+                            </div>
+                        </FloatFromBottom>
 
                         <Spacer/>
                         <ContactMethods object={object}/>
