@@ -31,8 +31,6 @@ import PersonalisationSummaryPage from "./pages/PersonalisationSummaryPage";
 import {ResultsPageListing, ResultsPageMap} from "./pages/ResultsPage";
 import ServicePage from "./pages/ServicePage";
 import FeedbackPage from "./pages/FeedbackPage";
-import FeedbackViewPage from "./pages/FeedbackViewPage"
-import FeedbackProvidePage from "./pages/FeedbackProvidePage"
 
 export function makeTitle(
     routes: Array<Object>,
@@ -141,14 +139,7 @@ export default (
         <Route
             path="/service/:slug/feedback"
             component={FeedbackPage}
-        />
-        <Route
-            path="/service/:slug/feedback/view"
-            component={FeedbackViewPage}
-        />
-        <Route
-            path="/service/:slug/feedback/provide"
-            component={FeedbackProvidePage}
+            title={"Provide your feedback"}
         />
         <Redirect
             from="/category/:page"
