@@ -28,7 +28,6 @@ import type {Service} from "../iss";
 import StarRateItem from "./StarRateItem";
 import classnames from "classnames";
 import FlatButton from "./FlatButton";
-import FloatFromBottom from "./FloatFromBottom";
 
 export default class ServicePane extends React.Component {
     props: {
@@ -52,6 +51,10 @@ export default class ServicePane extends React.Component {
             this.getSiblingServices();
         }
     }
+
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired,
+    };
 
     static sampleProps = {
         default: {
@@ -80,21 +83,11 @@ export default class ServicePane extends React.Component {
         });
     }
 
-    goToFeedbackPage(): void {
+    goToProvideFeedbackPage(): void {
         let path = "/service/";
 
         path += this.props.service.slug;
         path += "/feedback";
-        this.context.router.push(
-            path
-        )
-    }
-
-    goToFeedbackViewPage(): void {
-        let path = "/service/";
-
-        path += this.props.service.slug;
-        path += "/feedback/view";
         this.context.router.push(
             path
         )
@@ -187,18 +180,27 @@ export default class ServicePane extends React.Component {
                         <Spacer/>
 
 
-                        <FloatFromBottom
-                            ref="floatingDone"
-                            includeOffsetElement={false}
-                        >
-                            <div className="Done">
-                                <div className="done-button">
-                                    <FlatButton
-                                        label="Provide your feedback"
-                                    />
-                                </div>
+                        <div>
+                            <div className="done-button">
+                                <FlatButton
+                                    label="Provide your feedback"
+                                    onClick={this.goToProvideFeedbackPage.bind(this)}
+                                />
                             </div>
-                        </FloatFromBottom>
+                        </div>
+
+                        {/*<FloatFromBottom*/}
+                            {/*ref="floatingDone"*/}
+                            {/*includeOffsetElement={false}*/}
+                        {/*>*/}
+                            {/*<div className="Done">*/}
+                                {/*<div className="done-button">*/}
+                                    {/*<FlatButton*/}
+                                        {/*label="Provide your feedback"*/}
+                                    {/*/>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                        {/*</FloatFromBottom>*/}
 
                         <Spacer />
                         <ContactMethods object={object} />
