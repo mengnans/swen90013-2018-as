@@ -28,7 +28,6 @@ import type {Service} from "../iss";
 import StarRateItem from "./StarRateItem";
 import classnames from "classnames";
 import FlatButton from "./FlatButton";
-import FloatFromBottom from "./FloatFromBottom";
 
 export default class ServicePane extends React.Component {
     props: {
@@ -53,6 +52,10 @@ export default class ServicePane extends React.Component {
         }
     }
 
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired,
+    };
+
     static sampleProps = {
         default: {
             service: ServiceFactory(fixtures.youthSupportNet),
@@ -72,6 +75,24 @@ export default class ServicePane extends React.Component {
             crisis: this.props.service.crisis,
         });
     }
+
+    recordSuggestChange(): void {
+        sendEvent({
+            event: "suggestServiceChange",
+            service: this.props.service.id,
+        });
+    }
+
+    goToProvideFeedbackPage(): void {
+        let path = "/service/";
+
+        path += this.props.service.slug;
+        path += "/feedback";
+        this.context.router.push(
+            path
+        )
+    }
+
 
     render() {
         const object = this.props.service;
@@ -155,30 +176,36 @@ export default class ServicePane extends React.Component {
                             <TransportTime location={object.Location()}/>
                         </GoogleMapsLink>
 
-<<<<<<< HEAD
+                        
+                        <Spacer/>
+
+
+                        <div>
+                            <div className="done-button">
+                                <FlatButton
+                                    label="Provide your feedback"
+                                    onClick={this.goToProvideFeedbackPage.bind(this)}
+                                />
+                            </div>
+                        </div>
+
+                        {/*<FloatFromBottom*/}
+                            {/*ref="floatingDone"*/}
+                            {/*includeOffsetElement={false}*/}
+                        {/*>*/}
+                            {/*<div className="Done">*/}
+                                {/*<div className="done-button">*/}
+                                    {/*<FlatButton*/}
+                                        {/*label="Provide your feedback"*/}
+                                    {/*/>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                        {/*</FloatFromBottom>*/}
+
                         <Spacer />
                         <ContactMethods object={object} />
                         <Spacer />
                         <Feedback object={object} />
-=======
-                        <Spacer/>
-
-                        <FloatFromBottom
-                            ref="floatingDone"
-                            includeOffsetElement={false}
-                        >
-                            <div className="Done">
-                                <div className="done-button">
-                                    <FlatButton
-                                        label="Provide your feedback"
-                                    />
-                                </div>
-                            </div>
-                        </FloatFromBottom>
-
-                        <Spacer/>
-                        <ContactMethods object={object}/>
->>>>>>> Update dependencies and add provide feedback button
                     </div>
                 </BoxedText>
 
