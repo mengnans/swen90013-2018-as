@@ -143,8 +143,6 @@ export default class ServicePane extends React.Component {
                         >
                             <StarRateItem
                                 rating={rating}
-                                starRatedColor="rgb(255, 221, 81)"
-                                starEmptyColor="grey"
                                 starDimension={starDimension}
                                 starSpacing={starSpacing}
                                 numberOfStars={3}
@@ -173,18 +171,6 @@ export default class ServicePane extends React.Component {
                             </div>
                         </div>
 
-                        {/*<FloatFromBottom*/}
-                            {/*ref="floatingDone"*/}
-                            {/*includeOffsetElement={false}*/}
-                        {/*>*/}
-                            {/*<div className="Done">*/}
-                                {/*<div className="done-button">*/}
-                                    {/*<FlatButton*/}
-                                        {/*label="Provide your feedback"*/}
-                                    {/*/>*/}
-                                {/*</div>*/}
-                            {/*</div>*/}
-                        {/*</FloatFromBottom>*/}
 
                         <Spacer/>
                         <ContactMethods object={object}/>
