@@ -2,8 +2,8 @@
 
 import React from "react";
 import classnames from "classnames";
-import StarRatings from "react-star-ratings";
 import icons from "../icons";
+import Star from "./Stars";
 
 class StarRateItem extends React.Component {
     static defaultProps = {
@@ -43,13 +43,10 @@ class StarRateItem extends React.Component {
                     aria-label="By public transport"
                 />
                 Accessibility Rating<br/>
-                <StarRatings
+                <Star
                     rating={rating}
-                    starRatedColor="rgb(237, 138, 25)"
-                    starEmptyColor="grey"
                     starDimension={this.props.starDimension}
                     starSpacing={this.props.starSpacing}
-                    numberOfStars={3}
                 />
             </div>
         );

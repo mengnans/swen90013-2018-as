@@ -3,99 +3,49 @@
 import React from "react";
 import icons from "../icons";
 import Star from "./Stars";
+import './RatingListItem.scss'
 
 class RatingListItem extends React.Component {
-
-    minimalWidthForRatingListItemText = 400;
 
     constructor(props) {
         super(props);
     }
 
-    renderStar() {
-        let width = this.props.width;
-        let rating = this.props.data.rating;
-
-        if (this.props.data.rating >= 0) {
-            const starSpacing = '5px';
-            const starDimension = '28px';
-            if (width < this.minimalWidthForRatingListItemText) {
-                return null
-            } else {
-                return (
-                    <Star
-                        starSpacing={starSpacing}
-                        starDimension={starDimension}
-                        rating={rating}
-                    />
-                );
-            }
-        }
-    }
-
-    renderChevron() {
-        if (this.props.disabled) {
-            return null;
-        } else {
-            return (
-                <icons.Chevron/>
-            );
-        }
-    }
-
     render() {
         let ratingType = this.props.data.ratingType;
         let icon = '';
-
+        const starSpacing = '3px';
+        const starDimension = '28px';
 
         if (ratingType === "Wheelchair access") {
             icon = (<icons.Accessibility
                 className="ColoredIcon"
-                iconType="wheelChair"
-                aria-label="Wheelchair"
+                aria-label="By public transport"
             />);
-
         } else if (ratingType === "Signage") {
             icon = (<icons.Accessibility
                 className="ColoredIcon"
-                iconType="signage"
-                aria-label="signage"
+                aria-label="By public transport"
             />);
-
         } else {
             icon = (<icons.Accessibility
                 className="ColoredIcon"
-                iconType="publicTransport"
                 aria-label="By public transport"
             />);
         }
 
-
         return (
-            <div className={"RatingListItem plain-text"}
-                 onClick={this.props.onClickRatingListItem}
-            >
-                <div className={"RatingListItemIcon"}>{icon}</div>
-                {this.renderRatingListItemText()}
-                <div className={"RatingListItemStar"}>
-                    {this.renderStar()}
-                </div>
-                <div className={"RatingListItemChevron"}>
-                    {this.renderChevron()}
-                </div>
+            <div className="RatingListItem">
+                <div className="RatingListItemIcon">{icon}</div>
+                <div className="RatingListItemIcon">{ratingType}</div>
+                <Star
+                    starSpacing={starSpacing}
+                    starDimension={starDimension}
+                    rating={this.props.data.rating}
+                />
             </div>
         );
 
-    }
-
-    renderRatingListItemText() {
-        let ratingType = this.props.data.ratingType;
-
-        return (
-            <div className={"RatingListItemText"}>
-                {ratingType}
-            </div>
-        );
     }
 
 }
