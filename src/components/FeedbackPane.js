@@ -4,45 +4,28 @@ import React from "react";
 import type {Service} from "../iss";
 import FlatButton from "./FlatButton";
 import sendEvent from "../google-tag-manager";
-import RatingListItem from "./RatingListItem";
-import Star from "./Stars";
 
 export default class FeedbackPane extends React.Component {
     props: {
         service: Service,
     };
 
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired,
+    };
+
     constructor(props: Object) {
         super(props);
-        const mockRatingData = {
-            "typeOfRatings": 3,
-            "overAllRating": 2.4,
-            "ratings": [
-                {
-                    "ratingType": "Wheelchair access",
-                    "rating": 2.2,
-                },
-                {
-                    "ratingType": "Signage",
-                    "rating": 2.8,
-                },
-                {
-                    "ratingType": "Transport",
-                    "rating": 1.2,
-                },
-            ],
-        };
-
-        this.state = {
-            isProvidingAccessibilityFeedback: false,
-            ratingData: mockRatingData,
-        };
     }
 
-    onClickAccessibilityFeedback(): void {
-        this.setState({
-            isProvidingAccessibilityFeedback: true,
-        });
+    onClickProvideAccessibilityFeedback() : void {
+        let path = "/service/";
+
+        path += this.props.service.slug;
+        path += "/feedback/provide";
+        this.context.router.push(
+            path
+        )
     }
 
     recordSuggestChange(): void {
@@ -52,56 +35,34 @@ export default class FeedbackPane extends React.Component {
         });
     }
 
-
     render() {
         return (
             <div className="FeedbackPane">
                 {this.renderFeedbackButtons()}
-                {this.renderRating()}
             </div>
         );
     }
 
-    renderRating() {
-        if (this.state.isProvidingAccessibilityFeedback) {
-            return (<div>
-                {this.renderRatingList()}
-                <Star/>
-
-            </div>);
-        }
-    }
-
-    renderRatingList() {
-        return this.state.ratingData.ratings.map((data) => (
-            <RatingListItem data={data}/>
-        ));
-    }
-
-
     renderFeedbackButtons() {
-        if (this.state.isProvidingAccessibilityFeedback) {
-            return null;
-        } else {
-            return (
 
-                <div className={"ButtonPane"}>
-                    <FlatButton
-                        className={"FeedbackButton"}
-                        label={"Provide Accessibility Feedback"}
-                        onClick={this.onClickAccessibilityFeedback.bind(this)}
-                    />
-                    <div className={"Separator"}></div>
-                    <a
-                        className="suggestChange"
-                        onClick={this.recordSuggestChange.bind(this)}
-                        href={
-                            "mailto:database@infoxchange.org" +
-                            "?subject=" +
-                            encodeURIComponent(`Ask Izzy changes: ${this.props.service.id}`) +
-                            "&body=" +
-                            encodeURIComponent(
-                                `Contact name:
+        return (
+            <div className={"ButtonPane"}>
+                <FlatButton
+                    className={"FeedbackButton"}
+                    label={"Provide Accessibility Feedback"}
+                    onClick={this.onClickProvideAccessibilityFeedback.bind(this)}
+                />
+                <div className={"Separator"}/>
+                <a
+                    className="suggestChange"
+                    onClick={this.recordSuggestChange.bind(this)}
+                    href={
+                        "mailto:database@infoxchange.org" +
+                        "?subject=" +
+                        encodeURIComponent(`Ask Izzy changes: ${this.props.service.id}`) +
+                        "&body=" +
+                        encodeURIComponent(
+                            `Contact name:
 
                             Contact number:
 
@@ -110,18 +71,17 @@ export default class FeedbackPane extends React.Component {
                             Details of change:
 
                             `.replace(/^ +/gm, "")
-                            )
-                        }
-                    >
-                        <FlatButton
-                            className={"FeedbackButton"}
-                            label={"Provide General Feedback"}
-                        />
-                    </a>
+                        )
+                    }
+                >
+                    <FlatButton
+                        className={"FeedbackButton"}
+                        label={"Provide General Feedback"}
+                    />
+                </a>
 
-                </div>
+            </div>
 
-            );
-        }
+        );
     }
 }
