@@ -1,7 +1,17 @@
-.RatingListItem {
-    background-color: #767676;
-}
 
-.RatingListItemIcon{
-    width: 30px;
+.RatingListItem {
+    color: red;
+    background-color: yellow;
+
+    .RatingIcon{
+        flex: 1;
+        width: 15%;
+        background-color: #3ed1d3;
+    }
+
+    .RatingText{
+        flex: 1;
+        width: 15%;
+        background-color: green;
+    }
 }
