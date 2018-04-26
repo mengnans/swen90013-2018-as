@@ -5,17 +5,15 @@ import type {Service} from "../iss";
 import FlatButton from "./FlatButton";
 import RatingListItem from "./RatingListItem";
 import Star from "./Stars";
-import iss from "../iss";
 
 export default class FeedbackProvidePane extends React.Component {
 
     unDefinedRating = -1;
     noInputtingIndex = -1;
-    minimalWidthForStars = 600;
+    noFeedbackProvided = 0;
 
     props: {
         service: Service,
-        width: number,
     };
 
     static contextTypes = {
@@ -25,38 +23,37 @@ export default class FeedbackProvidePane extends React.Component {
 
     constructor(props: Object) {
         super(props);
-        const ratings = this.props.service.feedback.ratings;
-        let initialData = {};
-
-        initialData.ratings = [];
-
-
-        ratings.map(rating => {
-            let ratingItem = {};
-
-            ratingItem.ratingType = rating.ratingType;
-            ratingItem.rating = this.unDefinedRating;
-            ratingItem.comment = null;
-
-            initialData.ratings.push(ratingItem);
-        });
-
+        const mockRatingData = {
+            "serviceId": this.props.service.id,
+            "typeOfRatings": 3,
+            "ratingProvided": this.noFeedbackProvided,
+            "ratings": [
+                {
+                    "ratingType": "Wheelchair access",
+                    "rating": this.unDefinedRating,
+                    "comment": null,
+                },
+                {
+                    "ratingType": "Signage",
+                    "rating": this.unDefinedRating,
+                    "comment": null,
+                },
+                {
+                    "ratingType": "Transport",
+                    "rating": this.unDefinedRating,
+                    "comment": null,
+                },
+            ],
+        };
 
         this.state = {
-            ratingData: initialData,
+            ratingData: mockRatingData,
             inputtingIndex: this.noInputtingIndex,
         };
     }
 
-    onInputtingAreaChange(event) {
-        let ratingData = this.state.ratingData;
-
-        ratingData.ratings[this.state.inputtingIndex].comment =
-            event.target.value;
-
-        this.setState({
-            ratingData: ratingData,
-        });
+    onInputtingAreaChange(newValue) {
+        this.state.ratingData.ratings[this.state.inputtingIndex].comment = newValue;
     }
 
     onRatingChange(newRating) {
@@ -69,6 +66,14 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     onClickRatingListItem(index) {
+        let path = "/service/";
+
+        path += this.props.service.slug;
+        path += "/feedback/provide?index=";
+        path += index;
+        this.context.router.push(
+            path
+        );
         this.setState({
             inputtingIndex: index,
         });
@@ -76,37 +81,7 @@ export default class FeedbackProvidePane extends React.Component {
 
     // submit feedback
     onClickSubmit() {
-        let data = this.state.ratingData;
-        let validRatings = [];
-
-        data.ratings.map((ratingItem) => {
-            let rating = ratingItem.rating;
-            // TODO: do something about the comments
-            // for example, what if rating is undefined,
-            // but the comment is not empty
-            // let comment = ratingItem.comment;
-
-            // add valid ratings
-            if (rating !== this.unDefinedRating) {
-                validRatings.push(ratingItem);
-            }
-        });
-
-        // only submit valid ratings
-        data.ratings = validRatings;
-
-        try {
-            let responseJson = iss.provideFeedback(data.serviceId, data);
-
-            console.log(responseJson);
-        } catch (error) {
-            console.log("error");
-        }
-
-        // TODO: do something here,
-        // inform the user the feedback has been submitted
-        // alert("submitted");
-        // go back to service page
+        console.log(this.state.ratingData);
         let path = "/service/";
 
         path += this.props.service.slug;
@@ -120,12 +95,11 @@ export default class FeedbackProvidePane extends React.Component {
     onClickDelete() {
         let ratingData = this.state.ratingData;
 
-        for (let ratingIndex = 0;
-             ratingIndex < ratingData.ratings.length;
-             ratingIndex++) {
+        for (let ratingIndex = 0; ratingIndex < ratingData.typeOfRatings; ratingIndex++) {
             ratingData.ratings[ratingIndex].rating = this.unDefinedRating;
             ratingData.ratings[ratingIndex].comment = null;
         }
+        ratingData.ratingProvided = this.noFeedbackProvided;
         this.setState({
             ratingData: ratingData,
         });
@@ -133,13 +107,21 @@ export default class FeedbackProvidePane extends React.Component {
 
     // cancel provide feedback for sub-criteria
     onClickCancel() {
+        let path = "/service/";
+
+        path += this.props.service.slug;
+        path += "/feedback/provide";
+        this.context.router.push(
+            path
+        );
 
         let ratingData = this.state.ratingData;
 
-        let index = this.state.inputtingIndex;
-
-        ratingData.ratings[index].rating = this.unDefinedRating;
-        ratingData.ratings[index].comment = null;
+        if (ratingData.ratings[this.state.inputtingIndex].rating !== this.unDefinedRating) {
+            ratingData.ratings[this.state.inputtingIndex].rating = this.unDefinedRating;
+            ratingData.ratingProvided--;
+        }
+        ratingData.ratings[this.state.inputtingIndex].comment = null;
 
         this.setState({
             inputtingIndex: this.noInputtingIndex,
@@ -149,14 +131,25 @@ export default class FeedbackProvidePane extends React.Component {
 
     // provide feedback for sub-criteria
     onClickDone() {
+        let path = "/service/";
+
+        path += this.props.service.slug;
+        path += "/feedback/provide";
+        this.context.router.push(
+            path
+        );
+        let ratingData = this.state.ratingData;
+
+        ratingData.ratingProvided++;
         this.setState({
             inputtingIndex: this.noInputtingIndex,
+            ratingData: ratingData,
         });
     }
 
     render() {
         return (
-            <div className="ProvideFeedbackPane">
+            <div className="FeedbackPane">
                 {this.renderRating()}
                 {this.renderInputting()}
             </div>
@@ -179,94 +172,45 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     renderInputtingArea() {
-        const ratings = this.state.ratingData.ratings;
-        const index = this.state.inputtingIndex;
-
         return (
-            <textarea
-                className={"InputTextArea"}
-                placeholder={"Please leave your comment here."}
-                value={ratings[index].comment}
-                onChange={this.onInputtingAreaChange.bind(this)}
+            <textarea className={"InputTextArea"}
+                      placeholder={"Please input your comment here."}
+                      onChange={this.onInputtingAreaChange.bind(this)}
             >
+
             </textarea>
         );
     }
 
     renderStar() {
-        let windowsWidth = this.props.width;
-        let starDimension, starSpacing;
-
-        if (windowsWidth >= this.minimalWidthForStars) {
-            starDimension = `${parseInt(windowsWidth / 8)}px`;
-            starSpacing = `${parseInt(windowsWidth / 80)}px`;
-        } else {
-            starDimension = `${parseInt(windowsWidth / 6)}px`;
-            starSpacing = `${parseInt(windowsWidth / 60)}px`;
-        }
-
-        const ratings = this.state.ratingData.ratings;
-        const index = this.state.inputtingIndex;
+        const starDimension = "100px";
+        const starSpacing = "25px";
 
         return (
-            <div className={"OverallStarBlock"}>
-                {this.renderLeftStarText()}
-                <div className={"OverallStar"}>
-                    <Star
-                        starDimension={starDimension}
-                        starSpacing={starSpacing}
-                        rating={ratings[index].rating}
-                        changeRating={this.onRatingChange.bind(this)}
-                    />
-                </div>
-                {this.renderRightStarText()}
+            <div className={"RatingStar"}>
+                <Star
+                    starDimension={starDimension}
+                    starSpacing={starSpacing}
+                    rating={this.state.ratingData.ratings[this.state.inputtingIndex].rating}
+                    changeRating={this.onRatingChange.bind(this)}
+                />
             </div>
         );
-    }
-
-
-    renderLeftStarText() {
-        let windowsWidth = this.props.width;
-
-        if (windowsWidth < this.minimalWidthForStars) {
-            return null
-        } else {
-            return (
-                <div className={"OverallStarLeftText"}>
-                    Not very accessible
-                </div>
-            );
-        }
-    }
-
-    renderRightStarText() {
-        let windowsWidth = this.props.width;
-
-        if (windowsWidth < this.minimalWidthForStars) {
-            return null
-        } else {
-            return (
-                <div className={"OverStarRightText"}>
-                    Very<br/>accessible
-                </div>
-            );
-        }
-
     }
 
     renderButtons() {
 
         return (
-            <div className={"ButtonPane1"}>
+            <div className={"ButtonPane"}>
                 <FlatButton
-                    className={"FeedbackButton FeedbackButtonDone"}
+                    className={"FeedbackButton"}
                     label={"Done"}
                     onClick={this.onClickDone.bind(this)}
                 />
                 <div className={"Separator"}/>
 
                 <FlatButton
-                    className={"FeedbackButton FeedbackButtonCancel"}
+                    className={"FeedbackButton"}
                     label={"Cancel"}
                     onClick={this.onClickCancel.bind(this)}
                 />
@@ -291,26 +235,14 @@ export default class FeedbackProvidePane extends React.Component {
     renderRatingList() {
         return this.state.ratingData.ratings.map((data, index) => (
             <RatingListItem
-                key={"ratingListItem#" + index}
                 data={data}
-                width={this.props.width}
-                onClickRatingListItem=
-                    {this.onClickRatingListItem.bind(this, index)}
+                onClickRatingListItem={this.onClickRatingListItem.bind(this, index)}
             />
         ));
     }
 
 
     renderFeedbackButtons() {
-        let ratings = this.state.ratingData.ratings;
-        let disabled = true;
-
-        ratings.map((ratingItem) => {
-            if (ratingItem.comment !== null ||
-                ratingItem.rating !== this.unDefinedRating) {
-                disabled = false;
-            }
-        });
 
         return (
 
@@ -318,15 +250,15 @@ export default class FeedbackProvidePane extends React.Component {
                 <FlatButton
                     className={"FeedbackButton"}
                     label={"Submit"}
+                    disabled={this.state.ratingData.ratingProvided === this.noFeedbackProvided}
                     onClick={this.onClickSubmit.bind(this)}
-                    disabled={disabled}
                 />
                 <div className={"Separator"}/>
                 <FlatButton
                     className={"FeedbackButton"}
                     label={"Delete"}
+                    disabled={this.state.ratingData.ratingProvided === this.noFeedbackProvided}
                     onClick={this.onClickDelete.bind(this)}
-                    disabled={disabled}
                 />
             </div>
 
