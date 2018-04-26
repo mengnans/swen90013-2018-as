@@ -5,6 +5,7 @@ import type {Service} from "../iss";
 import FlatButton from "./FlatButton";
 import sendEvent from "../google-tag-manager";
 import RatingListItem from "./RatingListItem";
+import Star from "./Stars";
 
 export default class FeedbackPane extends React.Component {
     props: {
@@ -56,9 +57,19 @@ export default class FeedbackPane extends React.Component {
         return (
             <div className="FeedbackPane">
                 {this.renderFeedbackButtons()}
-                {this.renderRatingList()}
+                {this.renderRating()}
             </div>
         );
+    }
+
+    renderRating() {
+        if (this.state.isProvidingAccessibilityFeedback) {
+            return (<div>
+                {this.renderRatingList()}
+                <Star/>
+
+            </div>);
+        }
     }
 
     renderRatingList() {
@@ -74,11 +85,13 @@ export default class FeedbackPane extends React.Component {
         } else {
             return (
 
-                <div className="FeedbackButton">
-                    <FlatButton label={"Provide Accessibility Feedback"}
-                                onClick={this.onClickAccessibilityFeedback.bind(this)}/>
-                    <br/>
-                    <br/>
+                <div className={"ButtonPane"}>
+                    <FlatButton
+                        className={"FeedbackButton"}
+                        label={"Provide Accessibility Feedback"}
+                        onClick={this.onClickAccessibilityFeedback.bind(this)}
+                    />
+                    <div className={"Separator"}></div>
                     <a
                         className="suggestChange"
                         onClick={this.recordSuggestChange.bind(this)}
@@ -100,7 +113,10 @@ export default class FeedbackPane extends React.Component {
                             )
                         }
                     >
-                        <FlatButton label={"Provide General Feedback"}/>
+                        <FlatButton
+                            className={"FeedbackButton"}
+                            label={"Provide General Feedback"}
+                        />
                     </a>
 
                 </div>

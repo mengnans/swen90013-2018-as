@@ -3,7 +3,6 @@
 import React from "react";
 import icons from "../icons";
 import Star from "./Stars";
-import './RatingListItem.scss'
 
 class RatingListItem extends React.Component {
 
@@ -36,8 +35,8 @@ class RatingListItem extends React.Component {
 
         return (
             <div className="RatingListItem">
-                <div className="RatingListItemIcon">{icon}</div>
-                <div className="RatingListItemIcon">{ratingType}</div>
+                <span className={"RatingIcon"}>{icon}</span>
+                <span className={"RatingText"}>{ratingType}</span>
                 <Star
                     starSpacing={starSpacing}
                     starDimension={starDimension}
