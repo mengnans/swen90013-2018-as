@@ -80,11 +80,21 @@ export default class ServicePane extends React.Component {
         });
     }
 
-    goToProvideFeedbackPage(): void {
+    goToFeedbackPage(): void {
         let path = "/service/";
 
         path += this.props.service.slug;
         path += "/feedback";
+        this.context.router.push(
+            path
+        )
+    }
+
+    goToFeedbackViewPage(): void {
+        let path = "/service/";
+
+        path += this.props.service.slug;
+        path += "/feedback/view";
         this.context.router.push(
             path
         )
@@ -134,12 +144,10 @@ export default class ServicePane extends React.Component {
                         />
                         <Spacer/>
 
-                        <a
+                        <div
                             className=
                                 {classnames("GoogleMapsLink", "plain-text")}
-                            target="_blank"
-                            aria-label="Open accessibility page"
-                            href={''}
+                            onClick={this.goToFeedbackViewPage.bind(this)}
                         >
                             <StarRateItem
                                 rating={rating}
@@ -147,7 +155,7 @@ export default class ServicePane extends React.Component {
                                 starSpacing={starSpacing}
                                 numberOfStars={3}
                             />
-                        </a>
+                        </div>
 
                         <Spacer/>
 
@@ -166,7 +174,7 @@ export default class ServicePane extends React.Component {
                             <div className="done-button">
                                 <FlatButton
                                     label="Provide your feedback"
-                                    onClick={this.goToProvideFeedbackPage.bind(this)}
+                                    onClick={this.goToFeedbackPage.bind(this)}
                                 />
                             </div>
                         </div>
