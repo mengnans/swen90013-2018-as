@@ -1,17 +1,35 @@
 
 .RatingListItem {
-    color: red;
-    background-color: yellow;
+    background-color: #EDECE9;
+    border-bottom: 1px solid #C2C1BE;
+    height: 62px;
+    width: 100%;
+    display: table;
+}
 
-    .RatingIcon{
-        flex: 1;
-        width: 15%;
-        background-color: #3ed1d3;
-    }
+.RatingListItemIcon{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 62px;
+}
 
-    .RatingText{
-        flex: 1;
-        width: 15%;
-        background-color: green;
-    }
+.RatingListItemText{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.RatingListItemStar{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    height: 62px;
+}
+
+
+.RatingListItemChevron{
+    display: table-cell;
+    width: 62px;
+    text-align: right;
+    vertical-align: middle;
 }
