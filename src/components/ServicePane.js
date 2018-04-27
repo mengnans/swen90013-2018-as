@@ -185,16 +185,11 @@ export default class ServicePane extends React.Component {
                         
                         <Spacer/>
 
-
-                        <div>
-                            <div className="done-button">
-                                <FlatButton
-                                    label="Provide your feedback"
-                                    onClick={this.goToFeedbackPage.bind(this)}
-                                />
-                            </div>
-                        </div>
-
+                        <FlatButton
+                            label="Provide your feedback"
+                            onClick={this.goToFeedbackPage.bind(this)}
+                            className={"ProvideYourFeedbackButton"}
+                        />
 
                         <Spacer />
                         <ContactMethods object={object} />
