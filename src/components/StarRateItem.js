@@ -21,7 +21,7 @@ class StarRateItem extends React.Component {
             <div>
                 <div
                     className={classnames(
-                        "TransportTime",
+                        "StarRateItem",
                         {compact: this.props.compact}
                     )}
                 >
@@ -52,16 +52,11 @@ class StarRateItem extends React.Component {
         );
     }
 
-    viewAllAccessibilityClick(): void {
-        console.log("viewAllAccessibility clicked");
-    }
-
     renderViewAllAccessibility() {
         if (!this.props.compact) {
             return (
                 <div
                     className="getDirections"
-                    onClick={this.viewAllAccessibilityClick.bind(this)}
                 >
                     View all
                 </div>
