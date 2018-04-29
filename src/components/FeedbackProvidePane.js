@@ -26,7 +26,6 @@ export default class FeedbackProvidePane extends React.Component {
         const mockRatingData = {
             "serviceId": this.props.service.id,
             "typeOfRatings": 3,
-            "ratingProvided": this.noFeedbackProvided,
             "ratings": [
                 {
                     "ratingType": "Wheelchair access",
@@ -49,6 +48,7 @@ export default class FeedbackProvidePane extends React.Component {
         this.state = {
             ratingData: mockRatingData,
             inputtingIndex: this.noInputtingIndex,
+            ratingProvided: this.noFeedbackProvided,
         };
     }
 
@@ -99,9 +99,9 @@ export default class FeedbackProvidePane extends React.Component {
             ratingData.ratings[ratingIndex].rating = this.unDefinedRating;
             ratingData.ratings[ratingIndex].comment = null;
         }
-        ratingData.ratingProvided = this.noFeedbackProvided;
         this.setState({
             ratingData: ratingData,
+            ratingProvided: this.noFeedbackProvided,
         });
     }
 
@@ -116,16 +116,18 @@ export default class FeedbackProvidePane extends React.Component {
         );
 
         let ratingData = this.state.ratingData;
+        let ratingProvided = this.state.ratingProvided;
 
         if (ratingData.ratings[this.state.inputtingIndex].rating !== this.unDefinedRating) {
             ratingData.ratings[this.state.inputtingIndex].rating = this.unDefinedRating;
-            ratingData.ratingProvided--;
+            ratingProvided--;
         }
         ratingData.ratings[this.state.inputtingIndex].comment = null;
 
         this.setState({
             inputtingIndex: this.noInputtingIndex,
             ratingData: ratingData,
+            ratingProvided: ratingProvided,
         });
     }
 
@@ -140,10 +142,12 @@ export default class FeedbackProvidePane extends React.Component {
         );
         let ratingData = this.state.ratingData;
 
-        ratingData.ratingProvided++;
+        let ratingProvided = this.state.ratingProvided;
+        ratingProvided++;
         this.setState({
             inputtingIndex: this.noInputtingIndex,
             ratingData: ratingData,
+            ratingProvided: ratingProvided,
         });
     }
 
@@ -250,14 +254,14 @@ export default class FeedbackProvidePane extends React.Component {
                 <FlatButton
                     className={"FeedbackButton"}
                     label={"Submit"}
-                    disabled={this.state.ratingData.ratingProvided === this.noFeedbackProvided}
+                    disabled={this.state.ratingProvided === this.noFeedbackProvided}
                     onClick={this.onClickSubmit.bind(this)}
                 />
                 <div className={"Separator"}/>
                 <FlatButton
                     className={"FeedbackButton"}
                     label={"Delete"}
-                    disabled={this.state.ratingData.ratingProvided === this.noFeedbackProvided}
+                    disabled={this.state.ratingProvided === this.noFeedbackProvided}
                     onClick={this.onClickDelete.bind(this)}
                 />
             </div>
