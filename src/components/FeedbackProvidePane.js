@@ -66,14 +66,14 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     onClickRatingListItem(index) {
-        let path = "/service/";
-
-        path += this.props.service.slug;
-        path += "/feedback/provide?index=";
-        path += index;
-        this.context.router.push(
-            path
-        );
+        // let path = "/service/";
+        //
+        // path += this.props.service.slug;
+        // path += "/feedback/provide?index=";
+        // path += index;
+        // this.context.router.push(
+        //     path
+        // );
         this.setState({
             inputtingIndex: index,
         });
@@ -191,13 +191,17 @@ export default class FeedbackProvidePane extends React.Component {
         const starSpacing = "25px";
 
         return (
-            <div className={"RatingStar"}>
+            <div className={"OverallStarBlock"}>
+                <div className={"OverallStarLeftText"}>Not very accessible</div>
+                <div className={"OverallStar"}>
                 <Star
                     starDimension={starDimension}
                     starSpacing={starSpacing}
                     rating={this.state.ratingData.ratings[this.state.inputtingIndex].rating}
                     changeRating={this.onRatingChange.bind(this)}
                 />
+                </div>
+                <div className={"OverStarRightText"}>Very<br/>accessible</div>
             </div>
         );
     }
