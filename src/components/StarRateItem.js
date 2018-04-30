@@ -40,6 +40,7 @@ class StarRateItem extends React.Component {
             >
                 <icons.Accessibility
                     className="ColoredIcon"
+                    iconType="wheelChair"
                     aria-label="By public transport"
                 />
                 Accessibility Rating<br/>
