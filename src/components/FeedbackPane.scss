@@ -1,9 +1,8 @@
 
 .ButtonPane{
-    padding-top: 2%;
+    padding-top: 5%;
     padding-left: 4%;
     padding-right: 4%;
-
 }
 
 .Separator{
@@ -14,12 +13,40 @@
     width: 100%;
 }
 
-.OverallStar{
+.OverallStarHeading{
     width: 100%;
     text-align: center;
     padding-top: 10px;
+    color: #c1c0ba;
     font-size: 32px;
 }
+
+.OverallStarBlock{
+     width: 100%;
+     color: #c1c0ba;
+     font-size: 18px;
+     display:table;
+
+    .OverallStarLeftText{
+        width: 20%;
+        text-align: end;
+        display:table-cell;
+        vertical-align: center;
+    }
+
+    .OverallStarRightText{
+        width: 20%;
+        display:table-cell;
+    }
+
+    .OverallStar{
+        width: 60%;
+        text-align: center;
+        display:table-cell;
+    }
+ }
+
+
 
 .RatingStar{
     width: 100%;
