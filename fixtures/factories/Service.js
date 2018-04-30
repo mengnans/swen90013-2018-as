@@ -64,7 +64,7 @@ function defaults() {
         target_gender: "u",
         type: "service",
         web: "",
-        travelTime: TravelTime(),
+        travelTime: [TravelTime()],
     };
 }
 
