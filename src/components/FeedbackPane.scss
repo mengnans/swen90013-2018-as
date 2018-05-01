@@ -4,18 +4,46 @@
 
 
 .ButtonPane{
+    margin-top: 20px;
     padding-top: 5%;
     padding-left: 4%;
     padding-right: 4%;
 
+    .FeedbackButtonAccess{
+        width:100%;
+        background-color:rebeccapurple;
+        color:white;
+    }
+    .FeedbackButtonAccess:hover{
+        background-color:cornflowerblue;
+        color:black;
+    }
+
+   .suggestChange{
+       .GeneralFeedbackButton{
+           width:100%;
+           background-color:darkslategrey;
+           color:white;
+       }
+       .GeneralFeedbackButton:hover{
+           background-color:cornflowerblue;
+           color:black;
+       }
+   }
 }
 
 .Separator{
-    height: 24px;
+    height: 13px;
 }
 
 .FeedbackButton{
     width: 100%;
+    background-color: #e52d4f;
+}
+
+.FeedbackButton:hover{
+    background-color:cornflowerblue;
+    color:black;
 }
 
 .OverallStarHeading{
@@ -26,43 +54,74 @@
     font-size: 32px;
 }
 
-.OverallStarBlock{
-     width: 100%;
-     color: #c1c0ba;
-     font-size: 18px;
-     display:table;
 
-    .OverallStarLeftText{
-        width: 20%;
-        text-align: end;
-        display:table-cell;
-        vertical-align: center;
+.ProvideFeedbackPane{
+
+    .OverallStarBlock{
+        width: 100%;
+        color: #c1c0ba;
+        font-size: 18px;
+        display:table;
+
+        .OverallStarLeftText{
+            width: 20%;
+            text-align: center;
+            display:table-cell;
+            vertical-align: center;
+        }
+
+        .OverallStarRightText{
+            text-align: center;
+            width: 20%;
+            display:table-cell;
+        }
+
+        .OverallStar{
+            width: 60%;
+            text-align: center;
+            display:table-cell;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            .RatingStar{
+                width: 100%;
+                text-align: center;
+                padding-top: 10px;
+                font-size: 32px;
+            }
+
+        }
     }
 
-    .OverallStarRightText{
-        width: 20%;
-        display:table-cell;
+    .InputTextArea{
+        height: 164px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
-    .OverallStar{
-        width: 60%;
-        text-align: center;
-        display:table-cell;
+    .ButtonPane1{
+        padding-top: 7px;
+        padding-bottom: 10px;
+        .FeedbackButtonDone{
+        }
+        .FeedbackButtonDone:hover{
+            background-color:cornflowerblue;
+            color:black;
+        }
+
+        .FeedbackButtonCancel{
+            background-color: firebrick;
+        }
+
+        .FeedbackButtonCancel:hover{
+            background-color:cornflowerblue;
+            color:black;
+        }
+
+        .FeedbackButtonDelete{
+            width: 100%;
+        }
+
     }
- }
-
-
-
-.RatingStar{
-    width: 100%;
-    text-align: center;
-    padding-top: 10px;
-    font-size: 32px;
-}
-
-.InputTextArea{
-    height: 164px;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
 }

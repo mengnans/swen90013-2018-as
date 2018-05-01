@@ -153,7 +153,7 @@ export default class FeedbackProvidePane extends React.Component {
 
     render() {
         return (
-            <div className="FeedbackPane">
+            <div className="ProvideFeedbackPane">
                 {this.renderRating()}
                 {this.renderInputting()}
             </div>
@@ -188,7 +188,7 @@ export default class FeedbackProvidePane extends React.Component {
 
     renderStar() {
         const starDimension = "100px";
-        const starSpacing = "25px";
+        const starSpacing = "10px";
 
         return (
             <div className={"OverallStarBlock"}>
@@ -209,16 +209,16 @@ export default class FeedbackProvidePane extends React.Component {
     renderButtons() {
 
         return (
-            <div className={"ButtonPane"}>
+            <div className={"ButtonPane1"}>
                 <FlatButton
-                    className={"FeedbackButton"}
+                    className={"FeedbackButton FeedbackButtonDone"}
                     label={"Done"}
                     onClick={this.onClickDone.bind(this)}
                 />
                 <div className={"Separator"}/>
 
                 <FlatButton
-                    className={"FeedbackButton"}
+                    className={"FeedbackButton FeedbackButtonCancel"}
                     label={"Cancel"}
                     onClick={this.onClickCancel.bind(this)}
                 />
