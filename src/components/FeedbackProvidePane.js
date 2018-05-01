@@ -81,7 +81,26 @@ export default class FeedbackProvidePane extends React.Component {
 
     // submit feedback
     onClickSubmit() {
-        console.log(this.state.ratingData);
+        let data = this.state.ratingData;
+
+        data.serviceId = 1;
+
+        let body = JSON.stringify(data);
+
+        fetch("http://localhost:3000/process_post", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: body,
+        }).then((response) => {
+            console.log(response);
+        });
+
+        // TODO: alert here
+        // alert("submitted");
+        // go back to service page
         let path = "/service/";
 
         path += this.props.service.slug;
