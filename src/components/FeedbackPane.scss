@@ -2,7 +2,9 @@
     margin-top: -3px;
 }
 
-
+.ProvideFeedbackPane{
+    margin-top: -3px;
+}
 .ButtonPane{
     margin-top: 20px;
     padding-top: 5%;
@@ -103,14 +105,18 @@
     .ButtonPane1{
         padding-top: 7px;
         padding-bottom: 10px;
+        text-align: center;
         .FeedbackButtonDone{
+            width:92%;
         }
+
         .FeedbackButtonDone:hover{
             background-color:cornflowerblue;
             color:black;
         }
 
         .FeedbackButtonCancel{
+            width:92%;
             background-color: firebrick;
         }
 
