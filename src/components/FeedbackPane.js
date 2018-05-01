@@ -48,7 +48,7 @@ export default class FeedbackPane extends React.Component {
         return (
             <div className={"ButtonPane"}>
                 <FlatButton
-                    className={"FeedbackButton"}
+                    className={"FeedbackButtonAccess"}
                     label={"Provide Accessibility Feedback"}
                     onClick={this.onClickProvideAccessibilityFeedback.bind(this)}
                 />
@@ -75,7 +75,7 @@ export default class FeedbackPane extends React.Component {
                     }
                 >
                     <FlatButton
-                        className={"FeedbackButton"}
+                        className={"GeneralFeedbackButton"}
                         label={"Provide General Feedback"}
                     />
                 </a>
