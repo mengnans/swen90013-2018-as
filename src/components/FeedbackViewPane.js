@@ -69,13 +69,19 @@ export default class FeedbackViewPane extends React.Component {
         return (
             <div>
                 {this.renderRatingList()}
-                <div className={"OverallStar"}>
+                <div className={"OverallStarHeading"}>
                     Overall Accessibility Rating:
+                </div>
+                <div className={"OverallStarBlock"}>
+                    <div className={"OverallStarLeftText"}>Not very accessible</div>
+                    <div className={"OverallStar"}>
                     <Star
                         starDimension={starDimension}
                         starSpacing={starSpacing}
                         rating={this.state.ratingData.overAllRating}
                     />
+                    </div>
+                    <div className={"OverStarRightText"}>Very<br/>accessible</div>
                 </div>
             </div>);
     }

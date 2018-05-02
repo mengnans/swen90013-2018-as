@@ -26,7 +26,6 @@ export default class FeedbackProvidePane extends React.Component {
         const mockRatingData = {
             "serviceId": this.props.service.id,
             "typeOfRatings": 3,
-            "ratingProvided": this.noFeedbackProvided,
             "ratings": [
                 {
                     "ratingType": "Wheelchair access",
@@ -49,6 +48,7 @@ export default class FeedbackProvidePane extends React.Component {
         this.state = {
             ratingData: mockRatingData,
             inputtingIndex: this.noInputtingIndex,
+            ratingProvided: this.noFeedbackProvided,
         };
     }
 
@@ -66,14 +66,14 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     onClickRatingListItem(index) {
-        let path = "/service/";
-
-        path += this.props.service.slug;
-        path += "/feedback/provide?index=";
-        path += index;
-        this.context.router.push(
-            path
-        );
+        // let path = "/service/";
+        //
+        // path += this.props.service.slug;
+        // path += "/feedback/provide?index=";
+        // path += index;
+        // this.context.router.push(
+        //     path
+        // );
         this.setState({
             inputtingIndex: index,
         });
@@ -81,7 +81,26 @@ export default class FeedbackProvidePane extends React.Component {
 
     // submit feedback
     onClickSubmit() {
-        console.log(this.state.ratingData);
+        let data = this.state.ratingData;
+
+        data.serviceId = 1;
+
+        let body = JSON.stringify(data);
+
+        fetch("http://localhost:3000/process_post", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: body,
+        }).then((response) => {
+            console.log(response);
+        });
+
+        // TODO: alert here
+        // alert("submitted");
+        // go back to service page
         let path = "/service/";
 
         path += this.props.service.slug;
@@ -99,9 +118,9 @@ export default class FeedbackProvidePane extends React.Component {
             ratingData.ratings[ratingIndex].rating = this.unDefinedRating;
             ratingData.ratings[ratingIndex].comment = null;
         }
-        ratingData.ratingProvided = this.noFeedbackProvided;
         this.setState({
             ratingData: ratingData,
+            ratingProvided: this.noFeedbackProvided,
         });
     }
 
@@ -116,16 +135,18 @@ export default class FeedbackProvidePane extends React.Component {
         );
 
         let ratingData = this.state.ratingData;
+        let ratingProvided = this.state.ratingProvided;
 
         if (ratingData.ratings[this.state.inputtingIndex].rating !== this.unDefinedRating) {
             ratingData.ratings[this.state.inputtingIndex].rating = this.unDefinedRating;
-            ratingData.ratingProvided--;
+            ratingProvided--;
         }
         ratingData.ratings[this.state.inputtingIndex].comment = null;
 
         this.setState({
             inputtingIndex: this.noInputtingIndex,
             ratingData: ratingData,
+            ratingProvided: ratingProvided,
         });
     }
 
@@ -140,16 +161,18 @@ export default class FeedbackProvidePane extends React.Component {
         );
         let ratingData = this.state.ratingData;
 
-        ratingData.ratingProvided++;
+        let ratingProvided = this.state.ratingProvided;
+        ratingProvided++;
         this.setState({
             inputtingIndex: this.noInputtingIndex,
             ratingData: ratingData,
+            ratingProvided: ratingProvided,
         });
     }
 
     render() {
         return (
-            <div className="FeedbackPane">
+            <div className="ProvideFeedbackPane">
                 {this.renderRating()}
                 {this.renderInputting()}
             </div>
@@ -184,16 +207,20 @@ export default class FeedbackProvidePane extends React.Component {
 
     renderStar() {
         const starDimension = "100px";
-        const starSpacing = "25px";
+        const starSpacing = "10px";
 
         return (
-            <div className={"RatingStar"}>
+            <div className={"OverallStarBlock"}>
+                <div className={"OverallStarLeftText"}>Not very accessible</div>
+                <div className={"OverallStar"}>
                 <Star
                     starDimension={starDimension}
                     starSpacing={starSpacing}
                     rating={this.state.ratingData.ratings[this.state.inputtingIndex].rating}
                     changeRating={this.onRatingChange.bind(this)}
                 />
+                </div>
+                <div className={"OverStarRightText"}>Very<br/>accessible</div>
             </div>
         );
     }
@@ -201,16 +228,16 @@ export default class FeedbackProvidePane extends React.Component {
     renderButtons() {
 
         return (
-            <div className={"ButtonPane"}>
+            <div className={"ButtonPane1"}>
                 <FlatButton
-                    className={"FeedbackButton"}
+                    className={"FeedbackButton FeedbackButtonDone"}
                     label={"Done"}
                     onClick={this.onClickDone.bind(this)}
                 />
                 <div className={"Separator"}/>
 
                 <FlatButton
-                    className={"FeedbackButton"}
+                    className={"FeedbackButton FeedbackButtonCancel"}
                     label={"Cancel"}
                     onClick={this.onClickCancel.bind(this)}
                 />
@@ -250,14 +277,14 @@ export default class FeedbackProvidePane extends React.Component {
                 <FlatButton
                     className={"FeedbackButton"}
                     label={"Submit"}
-                    disabled={this.state.ratingData.ratingProvided === this.noFeedbackProvided}
+                    disabled={this.state.ratingProvided === this.noFeedbackProvided}
                     onClick={this.onClickSubmit.bind(this)}
                 />
                 <div className={"Separator"}/>
                 <FlatButton
                     className={"FeedbackButton"}
                     label={"Delete"}
-                    disabled={this.state.ratingData.ratingProvided === this.noFeedbackProvided}
+                    disabled={this.state.ratingProvided === this.noFeedbackProvided}
                     onClick={this.onClickDelete.bind(this)}
                 />
             </div>
