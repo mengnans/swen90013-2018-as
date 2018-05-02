@@ -58,6 +58,45 @@
     font-size: 32px;
 }
 
+.ViewFeedbackPane{
+
+    .OverallStarBlock{
+        width: 100%;
+        color: #c1c0ba;
+        font-size: 18px;
+        display:table;
+
+        .OverallStarLeftText{
+            width: 20%;
+            text-align: center;
+            display:table-cell;
+            vertical-align: center;
+        }
+
+        .OverallStarRightText{
+            text-align: center;
+            width: 20%;
+            display:table-cell;
+        }
+
+        .OverallStar{
+            width: 60%;
+            text-align: center;
+            display:table-cell;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            .RatingStar{
+                width: 100%;
+                text-align: center;
+                padding-top: 10px;
+                font-size: 32px;
+            }
+
+        }
+    }
+
+}
 
 .ProvideFeedbackPane{
 
