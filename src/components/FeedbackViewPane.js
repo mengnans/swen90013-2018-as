@@ -55,7 +55,7 @@ export default class FeedbackViewPane extends React.Component {
 
     render() {
         return (
-            <div className="FeedbackPane">
+            <div className="ViewFeedbackPane">
                 {this.renderRating()}
                 {this.renderFeedbackButtons()}
             </div>
