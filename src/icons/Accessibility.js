@@ -22,6 +22,7 @@ export default class SvgIconAccessibility extends React.Component {
             className,
             iconType
         );
+
         if (iconType == "wheelChair" ) {
             return (
                 <span
