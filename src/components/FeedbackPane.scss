@@ -60,6 +60,8 @@
 
 .ViewFeedbackPane{
 
+    margin-top: -3px;
+
     .OverallStarBlock{
         width: 100%;
         color: #c1c0ba;
@@ -96,6 +98,19 @@
         }
     }
 
+    .ButtonPane{
+        margin-top: -30px;
+        margin-bottom: 30px;
+
+        .FeedbackButton{
+
+        }
+
+        .FeedbackButton:hover{
+            background-color:cornflowerblue;
+            color:black;
+        }
+    }
 }
 
 .ProvideFeedbackPane{
