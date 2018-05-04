@@ -7,7 +7,7 @@
 
 import xhr from "axios";
 import url from "url";
-import { slugify } from "underscore.string";
+import {slugify} from "underscore.string";
 import _ from "underscore";
 import lru from "lru-cache";
 
@@ -43,7 +43,7 @@ export type searchRequest = {
     age_group?: Array<string>,
     client_gender?: Array<string>,
 
-    catchment?: "prefer"|"true"|"false",
+    catchment?: "prefer" | "true" | "false",
     is_bulk_billing?: boolean,
     healthcare_card_holders?: boolean,
 
@@ -252,7 +252,7 @@ async function attachTransportTimes(
         ));
 
         services.filter((service) => !service.Location().isConfidential())
-            // eslint-disable-next-line no-return-assign
+        // eslint-disable-next-line no-return-assign
             .map((service) => service.travelTime = travelTimes.shift());
     }
 
@@ -362,8 +362,8 @@ export class Service {
         ].join("|");
         const regex = new RegExp(`\\b(${words})\\b`, "i");
         const match = this.description.match(regex) ||
-               this.name.match(regex) ||
-               this.site.name.match(regex);
+            this.name.match(regex) ||
+            this.site.name.match(regex);
 
         return !!match;
     }
@@ -592,6 +592,29 @@ export async function getService(
     return service;
 }
 
+export async function getFeedback(
+    id: number
+): Object {
+    // TODO: remove fake id
+    id = 1;
+
+    // TODO: add cache here
+
+    let feedbackJson = undefined;
+
+    await fetch(`http://localhost:3000/api/v3/service/${id}/feedback`, {
+        method: 'GET',
+    }).then((response) => {
+        return response.json();
+    }).then(feedback => {
+        feedbackJson = feedback;
+        return feedback;
+    });
+
+    return feedbackJson;
+
+}
+
 export function countCrisisResults(results: Array<Service>): number {
     const firstRegularServiceIdx = results.findIndex(
         ({crisis}) => !crisis
@@ -623,6 +646,7 @@ export function nonCrisisResults(results: Array<Service>): Array<Service> {
 export default {
     search: search,
     getService: getService,
+    getFeedback: getFeedback,
     request: request,
     requestObjects: requestObjects,
     Service: Service,
