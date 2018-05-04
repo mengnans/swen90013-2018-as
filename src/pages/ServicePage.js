@@ -64,6 +64,10 @@ class ServicePage extends React.Component {
         try {
             let object = await iss.getService(this.id);
 
+            let feedback = await iss.getFeedback(this.id);
+
+            object.feedback = feedback;
+
             this.setState({object});
         } catch (error) {
             this.setState({error});
@@ -89,24 +93,25 @@ class ServicePage extends React.Component {
                         <main>
                             {
                                 error ?
-                                <div className="error">
-                                    <p>
-                                        Sorry, I was unable to retrieve the information for this service at this time.
-                                        Please try viewing another service or contact us
-                                        if the problem persists at&nbsp;
-                                        <a href={"mailto:" + config.default.siteMail}>{config.default.siteMail}</a>.
-                                    </p>
-                                    <p>
-                                        {
-                                           error.statusCode ?
-                                           "(error: " + error.statusCode + ")"
-                                           : ""
-                                        }
-                                    </p>
-                                </div>
-                                : <div className="progress">
-                                    <Loading className="big" />
-                                  </div>
+                                    <div className="error">
+                                        <p>
+                                            Sorry, I was unable to retrieve the information for this service at this
+                                            time.
+                                            Please try viewing another service or contact us
+                                            if the problem persists at&nbsp;
+                                            <a href={"mailto:" + config.default.siteMail}>{config.default.siteMail}</a>.
+                                        </p>
+                                        <p>
+                                            {
+                                                error.statusCode ?
+                                                    "(error: " + error.statusCode + ")"
+                                                    : ""
+                                            }
+                                        </p>
+                                    </div>
+                                    : <div className="progress">
+                                        <Loading className="big"/>
+                                    </div>
                             }
                         </main>
                     </div>
