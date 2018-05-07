@@ -64,7 +64,9 @@ class FeedbackPage extends React.Component {
         try {
             let object = await iss.getService(this.id);
 
-            let ratings =
+            let feedback = await iss.getFeedback(this.id);
+
+            object.feedback = feedback;
 
             this.setState({object});
         } catch (error) {

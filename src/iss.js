@@ -600,18 +600,37 @@ export async function getFeedback(
 
     // TODO: add cache here
 
-    let feedbackJson = undefined;
-
-    await fetch(`http://localhost:3000/api/v3/service/${id}/feedback`, {
+    return await fetch(`http://localhost:3000/api/v3/service/${id}/feedback`, {
         method: 'GET',
     }).then((response) => {
         return response.json();
     }).then(feedback => {
-        feedbackJson = feedback;
         return feedback;
     });
 
-    return feedbackJson;
+}
+
+export async function provideFeedback(
+    id: number, feedbackJson
+): Object {
+    // TODO: remove fake id
+    id = 1;
+
+    // TODO: add cache here
+
+    return await fetch(`http://localhost:3000/api/v3/service/${id}/feedback`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(feedbackJson),
+    }).then((response) => {
+        return response.json();
+    }).then(response => {
+        return response;
+    });
+
 
 }
 
@@ -647,6 +666,7 @@ export default {
     search: search,
     getService: getService,
     getFeedback: getFeedback,
+    provideFeedback: provideFeedback,
     request: request,
     requestObjects: requestObjects,
     Service: Service,

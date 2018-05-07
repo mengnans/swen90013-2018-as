@@ -5,6 +5,7 @@ import type {Service} from "../iss";
 import FlatButton from "./FlatButton";
 import RatingListItem from "./RatingListItem";
 import Star from "./Stars";
+import iss from "../iss";
 
 export default class FeedbackProvidePane extends React.Component {
 
@@ -23,30 +24,22 @@ export default class FeedbackProvidePane extends React.Component {
 
     constructor(props: Object) {
         super(props);
-        const mockRatingData = {
-            "serviceId": this.props.service.id,
-            "typeOfRatings": 3,
-            "ratings": [
-                {
-                    "ratingType": "Wheelchair access",
-                    "rating": this.unDefinedRating,
-                    "comment": null,
-                },
-                {
-                    "ratingType": "Signage",
-                    "rating": this.unDefinedRating,
-                    "comment": null,
-                },
-                {
-                    "ratingType": "Transport",
-                    "rating": this.unDefinedRating,
-                    "comment": null,
-                },
-            ],
-        };
+        const ratings = this.props.service.feedback.ratings;
+        let initialData = {};
+
+        initialData.ratings = [];
+
+        ratings.map(rating => {
+            let ratingItem = {};
+
+            ratingItem.ratingType = rating.ratingType;
+            ratingItem.rating = this.unDefinedRating;
+            ratingItem.comment = null;
+            initialData.ratings.push(ratingItem);
+        });
 
         this.state = {
-            ratingData: mockRatingData,
+            ratingData: initialData,
             inputtingIndex: this.noInputtingIndex,
             ratingProvided: this.noFeedbackProvided,
         };
@@ -66,14 +59,6 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     onClickRatingListItem(index) {
-        // let path = "/service/";
-        //
-        // path += this.props.service.slug;
-        // path += "/feedback/provide?index=";
-        // path += index;
-        // this.context.router.push(
-        //     path
-        // );
         this.setState({
             inputtingIndex: index,
         });
@@ -82,31 +67,40 @@ export default class FeedbackProvidePane extends React.Component {
     // submit feedback
     onClickSubmit() {
         let data = this.state.ratingData;
+        let validRatings = [];
 
-        data.serviceId = 1;
+        data.ratings.map((ratingItem) => {
+            let rating = ratingItem.rating;
+            // TODO: do something about the comments
+            // for example, what if rating is undefined, but the comment is not empty
+            let comment = ratingItem.comment;
 
-        let body = JSON.stringify(data);
-
-        fetch("http://localhost:3000/process_post", {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: body,
-        }).then((response) => {
-            console.log(response);
+            // add valid ratings
+            if (rating !== this.unDefinedRating) {
+                validRatings.push(ratingItem);
+            }
         });
 
-        // TODO: alert here
+        // only submit valid ratings
+        data.ratings = validRatings;
+
+        try {
+            let responseJson = iss.provideFeedback(data.serviceId, data);
+
+            console.log(responseJson);
+        } catch (error) {
+            console.log("error");
+        }
+
+        // TODO: do something here, inform the user the feedback has been submitted
         // alert("submitted");
         // go back to service page
-        let path = "/service/";
-
-        path += this.props.service.slug;
-        this.context.router.push(
-            path
-        );
+        // let path = "/service/";
+        //
+        // path += this.props.service.slug;
+        // this.context.router.push(
+        //     path
+        // );
 
     }
 
@@ -162,6 +156,7 @@ export default class FeedbackProvidePane extends React.Component {
         let ratingData = this.state.ratingData;
 
         let ratingProvided = this.state.ratingProvided;
+
         ratingProvided++;
         this.setState({
             inputtingIndex: this.noInputtingIndex,
@@ -213,12 +208,12 @@ export default class FeedbackProvidePane extends React.Component {
             <div className={"OverallStarBlock"}>
                 <div className={"OverallStarLeftText"}>Not very accessible</div>
                 <div className={"OverallStar"}>
-                <Star
-                    starDimension={starDimension}
-                    starSpacing={starSpacing}
-                    rating={this.state.ratingData.ratings[this.state.inputtingIndex].rating}
-                    changeRating={this.onRatingChange.bind(this)}
-                />
+                    <Star
+                        starDimension={starDimension}
+                        starSpacing={starSpacing}
+                        rating={this.state.ratingData.ratings[this.state.inputtingIndex].rating}
+                        changeRating={this.onRatingChange.bind(this)}
+                    />
                 </div>
                 <div className={"OverStarRightText"}>Very<br/>accessible</div>
             </div>
