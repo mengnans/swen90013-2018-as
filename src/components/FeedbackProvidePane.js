@@ -115,7 +115,7 @@ export default class FeedbackProvidePane extends React.Component {
     onClickDelete() {
         let ratingData = this.state.ratingData;
 
-        for (let ratingIndex = 0; ratingIndex < ratingData.length; ratingIndex++) {
+        for (let ratingIndex = 0; ratingIndex < ratingData.ratings.length; ratingIndex++) {
             ratingData.ratings[ratingIndex].rating = this.unDefinedRating;
             ratingData.ratings[ratingIndex].comment = null;
         }
