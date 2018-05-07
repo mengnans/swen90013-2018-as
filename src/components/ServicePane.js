@@ -106,10 +106,6 @@ export default class ServicePane extends React.Component {
 
     render() {
         const object = this.props.service;
-        // TODO: random rating, test-only
-        const min = 0;
-        const max = 3;
-        const rating = Math.random() * (max - min);
         const starSpacing = '3px';
         const starDimension = '28px';
 
@@ -165,7 +161,7 @@ export default class ServicePane extends React.Component {
                             onClick={this.goToFeedbackViewPage.bind(this)}
                         >
                             <StarRateItem
-                                rating={rating}
+                                rating={object.feedback.overAllRating}
                                 starDimension={starDimension}
                                 starSpacing={starSpacing}
                                 numberOfStars={3}
