@@ -17,29 +17,6 @@ export default class FeedbackViewPane extends React.Component {
 
     constructor(props: Object) {
         super(props);
-        const mockRatingData = {
-            "serviceId": this.props.service.id,
-            "typeOfRatings": 3,
-            "overAllRating": 1.8,
-            "ratings": [
-                {
-                    "ratingType": "Wheelchair access",
-                    "rating": 2.2,
-                },
-                {
-                    "ratingType": "Signage",
-                    "rating": 2.8,
-                },
-                {
-                    "ratingType": "Transport",
-                    "rating": 1.2,
-                },
-            ],
-        };
-
-        this.state = {
-            ratingData: mockRatingData,
-        };
     }
 
 
@@ -78,7 +55,7 @@ export default class FeedbackViewPane extends React.Component {
                     <Star
                         starDimension={starDimension}
                         starSpacing={starSpacing}
-                        rating={this.state.ratingData.overAllRating}
+                        rating={this.props.service.feedback.overAllRating}
                     />
                     </div>
                     <div className={"OverStarRightText"}>Very<br/>accessible</div>
@@ -87,7 +64,7 @@ export default class FeedbackViewPane extends React.Component {
     }
 
     renderRatingList() {
-        return this.state.ratingData.ratings.map((data) => (
+        return this.props.service.feedback.ratings.map((data) => (
             <RatingListItem
                 data={data}
                 disabled={true}
