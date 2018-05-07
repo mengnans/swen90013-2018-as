@@ -45,8 +45,15 @@ export default class FeedbackProvidePane extends React.Component {
         };
     }
 
-    onInputtingAreaChange(newValue) {
-        this.state.ratingData.ratings[this.state.inputtingIndex].comment = newValue;
+    onInputtingAreaChange(event) {
+        let ratingData = this.state.ratingData;
+
+        ratingData.ratings[this.state.inputtingIndex].comment =
+            event.target.value;
+
+        this.setState({
+            ratingData: ratingData,
+        });
     }
 
     onRatingChange(newRating) {
@@ -108,7 +115,7 @@ export default class FeedbackProvidePane extends React.Component {
     onClickDelete() {
         let ratingData = this.state.ratingData;
 
-        for (let ratingIndex = 0; ratingIndex < ratingData.typeOfRatings; ratingIndex++) {
+        for (let ratingIndex = 0; ratingIndex < ratingData.length; ratingIndex++) {
             ratingData.ratings[ratingIndex].rating = this.unDefinedRating;
             ratingData.ratings[ratingIndex].comment = null;
         }
@@ -193,6 +200,7 @@ export default class FeedbackProvidePane extends React.Component {
         return (
             <textarea className={"InputTextArea"}
                       placeholder={"Please input your comment here."}
+                      value={this.state.ratingData.ratings[this.state.inputtingIndex].comment}
                       onChange={this.onInputtingAreaChange.bind(this)}
             >
 
