@@ -37,6 +37,7 @@ export default class ServicePane extends React.Component {
 
     constructor(props: Object) {
         super(props);
+        console.log(this.props.service);
         this.state = {
             siblings: null,
         };
