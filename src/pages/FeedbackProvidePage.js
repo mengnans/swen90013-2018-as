@@ -67,8 +67,6 @@ class FeedbackPage extends React.Component {
 
             object.feedback = feedback;
 
-            console.log(object.feedback);
-
             this.setState({object});
         } catch (error) {
             this.setState({error});
