@@ -17,6 +17,7 @@ export default class FeedbackViewPane extends React.Component {
 
     constructor(props: Object) {
         super(props);
+        console.log(this.props.service);
     }
 
 
@@ -42,7 +43,6 @@ export default class FeedbackViewPane extends React.Component {
     renderRating() {
         const starDimension = "100px";
         const starSpacing = "25px";
-
         return (
             <div>
                 {this.renderRatingList()}

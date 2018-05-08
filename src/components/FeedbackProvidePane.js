@@ -28,14 +28,18 @@ export default class FeedbackProvidePane extends React.Component {
 
         initialData.ratings = [];
 
+
         ratings.map(rating => {
             let ratingItem = {};
 
             ratingItem.ratingType = rating.ratingType;
             ratingItem.rating = this.unDefinedRating;
             ratingItem.comment = null;
+
+            console.log(ratingItem);
             initialData.ratings.push(ratingItem);
         });
+
 
         this.state = {
             ratingData: initialData,
