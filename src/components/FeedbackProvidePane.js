@@ -36,7 +36,6 @@ export default class FeedbackProvidePane extends React.Component {
             ratingItem.rating = this.unDefinedRating;
             ratingItem.comment = null;
 
-            console.log(ratingItem);
             initialData.ratings.push(ratingItem);
         });
 
