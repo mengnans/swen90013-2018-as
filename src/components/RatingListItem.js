@@ -8,9 +8,12 @@ class RatingListItem extends React.Component {
 
     constructor(props) {
         super(props);
+        console.log(this.props.data);
     }
 
     renderStar() {
+        let rating = this.props.data.rating;
+
         if (this.props.data.rating >= 0) {
             const starSpacing = '5px';
             const starDimension = '28px';
@@ -19,7 +22,7 @@ class RatingListItem extends React.Component {
                 <Star
                     starSpacing={starSpacing}
                     starDimension={starDimension}
-                    rating={this.props.data.rating}
+                    rating={rating}
                 />
             );
         }
