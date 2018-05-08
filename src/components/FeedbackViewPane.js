@@ -17,7 +17,6 @@ export default class FeedbackViewPane extends React.Component {
 
     constructor(props: Object) {
         super(props);
-        console.log(this.props.service);
     }
 
 
