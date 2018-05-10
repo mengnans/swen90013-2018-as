@@ -11,9 +11,11 @@ export default class FeedbackProvidePane extends React.Component {
 
     unDefinedRating = -1;
     noInputtingIndex = -1;
+    minimalWidthForStars = 600;
 
     props: {
         service: Service,
+        width: number,
     };
 
     static contextTypes = {
@@ -192,16 +194,23 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     renderStar() {
-        const starDimension = "100px";
-        const starSpacing = "10px";
+        let windowsWidth = this.props.width;
+        let starDimension, starSpacing;
+
+        if (windowsWidth >= this.minimalWidthForStars) {
+            starDimension = `${parseInt(windowsWidth / 8)}px`;
+            starSpacing = `${parseInt(windowsWidth / 80)}px`;
+        } else {
+            starDimension = `${parseInt(windowsWidth / 6)}px`;
+            starSpacing = `${parseInt(windowsWidth / 60)}px`;
+        }
+
         const ratings = this.state.ratingData.ratings;
         const index = this.state.inputtingIndex;
 
         return (
             <div className={"OverallStarBlock"}>
-                <div className={"OverallStarLeftText"}>
-                    Not very accessible
-                </div>
+                {this.renderLeftStarText()}
                 <div className={"OverallStar"}>
                     <Star
                         starDimension={starDimension}
@@ -210,9 +219,39 @@ export default class FeedbackProvidePane extends React.Component {
                         changeRating={this.onRatingChange.bind(this)}
                     />
                 </div>
-                <div className={"OverStarRightText"}>Very<br/>accessible</div>
+                {this.renderRightStarText()}
             </div>
         );
+    }
+
+
+    renderLeftStarText() {
+        let windowsWidth = this.props.width;
+
+        if (windowsWidth < this.minimalWidthForStars) {
+            return null
+        } else {
+            return (
+                <div className={"OverallStarLeftText"}>
+                    Not very accessible
+                </div>
+            );
+        }
+    }
+
+    renderRightStarText() {
+        let windowsWidth = this.props.width;
+
+        if (windowsWidth < this.minimalWidthForStars) {
+            return null
+        } else {
+            return (
+                <div className={"OverStarRightText"}>
+                    Very<br/>accessible
+                </div>
+            );
+        }
+
     }
 
     renderButtons() {
@@ -254,6 +293,7 @@ export default class FeedbackProvidePane extends React.Component {
             <RatingListItem
                 key={"ratingListItem#" + index}
                 data={data}
+                width={this.props.width}
                 onClickRatingListItem=
                     {this.onClickRatingListItem.bind(this, index)}
             />

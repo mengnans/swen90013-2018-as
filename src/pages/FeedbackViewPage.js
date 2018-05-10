@@ -30,11 +30,26 @@ class FeedbackPage extends React.Component {
 
     constructor(props: Object) {
         super(props);
-        this.state = {};
+        this.state = {
+            width: 0,
+        };
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
 
     componentDidMount(): void {
         this.loadService();
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
+    updateWindowDimensions() {
+        this.setState({
+            width: window.innerWidth,
+        });
     }
 
     componentDidUpdate(prevProps: Object, prevState: Object): void {
@@ -78,6 +93,7 @@ class FeedbackPage extends React.Component {
         let {
             object,
             error,
+            width,
         } = this.state;
         const back = () => this.context.router.goBack();
         // TODO: fix long img const here
@@ -90,8 +106,10 @@ class FeedbackPage extends React.Component {
                         title="Loading..."
                         onBackTouchTap={back}
                     />
-                    <img className="head-img"
-                         src={headPngImageBase64}/>
+                    <img
+                        className="head-img"
+                        src={headPngImageBase64}
+                    />
                     <div className="ServicePane">
                         <main>
                             {
@@ -131,7 +149,10 @@ class FeedbackPage extends React.Component {
                         className="head-img"
                         src={headPngImageBase64}
                     />
-                    <FeedackViewPane service={object}/>
+                    <FeedackViewPane
+                        service={object}
+                        width={width}
+                    />
                 </div>
             );
         }
