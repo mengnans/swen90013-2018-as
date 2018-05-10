@@ -7,8 +7,12 @@ import RatingListItem from "./RatingListItem";
 import Star from "./Stars";
 
 export default class FeedbackViewPane extends React.Component {
+
+    minimalWidthForStars = 600;
+
     props: {
         service: Service,
+        width: number,
     };
 
     static contextTypes = {
@@ -40,26 +44,81 @@ export default class FeedbackViewPane extends React.Component {
     }
 
     renderRating() {
-        const starDimension = "100px";
-        const starSpacing = "25px";
+        let windowsWidth = this.props.width;
+        let starDimension, starSpacing;
+
+        if (windowsWidth >= this.minimalWidthForStars) {
+            starDimension = `${parseInt(windowsWidth / 8)}px`;
+            starSpacing = `${parseInt(windowsWidth / 80)}px`;
+        } else {
+            starDimension = `${parseInt(windowsWidth / 6)}px`;
+            starSpacing = `${parseInt(windowsWidth / 60)}px`;
+        }
+
+        const ratings = this.props.service.feedback.overAllRating;
+
         return (
             <div>
                 {this.renderRatingList()}
-                <div className={"OverallStarHeading"}>
-                    Overall Accessibility Rating:
-                </div>
+                {this.renderStarHeading()}
                 <div className={"OverallStarBlock"}>
-                    <div className={"OverallStarLeftText"}>Not very accessible</div>
+                    {this.renderLeftStarText()}
                     <div className={"OverallStar"}>
-                    <Star
-                        starDimension={starDimension}
-                        starSpacing={starSpacing}
-                        rating={this.props.service.feedback.overAllRating}
-                    />
+                        <Star
+                            starDimension={starDimension}
+                            starSpacing={starSpacing}
+                            rating={ratings}
+                        />
                     </div>
-                    <div className={"OverStarRightText"}>Very<br/>accessible</div>
+                    {this.renderRightStarText()}
                 </div>
             </div>);
+    }
+
+    renderStarHeading() {
+        let windowsWidth = this.props.width;
+        let heading;
+
+        if (windowsWidth < this.minimalWidthForStars) {
+            heading = "Overall:";
+        } else {
+            heading = "Overall accessibility rating:"
+        }
+
+        return (
+            <div className={"OverallStarHeading"}>
+                {heading}
+            </div>
+        );
+    }
+
+    renderLeftStarText() {
+        let windowsWidth = this.props.width;
+
+        if (windowsWidth < this.minimalWidthForStars) {
+            return null
+        } else {
+            return (
+                <div className={"OverallStarLeftText"}>
+                    Not very accessible
+                </div>
+            );
+        }
+    }
+
+    renderRightStarText() {
+        let windowsWidth = this.props.width;
+
+        if (windowsWidth < this.minimalWidthForStars) {
+            return null
+        } else {
+            return (
+                <div className={"OverStarRightText"}>
+                    Very<br/>accessible
+                </div>
+            );
+        }
+
     }
 
     renderRatingList() {
@@ -67,6 +126,7 @@ export default class FeedbackViewPane extends React.Component {
             <RatingListItem
                 data={data}
                 disabled={true}
+                width={this.props.width}
             />
         ));
     }

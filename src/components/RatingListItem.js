@@ -6,6 +6,8 @@ import Star from "./Stars";
 
 class RatingListItem extends React.Component {
 
+    minimalWidthForRatingListItemText = 400;
+
     constructor(props) {
         super(props);
     }
@@ -70,12 +72,31 @@ class RatingListItem extends React.Component {
                  onClick={this.props.onClickRatingListItem}
             >
                 <div className={"RatingListItemIcon"}>{icon}</div>
-                <div className={"RatingListItemText"}>{ratingType}</div>
-                <div className={"RatingListItemStar"}>{this.renderStar()}</div>
-                <div className={"RatingListItemChevron"}>{this.renderChevron()}</div>
+                {this.renderRatingListItemText()}
+                <div className={"RatingListItemStar"}>
+                    {this.renderStar()}
+                </div>
+                <div className={"RatingListItemChevron"}>
+                    {this.renderChevron()}
+                </div>
             </div>
         );
 
+    }
+
+    renderRatingListItemText() {
+        let ratingType = this.props.data.ratingType;
+        let width = this.props.width;
+
+        if (width < this.minimalWidthForRatingListItemText) {
+            return null
+        } else {
+            return (
+                <div className={"RatingListItemText"}>
+                    {ratingType}
+                </div>
+            );
+        }
     }
 
 }
