@@ -59,11 +59,10 @@ class FeedbackPage extends React.Component {
 
     async loadService(): Promise<void> {
         // Unload previous service
-        this.setState({object: undefined, ratings: undefined,});
+        this.setState({object: undefined});
 
         try {
             let object = await iss.getService(this.id);
-
             let feedback = await iss.getFeedback(this.id);
 
             object.feedback = feedback;

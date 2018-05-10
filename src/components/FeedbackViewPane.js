@@ -42,7 +42,6 @@ export default class FeedbackViewPane extends React.Component {
     renderRating() {
         const starDimension = "100px";
         const starSpacing = "25px";
-
         return (
             <div>
                 {this.renderRatingList()}
