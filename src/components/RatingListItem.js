@@ -13,19 +13,23 @@ class RatingListItem extends React.Component {
     }
 
     renderStar() {
+        let width = this.props.width;
         let rating = this.props.data.rating;
 
         if (this.props.data.rating >= 0) {
             const starSpacing = '5px';
             const starDimension = '28px';
-
-            return (
-                <Star
-                    starSpacing={starSpacing}
-                    starDimension={starDimension}
-                    rating={rating}
-                />
-            );
+            if (width < this.minimalWidthForRatingListItemText) {
+                return null
+            } else {
+                return (
+                    <Star
+                        starSpacing={starSpacing}
+                        starDimension={starDimension}
+                        rating={rating}
+                    />
+                );
+            }
         }
     }
 
@@ -86,17 +90,12 @@ class RatingListItem extends React.Component {
 
     renderRatingListItemText() {
         let ratingType = this.props.data.ratingType;
-        let width = this.props.width;
 
-        if (width < this.minimalWidthForRatingListItemText) {
-            return null
-        } else {
-            return (
-                <div className={"RatingListItemText"}>
-                    {ratingType}
-                </div>
-            );
-        }
+        return (
+            <div className={"RatingListItemText"}>
+                {ratingType}
+            </div>
+        );
     }
 
 }
