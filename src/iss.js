@@ -600,7 +600,10 @@ export async function getFeedback(
 
     // TODO: add cache here
 
-    return await fetch(`http://localhost:3000/api/v3/service/${id}/feedback`, {
+    // let feedbackServerURL = "http://localhost:3000";
+    let feedbackServerURL = "http://144.6.226.112/api";
+
+    return await fetch(`${feedbackServerURL}/api/v3/service/${id}/feedback`, {
         method: 'GET',
     }).then((response) => {
         return response.json();
@@ -618,14 +621,17 @@ export async function provideFeedback(
 
     // TODO: add cache here
 
-    return await fetch(`http://localhost:3000/api/v3/service/${id}/feedback`, {
+    // let feedbackServerURL = "http://localhost:3000";
+    let feedbackServerURL = "http://144.6.226.112/api";
+
+    return await fetch(`${feedbackServerURL}/api/v3/service/${id}/feedback`, {
         method: 'POST',
         headers: {
-            'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(feedbackJson),
     }).then((response) => {
+        console.log(response);
         return response.json();
     }).then(response => {
         return response;
