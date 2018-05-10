@@ -626,7 +626,6 @@ export async function provideFeedback(
         },
         body: JSON.stringify(feedbackJson),
     }).then((response) => {
-        console.log(response);
         return response.json();
     }).then(response => {
         return response;
