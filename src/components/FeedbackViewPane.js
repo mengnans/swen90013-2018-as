@@ -8,7 +8,8 @@ import Star from "./Stars";
 
 export default class FeedbackViewPane extends React.Component {
 
-    minimalWidthForStars = 600;
+    minimalWidthForStarText = 600;
+    maximumWidth = 1000;
 
     props: {
         service: Service,
@@ -47,10 +48,17 @@ export default class FeedbackViewPane extends React.Component {
         let windowsWidth = this.props.width;
         let starDimension, starSpacing;
 
-        if (windowsWidth >= this.minimalWidthForStars) {
+        if (windowsWidth >= this.minimalWidthForStarText) {
             starDimension = `${parseInt(windowsWidth / 8)}px`;
             starSpacing = `${parseInt(windowsWidth / 80)}px`;
-        } else {
+            // define the maximum star dimension
+            if (windowsWidth > this.maximumWidth) {
+                starDimension = "120px";
+                starSpacing = "12px";
+            }
+        }
+        // text will be hidden, thus stars can be a little bit larger
+        else {
             starDimension = `${parseInt(windowsWidth / 6)}px`;
             starSpacing = `${parseInt(windowsWidth / 60)}px`;
         }
@@ -79,7 +87,7 @@ export default class FeedbackViewPane extends React.Component {
         let windowsWidth = this.props.width;
         let heading;
 
-        if (windowsWidth < this.minimalWidthForStars) {
+        if (windowsWidth < this.minimalWidthForStarText) {
             heading = "Overall:";
         } else {
             heading = "Overall accessibility rating:"
@@ -95,7 +103,7 @@ export default class FeedbackViewPane extends React.Component {
     renderLeftStarText() {
         let windowsWidth = this.props.width;
 
-        if (windowsWidth < this.minimalWidthForStars) {
+        if (windowsWidth < this.minimalWidthForStarText) {
             return null
         } else {
             return (
@@ -109,7 +117,7 @@ export default class FeedbackViewPane extends React.Component {
     renderRightStarText() {
         let windowsWidth = this.props.width;
 
-        if (windowsWidth < this.minimalWidthForStars) {
+        if (windowsWidth < this.minimalWidthForStarText) {
             return null
         } else {
             return (
