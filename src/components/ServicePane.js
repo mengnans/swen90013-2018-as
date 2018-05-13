@@ -142,7 +142,7 @@ export default class ServicePane extends React.Component {
 
                         <div
                             className=
-                                {classnames("GoogleMapsLink", "plain-text")}
+                                {classnames("GoogleMapsLink", "plain-text", "StarRateItem")}
                             onClick={this.goToFeedbackViewPage.bind(this)}
                         >
                             <StarRateItem
