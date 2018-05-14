@@ -17,11 +17,23 @@ class RatingListItem extends React.Component {
         let rating = this.props.data.rating;
 
         if (this.props.data.rating >= 0) {
-            const starSpacing = '5px';
-            const starDimension = '28px';
+
+
             if (width < this.minimalWidthForRatingListItemText) {
-                return null
+                const starSpacing = '1px';
+                const starDimension = '24px';
+
+                return (
+                    <Star
+                        starSpacing={starSpacing}
+                        starDimension={starDimension}
+                        rating={rating}
+                    />
+                );
             } else {
+                const starSpacing = '5px';
+                const starDimension = '28px';
+
                 return (
                     <Star
                         starSpacing={starSpacing}
