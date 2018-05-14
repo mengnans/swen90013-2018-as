@@ -22,7 +22,7 @@ class StarRateItem extends React.Component {
                 <div
                     className={classnames(
                         "TransportTime",
-                        {compact: this.props.compact}
+                        {compact: this.props.compact},
                     )}
                 >
                     {this.renderStars(rating)}
@@ -34,6 +34,15 @@ class StarRateItem extends React.Component {
 
     renderStars(rating) {
 
+        let ratingValue = rating.toLocaleString(
+            undefined, // leave undefined to use the browser's locale,
+            // or use a string like 'en-US' to override it.
+            {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2,
+            },
+        );
+
         return (
             <div
                 className="travel-time"
@@ -44,6 +53,7 @@ class StarRateItem extends React.Component {
                     aria-label="By public transport"
                 />
                 Accessibility Rating<br/>
+                {ratingValue + "  "}
                 <Star
                     rating={rating}
                     starDimension={this.props.starDimension}

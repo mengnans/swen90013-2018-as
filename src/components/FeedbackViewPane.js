@@ -31,7 +31,7 @@ export default class FeedbackViewPane extends React.Component {
         path += this.props.service.slug;
         path += "/feedback/provide";
         this.context.router.push(
-            path
+            path,
         )
     }
 
@@ -86,11 +86,20 @@ export default class FeedbackViewPane extends React.Component {
     renderStarHeading() {
         let windowsWidth = this.props.width;
         let heading;
+        let ratingValue = this.props.service.feedback.overAllRating
+            .toLocaleString(
+                undefined, // leave undefined to use the browser's locale,
+                // or use a string like 'en-US' to override it.
+                {
+                    maximumFractionDigits: 2,
+                    minimumFractionDigits: 2,
+                },
+            );
 
         if (windowsWidth < this.minimalWidthForStarText) {
-            heading = "Overall:";
+            heading = "Overall: " + ratingValue;
         } else {
-            heading = "Overall accessibility rating:"
+            heading = "Overall accessibility rating: " + ratingValue;
         }
 
         return (
