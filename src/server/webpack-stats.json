@@ -1,16 +1,16 @@
 {
     "script": [
-        "http://localhost:8001/static/webpack-runtime-d73be18d1e61b220d059.js",
-        "http://localhost:8001/static/hotload-d73be18d1e61b220d059.js",
+        "http://localhost:8001/static/webpack-runtime-1fd47186a4658dd09ab1.js",
+        "http://localhost:8001/static/hotload-1fd47186a4658dd09ab1.js",
         "http://localhost:8001/static/hotload-3c2c21afd5b9acd32b38.js",
-        "http://localhost:8001/static/vendor-d73be18d1e61b220d059.js",
+        "http://localhost:8001/static/vendor-1fd47186a4658dd09ab1.js",
         "http://localhost:8001/static/vendor-3c2c21afd5b9acd32b38.js",
-        "http://localhost:8001/static/main-d73be18d1e61b220d059.js",
-        "http://localhost:8001/static/0.413672c70e736d58df37.hot-update.js",
-        "http://localhost:8001/static/googleanalytics-d73be18d1e61b220d059.js",
+        "http://localhost:8001/static/main-1fd47186a4658dd09ab1.js",
+        "http://localhost:8001/static/0.7ec5619f017d2db24eee.hot-update.js",
+        "http://localhost:8001/static/googleanalytics-1fd47186a4658dd09ab1.js",
         "http://localhost:8001/static/googleanalytics-3c2c21afd5b9acd32b38.js"
     ],
     "css": [
-        "http://localhost:8001/static/main-119537e9ab77a72cd630.css"
+        "http://localhost:8001/static/main-178c0288b04a95157e16.css"
     ]
 }
