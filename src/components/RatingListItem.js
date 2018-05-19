@@ -15,21 +15,37 @@ class RatingListItem extends React.Component {
     renderStar() {
         let width = this.props.width;
         let rating = this.props.data.rating;
+        let ratingValue = rating.toLocaleString(
+            undefined, // leave undefined to use the browser's locale,
+            // or use a string like 'en-US' to override it.
+            {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2,
+            },
+        );
+
 
         if (this.props.data.rating >= 0) {
-            const starSpacing = '5px';
-            const starDimension = '28px';
+            let starSpacing, starDimension;
+
             if (width < this.minimalWidthForRatingListItemText) {
-                return null
+                starSpacing = '1px';
+                starDimension = '24px';
             } else {
-                return (
-                    <Star
-                        starSpacing={starSpacing}
-                        starDimension={starDimension}
-                        rating={rating}
-                    />
-                );
+                starSpacing = '5px';
+                starDimension = '28px';
             }
+
+            return (
+                <div>
+                    {ratingValue + "  "}
+                <Star
+                    starSpacing={starSpacing}
+                    starDimension={starDimension}
+                    rating={rating}
+                />
+                </div>
+            );
         }
     }
 

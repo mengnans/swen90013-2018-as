@@ -24,10 +24,10 @@ $ npm install -g windows-build-tools
 Finally, you need to convert the script files from the windows format line-break format to the unix line-break format
 (this won't affect the repository as line-breaks are merged automatically).
 
-You need to run this command from the __front-end directory of this project__.
+You need to run this command from the __root directory of this project__.
 
 ```bash
-$ cd C:\cygwin64\home\<username>\year-long-project\front-end # or wherever you cloned the project
+$ cd C:\cygwin64\home\<username>\year-long-project\ # or wherever you cloned the project
 $ dos2unix ./script/*
 ```
 
@@ -55,7 +55,7 @@ $ npm install -g bower
 ```
 
 After you've cloned __this__ repo locally, you can begin to install
-the local dependencies for the project like so (run these commands from the front-end directory of this project):
+the local dependencies for the project like so (run these commands from the root directory of this project):
 
 ```bash
 $ npm install
@@ -65,7 +65,7 @@ $ bower install
 ### Running
 
 For the sake of brevity, I have created a script that launches the project locally with a single command.
-To run, issue this command from the __front-end directory of this project__.
+To run, issue this command from the __root directory of this project__.
 
 ```bash
 $ ./script/launch

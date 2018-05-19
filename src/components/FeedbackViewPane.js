@@ -8,7 +8,8 @@ import Star from "./Stars";
 
 export default class FeedbackViewPane extends React.Component {
 
-    minimalWidthForStars = 600;
+    minimalWidthForStarText = 600;
+    maximumWidth = 1000;
 
     props: {
         service: Service,
@@ -30,7 +31,7 @@ export default class FeedbackViewPane extends React.Component {
         path += this.props.service.slug;
         path += "/feedback/provide";
         this.context.router.push(
-            path
+            path,
         )
     }
 
@@ -47,10 +48,17 @@ export default class FeedbackViewPane extends React.Component {
         let windowsWidth = this.props.width;
         let starDimension, starSpacing;
 
-        if (windowsWidth >= this.minimalWidthForStars) {
+        if (windowsWidth >= this.minimalWidthForStarText) {
             starDimension = `${parseInt(windowsWidth / 8)}px`;
             starSpacing = `${parseInt(windowsWidth / 80)}px`;
-        } else {
+            // define the maximum star dimension
+            if (windowsWidth > this.maximumWidth) {
+                starDimension = "120px";
+                starSpacing = "12px";
+            }
+        }
+        // text will be hidden, thus stars can be a little bit larger
+        else {
             starDimension = `${parseInt(windowsWidth / 6)}px`;
             starSpacing = `${parseInt(windowsWidth / 60)}px`;
         }
@@ -78,11 +86,20 @@ export default class FeedbackViewPane extends React.Component {
     renderStarHeading() {
         let windowsWidth = this.props.width;
         let heading;
+        let ratingValue = this.props.service.feedback.overAllRating
+            .toLocaleString(
+                undefined, // leave undefined to use the browser's locale,
+                // or use a string like 'en-US' to override it.
+                {
+                    maximumFractionDigits: 2,
+                    minimumFractionDigits: 2,
+                },
+            );
 
-        if (windowsWidth < this.minimalWidthForStars) {
-            heading = "Overall:";
+        if (windowsWidth < this.minimalWidthForStarText) {
+            heading = "Overall: " + ratingValue;
         } else {
-            heading = "Overall accessibility rating:"
+            heading = "Overall accessibility rating: " + ratingValue;
         }
 
         return (
@@ -95,7 +112,7 @@ export default class FeedbackViewPane extends React.Component {
     renderLeftStarText() {
         let windowsWidth = this.props.width;
 
-        if (windowsWidth < this.minimalWidthForStars) {
+        if (windowsWidth < this.minimalWidthForStarText) {
             return null
         } else {
             return (
@@ -109,7 +126,7 @@ export default class FeedbackViewPane extends React.Component {
     renderRightStarText() {
         let windowsWidth = this.props.width;
 
-        if (windowsWidth < this.minimalWidthForStars) {
+        if (windowsWidth < this.minimalWidthForStarText) {
             return null
         } else {
             return (
