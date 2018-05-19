@@ -42,7 +42,7 @@ class StarRateItem extends React.Component {
                 minimumFractionDigits: 2,
             },
         );
-        let numberOfRatings = 100;
+        let numberOfRatings = 150;
         return (
             <div
                 className="travel-time"
@@ -59,7 +59,7 @@ class StarRateItem extends React.Component {
                     starDimension={this.props.starDimension}
                     starSpacing={this.props.starSpacing}
                 />
-                <br/> View Count:
+                <br/> Ratings:
                 {" " + numberOfRatings.toLocaleString()}
 
             </div>
