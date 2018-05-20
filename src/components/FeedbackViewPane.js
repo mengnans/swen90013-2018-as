@@ -69,6 +69,7 @@ export default class FeedbackViewPane extends React.Component {
             <div>
                 {this.renderRatingList()}
                 {this.renderStarHeading()}
+                {this.renderRatingNum()}
                 <div className={"OverallStarBlock"}>
                     {this.renderLeftStarText()}
                     <div className={"OverallStar"}>
@@ -105,6 +106,19 @@ export default class FeedbackViewPane extends React.Component {
         return (
             <div className={"OverallStarHeading"}>
                 {heading}
+            </div>
+        );
+    }
+
+    renderRatingNum() {
+        let info;
+        let ratingNum = this.props.service.feedback.overAllCount;
+
+        ratingNum = 150;
+        info = ratingNum + " ratings";
+        return (
+            <div className={"RatingNumHeading"}>
+                {info}
             </div>
         );
     }
