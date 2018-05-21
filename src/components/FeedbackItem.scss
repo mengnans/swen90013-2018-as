@@ -1,0 +1,64 @@
+.FeedbackItem {
+    display: block;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-size: 14px;
+
+    &.compact {
+
+        margin-bottom: 15px;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .travel-time {
+            display: block;
+            margin-right: 24px;
+            padding-left: 24px;
+        }
+
+        @media (all) {
+            .travel-time {
+                display: inline-block;
+            }
+        }
+
+        .Icon {
+            top: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+        }
+
+        cursor: pointer;
+
+    }
+
+    .Icon {
+        position: absolute;
+        top: 2px;
+        left: -32px;
+        width: 15px;
+        height: 15px;
+
+    }
+
+    .travel-time {
+        position: relative;
+        padding: 0;
+        color: $brand-text-dark;
+        font-weight: 500;
+    }
+
+    .location {
+        margin-right: 24px;
+        color: $brand-text-mid;
+    }
+
+    .getDirections {
+        float: right;
+        color: $link-text-color;
+        text-decoration: underline;
+    }
+}

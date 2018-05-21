@@ -25,7 +25,7 @@ import BoxedText from "./BoxedText";
 import Chevron from "../icons/Chevron";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import type {Service} from "../iss";
-import StarRateItem from "./StarRateItem";
+import FeedbackItem from "./FeedbackItem";
 import classnames from "classnames";
 import FlatButton from "./FlatButton";
 
@@ -157,14 +157,15 @@ export default class ServicePane extends React.Component {
 
                         <div
                             className=
-                                {classnames("GoogleMapsLink", "plain-text", "StarRateItem")}
+                                {classnames("GoogleMapsLink", "plain-text", "FeedbackItem")}
                             onClick={this.goToFeedbackViewPage.bind(this)}
                         >
-                            <StarRateItem
+                            <FeedbackItem
                                 rating={object.feedback.overAllRating}
                                 starDimension={starDimension}
                                 starSpacing={starSpacing}
                                 numberOfStars={3}
+                                compact={true}
                             />
                         </div>
 
@@ -183,7 +184,6 @@ export default class ServicePane extends React.Component {
 
                         <FlatButton
                             label="Provide your feedback"
-                            iconType = " "
                             onClick={this.goToFeedbackPage.bind(this)}
                             className={"ProvideYourFeedbackButton"}
                         />

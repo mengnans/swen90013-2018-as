@@ -170,7 +170,6 @@ export default class FeedbackViewPane extends React.Component {
                 <FlatButton
                     className={"FeedbackButton"}
                     label={"Provide Your Feedback"}
-                    iconType = " "
                     onClick={this.onClickProvideYourFeedbackButton.bind(this)}
                 />
 

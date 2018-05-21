@@ -5,7 +5,7 @@ import classnames from "classnames";
 import icons from "../icons";
 import Star from "./Stars";
 
-class StarRateItem extends React.Component {
+class FeedbackItem extends React.Component {
     static defaultProps = {
         compact: false,
     };
@@ -21,7 +21,7 @@ class StarRateItem extends React.Component {
             <div>
                 <div
                     className={classnames(
-                        "TransportTime",
+                        "FeedbackItem",
                         {compact: this.props.compact},
                     )}
                 >
@@ -43,6 +43,7 @@ class StarRateItem extends React.Component {
             },
         );
         let numberOfRatings = 150;
+
         return (
             <div
                 className="travel-time"
@@ -66,16 +67,11 @@ class StarRateItem extends React.Component {
         );
     }
 
-    viewAllAccessibilityClick(): void {
-        console.log("viewAllAccessibility clicked");
-    }
-
     renderViewAllAccessibility() {
         if (!this.props.compact) {
             return (
                 <div
                     className="getDirections"
-                    onClick={this.viewAllAccessibilityClick.bind(this)}
                 >
                     View all
                 </div>
@@ -87,4 +83,4 @@ class StarRateItem extends React.Component {
 
 }
 
-export default StarRateItem;
+export default FeedbackItem;
