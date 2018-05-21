@@ -103,6 +103,7 @@ class HomePage extends React.Component {
                                 />
                                 <FlatButton
                                     label="Search"
+                                    iconType = " "
                                     onClick={this.onSearchSubmit.bind(this)}
                                 />
                             </div>
