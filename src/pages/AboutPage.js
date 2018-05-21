@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 
 import React from "react";
-import { Link } from "react-router";
+import {Link} from "react-router";
 import StaticPage from "./StaticPage";
 import config from "../config";
 
@@ -78,7 +78,8 @@ class AboutPage extends React.Component {
                     REA Group, the company behind Australia’s number one property website realestate.com.au, believes everyone should have a safe place to sleep - every night.
                 </p>
 
-                <a href="http://www.newscorpaustralia.com"><h4>News Corp Australia</h4></a>
+                <a href="http://www.newscorpaustralia.com"><h4>News Corp
+                    Australia</h4></a>
                 <p>
                     News Corp’s mission is to inspire, inform and advocate for a better Australia.
                 </p>

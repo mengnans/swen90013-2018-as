@@ -4,6 +4,7 @@ import React from "react";
 import type {Service} from "../iss";
 import FlatButton from "./FlatButton";
 import sendEvent from "../google-tag-manager";
+import icons from "../icons";
 
 export default class FeedbackPane extends React.Component {
     props: {
@@ -18,13 +19,13 @@ export default class FeedbackPane extends React.Component {
         super(props);
     }
 
-    onClickProvideAccessibilityFeedback() : void {
+    onClickProvideAccessibilityFeedback(): void {
         let path = "/service/";
 
         path += this.props.service.slug;
         path += "/feedback/provide";
         this.context.router.push(
-            path
+            path,
         )
     }
 
@@ -50,7 +51,7 @@ export default class FeedbackPane extends React.Component {
                 <FlatButton
                     className={"FeedbackButtonAccess"}
                     label={"Provide Accessibility Feedback"}
-                    iconType = "accessibility_feedback"
+                    iconType="accessibility_feedback"
                     onClick={this.onClickProvideAccessibilityFeedback.bind(this)}
                 />
                 <div className={"Separator"}/>
@@ -71,15 +72,15 @@ export default class FeedbackPane extends React.Component {
 
                             Details of change:
 
-                            `.replace(/^ +/gm, "")
+                            `.replace(/^ +/gm, ""),
                         )
                     }
                 >
                     <FlatButton
                         className={"GeneralFeedbackButton"}
                         label={"Provide General Feedback"}
-                        iconType = "general_feedback"
                     />
+
                 </a>
 
             </div>

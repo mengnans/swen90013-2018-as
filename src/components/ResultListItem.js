@@ -15,7 +15,7 @@ import Accessibility from "./Accessibility";
 import OpeningTimes from "./OpeningTimes";
 import Ndis from "./Ndis";
 import TransportTime from "./TransportTime";
-import StarRateItem from './StarRateItem';
+import FeedbackItem from './FeedbackItem';
 import sendEvent from "../google-tag-manager";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import { titleize } from "underscore.string";
@@ -123,7 +123,7 @@ class ResultListItem extends React.Component {
                 />
 
                 <IndigenousServiceIcon object={object} />
-                <StarRateItem
+                <FeedbackItem
                     rating={rating}
                     starSpacing={starSpacing}
                     starDimension={starDimension}
