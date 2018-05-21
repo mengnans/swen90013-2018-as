@@ -63,7 +63,6 @@ class RatingListItem extends React.Component {
         let ratingType = this.props.data.ratingType;
         let icon = '';
 
-
         if (ratingType === "Wheelchair access") {
             icon = (<icons.Accessibility
                 className="ColoredIcon"
