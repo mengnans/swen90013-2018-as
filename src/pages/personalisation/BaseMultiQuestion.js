@@ -31,6 +31,7 @@ class BaseMultiQuestion extends BaseQuestion {
                 <div className="done-button">
                     <FlatButton
                         label={label}
+                        iconType = " "
                         onClick={this.props.onDoneTouchTap}
                     />
                 </div>

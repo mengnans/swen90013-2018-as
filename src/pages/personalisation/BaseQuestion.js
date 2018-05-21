@@ -235,6 +235,7 @@ class BaseQuestion extends React.Component {
                         <FlatButton
                             className="text-link"
                             label="Skip"
+                            iconType = " "
                             onClick={this.props.onDoneTouchTap}
                         />
                     </div>
