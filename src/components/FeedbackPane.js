@@ -50,6 +50,7 @@ export default class FeedbackPane extends React.Component {
                 <FlatButton
                     className={"FeedbackButtonAccess"}
                     label={"Provide Accessibility Feedback"}
+                    iconType = "accessibility_feedback"
                     onClick={this.onClickProvideAccessibilityFeedback.bind(this)}
                 />
                 <div className={"Separator"}/>
@@ -77,6 +78,7 @@ export default class FeedbackPane extends React.Component {
                     <FlatButton
                         className={"GeneralFeedbackButton"}
                         label={"Provide General Feedback"}
+                        iconType = "general_feedback"
                     />
                 </a>
 

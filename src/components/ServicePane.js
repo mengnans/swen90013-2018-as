@@ -167,6 +167,7 @@ export default class ServicePane extends React.Component {
 
                         <FlatButton
                             label="Provide your feedback"
+                            iconType = " "
                             onClick={this.goToFeedbackPage.bind(this)}
                             className={"ProvideYourFeedbackButton"}
                         />
