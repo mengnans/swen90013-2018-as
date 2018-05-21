@@ -269,7 +269,6 @@ export default class FeedbackProvidePane extends React.Component {
                 <FlatButton
                     className={"FeedbackButton FeedbackButtonDone"}
                     label={"Done"}
-                    iconType = " "
                     onClick={this.onClickDone.bind(this)}
                 />
                 <div className={"Separator"}/>
@@ -277,7 +276,6 @@ export default class FeedbackProvidePane extends React.Component {
                 <FlatButton
                     className={"FeedbackButton FeedbackButtonCancel"}
                     label={"Cancel"}
-                    iconType = " "
                     onClick={this.onClickCancel.bind(this)}
                 />
 
@@ -328,7 +326,6 @@ export default class FeedbackProvidePane extends React.Component {
                 <FlatButton
                     className={"FeedbackButton"}
                     label={"Submit"}
-                    iconType = " "
                     onClick={this.onClickSubmit.bind(this)}
                     disabled={disabled}
                 />
@@ -336,7 +333,6 @@ export default class FeedbackProvidePane extends React.Component {
                 <FlatButton
                     className={"FeedbackButton"}
                     label={"Delete"}
-                    iconType = " "
                     onClick={this.onClickDelete.bind(this)}
                     disabled={disabled}
                 />

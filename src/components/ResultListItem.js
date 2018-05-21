@@ -13,7 +13,7 @@ import DebugServiceRecord from "./DebugServiceRecord";
 import LinkListItem from "./LinkListItem";
 import OpeningTimes from "./OpeningTimes";
 import TransportTime from "./TransportTime";
-import StarRateItem from './StarRateItem';
+import FeedbackItem from './FeedbackItem';
 import sendEvent from "../google-tag-manager";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import { titleize } from "underscore.string";
@@ -111,7 +111,7 @@ class ResultListItem extends React.Component {
                     compact={true}
                     location={object.Location()}
                 />
-                <StarRateItem
+                <FeedbackItem
                     rating={rating}
                     starSpacing={starSpacing}
                     starDimension={starDimension}
