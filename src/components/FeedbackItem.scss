@@ -25,12 +25,11 @@
         }
 
         .Icon {
-            top: 0;
-            left: 0;
+            top: 0px;
+            left: 0px;
             width: 15px;
             height: 15px;
         }
-
         cursor: pointer;
 
     }
@@ -38,15 +37,15 @@
     .Icon {
         position: absolute;
         top: 2px;
-        left: -32px;
-        width: 15px;
-        height: 15px;
-
+        left: 0px;
+        height: 20px;
+        width: 20px;
     }
 
     .travel-time {
         position: relative;
-        padding: 0;
+        margin-right: 24px;
+        padding-left: 24px;
         color: $brand-text-dark;
         font-weight: 500;
     }

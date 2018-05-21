@@ -165,7 +165,6 @@ export default class ServicePane extends React.Component {
                                 starDimension={starDimension}
                                 starSpacing={starSpacing}
                                 numberOfStars={3}
-                                compact={true}
                                 numberOfRatings={object.overAllCounting}
                             />
                         </div>
