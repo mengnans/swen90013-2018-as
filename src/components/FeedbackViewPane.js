@@ -114,7 +114,7 @@ export default class FeedbackViewPane extends React.Component {
         let info;
         let ratingNum = this.props.service.feedback.overAllCount;
 
-        ratingNum = 150;
+        // ratingNum = 150;
         info = ratingNum + " ratings";
         return (
             <div className={"RatingNumHeading"}>

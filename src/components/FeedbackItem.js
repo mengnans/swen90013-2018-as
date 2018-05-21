@@ -8,6 +8,7 @@ import Star from "./Stars";
 class FeedbackItem extends React.Component {
     static defaultProps = {
         compact: false,
+        numberOfRatings: 150,
     };
 
     constructor() {
@@ -42,7 +43,7 @@ class FeedbackItem extends React.Component {
                 minimumFractionDigits: 2,
             },
         );
-        let numberOfRatings = 150;
+        let numberOfRatings = this.props.numberOfRatings;
 
         return (
             <div
