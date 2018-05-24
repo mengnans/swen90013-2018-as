@@ -10,6 +10,7 @@ fi
 
 export ENVIRONMENT
 export ISS_URL
+export FEEDBACK_URL
 export GOOGLE_API_KEY
 
 # Start the ISS server.

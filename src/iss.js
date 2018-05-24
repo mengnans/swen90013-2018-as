@@ -24,6 +24,7 @@ import {
 } from "./timeout";
 
 declare var ISS_URL: string;
+declare var FEEDBACK_URL: string;
 
 export type searchResultMerger = (
     original: searchResults,
@@ -595,10 +596,7 @@ export async function getFeedback(
 
     // TODO: add cache here
 
-    // let feedbackServerURL = "http://localhost:3000";
-    let feedbackServerURL = "http://144.6.226.112/api";
-
-    return await fetch(`${feedbackServerURL}/api/v3/service/${id}/feedback`, {
+    return await fetch(`${FEEDBACK_URL}/api/v3/service/${id}/feedback`, {
         method: 'GET',
     }).then((response) => {
         return response.json();
@@ -616,10 +614,7 @@ export async function provideFeedback(
 
     // TODO: add cache here
 
-    // let feedbackServerURL = "http://localhost:3000";
-    let feedbackServerURL = "http://144.6.226.112/api";
-
-    return await fetch(`${feedbackServerURL}/api/v3/service/${id}/feedback`, {
+    return await fetch(`${FEEDBACK_URL}/api/v3/service/${id}/feedback`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

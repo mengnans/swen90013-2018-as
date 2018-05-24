@@ -17,6 +17,7 @@ if (process.argv[3]) {
 
 // Pass through environment variables
 GLOBAL.ISS_URL = process.env.ISS_URL;
+GLOBAL.FEEDBACK_URL = process.env.FEEDBACK_URL;
 GLOBAL.GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 GLOBAL.GOOGLE_ANALYTICS_ID = process.env.GOOGLE_ANALYTICS_ID;
 GLOBAL.GOOGLE_TAG_MANAGER_ID = process.env.GOOGLE_TAG_MANAGER_ID;
