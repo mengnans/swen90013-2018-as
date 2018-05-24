@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 # All the mock variables we need.
-ENVIRONMENT="staging"
-ISS_URL="http://localhost:5000"
-GOOGLE_API_KEY="AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU"
+# Use environment variables if set, otherwise use these defaults.
+
+ENVIRONMENT=${ENVIRONMENT:="staging"}
+ISS_URL=${ISS_URL:="http://localhost:5000"}
+GOOGLE_API_KEY=${GOOGLE_API_KEY:="AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU"}
 
 export ENVIRONMENT
 export ISS_URL
@@ -19,6 +21,8 @@ REACT_ID=$!
 
 trap interrupt INT
 
+# a hook to kill the mock ISS and react server upon
+# detection of the interrupt signal.
 function interrupt() {
 	if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
 	    taskkill //IM node.exe //F
