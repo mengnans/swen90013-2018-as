@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 # All the mock variables we need.
-# Use environment variables if set, otherwise use these defaults.
-
-ENVIRONMENT=${ENVIRONMENT:="staging"}
-ISS_URL=${ISS_URL:="http://localhost:5000"}
-GOOGLE_API_KEY=${GOOGLE_API_KEY:="AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU"}
+# Use environment variables if told to, otherwise use these defaults.
+if [ "$1" != "--env" ]; then
+	ENVIRONMENT="staging"
+	ISS_URL="http://localhost:5000"
+	GOOGLE_API_KEY="AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU"
+fi
 
 export ENVIRONMENT
 export ISS_URL
