@@ -5,11 +5,13 @@
 if [ "$1" != "--env" ]; then
 	ENVIRONMENT="staging"
 	ISS_URL="http://localhost:5000"
+	FEEDBACK_URL="http://144.6.226.112/api"
 	GOOGLE_API_KEY="AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU"
 fi
 
 export ENVIRONMENT
 export ISS_URL
+export FEEDBACK_URL
 export GOOGLE_API_KEY
 
 # Start the ISS server.
