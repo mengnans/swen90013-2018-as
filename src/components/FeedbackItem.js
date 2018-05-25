@@ -8,7 +8,7 @@ import Star from "./Stars";
 class FeedbackItem extends React.Component {
     static defaultProps = {
         compact: false,
-        numberOfRatings: 150,
+        numberOfRatings: 0,
     };
 
     constructor() {
@@ -47,7 +47,7 @@ class FeedbackItem extends React.Component {
 
         return (
             <div
-                className="travel-time"
+                className="feedback-item"
             >
                 <icons.Accessibility
                     className="ColoredIcon"
