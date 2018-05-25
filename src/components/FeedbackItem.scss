@@ -12,14 +12,14 @@
         padding-top: 0;
         padding-bottom: 0;
 
-        .travel-time {
+        .feedback-item {
             display: block;
             margin-right: 24px;
             padding-left: 24px;
         }
 
         @media (all) {
-            .travel-time {
+            .feedback-item {
                 display: inline-block;
             }
         }
@@ -42,7 +42,7 @@
         width: 20px;
     }
 
-    .travel-time {
+    .feedback-item {
         position: relative;
         margin-right: 24px;
         padding-left: 24px;
