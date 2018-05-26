@@ -6,6 +6,15 @@ import icons from "../icons";
 import Star from "./Stars";
 
 class FeedbackItem extends React.Component {
+
+    props: {
+        compact: boolean,
+        numberOfRatings: number,
+        rating: number,
+        starDimension: number,
+        starSpacing: number
+    };
+
     static defaultProps = {
         compact: false,
         numberOfRatings: 0,

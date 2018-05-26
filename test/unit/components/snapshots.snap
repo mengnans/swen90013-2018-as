@@ -1,0 +1,2323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit tests FeedbackItem renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FeedbackItem
+    compact={false}
+    numberOfRatings={200}
+    rating={2.555555}
+    starDimension={5}
+    starSpacing={10}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="FeedbackItem"
+      >
+        <div
+          className="feedback-item"
+        >
+          <SvgIconAccessibility
+            aria-label="By public transport"
+            className="ColoredIcon"
+            iconType="wheelChair"
+          />
+          Accessibility Rating
+          <br />
+          2.56  
+          <Star
+            rating={2.555555}
+            starDimension={5}
+            starSpacing={10}
+          />
+          <br />
+           Ratings:
+           200
+        </div>
+        <div
+          className="getDirections"
+        >
+          View all
+        </div>
+      </div>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="feedback-item"
+          >
+            <SvgIconAccessibility
+              aria-label="By public transport"
+              className="ColoredIcon"
+              iconType="wheelChair"
+            />
+            Accessibility Rating
+            <br />
+            2.56  
+            <Star
+              rating={2.555555}
+              starDimension={5}
+              starSpacing={10}
+            />
+            <br />
+             Ratings:
+             200
+          </div>,
+          <div
+            className="getDirections"
+          >
+            View all
+          </div>,
+        ],
+        "className": "FeedbackItem",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <SvgIconAccessibility
+                aria-label="By public transport"
+                className="ColoredIcon"
+                iconType="wheelChair"
+              />,
+              "Accessibility Rating",
+              <br />,
+              "2.56  ",
+              <Star
+                rating={2.555555}
+                starDimension={5}
+                starSpacing={10}
+              />,
+              <br />,
+              " Ratings:",
+              " 200",
+            ],
+            "className": "feedback-item",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "aria-label": "By public transport",
+                "className": "ColoredIcon",
+                "iconType": "wheelChair",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "Accessibility Rating",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            "2.56  ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "rating": 2.555555,
+                "starDimension": 5,
+                "starSpacing": 10,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            " Ratings:",
+            " 200",
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "View all",
+            "className": "getDirections",
+          },
+          "ref": null,
+          "rendered": "View all",
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="FeedbackItem"
+        >
+          <div
+            className="feedback-item"
+          >
+            <SvgIconAccessibility
+              aria-label="By public transport"
+              className="ColoredIcon"
+              iconType="wheelChair"
+            />
+            Accessibility Rating
+            <br />
+            2.56  
+            <Star
+              rating={2.555555}
+              starDimension={5}
+              starSpacing={10}
+            />
+            <br />
+             Ratings:
+             200
+          </div>
+          <div
+            className="getDirections"
+          >
+            View all
+          </div>
+        </div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="feedback-item"
+            >
+              <SvgIconAccessibility
+                aria-label="By public transport"
+                className="ColoredIcon"
+                iconType="wheelChair"
+              />
+              Accessibility Rating
+              <br />
+              2.56  
+              <Star
+                rating={2.555555}
+                starDimension={5}
+                starSpacing={10}
+              />
+              <br />
+               Ratings:
+               200
+            </div>,
+            <div
+              className="getDirections"
+            >
+              View all
+            </div>,
+          ],
+          "className": "FeedbackItem",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <SvgIconAccessibility
+                  aria-label="By public transport"
+                  className="ColoredIcon"
+                  iconType="wheelChair"
+                />,
+                "Accessibility Rating",
+                <br />,
+                "2.56  ",
+                <Star
+                  rating={2.555555}
+                  starDimension={5}
+                  starSpacing={10}
+                />,
+                <br />,
+                " Ratings:",
+                " 200",
+              ],
+              "className": "feedback-item",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "aria-label": "By public transport",
+                  "className": "ColoredIcon",
+                  "iconType": "wheelChair",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "Accessibility Rating",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+              "2.56  ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "rating": 2.555555,
+                  "starDimension": 5,
+                  "starSpacing": 10,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+              " Ratings:",
+              " 200",
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "View all",
+              "className": "getDirections",
+            },
+            "ref": null,
+            "rendered": "View all",
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Unit tests FeedbackPane renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FeedbackPane
+    service={
+      Object {
+        "catchment": "Carlton",
+        "description": "A housing service for people.",
+        "eligibility_info": "",
+        "emails": Array [],
+        "id": 111,
+        "ineligibility_info": "",
+        "location": Object {
+          "point": Object {
+            "lat": -37.8228,
+            "lon": 144.998,
+          },
+          "suburb": "Richmond",
+        },
+        "name": "Housing Service",
+        "now_open": Object {
+          "now_open": false,
+        },
+        "opening_hours": Array [],
+        "phones": Array [],
+        "service_type": Array [
+          "Housing Service",
+        ],
+        "site": Object {
+          "id": 111,
+          "name": "My Housing Service",
+        },
+        "web": null,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="ButtonPane"
+      >
+        <FlatButton
+          className="FeedbackButtonAccess"
+          iconType="accessibility_feedback"
+          label="Provide Accessibility Feedback"
+          onClick={[Function]}
+        />
+        <div
+          className="Separator"
+        />
+        <a
+          className="suggestChange"
+          href="mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
+          onClick={[Function]}
+        >
+          <FlatButton
+            className="GeneralFeedbackButton"
+            label="Provide General Feedback"
+          />
+        </a>
+      </div>,
+      "className": "FeedbackPane",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <FlatButton
+            className="FeedbackButtonAccess"
+            iconType="accessibility_feedback"
+            label="Provide Accessibility Feedback"
+            onClick={[Function]}
+          />,
+          <div
+            className="Separator"
+          />,
+          <a
+            className="suggestChange"
+            href="mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
+            onClick={[Function]}
+          >
+            <FlatButton
+              className="GeneralFeedbackButton"
+              label="Provide General Feedback"
+            />
+          </a>,
+        ],
+        "className": "ButtonPane",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "FeedbackButtonAccess",
+            "iconType": "accessibility_feedback",
+            "label": "Provide Accessibility Feedback",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "Separator",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <FlatButton
+              className="GeneralFeedbackButton"
+              label="Provide General Feedback"
+            />,
+            "className": "suggestChange",
+            "href": "mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "GeneralFeedbackButton",
+              "label": "Provide General Feedback",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "a",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="ButtonPane"
+        >
+          <FlatButton
+            className="FeedbackButtonAccess"
+            iconType="accessibility_feedback"
+            label="Provide Accessibility Feedback"
+            onClick={[Function]}
+          />
+          <div
+            className="Separator"
+          />
+          <a
+            className="suggestChange"
+            href="mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
+            onClick={[Function]}
+          >
+            <FlatButton
+              className="GeneralFeedbackButton"
+              label="Provide General Feedback"
+            />
+          </a>
+        </div>,
+        "className": "FeedbackPane",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <FlatButton
+              className="FeedbackButtonAccess"
+              iconType="accessibility_feedback"
+              label="Provide Accessibility Feedback"
+              onClick={[Function]}
+            />,
+            <div
+              className="Separator"
+            />,
+            <a
+              className="suggestChange"
+              href="mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
+              onClick={[Function]}
+            >
+              <FlatButton
+                className="GeneralFeedbackButton"
+                label="Provide General Feedback"
+              />
+            </a>,
+          ],
+          "className": "ButtonPane",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "FeedbackButtonAccess",
+              "iconType": "accessibility_feedback",
+              "label": "Provide Accessibility Feedback",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "Separator",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <FlatButton
+                className="GeneralFeedbackButton"
+                label="Provide General Feedback"
+              />,
+              "className": "suggestChange",
+              "href": "mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "GeneralFeedbackButton",
+                "label": "Provide General Feedback",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "a",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Unit tests FeedbackProvidePane renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FeedbackProvidePane
+    service={
+      Object {
+        "catchment": "Carlton",
+        "description": "A housing service for people.",
+        "eligibility_info": "",
+        "emails": Array [],
+        "feedback": Object {
+          "id": "1",
+          "overAllCount": 607,
+          "overAllRating": 2.100937117940661,
+          "ratings": Array [
+            Object {
+              "count": "644",
+              "rating": 2.0574534161490683,
+              "ratingType": "Signage",
+            },
+            Object {
+              "count": "343",
+              "rating": 2.110787172011662,
+              "ratingType": "Transport",
+            },
+            Object {
+              "count": "431",
+              "rating": 2.1345707656612527,
+              "ratingType": "Wheelchair access",
+            },
+          ],
+        },
+        "id": 111,
+        "ineligibility_info": "",
+        "location": Object {
+          "point": Object {
+            "lat": -37.8228,
+            "lon": 144.998,
+          },
+          "suburb": "Richmond",
+        },
+        "name": "Housing Service",
+        "now_open": Object {
+          "now_open": false,
+        },
+        "opening_hours": Array [],
+        "phones": Array [],
+        "service_type": Array [
+          "Housing Service",
+        ],
+        "site": Object {
+          "id": 111,
+          "name": "My Housing Service",
+        },
+        "web": null,
+      }
+    }
+    width={200}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div>
+          <RatingListItem
+            data={
+              Object {
+                "comment": null,
+                "rating": -1,
+                "ratingType": "Signage",
+              }
+            }
+            onClickRatingListItem={[Function]}
+            width={200}
+          />
+          <RatingListItem
+            data={
+              Object {
+                "comment": null,
+                "rating": -1,
+                "ratingType": "Transport",
+              }
+            }
+            onClickRatingListItem={[Function]}
+            width={200}
+          />
+          <RatingListItem
+            data={
+              Object {
+                "comment": null,
+                "rating": -1,
+                "ratingType": "Wheelchair access",
+              }
+            }
+            onClickRatingListItem={[Function]}
+            width={200}
+          />
+          <div
+            className="ButtonPane"
+          >
+            <FlatButton
+              className="FeedbackButton"
+              disabled={true}
+              label="Submit"
+              onClick={[Function]}
+            />
+            <div
+              className="Separator"
+            />
+            <FlatButton
+              className="FeedbackButton"
+              disabled={true}
+              label="Delete"
+              onClick={[Function]}
+            />
+          </div>
+        </div>,
+        null,
+      ],
+      "className": "ProvideFeedbackPane",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            Array [
+              <RatingListItem
+                data={
+                  Object {
+                    "comment": null,
+                    "rating": -1,
+                    "ratingType": "Signage",
+                  }
+                }
+                onClickRatingListItem={[Function]}
+                width={200}
+              />,
+              <RatingListItem
+                data={
+                  Object {
+                    "comment": null,
+                    "rating": -1,
+                    "ratingType": "Transport",
+                  }
+                }
+                onClickRatingListItem={[Function]}
+                width={200}
+              />,
+              <RatingListItem
+                data={
+                  Object {
+                    "comment": null,
+                    "rating": -1,
+                    "ratingType": "Wheelchair access",
+                  }
+                }
+                onClickRatingListItem={[Function]}
+                width={200}
+              />,
+            ],
+            <div
+              className="ButtonPane"
+            >
+              <FlatButton
+                className="FeedbackButton"
+                disabled={true}
+                label="Submit"
+                onClick={[Function]}
+              />
+              <div
+                className="Separator"
+              />
+              <FlatButton
+                className="FeedbackButton"
+                disabled={true}
+                label="Delete"
+                onClick={[Function]}
+              />
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "ratingListItem#0",
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "comment": null,
+                "rating": -1,
+                "ratingType": "Signage",
+              },
+              "onClickRatingListItem": [Function],
+              "width": 200,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "ratingListItem#1",
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "comment": null,
+                "rating": -1,
+                "ratingType": "Transport",
+              },
+              "onClickRatingListItem": [Function],
+              "width": 200,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "ratingListItem#2",
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "comment": null,
+                "rating": -1,
+                "ratingType": "Wheelchair access",
+              },
+              "onClickRatingListItem": [Function],
+              "width": 200,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <FlatButton
+                  className="FeedbackButton"
+                  disabled={true}
+                  label="Submit"
+                  onClick={[Function]}
+                />,
+                <div
+                  className="Separator"
+                />,
+                <FlatButton
+                  className="FeedbackButton"
+                  disabled={true}
+                  label="Delete"
+                  onClick={[Function]}
+                />,
+              ],
+              "className": "ButtonPane",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "className": "FeedbackButton",
+                  "disabled": true,
+                  "label": "Submit",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "Separator",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "className": "FeedbackButton",
+                  "disabled": true,
+                  "label": "Delete",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      null,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div>
+            <RatingListItem
+              data={
+                Object {
+                  "comment": null,
+                  "rating": -1,
+                  "ratingType": "Signage",
+                }
+              }
+              onClickRatingListItem={[Function]}
+              width={200}
+            />
+            <RatingListItem
+              data={
+                Object {
+                  "comment": null,
+                  "rating": -1,
+                  "ratingType": "Transport",
+                }
+              }
+              onClickRatingListItem={[Function]}
+              width={200}
+            />
+            <RatingListItem
+              data={
+                Object {
+                  "comment": null,
+                  "rating": -1,
+                  "ratingType": "Wheelchair access",
+                }
+              }
+              onClickRatingListItem={[Function]}
+              width={200}
+            />
+            <div
+              className="ButtonPane"
+            >
+              <FlatButton
+                className="FeedbackButton"
+                disabled={true}
+                label="Submit"
+                onClick={[Function]}
+              />
+              <div
+                className="Separator"
+              />
+              <FlatButton
+                className="FeedbackButton"
+                disabled={true}
+                label="Delete"
+                onClick={[Function]}
+              />
+            </div>
+          </div>,
+          null,
+        ],
+        "className": "ProvideFeedbackPane",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              Array [
+                <RatingListItem
+                  data={
+                    Object {
+                      "comment": null,
+                      "rating": -1,
+                      "ratingType": "Signage",
+                    }
+                  }
+                  onClickRatingListItem={[Function]}
+                  width={200}
+                />,
+                <RatingListItem
+                  data={
+                    Object {
+                      "comment": null,
+                      "rating": -1,
+                      "ratingType": "Transport",
+                    }
+                  }
+                  onClickRatingListItem={[Function]}
+                  width={200}
+                />,
+                <RatingListItem
+                  data={
+                    Object {
+                      "comment": null,
+                      "rating": -1,
+                      "ratingType": "Wheelchair access",
+                    }
+                  }
+                  onClickRatingListItem={[Function]}
+                  width={200}
+                />,
+              ],
+              <div
+                className="ButtonPane"
+              >
+                <FlatButton
+                  className="FeedbackButton"
+                  disabled={true}
+                  label="Submit"
+                  onClick={[Function]}
+                />
+                <div
+                  className="Separator"
+                />
+                <FlatButton
+                  className="FeedbackButton"
+                  disabled={true}
+                  label="Delete"
+                  onClick={[Function]}
+                />
+              </div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "ratingListItem#0",
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "comment": null,
+                  "rating": -1,
+                  "ratingType": "Signage",
+                },
+                "onClickRatingListItem": [Function],
+                "width": 200,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "ratingListItem#1",
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "comment": null,
+                  "rating": -1,
+                  "ratingType": "Transport",
+                },
+                "onClickRatingListItem": [Function],
+                "width": 200,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "ratingListItem#2",
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "comment": null,
+                  "rating": -1,
+                  "ratingType": "Wheelchair access",
+                },
+                "onClickRatingListItem": [Function],
+                "width": 200,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <FlatButton
+                    className="FeedbackButton"
+                    disabled={true}
+                    label="Submit"
+                    onClick={[Function]}
+                  />,
+                  <div
+                    className="Separator"
+                  />,
+                  <FlatButton
+                    className="FeedbackButton"
+                    disabled={true}
+                    label="Delete"
+                    onClick={[Function]}
+                  />,
+                ],
+                "className": "ButtonPane",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "className": "FeedbackButton",
+                    "disabled": true,
+                    "label": "Submit",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "Separator",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "className": "FeedbackButton",
+                    "disabled": true,
+                    "label": "Delete",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        null,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Unit tests FeedbackViewPane renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FeedbackViewPane
+    service={
+      Object {
+        "catchment": "Carlton",
+        "description": "A housing service for people.",
+        "eligibility_info": "",
+        "emails": Array [],
+        "feedback": Object {
+          "id": "1",
+          "overAllCount": 607,
+          "overAllRating": 2.100937117940661,
+          "ratings": Array [
+            Object {
+              "count": "644",
+              "rating": 2.0574534161490683,
+              "ratingType": "Signage",
+            },
+            Object {
+              "count": "343",
+              "rating": 2.110787172011662,
+              "ratingType": "Transport",
+            },
+            Object {
+              "count": "431",
+              "rating": 2.1345707656612527,
+              "ratingType": "Wheelchair access",
+            },
+          ],
+        },
+        "id": 111,
+        "ineligibility_info": "",
+        "location": Object {
+          "point": Object {
+            "lat": -37.8228,
+            "lon": 144.998,
+          },
+          "suburb": "Richmond",
+        },
+        "name": "Housing Service",
+        "now_open": Object {
+          "now_open": false,
+        },
+        "opening_hours": Array [],
+        "phones": Array [],
+        "service_type": Array [
+          "Housing Service",
+        ],
+        "site": Object {
+          "id": 111,
+          "name": "My Housing Service",
+        },
+        "web": null,
+      }
+    }
+    width={200}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div>
+          <RatingListItem
+            data={
+              Object {
+                "count": "644",
+                "rating": 2.0574534161490683,
+                "ratingType": "Signage",
+              }
+            }
+            disabled={true}
+            width={200}
+          />
+          <RatingListItem
+            data={
+              Object {
+                "count": "343",
+                "rating": 2.110787172011662,
+                "ratingType": "Transport",
+              }
+            }
+            disabled={true}
+            width={200}
+          />
+          <RatingListItem
+            data={
+              Object {
+                "count": "431",
+                "rating": 2.1345707656612527,
+                "ratingType": "Wheelchair access",
+              }
+            }
+            disabled={true}
+            width={200}
+          />
+          <div
+            className="OverallStarHeading"
+          >
+            Overall: 2.10
+          </div>
+          <div
+            className="RatingNumHeading"
+          >
+            607 ratings
+          </div>
+          <div
+            className="OverallStarBlock"
+          >
+            <div
+              className="OverallStar"
+            >
+              <Star
+                rating={2.100937117940661}
+                starDimension="33px"
+                starSpacing="3px"
+              />
+            </div>
+          </div>
+        </div>,
+        <div
+          className="ButtonPane"
+        >
+          <FlatButton
+            className="FeedbackButton"
+            label="Provide Your Feedback"
+            onClick={[Function]}
+          />
+        </div>,
+      ],
+      "className": "ViewFeedbackPane",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            Array [
+              <RatingListItem
+                data={
+                  Object {
+                    "count": "644",
+                    "rating": 2.0574534161490683,
+                    "ratingType": "Signage",
+                  }
+                }
+                disabled={true}
+                width={200}
+              />,
+              <RatingListItem
+                data={
+                  Object {
+                    "count": "343",
+                    "rating": 2.110787172011662,
+                    "ratingType": "Transport",
+                  }
+                }
+                disabled={true}
+                width={200}
+              />,
+              <RatingListItem
+                data={
+                  Object {
+                    "count": "431",
+                    "rating": 2.1345707656612527,
+                    "ratingType": "Wheelchair access",
+                  }
+                }
+                disabled={true}
+                width={200}
+              />,
+            ],
+            <div
+              className="OverallStarHeading"
+            >
+              Overall: 2.10
+            </div>,
+            <div
+              className="RatingNumHeading"
+            >
+              607 ratings
+            </div>,
+            <div
+              className="OverallStarBlock"
+            >
+              <div
+                className="OverallStar"
+              >
+                <Star
+                  rating={2.100937117940661}
+                  starDimension="33px"
+                  starSpacing="3px"
+                />
+              </div>
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "count": "644",
+                "rating": 2.0574534161490683,
+                "ratingType": "Signage",
+              },
+              "disabled": true,
+              "width": 200,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "count": "343",
+                "rating": 2.110787172011662,
+                "ratingType": "Transport",
+              },
+              "disabled": true,
+              "width": 200,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "count": "431",
+                "rating": 2.1345707656612527,
+                "ratingType": "Wheelchair access",
+              },
+              "disabled": true,
+              "width": 200,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Overall: 2.10",
+              "className": "OverallStarHeading",
+            },
+            "ref": null,
+            "rendered": "Overall: 2.10",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "607 ratings",
+              "className": "RatingNumHeading",
+            },
+            "ref": null,
+            "rendered": "607 ratings",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                null,
+                <div
+                  className="OverallStar"
+                >
+                  <Star
+                    rating={2.100937117940661}
+                    starDimension="33px"
+                    starSpacing="3px"
+                  />
+                </div>,
+                null,
+              ],
+              "className": "OverallStarBlock",
+            },
+            "ref": null,
+            "rendered": Array [
+              null,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Star
+                    rating={2.100937117940661}
+                    starDimension="33px"
+                    starSpacing="3px"
+                  />,
+                  "className": "OverallStar",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "rating": 2.100937117940661,
+                    "starDimension": "33px",
+                    "starSpacing": "3px",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+              null,
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <FlatButton
+            className="FeedbackButton"
+            label="Provide Your Feedback"
+            onClick={[Function]}
+          />,
+          "className": "ButtonPane",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "FeedbackButton",
+            "label": "Provide Your Feedback",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div>
+            <RatingListItem
+              data={
+                Object {
+                  "count": "644",
+                  "rating": 2.0574534161490683,
+                  "ratingType": "Signage",
+                }
+              }
+              disabled={true}
+              width={200}
+            />
+            <RatingListItem
+              data={
+                Object {
+                  "count": "343",
+                  "rating": 2.110787172011662,
+                  "ratingType": "Transport",
+                }
+              }
+              disabled={true}
+              width={200}
+            />
+            <RatingListItem
+              data={
+                Object {
+                  "count": "431",
+                  "rating": 2.1345707656612527,
+                  "ratingType": "Wheelchair access",
+                }
+              }
+              disabled={true}
+              width={200}
+            />
+            <div
+              className="OverallStarHeading"
+            >
+              Overall: 2.10
+            </div>
+            <div
+              className="RatingNumHeading"
+            >
+              607 ratings
+            </div>
+            <div
+              className="OverallStarBlock"
+            >
+              <div
+                className="OverallStar"
+              >
+                <Star
+                  rating={2.100937117940661}
+                  starDimension="33px"
+                  starSpacing="3px"
+                />
+              </div>
+            </div>
+          </div>,
+          <div
+            className="ButtonPane"
+          >
+            <FlatButton
+              className="FeedbackButton"
+              label="Provide Your Feedback"
+              onClick={[Function]}
+            />
+          </div>,
+        ],
+        "className": "ViewFeedbackPane",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              Array [
+                <RatingListItem
+                  data={
+                    Object {
+                      "count": "644",
+                      "rating": 2.0574534161490683,
+                      "ratingType": "Signage",
+                    }
+                  }
+                  disabled={true}
+                  width={200}
+                />,
+                <RatingListItem
+                  data={
+                    Object {
+                      "count": "343",
+                      "rating": 2.110787172011662,
+                      "ratingType": "Transport",
+                    }
+                  }
+                  disabled={true}
+                  width={200}
+                />,
+                <RatingListItem
+                  data={
+                    Object {
+                      "count": "431",
+                      "rating": 2.1345707656612527,
+                      "ratingType": "Wheelchair access",
+                    }
+                  }
+                  disabled={true}
+                  width={200}
+                />,
+              ],
+              <div
+                className="OverallStarHeading"
+              >
+                Overall: 2.10
+              </div>,
+              <div
+                className="RatingNumHeading"
+              >
+                607 ratings
+              </div>,
+              <div
+                className="OverallStarBlock"
+              >
+                <div
+                  className="OverallStar"
+                >
+                  <Star
+                    rating={2.100937117940661}
+                    starDimension="33px"
+                    starSpacing="3px"
+                  />
+                </div>
+              </div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "count": "644",
+                  "rating": 2.0574534161490683,
+                  "ratingType": "Signage",
+                },
+                "disabled": true,
+                "width": 200,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "count": "343",
+                  "rating": 2.110787172011662,
+                  "ratingType": "Transport",
+                },
+                "disabled": true,
+                "width": 200,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "count": "431",
+                  "rating": 2.1345707656612527,
+                  "ratingType": "Wheelchair access",
+                },
+                "disabled": true,
+                "width": 200,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Overall: 2.10",
+                "className": "OverallStarHeading",
+              },
+              "ref": null,
+              "rendered": "Overall: 2.10",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "607 ratings",
+                "className": "RatingNumHeading",
+              },
+              "ref": null,
+              "rendered": "607 ratings",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  null,
+                  <div
+                    className="OverallStar"
+                  >
+                    <Star
+                      rating={2.100937117940661}
+                      starDimension="33px"
+                      starSpacing="3px"
+                    />
+                  </div>,
+                  null,
+                ],
+                "className": "OverallStarBlock",
+              },
+              "ref": null,
+              "rendered": Array [
+                null,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Star
+                      rating={2.100937117940661}
+                      starDimension="33px"
+                      starSpacing="3px"
+                    />,
+                    "className": "OverallStar",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "rating": 2.100937117940661,
+                      "starDimension": "33px",
+                      "starSpacing": "3px",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": "div",
+                },
+                null,
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <FlatButton
+              className="FeedbackButton"
+              label="Provide Your Feedback"
+              onClick={[Function]}
+            />,
+            "className": "ButtonPane",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "FeedbackButton",
+              "label": "Provide Your Feedback",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Unit tests RatingListItem renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RatingListItem
+    data={
+      Object {
+        "count": "644",
+        "rating": 2.0574534161490683,
+        "ratingType": "Signage",
+      }
+    }
+    disabled={false}
+    onClickRatingListItem={[Function]}
+    width={200}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="RatingListItemIcon"
+        >
+          <SvgIconAccessibility
+            aria-label="signage"
+            className="ColoredIcon"
+            iconType="signage"
+          />
+        </div>,
+        <div
+          className="RatingListItemText"
+        >
+          Signage
+        </div>,
+        <div
+          className="RatingListItemStar"
+        >
+          <div>
+            2.06  
+            <Star
+              rating={2.0574534161490683}
+              starDimension="24px"
+              starSpacing="1px"
+            />
+          </div>
+        </div>,
+        <div
+          className="RatingListItemChevron"
+        >
+          <SvgIconChevron />
+        </div>,
+      ],
+      "className": "RatingListItem plain-text",
+      "onClick": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <SvgIconAccessibility
+            aria-label="signage"
+            className="ColoredIcon"
+            iconType="signage"
+          />,
+          "className": "RatingListItemIcon",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "aria-label": "signage",
+            "className": "ColoredIcon",
+            "iconType": "signage",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Signage",
+          "className": "RatingListItemText",
+        },
+        "ref": null,
+        "rendered": "Signage",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div>
+            2.06  
+            <Star
+              rating={2.0574534161490683}
+              starDimension="24px"
+              starSpacing="1px"
+            />
+          </div>,
+          "className": "RatingListItemStar",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "2.06  ",
+              <Star
+                rating={2.0574534161490683}
+                starDimension="24px"
+                starSpacing="1px"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "2.06  ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "rating": 2.0574534161490683,
+                "starDimension": "24px",
+                "starSpacing": "1px",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <SvgIconChevron />,
+          "className": "RatingListItemChevron",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="RatingListItemIcon"
+          >
+            <SvgIconAccessibility
+              aria-label="signage"
+              className="ColoredIcon"
+              iconType="signage"
+            />
+          </div>,
+          <div
+            className="RatingListItemText"
+          >
+            Signage
+          </div>,
+          <div
+            className="RatingListItemStar"
+          >
+            <div>
+              2.06  
+              <Star
+                rating={2.0574534161490683}
+                starDimension="24px"
+                starSpacing="1px"
+              />
+            </div>
+          </div>,
+          <div
+            className="RatingListItemChevron"
+          >
+            <SvgIconChevron />
+          </div>,
+        ],
+        "className": "RatingListItem plain-text",
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <SvgIconAccessibility
+              aria-label="signage"
+              className="ColoredIcon"
+              iconType="signage"
+            />,
+            "className": "RatingListItemIcon",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "aria-label": "signage",
+              "className": "ColoredIcon",
+              "iconType": "signage",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Signage",
+            "className": "RatingListItemText",
+          },
+          "ref": null,
+          "rendered": "Signage",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div>
+              2.06  
+              <Star
+                rating={2.0574534161490683}
+                starDimension="24px"
+                starSpacing="1px"
+              />
+            </div>,
+            "className": "RatingListItemStar",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "2.06  ",
+                <Star
+                  rating={2.0574534161490683}
+                  starDimension="24px"
+                  starSpacing="1px"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "2.06  ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "rating": 2.0574534161490683,
+                  "starDimension": "24px",
+                  "starSpacing": "1px",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <SvgIconChevron />,
+            "className": "RatingListItemChevron",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
