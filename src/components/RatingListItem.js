@@ -8,6 +8,13 @@ class RatingListItem extends React.Component {
 
     minimalWidthForRatingListItemText = 400;
 
+    props: {
+        width: number,
+        data: object,
+        disabled: boolean,
+        onClickRatingListItem: () => void
+    }
+
     constructor(props) {
         super(props);
     }
