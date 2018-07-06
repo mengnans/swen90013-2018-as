@@ -11,8 +11,11 @@ import DebugQueryScore from "./DebugQueryScore";
 import DebugServiceRecord from "./DebugServiceRecord";
 
 import LinkListItem from "./LinkListItem";
+import Accessibility from "./Accessibility";
 import OpeningTimes from "./OpeningTimes";
+import Ndis from "./Ndis";
 import TransportTime from "./TransportTime";
+import FeedbackItem from './FeedbackItem';
 import sendEvent from "../google-tag-manager";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import { titleize } from "underscore.string";
@@ -80,6 +83,13 @@ class ResultListItem extends React.Component {
             object,
         } = this.props;
 
+        // TODO: random rating, test-only
+        const min = 0;
+        const max = 3;
+        const rating = Math.random() * (max - min);
+        const starSpacing = '5px';
+        const starDimension = '32px';
+
         return (
             <LinkListItem
                 className="plain-text ResultListItem"
@@ -91,18 +101,34 @@ class ResultListItem extends React.Component {
                 {this.renderLocation(object.Location())}
 
                 <h2 className="name">
-                    <IndigenousServiceIcon object={object} />
                     {object.name}
                 </h2>
-                <div className="site_name">{object.site.name}</div>
+                <div className="site_name">
+                    {object.site.name}
+                    <Ndis
+                        className="ndis"
+                        compact={true}
+                        object={object}
+                    />
+                </div>
+
                 <OpeningTimes
                     className="opening_hours"
                     object={object.open}
                 />
+                <Accessibility object={object} />
                 <TransportTime
                     compact={true}
                     location={object.Location()}
                 />
+                <FeedbackItem
+                    rating={rating}
+                    starSpacing={starSpacing}
+                    starDimension={starDimension}
+                    compact={true}
+                />
+
+                <IndigenousServiceIcon object={object} />
                 {this.props.nServiceProvisions > 0 ?
                     <div>
                         <ul className="related">{

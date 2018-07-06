@@ -1,24 +1,45 @@
+$appbar-height: 44px;
+$colour-red: #b30000;
+$brand-bg-dark: #363e43;
+$colour-grey: #f8f9f9;
 
 .HomePage {
-    .HeaderBar {
-        text-align: center;
 
-        @media ($tablet) {
-            text-align: left;
-        }
+    .HeaderBar {
+        text-align: left;
+
 
         .primary {
-            @media ($tablet) {
-                padding-top: 20px;
-                float: left;
-            }
-
-            padding-top: 12px;
+            height: 0;
+            padding-top: 5px;
+            font-size: 20px;
+            text-align: center;
         }
 
         .secondary {
             display: none;
         }
+
+        .homepage-logo {
+            display: block;
+            width: 250px;
+            margin-top: 10px;
+            margin-right: auto;
+            margin-left: auto;
+            padding-bottom: 20px;
+
+            @media only screen and (max-width: 375px) {
+                width: 230px;
+                margin-top: -10px;
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+    .header a {
+        color: $white;
+        font-size: 15px;
+        text-decoration: none;
     }
 
     .branding-container {
@@ -27,10 +48,6 @@
         color: $white;
         text-align: center;
 
-        @media ($tablet) {
-            text-align: left;
-        }
-
         .logo {
             width: auto;
             padding-top: 2px;
@@ -38,7 +55,6 @@
             @media ($tablet) {
                 display: inline-block;
                 padding-left: 20px;
-                text-align: left;
             }
         }
 
@@ -70,15 +86,12 @@
     }
 
     .search {
-        position: relative;
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
+        padding-right: 15px;
         padding-bottom: 15px;
+        padding-left: 15px;
 
-        @media ($tablet) {
-            width: 60%;
-            padding-top: 15px;
-            float: right;
-        }
 
         .searchWrapper {
             display: flex;
@@ -125,5 +138,133 @@
             }
         }
 
+    }
+
+    // Quick Exit button 
+
+    .desktop {
+        position: fixed;
+        min-width: 800px;
+        height: $appbar-height;
+        z-index: 99;
+    }
+
+    .quick-exit-right {
+        position: relative;
+        min-width: 85%;
+        height: $appbar-height;
+        float: left;
+        background-color: $brand-bg-dark;
+    }
+
+    .quick-exit-left {
+        position: relative;
+        min-width: 15%;
+        height: $appbar-height - 10;
+        padding-top: 10px;
+        float: right;
+        background-color: $colour-red;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .qexit-txtleft {
+        position: relative;
+        width: 70%;
+        height: $appbar-height - 20;
+        float: left;
+        background-color: $brand-bg-dark;
+        z-index: 99;
+    }
+
+    .qexit-txtright {
+        position: relative;
+        width: 30%;
+        height: $appbar-height - 22;
+        padding-top: 2px;
+        float: right;
+        background-color: $colour-red;
+        text-align: center;
+        z-index: 99;
+    }
+
+
+    .left-width {
+        width: 75%;
+    }
+
+    .right-width {
+        min-width: 25%;
+    }
+
+    .quick-exit-img {
+        position: fixed;
+        width: 100%;
+        max-width: 800px;
+        z-index: 99;
+    }
+
+
+    /* if desktop */
+    .mobile_device {
+        display: none;
+    }
+
+    /* mobile device (max width is 320px) */
+    @media only screen and (max-device-width: 320px) {
+        .mobile_device {
+            display: block;
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+        }
+
+        .left-width {
+            width: 70%;
+          }
+
+        .right-width {
+            min-width: 30%;
+        }
+
+        .desktop {display: none;}
+    }
+
+    /* mobile device (max width is 480px) */
+    @media only screen and (min-device-width: 321px) and (max-device-width: 480px) {
+        .mobile_device {
+            display: block;
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+        }
+
+        .mobile_device img {
+            width: 30px;
+            height: 30px;
+            float: right;
+            background-color: $colour-red;
+        }
+
+        .desktop {display: none;}
+    }
+
+    /* mobile device (max width is 736px) */
+    @media only screen and (max-device-width: 768px) {
+        .mobile_device {
+            display: block;
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+        }
+
+        .mobile_device img {
+            width: 35px;
+            height: 35px;
+            float: right;
+            background-color: $colour-red;
+        }
+   
+        .desktop {display: none;}
     }
 }

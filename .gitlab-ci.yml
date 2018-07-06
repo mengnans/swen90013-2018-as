@@ -26,9 +26,13 @@ feature-test:
     stage: test
     script: make feature-test
 
-search-test:
+maps-test:
     stage: test
-    script: make search-test
+    script: make maps-test
+
+personalisation-test:
+    stage: test
+    script: make personalisation-test
 
 # Deploy to test environment when tagged
 deploy:

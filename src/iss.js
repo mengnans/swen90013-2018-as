@@ -7,7 +7,7 @@
 
 import xhr from "axios";
 import url from "url";
-import { slugify } from "underscore.string";
+import {slugify} from "underscore.string";
 import _ from "underscore";
 import lru from "lru-cache";
 
@@ -43,7 +43,7 @@ export type searchRequest = {
     age_group?: Array<string>,
     client_gender?: Array<string>,
 
-    catchment?: "prefer"|"true"|"false",
+    catchment?: "prefer" | "true" | "false",
     is_bulk_billing?: boolean,
     healthcare_card_holders?: boolean,
 
@@ -245,14 +245,14 @@ async function attachTransportTimes(
 
     if (typeof maps.travelTime == 'function') {
         let service: ?Service; // eslint-disable-line no-unused-vars
-        let travelTimes = await Timeout(1000, maps.travelTime(services
+        let travelTimes = await Timeout(3000, maps.travelTime(services
             .filter((service) => !service.Location().isConfidential())
             // flow:disable isConfidential checks location.point
             .map(({location}) => formatPoint(location.point))
         ));
 
         services.filter((service) => !service.Location().isConfidential())
-            // eslint-disable-next-line no-return-assign
+        // eslint-disable-next-line no-return-assign
             .map((service) => service.travelTime = travelTimes.shift());
     }
 
@@ -351,21 +351,16 @@ export class Service {
     }
 
     Indigenous(): boolean {
-        /* eslint-disable max-len */
-        const words = [
-            "Aborigines?",
-            "Aboriginals?",
-            "Kooris?",
-            "Indigenous?",
-            "Torres Strait Islanders?",
-            "Murris?",
-        ].join("|");
-        const regex = new RegExp(`\\b(${words})\\b`, "i");
-        const match = this.description.match(regex) ||
-               this.name.match(regex) ||
-               this.site.name.match(regex);
+        if (this.indigenous_classification) {
+            let classification = this.indigenous_classification;
 
-        return !!match;
+            return (classification ==
+                'Mainstream who cater for Aboriginal (indigenous)') ||
+                   classification == 'Aboriginal (indigenous) specific';
+        }
+
+        return false;
+
     }
 
     abn: string;
@@ -592,6 +587,53 @@ export async function getService(
     return service;
 }
 
+export async function getFeedback(
+    id: number
+): Object {
+    // TODO: remove fake id
+    id = 1;
+
+    // TODO: add cache here
+
+    // let feedbackServerURL = "http://localhost:3000";
+    let feedbackServerURL = "http://144.6.226.112/api";
+
+    return await fetch(`${feedbackServerURL}/api/v3/service/${id}/feedback`, {
+        method: 'GET',
+    }).then((response) => {
+        return response.json();
+    }).then(feedback => {
+        return feedback;
+    });
+
+}
+
+export async function provideFeedback(
+    id: number, feedbackJson
+): Object {
+    // TODO: remove fake id
+    id = 1;
+
+    // TODO: add cache here
+
+    // let feedbackServerURL = "http://localhost:3000";
+    let feedbackServerURL = "http://144.6.226.112/api";
+
+    return await fetch(`${feedbackServerURL}/api/v3/service/${id}/feedback`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(feedbackJson),
+    }).then((response) => {
+        return response.json();
+    }).then(response => {
+        return response;
+    });
+
+
+}
+
 export function countCrisisResults(results: Array<Service>): number {
     const firstRegularServiceIdx = results.findIndex(
         ({crisis}) => !crisis
@@ -623,6 +665,8 @@ export function nonCrisisResults(results: Array<Service>): Array<Service> {
 export default {
     search: search,
     getService: getService,
+    getFeedback: getFeedback,
+    provideFeedback: provideFeedback,
     request: request,
     requestObjects: requestObjects,
     Service: Service,

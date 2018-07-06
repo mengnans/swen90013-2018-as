@@ -3,11 +3,11 @@ $brand-bg-dark:        #363e43;
 $brand-bg-mid:         #767676;
 $brand-bg-light:       #edece9;
 
-$brand-pane-alt-dark:  #a21e78;
+$brand-pane-alt-dark:  #4d13af;
 $brand-pane-alt-light: #3ed1d3; /* N.B. not enough contrast with white */
 $brand-pane-alt-light-translucent: rgba(62, 209, 211, 0.3);
 
-$brand-highlight:      #e52d4f;
+$brand-highlight:      #b30000;
 
 $brand-spacer:         #c2c1be;
 
@@ -15,7 +15,9 @@ $brand-text-dark:      #363e43;
 $brand-text-mid:       $brand-bg-mid;
 $brand-text-light:     #d1d1d1;
 
-$brand-error:          #e52d4f;
+$brand-error:          $brand-highlight;
+
+$black-banner-rgba:		rgba(0, 0, 0, 0.2);
 
 $icon-fg-color: $brand-pane-alt-dark;
 $interactive-icon: $brand-text-mid;
@@ -23,6 +25,7 @@ $interactive-icon: $brand-text-mid;
 $list-item-hairline: $brand-bg-light;
 
 $link-text-color: $brand-pane-alt-dark;
+$text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
 
 $black: #000000;
 $white: #ffffff;
@@ -31,7 +34,7 @@ $census-brand-color: #c5d604;
 
 a,
 .link-color {
-    color: $link-text-color;
+    color: $brand-pane-alt-dark;
 }
 
 :focus {

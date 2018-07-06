@@ -7,7 +7,6 @@ import _ from "underscore";
 
 import Personalisation from "../../mixins/Personalisation";
 import HeaderBar from "../../components/HeaderBar";
-import LogoWithShadow from "../../components/LogoWithShadow";
 import InputListItem from "../../components/InputListItem";
 import FlatButton from "../../components/FlatButton";
 
@@ -158,6 +157,18 @@ class BaseQuestion extends React.Component {
         storage.setItem(this.props.name, this.selected || "(skipped)");
     }
 
+    iconFor(answer: string): ?React$Element<*> {
+        if (this.props.icons && this.props.icons[answer]) {
+            const Icon = this.props.icons[answer];
+
+            return (
+                <Icon
+                    className="ColoredIcon small icon-fg-color"
+                />
+            );
+        }
+    }
+
     onAnswerTouchTap(answer: string, ...rest: any): void {
         this.setState({selected: answer});
         this.triggerNext();
@@ -165,24 +176,37 @@ class BaseQuestion extends React.Component {
 
     render(): React$Element<*> {
         const selected = this.selected;
+        let bannerName = "";
+
+        try {
+            bannerName = this.context.controller.props.params.page;
+        } catch (err) {
+            // continue with no banner
+        }
+
+        if (this.props.name === "sub-indigenous") {
+            bannerName = "atsi";
+        }
 
         return (
             <div>
                 <HeaderBar
                     primaryText={
                         <div>
-                            <LogoWithShadow />
                             {this.props.question}
                         </div>
                     }
                     secondaryText={
                         this.props.byline
                     }
+                    bannerName={bannerName}
+                    alternateBackgroundColor={false}
                 />
                 <div className="List">
                 {this.answers.map((answer, index) =>
                     <InputListItem
                         key={index}
+                        leftIcon={this.iconFor(answer)}
                         primaryText={answer}
 
                         type="radio"

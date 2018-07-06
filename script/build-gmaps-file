@@ -5,7 +5,7 @@
 # The google maps file replacements has been moved to nginx + clientside replacements
 # The google analytics file remains here for the time being.
 
-declare -A proxy_domains=(
+declare -a proxy_domains=(
 	["gmaps"]="maps.googleapis.com"
 	["gmaps-static"]="maps.gstatic.com"
 	["gcsi-static"]="csi.gstatic.com"
@@ -15,7 +15,7 @@ declare -A proxy_domains=(
 	["google-analytics"]="www.google-analytics.com"
 )
 
-declare -A proxy_dev_domains=(
+declare -a proxy_dev_domains=(
 	["gmaps"]="gmaps.docker.dev"
 	["gmaps-static"]="gmaps-static.docker.dev"
 	["gcsi-static"]="gcsi-static.docker.dev"
@@ -25,7 +25,7 @@ declare -A proxy_dev_domains=(
 	["google-analytics"]="google-analytics.docker.dev"
 )
 
-declare -A proxy_prod_domains=(
+declare -a proxy_prod_domains=(
 	["gmaps"]="gmaps.askizzy.org.au"
 	["gmaps-static"]="gmaps-static.askizzy.org.au"
 	["gcsi-static"]="gcsi-static.askizzy.org.au"
@@ -85,14 +85,22 @@ else
     $GA_FETCH_URL
 fi
 
+SED_CMD="sed"
+
+# Fix for MacOS, Mac Sed sucks so we have to tell the system to use
+# gnu-sed instead.
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	SED_CMD="gsed"
+fi
+
 for var in "${!proxy_domains[@]}"
 do
 	if [ "$ENVIRONMENT" = "prod" ] || [ "$ENVIRONMENT" = "staging"  ]; then
-		sed -r -i -e \
+		$SED_CMD -r -i -e \
 		"s/${proxy_domains[$var]}/${proxy_prod_domains[$var]}/gi" \
 		./public/static/analytics.js
 	else
-		sed -r -i -e \
+		$SED_CMD -r -i -e \
 		"s/${proxy_domains[$var]}/${proxy_dev_domains[$var]}/gi" \
 		./public/static/analytics.js
 	fi

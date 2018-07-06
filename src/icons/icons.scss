@@ -34,8 +34,10 @@ svg.Icon {
     }
 
     &.small {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+        horizontal-align: middle;
     }
 
     &.big {
@@ -108,6 +110,12 @@ svg.Icon {
         stroke: $census-brand-color;
         stroke-width: 8;
     }
+}
+
+
+svg.Icon.DemographicAtsiIcon {
+    width: 42px;
+    height: 42px;
 }
 
 .LoadingIcon {

@@ -5,7 +5,12 @@
 set -euo pipefail
 
 IFS=$'\n\t'
-PATH=`npm bin`:$PATH
+
+if [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]]; then
+    PATH=$(echo "/$(npm bin)" | sed 's/\\/\//g' | sed 's/://'):$PATH
+else
+	PATH=`npm bin`:$PATH
+fi
 
 export NODE_ENV=development
 export DEBUG=web

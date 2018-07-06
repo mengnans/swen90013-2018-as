@@ -8,26 +8,32 @@ import sendEvent from "../google-tag-manager";
 import ServiceFactory from "../../fixtures/factories/Service";
 
 import Address from "./Address";
+import Accessibility from "./Accessibility";
 import CollapsedOpeningTimes from "./CollapsedOpeningTimes";
 import Collapser from "./Collapser";
 import ContactMethods from "./ContactMethods";
 import DebugServiceRecord from "./DebugServiceRecord";
 import Eligibility from "./Eligibility";
+import Feedback from "./Feedback";
+import HeaderBar from "./HeaderBar";
 import TransportTime from "./TransportTime";
 import GoogleMapsLink from "./GoogleMapsLink";
+import Ndis from "./Ndis";
 import Spacer from "./Spacer";
 import LinkListItem from "./LinkListItem";
 import BoxedText from "./BoxedText";
-import BoxedTextDivider from "./BoxedTextDivider";
 import Chevron from "../icons/Chevron";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import type {Service} from "../iss";
+import FeedbackItem from "./FeedbackItem";
+import classnames from "classnames";
+import FlatButton from "./FlatButton";
 
 export default class ServicePane extends React.Component {
     props: {
         service: Service,
     };
-    state: {siblings: ?Array<Service>};
+    state: { siblings: ?Array<Service> };
 
     constructor(props: Object) {
         super(props);
@@ -46,9 +52,15 @@ export default class ServicePane extends React.Component {
         }
     }
 
-    static sampleProps = {default: {
-        service: ServiceFactory(fixtures.youthSupportNet),
-    }};
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired,
+    };
+
+    static sampleProps = {
+        default: {
+            service: ServiceFactory(fixtures.youthSupportNet),
+        }
+    };
 
     async getSiblingServices(): Promise<void> {
         let response = await this.props.service.getSiblingServices();
@@ -71,16 +83,44 @@ export default class ServicePane extends React.Component {
         });
     }
 
+    goToFeedbackPage(): void {
+        let path = "/service/";
+
+        path += this.props.service.slug;
+        path += "/feedback";
+        this.context.router.push(
+            path
+        )
+    }
+
+    goToFeedbackViewPage(): void {
+        let path = "/service/";
+
+        path += this.props.service.slug;
+        path += "/feedback/view";
+        this.context.router.push(
+            path
+        )
+    }
+
+
     render() {
         const object = this.props.service;
+        const starSpacing = '3px';
+        const starDimension = '28px';
 
         return (
             <div className="ServicePane">
+                <HeaderBar
+                    primaryText={object.name}
+                    secondaryText={null}
+                    bannerName="housing"
+                    alternateBackgroundColor={false}
+                />
                 <div className="header">
-                    <h2 className="name">
+                    <p>
                         <IndigenousServiceIcon object={object} />
-                        {object.name}
-                    </h2>
+                    </p>
                     <h3 className="description">
                         {object.shortDescription.map((sentence, idx) =>
                             <p key={idx}>{sentence}</p>
@@ -98,7 +138,6 @@ export default class ServicePane extends React.Component {
 
                 </div>
 
-                <BoxedTextDivider />
 
                 <BoxedText>
                     <div className="practicalities-container">
@@ -106,18 +145,44 @@ export default class ServicePane extends React.Component {
                             object={object.open}
                             serviceId={object.id}
                         />
-                        <Spacer />
+                        <Spacer/>
 
+                        <div
+                            className=
+                                {classnames("GoogleMapsLink", "plain-text", "FeedbackItem")}
+                            onClick={this.goToFeedbackViewPage.bind(this)}
+                        >
+                            <FeedbackItem
+                                rating={object.feedback.overAllRating}
+                                starDimension={starDimension}
+                                starSpacing={starSpacing}
+                                numberOfStars={3}
+                                numberOfRatings={object.feedback.overAllCount}
+                            />
+                        </div>
+
+                        <Spacer/>
+
+                        <Accessibility object={object} />
+                        <Spacer />
+                        <Ndis
+                            className="ndis"
+                            compact={false}
+                            object={object}
+                            spacer={true}
+                        />
                         <GoogleMapsLink
                             className="plain-text"
                             to={object.Location()}
                         >
-                            <Address location={object.Location()} />
+                            <Address location={object.Location()}/>
                             <TransportTime location={object.Location()}/>
                         </GoogleMapsLink>
 
                         <Spacer />
                         <ContactMethods object={object} />
+                        <Spacer />
+                        <Feedback object={object} />
                     </div>
                 </BoxedText>
 
@@ -151,7 +216,7 @@ export default class ServicePane extends React.Component {
                 >
                     Report an error
                 </a>
-                <DebugServiceRecord object={object} />
+                <DebugServiceRecord object={object}/>
             </div>
         );
     }
@@ -160,7 +225,7 @@ export default class ServicePane extends React.Component {
         let object = this.props.service;
 
         if (_.isEmpty(object.serviceProvisions)) {
-            return <div />;
+            return <div/>;
         }
 
         return (
@@ -171,7 +236,7 @@ export default class ServicePane extends React.Component {
                 <ul>
                     {object.serviceProvisions.map(
                         (provision, index) =>
-                        <li key={index}>{provision}</li>
+                            <li key={index}>{provision}</li>
                     )}
                 </ul>
             </div>
@@ -182,11 +247,11 @@ export default class ServicePane extends React.Component {
         const siblings = this.state.siblings;
 
         if (!siblings) {
-            return <span />;
+            return <span/>;
         }
 
         if (_.isEmpty(siblings)) {
-            return <span />;
+            return <span/>;
         }
 
         return (
@@ -205,7 +270,7 @@ export default class ServicePane extends React.Component {
                             }
                             primaryText={service.name}
                             secondaryText={service.shortDescription[0]}
-                            rightIcon={<Chevron />}
+                            rightIcon={<Chevron/>}
                         />
                     )}
                 </div>

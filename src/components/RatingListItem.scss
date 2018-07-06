@@ -1,0 +1,35 @@
+
+.RatingListItem {
+    background-color: #EDECE9;
+    border-bottom: 1px solid #C2C1BE;
+    height: 62px;
+    width: 100%;
+    display: table;
+}
+
+.RatingListItemIcon{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 62px;
+}
+
+.RatingListItemText{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.RatingListItemStar{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    height: 62px;
+}
+
+
+.RatingListItemChevron{
+    display: table-cell;
+    width: 22px;
+    text-align: right;
+    vertical-align: middle;
+}

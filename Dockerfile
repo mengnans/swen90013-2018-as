@@ -1,4 +1,4 @@
-FROM contyard.office.infoxchange.net.au/jessie
+FROM contyard.office.infoxchange.net.au/stretch
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODE_ENV production
@@ -55,7 +55,7 @@ RUN npm install && \
     $(npm bin)/bower install --allow-root
 
 # Install and build the app
-ADD . /app
+ADD front-end /app
 
 RUN git describe > public/VERSION && \
     script/build-assets && \

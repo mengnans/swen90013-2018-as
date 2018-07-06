@@ -8,6 +8,7 @@ import fixtures from "../../fixtures/services";
 import icons from "../icons";
 import Location from "../iss/Location";
 import sendEvent from "../google-tag-manager";
+import Spacer from "./Spacer";
 
 class TransportTime extends React.Component {
     props: {
@@ -135,7 +136,7 @@ class TransportTime extends React.Component {
     renderDivider() {
         if (!this.props.compact) {
             return (
-                <hr/>
+                <Spacer />
             );
         } else {
             return null;
@@ -155,11 +156,13 @@ class TransportTime extends React.Component {
     renderDirections() {
         if (!this.props.compact) {
             return (
-                <div
-                    className="getDirections"
-                    onClick={this.recordClick.bind(this)}
-                >
-                    Get directions
+                <div className="getDirections">
+                    <span onClick={this.recordClick.bind(this)}>
+                        Get directions in Google Maps
+                    </span>
+                    <span>
+                        <icons.ExternalLink className="ExternalLinkIcon" />
+                    </span>
                 </div>
             );
         }

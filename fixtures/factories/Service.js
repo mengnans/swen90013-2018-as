@@ -39,6 +39,7 @@ function defaults() {
         funding_body: "Department of Human Services (VIC)",
         healthcare_card_holders: true,
         id: Id(),
+        indigenous_classification: [],
         ineligibility_info: "",
         intake_info: "",
         intake_point: "",
@@ -64,7 +65,7 @@ function defaults() {
         target_gender: "u",
         type: "service",
         web: "",
-        travelTime: TravelTime(),
+        travelTime: [TravelTime()],
     };
 }
 

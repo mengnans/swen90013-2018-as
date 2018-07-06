@@ -5,8 +5,8 @@ import React from "react";
 import HeaderBar from "../components/HeaderBar";
 import FlatButton from "../components/FlatButton";
 import NavBar from "../components/NavBar";
-import icons from "../icons";
 import storage from "../storage";
+
 
 
 class HomePage extends React.Component {
@@ -40,24 +40,58 @@ class HomePage extends React.Component {
     }
 
     render() {
+        let logo = "/static/images/askizzy-logo.png";
+        let redirectUri = "http://www.bom.gov.au/";
+        let tooltip = "To leave this website quickly, click the 'Quick " +
+        "Exit' button. If you are in immediate danger call 000 ( " +
+        "Australian emergency line), for advice about family violence " +
+        " call 1800 Respect on 1800 737 732 (Helpline).";
+
         return (
             <div className="HomePage">
                 <div className="header">
-                    <div className="branding-container">
-                        <div className="logo">
-                            <icons.Logotype
-                                role="img"
-                                aria-label="Ask Izzy"
-                            />
-                        </div>
+                    <div className="desktop">
+                        <a title = {tooltip}
+                            href = {redirectUri}
+                        >
+                            <span className="quick-exit-right">
+                            </span>
+                            <span className="quick-exit-left">
+                                Quick Exit X
+                            </span>
+                        </a>
                     </div>
+
+                    <div className="mobile_device">
+                        <a href={redirectUri}
+                            title={tooltip}
+                        >
+                            <div className="qexit-txtleft">
+                            </div>
+                            <div className="qexit-txtright">
+                                Quick Exit
+                            </div>
+                        </a>
+                    </div>
+
                     <HeaderBar
-                        primaryText="What do you need?"
+                        primaryText=""
+                        bannerName="homepage"
+                        alternateBackgroundColor={false}
                     >
+
                         <form
                             className="search"
                             onSubmit={this.onSearchSubmit.bind(this)}
                         >
+                            <img
+                                src={logo}
+                                className="homepage-logo"
+                                alt="AskIzzy"
+                            />
+                            <div className="primary">
+                                What do you need?
+                            </div>
                             <div className="searchWrapper">
                                 <input
                                     ref="search"
@@ -69,6 +103,7 @@ class HomePage extends React.Component {
                                 />
                                 <FlatButton
                                     label="Search"
+                                    iconType = " "
                                     onClick={this.onSearchSubmit.bind(this)}
                                 />
                             </div>
