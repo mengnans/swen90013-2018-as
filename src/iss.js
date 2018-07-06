@@ -245,7 +245,7 @@ async function attachTransportTimes(
 
     if (typeof maps.travelTime == 'function') {
         let service: ?Service; // eslint-disable-line no-unused-vars
-        let travelTimes = await Timeout(1000, maps.travelTime(services
+        let travelTimes = await Timeout(3000, maps.travelTime(services
             .filter((service) => !service.Location().isConfidential())
             // flow:disable isConfidential checks location.point
             .map(({location}) => formatPoint(location.point))
@@ -351,21 +351,16 @@ export class Service {
     }
 
     Indigenous(): boolean {
-        /* eslint-disable max-len */
-        const words = [
-            "Aborigines?",
-            "Aboriginals?",
-            "Kooris?",
-            "Indigenous?",
-            "Torres Strait Islanders?",
-            "Murris?",
-        ].join("|");
-        const regex = new RegExp(`\\b(${words})\\b`, "i");
-        const match = this.description.match(regex) ||
-            this.name.match(regex) ||
-            this.site.name.match(regex);
+        if (this.indigenous_classification) {
+            let classification = this.indigenous_classification;
 
-        return !!match;
+            return (classification ==
+                'Mainstream who cater for Aboriginal (indigenous)') ||
+                   classification == 'Aboriginal (indigenous) specific';
+        }
+
+        return false;
+
     }
 
     abn: string;

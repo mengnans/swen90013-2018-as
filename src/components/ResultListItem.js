@@ -11,7 +11,9 @@ import DebugQueryScore from "./DebugQueryScore";
 import DebugServiceRecord from "./DebugServiceRecord";
 
 import LinkListItem from "./LinkListItem";
+import Accessibility from "./Accessibility";
 import OpeningTimes from "./OpeningTimes";
+import Ndis from "./Ndis";
 import TransportTime from "./TransportTime";
 import FeedbackItem from './FeedbackItem';
 import sendEvent from "../google-tag-manager";
@@ -99,14 +101,22 @@ class ResultListItem extends React.Component {
                 {this.renderLocation(object.Location())}
 
                 <h2 className="name">
-                    <IndigenousServiceIcon object={object} />
                     {object.name}
                 </h2>
-                <div className="site_name">{object.site.name}</div>
+                <div className="site_name">
+                    {object.site.name}
+                    <Ndis
+                        className="ndis"
+                        compact={true}
+                        object={object}
+                    />
+                </div>
+
                 <OpeningTimes
                     className="opening_hours"
                     object={object.open}
                 />
+                <Accessibility object={object} />
                 <TransportTime
                     compact={true}
                     location={object.Location()}
@@ -117,6 +127,8 @@ class ResultListItem extends React.Component {
                     starDimension={starDimension}
                     compact={true}
                 />
+
+                <IndigenousServiceIcon object={object} />
                 {this.props.nServiceProvisions > 0 ?
                     <div>
                         <ul className="related">{

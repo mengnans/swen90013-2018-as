@@ -43,7 +43,7 @@
         margin: 0;
         padding: 15px;
         padding-bottom: 1px;
-        background-color: $brand-bg-light;
+        background-color: $white;
     }
 
     @media ($tablet) {
@@ -92,7 +92,8 @@
 
     .OpeningTimes {
         svg {
-            top: -4px;
+            top: 3px;
+            left: -4px;
         }
     }
 
@@ -104,6 +105,7 @@
 
     .OpeningTimes,
     .Address,
+    .Accessibility,
     .CollapsedPhones,
     .TransportTime {
         padding-top: 10px;
@@ -154,11 +156,5 @@
         .List > :first-child {
             border-top: 1px solid $list-item-hairline;
         }
-    }
-
-    .suggestChange {
-        display: inline-block;
-        width: 100%;
-        text-align: center;
     }
 }

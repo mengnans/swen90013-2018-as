@@ -71,6 +71,7 @@ const categories:Array<Category> = [
         },
         personalisation: [
             personalisation.Location,
+            personalisation.FoodSubcategories,
         ],
     }),
     new Category({
@@ -98,7 +99,7 @@ const categories:Array<Category> = [
         personalisation: [
             personalisation.Location,
             personalisation.HealthSubcategories,
-            personalisation.HealthDemographics,
+            personalisation.DemographicsIndigenous,
         ],
     }),
     new Category({
@@ -127,7 +128,7 @@ const categories:Array<Category> = [
     }),
     new Category({
         name: "Support & counselling",
-        byline: "Someone to help",
+        byline: "Relationships, gambling & LGBTIQA+",
         icon: icons.Support,
         search: {
             q: "counselling",
@@ -136,7 +137,7 @@ const categories:Array<Category> = [
         personalisation: [
             personalisation.Location,
             personalisation.CounsellingSubcategories,
-            personalisation.HealthDemographics,
+            personalisation.DemographicsIndigenous,
         ],
     }),
     new Category({
@@ -151,6 +152,7 @@ const categories:Array<Category> = [
         personalisation: [
             personalisation.Location,
             personalisation.LegalSubcategories,
+            personalisation.DemographicsIndigenous,
         ],
     }),
     new Category({
@@ -165,7 +167,7 @@ const categories:Array<Category> = [
         personalisation: [
             personalisation.Location,
             personalisation.AddictionSubcategories,
-            personalisation.HealthDemographics,
+            personalisation.DemographicsIndigenous,
         ],
     }),
     new Category({
@@ -179,6 +181,7 @@ const categories:Array<Category> = [
         personalisation: [
             personalisation.Location,
             personalisation.LifeSkillsSubcategories,
+            personalisation.DemographicsIndigenous,
         ],
     }),
     new Category({
@@ -196,8 +199,8 @@ const categories:Array<Category> = [
     }),
     new Category({
         name: "Facilities",
-        byline: "Toilets, libraries etc",
-        icon: icons.Facilaties,
+        byline: "Toilets",
+        icon: icons.Facilities,
         search: {
             q: "public facilities" +
                 " -(coordinating bodies) -(hire of facilities)" +
@@ -209,11 +212,11 @@ const categories:Array<Category> = [
     }),
     new Category({
         name: "Something to do",
-        byline: "Near you",
+        byline: "Libraries, Community Hubs etc",
         icon: icons.Entertainment,
         search: {
-            q: "recreation -(coordinating bodies) -physiology " +
-                "-permit -hire -grants " +
+            q: "recreation libraries pools -(coordinating bodies) " +
+                "-physiology -permit -hire -grants " +
                 "-(sports medicine) -(sports physician) " +
                 "-(sports psychology)",
         },

@@ -8,17 +8,20 @@ import sendEvent from "../google-tag-manager";
 import ServiceFactory from "../../fixtures/factories/Service";
 
 import Address from "./Address";
+import Accessibility from "./Accessibility";
 import CollapsedOpeningTimes from "./CollapsedOpeningTimes";
 import Collapser from "./Collapser";
 import ContactMethods from "./ContactMethods";
 import DebugServiceRecord from "./DebugServiceRecord";
 import Eligibility from "./Eligibility";
+import Feedback from "./Feedback";
+import HeaderBar from "./HeaderBar";
 import TransportTime from "./TransportTime";
 import GoogleMapsLink from "./GoogleMapsLink";
+import Ndis from "./Ndis";
 import Spacer from "./Spacer";
 import LinkListItem from "./LinkListItem";
 import BoxedText from "./BoxedText";
-import BoxedTextDivider from "./BoxedTextDivider";
 import Chevron from "../icons/Chevron";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import type {Service} from "../iss";
@@ -108,11 +111,16 @@ export default class ServicePane extends React.Component {
 
         return (
             <div className="ServicePane">
+                <HeaderBar
+                    primaryText={object.name}
+                    secondaryText={null}
+                    bannerName="housing"
+                    alternateBackgroundColor={false}
+                />
                 <div className="header">
-                    <h2 className="name">
-                        <IndigenousServiceIcon object={object}/>
-                        {object.name}
-                    </h2>
+                    <p>
+                        <IndigenousServiceIcon object={object} />
+                    </p>
                     <h3 className="description">
                         {object.shortDescription.map((sentence, idx) =>
                             <p key={idx}>{sentence}</p>
@@ -130,7 +138,6 @@ export default class ServicePane extends React.Component {
 
                 </div>
 
-                <BoxedTextDivider/>
 
                 <BoxedText>
                     <div className="practicalities-container">
@@ -156,6 +163,14 @@ export default class ServicePane extends React.Component {
 
                         <Spacer/>
 
+                        <Accessibility object={object} />
+                        <Spacer />
+                        <Ndis
+                            className="ndis"
+                            compact={false}
+                            object={object}
+                            spacer={true}
+                        />
                         <GoogleMapsLink
                             className="plain-text"
                             to={object.Location()}
@@ -164,16 +179,10 @@ export default class ServicePane extends React.Component {
                             <TransportTime location={object.Location()}/>
                         </GoogleMapsLink>
 
-                        <Spacer/>
-
-                        <FlatButton
-                            label="Provide your feedback"
-                            onClick={this.goToFeedbackPage.bind(this)}
-                            className={"ProvideYourFeedbackButton"}
-                        />
-
-                        <Spacer/>
-                        <ContactMethods object={object}/>
+                        <Spacer />
+                        <ContactMethods object={object} />
+                        <Spacer />
+                        <Feedback object={object} />
                     </div>
                 </BoxedText>
 

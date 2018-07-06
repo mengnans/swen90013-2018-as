@@ -189,6 +189,7 @@ path to the files.
 By convention, we have one SCSS and one JS file per react component.
 Each component renders an element with a `class` equal to the name of the component.
 This class is used in the SCSS file to avoid rules applying to the wrong component.
+`script/generate-component-index` is required to be manually run each time you introduce a new react component.
 
 ## Javascript features
 
@@ -293,7 +294,9 @@ make changes to ISS3 which serves the queries.
 All tests live in the `test` toplevel directory.
 
 Unit tests live in `test/unit` and are invoked from `test/unit.js`. They use `mocha`.
-BDD features live in `test/features` with step definitions in `test/steps` invoked from `test/yadda.js`. They use `yadda`.
+BDD features live in `test/features` with step definitions in `test/steps` invoked from `test/feature.js`. They use `yadda`.
+Maps features live in `test/maps` with step definitions in `test/steps` invoked from `test/maps.js`. They use `yadda`.
+Personalisation features live in `test/personalisation` with step definitions in `test/steps` invoked from `test/personlisation.js`. They use `yadda`.
 Search features live in `test/search` with step definitions in `test/search-steps` invoked from `test/search.js`. They use `yadda`.
 
 ### Forklift / docker
@@ -320,8 +323,9 @@ start a server on `localhost:5000`.
 ### Adding new icons
 
  * Add your icon to https://github.com/ask-izzy/designs
+ * Clone the designs repo. e.g. `git clone https://github.com/ask-izzy/designs.git ~/git/designs`
  * The Iconify script requires babel, install by running `sudo npm install -g babel-cli`
- * Run `.script/iconify <path_to_cloned_designs_repo>`
+ * Run `.script/iconify <path_to_cloned_designs_repo>`. e.g. `./script/iconify ~/git/designs/icons/*.svg`
 
 The icons/index.js file will be updated, and a new js file for the icon will be generated in /icons.
 
@@ -344,6 +348,7 @@ Running the tests:
 
     ./script/unit-test
     ./script/feature-test
+    ./script/personalisation-test
     ./script/search-test
 
 Pass `SELENIUM_BROWSER=firefox|phantomjs|chrome` to choose a 

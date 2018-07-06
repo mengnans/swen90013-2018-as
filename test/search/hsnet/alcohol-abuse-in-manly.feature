@@ -3,7 +3,7 @@
 Feature: Search for alcohol counselling
     Background:
         Given I have deleted all answers
-        And I have answered No for indigenous
+        And I am not interested in any subcategory
 
     Scenario: Alcohol abuse in manly
         Given my location is "Manly, NSW"
@@ -19,11 +19,8 @@ Feature: Search for alcohol counselling
             name: Manly Community Centre
         - id: 105653
           site:
-            name: Manly Drug Education & Counselling Centre (MDECC)
-        - id: 224037
+            name: Sydney Drug Education & Counselling Centre (SDECC)
+        - id: 1851455
           site:
-            name: Alcoholics Anonymous (AA), Kings Cross
-        - id: 109701
-          site:
-            name: Alcoholics Anonymous (AA), North Sydney
+            name: Life Supports, Manly (Central Avenue)
         ----------------------------------
