@@ -14,6 +14,7 @@ export default class FeedbackProvidePane extends React.Component {
     props: {
         service: Service,
         width: number,
+        location: object
     };
 
     static contextTypes = {
@@ -52,6 +53,7 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     onRatingChange(newRating) {
+
         let ratingData = this.state.ratingData;
 
         ratingData.ratings[this.state.selectedCategory].rating = newRating;
@@ -61,9 +63,26 @@ export default class FeedbackProvidePane extends React.Component {
         });
     }
 
+    componentWillReceiveProps(props) {
+        let selectedCategory = null;
+
+        props.location.state = props.location.state || {};
+
+        if (props.location.state.selectedCategory !== undefined) {
+            selectedCategory = props.location.state.selectedCategory;
+        }
+
+        this.setState(Object.assign(this.state, {
+            selectedCategory: selectedCategory
+        }));
+    }
+
     onClickRatingListItem(index) {
-        this.setState({
-            selectedCategory: index
+        this.context.router.push({
+            pathname: this.props.location.pathname,
+            state: {
+                selectedCategory: index
+            }
         });
     }
 
@@ -160,8 +179,11 @@ export default class FeedbackProvidePane extends React.Component {
 
     // provide feedback for sub-criteria
     clearSelectedCategory() {
-        this.setState({
-            selectedCategory: null,
+        this.context.router.replace({
+            pathname: this.props.location.pathname,
+            state: {
+                selectedCategory: null
+            }
         });
     }
 
