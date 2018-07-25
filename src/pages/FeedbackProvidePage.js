@@ -20,12 +20,13 @@ class FeedbackPage extends React.Component {
         object?: Service,
         error?: Object,
     };
+
     static propTypes = {
         params: React.PropTypes.object,
     };
 
     static contextTypes = {
-        router: React.PropTypes.object.isRequired,
+        router: React.PropTypes.object.isRequired
     };
 
     constructor(props: Object) {
@@ -142,6 +143,7 @@ class FeedbackPage extends React.Component {
                     <FeedackProvidePane
                         service={object}
                         width={width}
+                        location={this.props.location}
                     />
                 </div>
             );
