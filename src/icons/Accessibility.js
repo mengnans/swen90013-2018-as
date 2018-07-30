@@ -8,97 +8,26 @@ import classnames from "classnames";
 export default class SvgIconAccessibility extends React.Component {
     props: {
         className?: string,
-        iconType?: string,
     };
     state: void;
 
     render() {
-        const {className, iconType, ...rest} = this.props;
+        const {className, ...rest} = this.props;
         const classes = classnames(
             "AccessibilityIcon",
             "disallow-override-color",
             "Icon",
             "SvgIcon",
-            className,
-            iconType
+            className
         );
 
-        if (iconType == "wheelChair" ) {
-            return (
-                <span
-                    {...rest}
-                    dangerouslySetInnerHTML={{__html: `
-                        <svg class='${classes}' xmlns:x="adobe:ns:meta/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 64 64" id="demographic-disability" version="1.1" sodipodi:docname="askizzy-icon-demographic-disability.svg" inkscape:version="0.92.1 r15371"><metadata id="metadata3680"><xpacket begin=" " id="W5M0MpCehiHzreSzNTczkc9d" ?><x:xmpmeta x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01 "><metadata><rdf:RDF><rdf:Description rdf:about></rdf><cc:Work rdf:about><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc><dc:title></dc:title></cc:Work></rdf:RDF></metadata></x:xmpmeta><xpacket end="w" ?></metadata><defs id="defs3684"><style id="style3682"> .cls-1 { fill: #363e43; fill-rule: evenodd; } </style></defs><path class="cls-1" d="m 26.345562,16.253307 a 4.3731757,4.3731757 0 1 0 -4.468938,-4.362535 4.4178651,4.4178651 0 0 0 4.468938,4.362535 z m 27.505254,28.941699 a 1.8258806,1.8258806 0 0 0 -2.39833,-0.787385 L 49.245681,45.492935 42.938093,35.02285 v 0 a 2.6749789,2.6749789 0 0 0 -2.294055,-1.27684 h -9.829537 v -3.511308 h 7.146046 a 1.745015,1.745015 0 1 0 0,-3.49003 h -7.146046 v -4.362534 a 4.4689387,4.4689387 0 0 0 -8.937877,0 v 4.617903 a 14.896462,14.896462 0 1 0 17.875754,14.598533 14.362318,14.362318 0 0 0 -0.26388,-2.617521 h 0.336235 l 7.214144,11.661801 6.009658,-3.106976 a 1.7216054,1.7216054 0 0 0 0.804409,-2.340872 z M 35.632443,41.619855 A 10.614793,10.614793 0 0 1 24.566499,52.45171 10.614793,10.614793 0 0 1 13.500555,41.619855 10.401987,10.401987 0 0 1 21.893648,31.085929 v 3.532587 a 4.4178651,4.4178651 0 0 0 4.468939,4.362537 h 8.976182 a 11.170219,11.170219 0 0 1 0.295801,2.638802 z" id="path3686" inkscape:connector-curvature="0" fill="#363e43" fill-rule="evenodd" stroke-width="2.12806582"></path></svg>
-                    `}}
-                />
-            );
-        }
-
-        if (iconType == "signage") {
-            return (
-                <span
-                    {...rest}
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                   <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="24px" height="24px" viewBox="0 0 132.000000 150.000000"
- preserveAspectRatio="xMidYMid meet">
-
-<g transform="translate(0.000000,150.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
-<path d="M632 1402 c-7 -5 -21 -32 -32 -60 -19 -50 -20 -79 -20 -592 l0 -540
--33 0 c-56 0 -86 -50 -51 -84 12 -13 40 -16 139 -16 68 0 130 3 139 6 19 7 22
-64 4 82 -7 7 -27 12 -45 12 l-33 0 0 545 c0 311 -4 553 -9 563 -5 9 -17 34
--26 55 -9 20 -17 37 -18 37 -1 0 -8 -4 -15 -8z"/>
-<path d="M748 1209 c-15 -8 -18 -24 -18 -82 0 -44 5 -78 12 -85 8 -8 64 -12
-184 -12 l172 0 51 40 c28 22 51 46 51 54 0 13 -35 47 -80 79 -21 14 -49 17
--190 17 -93 0 -173 -5 -182 -11z"/>
-<path d="M123 1010 c-24 -21 -43 -42 -43 -46 0 -3 19 -24 41 -45 l42 -39 191
-2 191 3 0 80 0 80 -190 3 -190 2 -42 -40z"/>
-<path d="M748 909 c-15 -8 -18 -24 -18 -81 0 -56 4 -74 18 -84 12 -10 61 -13
-184 -14 l167 0 38 33 c56 47 63 55 63 64 0 12 -59 68 -87 82 -28 14 -341 14
--365 0z"/>
-</g>
-</svg>
-                    `,
-                    }}
-                />
-            );
-        }
-
-        if (iconType == "publicTransport") {
-            return (
-                <span
-                    {...rest}
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                   <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="24px" height="24px" viewBox="0 0 118.000000 144.000000"
- preserveAspectRatio="xMidYMid meet">
-
-<g transform="translate(0.000000,144.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
-<path d="M190 1367 c-39 -18 -60 -39 -85 -82 -21 -37 -24 -62 -39 -320 -9
--154 -21 -346 -27 -426 -12 -170 -5 -207 47 -264 19 -19 52 -42 74 -51 l40
--16 -21 -37 c-29 -53 -23 -110 14 -131 24 -13 30 -13 54 0 14 8 47 49 72 90
-l47 75 228 0 228 0 25 -45 c56 -100 77 -125 110 -128 24 -2 36 3 52 24 27 35
-27 66 -3 113 l-25 39 32 13 c56 22 99 60 120 107 18 41 19 59 13 171 -26 511
--44 737 -61 776 -15 33 -57 76 -92 94 -31 16 -769 14 -803 -2z m757 -145 c6
--4 14 -18 17 -32 10 -38 25 -384 18 -391 -4 -4 -179 -10 -388 -14 -296 -5
--383 -4 -389 5 -18 29 8 419 29 432 14 10 698 10 713 0z m58 -696 c4 -63 4
--124 0 -135 -6 -21 -10 -21 -415 -21 -359 0 -409 2 -414 16 -3 8 -3 69 1 135
-l6 119 407 0 408 0 7 -114z"/>
-<path d="M265 557 c-26 -20 -26 -81 1 -102 30 -24 65 -14 87 23 20 33 20 34 0
-60 -23 31 -60 39 -88 19z"/>
-<path d="M834 545 c-11 -16 -14 -34 -9 -55 13 -58 76 -66 107 -15 17 30 17 32
--2 63 -25 41 -71 45 -96 7z"/>
-</g>
-</svg>
-                    `,
-                    }}
-                />
-            );
-
-        }
+        return (
+            <span
+                {...rest}
+                dangerouslySetInnerHTML={{__html: `
+                    <svg class='${classes}' xmlns:x="adobe:ns:meta/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 64 64" id="demographic-disability" version="1.1" sodipodi:docname="askizzy-icon-demographic-disability.svg" inkscape:version="0.92.1 r15371"><metadata id="metadata3680"><xpacket begin=" " id="W5M0MpCehiHzreSzNTczkc9d" ?><x:xmpmeta x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01 "><metadata><rdf:RDF><rdf:Description rdf:about></rdf><cc:Work rdf:about><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc><dc:title></dc:title></cc:Work></rdf:RDF></metadata></x:xmpmeta><xpacket end="w" ?></metadata><defs id="defs3684"><style id="style3682"> .cls-1 { fill: #363e43; fill-rule: evenodd; } </style></defs><path class="cls-1" d="m 26.345562,16.253307 a 4.3731757,4.3731757 0 1 0 -4.468938,-4.362535 4.4178651,4.4178651 0 0 0 4.468938,4.362535 z m 27.505254,28.941699 a 1.8258806,1.8258806 0 0 0 -2.39833,-0.787385 L 49.245681,45.492935 42.938093,35.02285 v 0 a 2.6749789,2.6749789 0 0 0 -2.294055,-1.27684 h -9.829537 v -3.511308 h 7.146046 a 1.745015,1.745015 0 1 0 0,-3.49003 h -7.146046 v -4.362534 a 4.4689387,4.4689387 0 0 0 -8.937877,0 v 4.617903 a 14.896462,14.896462 0 1 0 17.875754,14.598533 14.362318,14.362318 0 0 0 -0.26388,-2.617521 h 0.336235 l 7.214144,11.661801 6.009658,-3.106976 a 1.7216054,1.7216054 0 0 0 0.804409,-2.340872 z M 35.632443,41.619855 A 10.614793,10.614793 0 0 1 24.566499,52.45171 10.614793,10.614793 0 0 1 13.500555,41.619855 10.401987,10.401987 0 0 1 21.893648,31.085929 v 3.532587 a 4.4178651,4.4178651 0 0 0 4.468939,4.362537 h 8.976182 a 11.170219,11.170219 0 0 1 0.295801,2.638802 z" id="path3686" inkscape:connector-curvature="0" fill="#363e43" fill-rule="evenodd" stroke-width="2.12806582"></path></svg>
+                `}}
+            />
+        );
     }
 }

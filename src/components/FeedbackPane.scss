@@ -65,6 +65,10 @@
     font-size: 32px;
 }
 
+.PlaceHolder{
+    height: 22px;
+}
+
 .ViewFeedbackPane{
 
     margin-top: -3px;
@@ -77,13 +81,13 @@
 
         .OverallStarLeftText{
             width: 20%;
-            text-align: center;
+            text-align: right;
             display:table-cell;
             vertical-align: center;
         }
 
         .OverallStarRightText{
-            text-align: center;
+            text-align: left;
             width: 20%;
             display:table-cell;
         }
@@ -130,13 +134,13 @@
 
         .OverallStarLeftText{
             width: 20%;
-            text-align: center;
+            text-align: right;
             display:table-cell;
             vertical-align: center;
         }
 
         .OverallStarRightText{
-            text-align: center;
+            text-align: left;
             width: 20%;
             display:table-cell;
         }

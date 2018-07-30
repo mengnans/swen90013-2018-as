@@ -145,16 +145,8 @@ export default class ServicePane extends React.Component {
                             object={object.open}
                             serviceId={object.id}
                         />
-                        <Accessibility object={object} />
-                        <Spacer />
-                        <Ndis
-                            className="ndis"
-                            compact={false}
-                            object={object}
-                            spacer={true}
-                        />
-                        <Spacer/>
 
+                        <Spacer/>
                         <div
                             className=
                                 {classnames("GoogleMapsLink", "plain-text", "FeedbackItem")}
@@ -168,9 +160,15 @@ export default class ServicePane extends React.Component {
                                 numberOfRatings={object.feedback.overAllCount}
                             />
                         </div>
-
                         <Spacer/>
 
+                        <Accessibility object={object} />
+                        <Ndis
+                            className="ndis"
+                            compact={false}
+                            object={object}
+                            spacer={true}
+                        />
                         <GoogleMapsLink
                             className="plain-text"
                             to={object.Location()}
@@ -178,15 +176,6 @@ export default class ServicePane extends React.Component {
                             <Address location={object.Location()}/>
                             <TransportTime location={object.Location()}/>
                         </GoogleMapsLink>
-
-                        
-                        <Spacer/>
-
-                        <FlatButton
-                            label="Provide your feedback"
-                            onClick={this.goToFeedbackPage.bind(this)}
-                            className={"ProvideYourFeedbackButton"}
-                        />
 
                         <Spacer />
                         <ContactMethods object={object} />
@@ -202,29 +191,29 @@ export default class ServicePane extends React.Component {
                     {this.renderSiblings()}
                 </div>
 
-                <a
-                    className="suggestChange"
-                    onClick={this.recordSuggestChange.bind(this)}
-                    href={
-                        "mailto:database@infoxchange.org" +
-                        "?subject=" +
-                        encodeURIComponent(`Ask Izzy changes: ${object.id}`) +
-                        "&body=" +
-                        encodeURIComponent(
-                            `Contact name:
+                {/*<a*/}
+                    {/*className="suggestChange"*/}
+                    {/*onClick={this.recordSuggestChange.bind(this)}*/}
+                    {/*href={*/}
+                        {/*"mailto:database@infoxchange.org" +*/}
+                        {/*"?subject=" +*/}
+                        {/*encodeURIComponent(`Ask Izzy changes: ${object.id}`) +*/}
+                        {/*"&body=" +*/}
+                        {/*encodeURIComponent(*/}
+                            {/*`Contact name:*/}
 
-                            Contact number:
+                            {/*Contact number:*/}
 
-                            Contact email:
+                            {/*Contact email:*/}
 
-                            Details of change:
+                            {/*Details of change:*/}
 
-                            `.replace(/^ +/gm, "")
-                        )
-                    }
-                >
-                    Report an error
-                </a>
+                            {/*`.replace(/^ +/gm, "")*/}
+                        {/*)*/}
+                    {/*}*/}
+                {/*>*/}
+                    {/*Report an error*/}
+                {/*</a>*/}
                 <DebugServiceRecord object={object}/>
             </div>
         );
