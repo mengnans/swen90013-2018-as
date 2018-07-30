@@ -10,3 +10,4 @@
 /public/static/*.js.map
 /src/server/webpack-stats.json
 phantomjsdriver.log
+.idea/
