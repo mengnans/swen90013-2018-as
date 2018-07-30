@@ -6,6 +6,7 @@ import FlatButton from "./FlatButton";
 import RatingListItem from "./RatingListItem";
 import Star from "./Stars";
 import iss from "../iss";
+import HeaderBar from "./HeaderBar";
 
 export default class FeedbackProvidePane extends React.Component {
 
@@ -158,6 +159,13 @@ export default class FeedbackProvidePane extends React.Component {
     render() {
         return (
             <div className="ProvideFeedbackPane">
+                <HeaderBar
+                    primaryText={"Provide Your Feedback"}
+                    secondaryText={null}
+                    bannerName="housing"
+                    alternateBackgroundColor={false}
+                />
+                <div className={"PlaceHolder"}/>
                 {this.renderRating()}
                 {this.renderInputting()}
             </div>
@@ -241,7 +249,7 @@ export default class FeedbackProvidePane extends React.Component {
         } else {
             return (
                 <div className={"OverallStarLeftText"}>
-                    Not very accessible
+                    Not accessible
                 </div>
             );
         }

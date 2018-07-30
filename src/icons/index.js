@@ -62,6 +62,7 @@ import SvgIconTick from "./Tick.js";
 import SvgIconTram from "./Tram.js";
 import SvgIconWalk from "./Walk.js";
 import SvgIconWebsite from "./Website.js";
+import SvgIconSignage from "./Signage";
 
 export default {
     Accessibility: SvgIconAccessibility,
@@ -116,6 +117,7 @@ export default {
     RadioSelected: SvgIconRadioSelected,
     RadioUnselected: SvgIconRadioUnselected,
     Search: SvgIconSearch,
+    Signage: SvgIconSignage,
     Skills: SvgIconSkills,
     Support: SvgIconSupport,
     Tech: SvgIconTech,
