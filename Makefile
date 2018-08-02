@@ -1,4 +1,3 @@
-CI ?=
 GOOGLE_API_KEY = AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
 ISS_URL = http://localhost:5000
 
@@ -11,8 +10,7 @@ VERSION_TAG := $(shell git describe)
 # have to touch two lines in order to add an item to the list.
 NULL=
 
-FLAGS := -e CI="$(CI)" \
-	-e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" \
+FLAGS := -e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" \
 	-e ISS_URL="$(ISS_URL)" \
 	-e SELENIUM_BROWSER="phantomjs" \
 	-e ENVIRONMENT="staging" \
@@ -42,9 +40,6 @@ search-test:
 	docker run -t $(FLAGS) -- $(REPO):$(VERSION_TAG) search-test
 
 deploy:
-	docker run -t $(FLAGS) -- $(REPO):$(VERSION_TAG) deploy
-
-serve:
 	docker run -Pt $(FLAGS) -- $(REPO):$(VERSION_TAG) serve
 
-.PHONY: build lint unit-test feature-test maps-test personalisation-test search-test deploy serve
+.PHONY: build lint unit-test feature-test maps-test personalisation-test search-test deploy
