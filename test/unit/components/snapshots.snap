@@ -747,7 +747,7 @@ ShallowWrapper {
             data={
               Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Signage",
               }
             }
@@ -758,7 +758,7 @@ ShallowWrapper {
             data={
               Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Transport",
               }
             }
@@ -769,7 +769,7 @@ ShallowWrapper {
             data={
               Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Wheelchair access",
               }
             }
@@ -838,7 +838,7 @@ ShallowWrapper {
                 data={
                   Object {
                     "comment": null,
-                    "rating": -1,
+                    "rating": null,
                     "ratingType": "Signage",
                   }
                 }
@@ -849,7 +849,7 @@ ShallowWrapper {
                 data={
                   Object {
                     "comment": null,
-                    "rating": -1,
+                    "rating": null,
                     "ratingType": "Transport",
                   }
                 }
@@ -860,7 +860,7 @@ ShallowWrapper {
                 data={
                   Object {
                     "comment": null,
-                    "rating": -1,
+                    "rating": null,
                     "ratingType": "Wheelchair access",
                   }
                 }
@@ -898,7 +898,7 @@ ShallowWrapper {
             "props": Object {
               "data": Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Signage",
               },
               "onClickRatingListItem": [Function],
@@ -915,7 +915,7 @@ ShallowWrapper {
             "props": Object {
               "data": Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Transport",
               },
               "onClickRatingListItem": [Function],
@@ -932,7 +932,7 @@ ShallowWrapper {
             "props": Object {
               "data": Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Wheelchair access",
               },
               "onClickRatingListItem": [Function],
@@ -1038,7 +1038,7 @@ ShallowWrapper {
               data={
                 Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Signage",
                 }
               }
@@ -1049,7 +1049,7 @@ ShallowWrapper {
               data={
                 Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Transport",
                 }
               }
@@ -1060,7 +1060,7 @@ ShallowWrapper {
               data={
                 Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Wheelchair access",
                 }
               }
@@ -1129,7 +1129,7 @@ ShallowWrapper {
                   data={
                     Object {
                       "comment": null,
-                      "rating": -1,
+                      "rating": null,
                       "ratingType": "Signage",
                     }
                   }
@@ -1140,7 +1140,7 @@ ShallowWrapper {
                   data={
                     Object {
                       "comment": null,
-                      "rating": -1,
+                      "rating": null,
                       "ratingType": "Transport",
                     }
                   }
@@ -1151,7 +1151,7 @@ ShallowWrapper {
                   data={
                     Object {
                       "comment": null,
-                      "rating": -1,
+                      "rating": null,
                       "ratingType": "Wheelchair access",
                     }
                   }
@@ -1189,7 +1189,7 @@ ShallowWrapper {
               "props": Object {
                 "data": Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Signage",
                 },
                 "onClickRatingListItem": [Function],
@@ -1206,7 +1206,7 @@ ShallowWrapper {
               "props": Object {
                 "data": Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Transport",
                 },
                 "onClickRatingListItem": [Function],
@@ -1223,7 +1223,7 @@ ShallowWrapper {
               "props": Object {
                 "data": Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Wheelchair access",
                 },
                 "onClickRatingListItem": [Function],

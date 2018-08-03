@@ -10,8 +10,6 @@ import HeaderBar from "./HeaderBar";
 
 export default class FeedbackProvidePane extends React.Component {
 
-    unDefinedRating = -1;
-    noInputtingIndex = -1;
     minimalWidthForStarText = 600;
     maximumWidth = 1000;
 
@@ -24,64 +22,57 @@ export default class FeedbackProvidePane extends React.Component {
         router: React.PropTypes.object.isRequired,
     };
 
-
     constructor(props: Object) {
         super(props);
+
         const ratings = this.props.service.feedback.ratings;
         let initialData = {};
 
-        initialData.ratings = [];
-
-
-        ratings.map(rating => {
+        initialData.ratings = ratings.map(rating => {
             let ratingItem = {};
 
             ratingItem.ratingType = rating.ratingType;
-            ratingItem.rating = this.unDefinedRating;
-            ratingItem.comment = null;
-
-            initialData.ratings.push(ratingItem);
+            
+            return this.resetRating(ratingItem);
         });
-
 
         this.state = {
             ratingData: initialData,
-            inputtingIndex: this.noInputtingIndex,
+            selectedCategory: null,
         };
     }
 
-    onInputtingAreaChange(event) {
+    onCommentBoxChanged(event) {
         let ratingData = this.state.ratingData;
 
-        ratingData.ratings[this.state.inputtingIndex].comment =
+        ratingData.ratings[this.state.selectedCategory].comment =
             event.target.value;
 
         this.setState({
-            ratingData: ratingData,
+            ratingData,
         });
     }
 
     onRatingChange(newRating) {
         let ratingData = this.state.ratingData;
 
-        ratingData.ratings[this.state.inputtingIndex].rating = newRating;
+        ratingData.ratings[this.state.selectedCategory].rating = newRating;
+
         this.setState({
-            ratingData: ratingData,
+            ratingData,
         });
     }
 
     onClickRatingListItem(index) {
         this.setState({
-            inputtingIndex: index,
+            selectedCategory: index
         });
     }
 
     // submit feedback
     onClickSubmit() {
         let data = this.state.ratingData;
-        let validRatings = [];
-
-        data.ratings.map((ratingItem) => {
+        let validRatings = data.ratings.filter((ratingItem) => {
             let rating = ratingItem.rating;
             // TODO: do something about the comments
             // for example, what if rating is undefined,
@@ -89,9 +80,7 @@ export default class FeedbackProvidePane extends React.Component {
             // let comment = ratingItem.comment;
 
             // add valid ratings
-            if (rating !== this.unDefinedRating) {
-                validRatings.push(ratingItem);
-            }
+            return (rating !== null);
         });
 
         // only submit valid ratings
@@ -115,19 +104,44 @@ export default class FeedbackProvidePane extends React.Component {
         this.context.router.push(
             path
         );
+    }
 
+    categoryIsSelected() {
+        return this.state.selectedCategory !== null;
+    }
+
+    getSelectedRating() {
+        if (this.categoryIsSelected()) {
+            return this.state.ratingData.ratings[
+                this.state.selectedCategory
+            ];
+        }
+
+        return undefined;
+    }
+
+    resetRating(ratingItem) {
+        ratingItem.rating = null;
+        ratingItem.comment = null;
+
+        return ratingItem;
+    }
+
+    ratingIsEmpty(ratingItem) {
+        return (
+            ratingItem.comment == null &&
+            ratingItem.rating == null
+        );
     }
 
     // delete all the comments
     onClickDelete() {
         let ratingData = this.state.ratingData;
 
-        for (let ratingIndex = 0;
-             ratingIndex < ratingData.ratings.length;
-             ratingIndex++) {
-            ratingData.ratings[ratingIndex].rating = this.unDefinedRating;
-            ratingData.ratings[ratingIndex].comment = null;
-        }
+        ratingData.ratings = ratingData.ratings.map(ratingItem =>
+            this.resetRating(ratingItem)
+        );
+
         this.setState({
             ratingData: ratingData,
         });
@@ -135,16 +149,14 @@ export default class FeedbackProvidePane extends React.Component {
 
     // cancel provide feedback for sub-criteria
     onClickCancel() {
-
         let ratingData = this.state.ratingData;
 
-        let index = this.state.inputtingIndex;
+        let index = this.state.selectedCategory;
 
-        ratingData.ratings[index].rating = this.unDefinedRating;
-        ratingData.ratings[index].comment = null;
+        this.resetRating(ratingData.ratings[index]);
 
         this.setState({
-            inputtingIndex: this.noInputtingIndex,
+            selectedCategory: null,
             ratingData: ratingData,
         });
     }
@@ -152,7 +164,7 @@ export default class FeedbackProvidePane extends React.Component {
     // provide feedback for sub-criteria
     onClickDone() {
         this.setState({
-            inputtingIndex: this.noInputtingIndex,
+            selectedCategory: null,
         });
     }
 
@@ -167,17 +179,17 @@ export default class FeedbackProvidePane extends React.Component {
                 />
                 <div className={"PlaceHolder"}/>
                 {this.renderRating()}
-                {this.renderInputting()}
+                {this.renderForm()}
             </div>
         );
     }
 
-    renderInputting() {
-        if (this.state.inputtingIndex > this.noInputtingIndex) {
+    renderForm() {
+        if (this.categoryIsSelected()) {
             return (
                 <div>
                     {this.renderStar()}
-                    {this.renderInputtingArea()}
+                    {this.renderCommentBox()}
                     {this.renderButtons()}
                 </div>
             );
@@ -187,22 +199,23 @@ export default class FeedbackProvidePane extends React.Component {
 
     }
 
-    renderInputtingArea() {
-        const ratings = this.state.ratingData.ratings;
-        const index = this.state.inputtingIndex;
+    renderCommentBox() {
+        const rating = this.getSelectedRating();
 
         return (
             <textarea
                 className={"InputTextArea"}
                 placeholder={"Please leave your comment here."}
-                value={ratings[index].comment}
-                onChange={this.onInputtingAreaChange.bind(this)}
+                value={rating.comment || undefined}
+                onChange={this.onCommentBoxChanged.bind(this)}
             >
             </textarea>
         );
     }
 
     renderStar() {
+
+        // TODO: move this to it's own component
         let windowsWidth = this.props.width;
         let starDimension, starSpacing;
 
@@ -221,8 +234,7 @@ export default class FeedbackProvidePane extends React.Component {
             starSpacing = `${parseInt(windowsWidth / 60)}px`;
         }
 
-        const ratings = this.state.ratingData.ratings;
-        const index = this.state.inputtingIndex;
+        const rating = this.getSelectedRating();
 
         return (
             <div className={"OverallStarBlock"}>
@@ -231,7 +243,7 @@ export default class FeedbackProvidePane extends React.Component {
                     <Star
                         starDimension={starDimension}
                         starSpacing={starSpacing}
-                        rating={ratings[index].rating}
+                        rating={rating.rating || undefined}
                         changeRating={this.onRatingChange.bind(this)}
                     />
                 </div>
@@ -293,7 +305,7 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     renderRating() {
-        if (this.state.inputtingIndex === this.noInputtingIndex) {
+        if (!this.categoryIsSelected()) {
 
             return (
                 <div>
@@ -316,14 +328,12 @@ export default class FeedbackProvidePane extends React.Component {
         ));
     }
 
-
     renderFeedbackButtons() {
         let ratings = this.state.ratingData.ratings;
         let disabled = true;
 
-        ratings.map((ratingItem) => {
-            if (ratingItem.comment !== null ||
-                ratingItem.rating !== this.unDefinedRating) {
+        ratings.forEach((ratingItem) => {
+            if (!this.ratingIsEmpty(ratingItem)) {
                 disabled = false;
             }
         });
