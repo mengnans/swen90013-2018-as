@@ -21,6 +21,7 @@ export default class FeedbackProvidePane extends React.Component {
         router: React.PropTypes.object.isRequired,
     };
 
+
     constructor(props: Object) {
         super(props);
 
@@ -53,7 +54,6 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     onRatingChange(newRating) {
-
         let ratingData = this.state.ratingData;
 
         ratingData.ratings[this.state.selectedCategory].rating = newRating;
@@ -63,20 +63,31 @@ export default class FeedbackProvidePane extends React.Component {
         });
     }
 
+    /**
+     * Destructs the erequested category from the location change
+     * and sets it as the active category.
+     *
+     * @override
+     * @param  object props
+     */
     componentWillReceiveProps(props) {
-        let selectedCategory = null;
-
-        props.location.state = props.location.state || {};
-
-        if (props.location.state.selectedCategory !== undefined) {
-            selectedCategory = props.location.state.selectedCategory;
-        }
+        let selectedCategory = (
+            props.location.state &&
+            props.location.state.selectedCategory !== undefined
+        ) ?
+            props.location.state.selectedCategory :
+            null;
 
         this.setState(Object.assign(this.state, {
-            selectedCategory: selectedCategory
+            selectedCategory
         }));
     }
 
+    /**
+     * Navigates to the current path, passing the new selected category as state.
+     * 
+     * @param number index
+     */
     onClickRatingListItem(index) {
         this.context.router.push({
             pathname: this.props.location.pathname,
@@ -176,8 +187,11 @@ export default class FeedbackProvidePane extends React.Component {
             ratingData: ratingData,
         });
     }
-
-    // provide feedback for sub-criteria
+    
+        
+    /**
+     * Returns to the category selection screen.
+     */
     clearSelectedCategory() {
         this.context.router.replace({
             pathname: this.props.location.pathname,
