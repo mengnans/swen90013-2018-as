@@ -87,9 +87,9 @@ export default class FeedbackProvidePane extends React.Component {
         try {
             let responseJson = iss.provideFeedback(data.serviceId, data);
 
-            console.log(responseJson);
+            // console.log(responseJson);
         } catch (error) {
-            console.log("error");
+            console.log("error at FeedbackProvidePane");
         }
 
         // TODO: do something here,
