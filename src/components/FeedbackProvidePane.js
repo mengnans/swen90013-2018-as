@@ -7,11 +7,9 @@ import RatingListItem from "./RatingListItem";
 import Star from "./Stars";
 import iss from "../iss";
 import HeaderBar from "./HeaderBar";
+import FeedbackProvideForm from "./FeedbackProvideForm";
 
 export default class FeedbackProvidePane extends React.Component {
-
-    minimalWidthForStarText = 600;
-    maximumWidth = 1000;
 
     props: {
         service: Service,
@@ -42,7 +40,7 @@ export default class FeedbackProvidePane extends React.Component {
         };
     }
 
-    onCommentBoxChanged(event) {
+    onCommentBoxChange(event) {
         let ratingData = this.state.ratingData;
 
         ratingData.ratings[this.state.selectedCategory].comment =
@@ -106,6 +104,19 @@ export default class FeedbackProvidePane extends React.Component {
         );
     }
 
+    // delete all the comments
+    onClickDelete() {
+        let ratingData = this.state.ratingData;
+
+        ratingData.ratings = ratingData.ratings.map(ratingItem =>
+            this.resetRating(ratingItem)
+        );
+
+        this.setState({
+            ratingData: ratingData,
+        });
+    }
+
     categoryIsSelected() {
         return this.state.selectedCategory !== null;
     }
@@ -134,21 +145,8 @@ export default class FeedbackProvidePane extends React.Component {
         );
     }
 
-    // delete all the comments
-    onClickDelete() {
-        let ratingData = this.state.ratingData;
-
-        ratingData.ratings = ratingData.ratings.map(ratingItem =>
-            this.resetRating(ratingItem)
-        );
-
-        this.setState({
-            ratingData: ratingData,
-        });
-    }
-
     // cancel provide feedback for sub-criteria
-    onClickCancel() {
+    resetCurrentRating() {
         let ratingData = this.state.ratingData;
 
         let index = this.state.selectedCategory;
@@ -156,13 +154,12 @@ export default class FeedbackProvidePane extends React.Component {
         this.resetRating(ratingData.ratings[index]);
 
         this.setState({
-            selectedCategory: null,
             ratingData: ratingData,
         });
     }
 
     // provide feedback for sub-criteria
-    onClickDone() {
+    clearSelectedCategory() {
         this.setState({
             selectedCategory: null,
         });
@@ -178,146 +175,27 @@ export default class FeedbackProvidePane extends React.Component {
                     alternateBackgroundColor={false}
                 />
                 <div className={"PlaceHolder"}/>
-                {this.renderRating()}
-                {this.renderForm()}
+                {this.categoryIsSelected() ?
+                    this.renderForm() :
+                    this.renderRatingList()
+                }
             </div>
-        );
+        ); 
     }
 
     renderForm() {
-        if (this.categoryIsSelected()) {
-            return (
-                <div>
-                    {this.renderStar()}
-                    {this.renderCommentBox()}
-                    {this.renderButtons()}
-                </div>
-            );
-        } else {
-            return null;
-        }
-
-    }
-
-    renderCommentBox() {
-        const rating = this.getSelectedRating();
-
-        return (
-            <textarea
-                className={"InputTextArea"}
-                placeholder={"Please leave your comment here."}
-                value={rating.comment || undefined}
-                onChange={this.onCommentBoxChanged.bind(this)}
-            >
-            </textarea>
-        );
-    }
-
-    renderStar() {
-
-        // TODO: move this to it's own component
-        let windowsWidth = this.props.width;
-        let starDimension, starSpacing;
-
-        if (windowsWidth >= this.minimalWidthForStarText) {
-            starDimension = `${parseInt(windowsWidth / 8)}px`;
-            starSpacing = `${parseInt(windowsWidth / 80)}px`;
-            // define the maximum star dimension
-            if (windowsWidth > this.maximumWidth) {
-                starDimension = "120px";
-                starSpacing = "12px";
-            }
-        }
-        // text will be hidden, thus stars can be a little bit larger
-        else {
-            starDimension = `${parseInt(windowsWidth / 6)}px`;
-            starSpacing = `${parseInt(windowsWidth / 60)}px`;
-        }
-
-        const rating = this.getSelectedRating();
-
-        return (
-            <div className={"OverallStarBlock"}>
-                {this.renderLeftStarText()}
-                <div className={"OverallStar"}>
-                    <Star
-                        starDimension={starDimension}
-                        starSpacing={starSpacing}
-                        rating={rating.rating || undefined}
-                        changeRating={this.onRatingChange.bind(this)}
-                    />
-                </div>
-                {this.renderRightStarText()}
-            </div>
-        );
-    }
-
-
-    renderLeftStarText() {
-        let windowsWidth = this.props.width;
-
-        if (windowsWidth < this.minimalWidthForStarText) {
-            return null
-        } else {
-            return (
-                <div className={"OverallStarLeftText"}>
-                    Not accessible
-                </div>
-            );
-        }
-    }
-
-    renderRightStarText() {
-        let windowsWidth = this.props.width;
-
-        if (windowsWidth < this.minimalWidthForStarText) {
-            return null
-        } else {
-            return (
-                <div className={"OverStarRightText"}>
-                    Very<br/>accessible
-                </div>
-            );
-        }
-
-    }
-
-    renderButtons() {
-
-        return (
-            <div className={"ButtonPane1"}>
-                <FlatButton
-                    className={"FeedbackButton FeedbackButtonDone"}
-                    label={"Done"}
-                    onClick={this.onClickDone.bind(this)}
-                />
-                <div className={"Separator"}/>
-
-                <FlatButton
-                    className={"FeedbackButton FeedbackButtonCancel"}
-                    label={"Cancel"}
-                    onClick={this.onClickCancel.bind(this)}
-                />
-
-            </div>
-
-        );
-    }
-
-    renderRating() {
-        if (!this.categoryIsSelected()) {
-
-            return (
-                <div>
-                    {this.renderRatingList()}
-                    {this.renderFeedbackButtons()}
-                </div>
-            );
-        }
+        return <FeedbackProvideForm
+            rating={this.getSelectedRating()}
+            width={this.props.width}
+            onCommentBoxChange={this.onCommentBoxChange.bind(this)}
+            onRatingChange={this.onRatingChange.bind(this)}
+            resetRating={this.resetCurrentRating.bind(this)}
+            clearSelectedCategory={this.clearSelectedCategory.bind(this)}
+        />
     }
 
     renderRatingList() {
-        return this.state.ratingData.ratings.map((data, index) => (
+        let list = this.state.ratingData.ratings.map((data, index) => (
             <RatingListItem
                 key={"ratingListItem#" + index}
                 data={data}
@@ -326,6 +204,13 @@ export default class FeedbackProvidePane extends React.Component {
                     {this.onClickRatingListItem.bind(this, index)}
             />
         ));
+
+        return (
+            <div>
+                {list}
+                {this.renderFeedbackButtons()}
+            </div>
+        );
     }
 
     renderFeedbackButtons() {
