@@ -189,7 +189,7 @@ export default class FeedbackProvidePane extends React.Component {
             width={this.props.width}
             onCommentBoxChange={this.onCommentBoxChange.bind(this)}
             onRatingChange={this.onRatingChange.bind(this)}
-            resetRating={this.resetCurrentRating.bind(this)}
+            resetCurrentRating={this.resetCurrentRating.bind(this)}
             clearSelectedCategory={this.clearSelectedCategory.bind(this)}
         />
     }
