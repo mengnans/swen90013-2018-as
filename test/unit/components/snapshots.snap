@@ -795,7 +795,6 @@ ShallowWrapper {
             />
           </div>
         </div>,
-        null,
       ],
       "className": "ProvideFeedbackPane",
     },
@@ -987,7 +986,6 @@ ShallowWrapper {
         ],
         "type": "div",
       },
-      null,
     ],
     "type": "div",
   },
@@ -1052,7 +1050,6 @@ ShallowWrapper {
               />
             </div>
           </div>,
-          null,
         ],
         "className": "ProvideFeedbackPane",
       },
@@ -1244,7 +1241,6 @@ ShallowWrapper {
           ],
           "type": "div",
         },
-        null,
       ],
       "type": "div",
     },
