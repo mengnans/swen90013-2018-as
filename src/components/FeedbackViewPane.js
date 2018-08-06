@@ -161,9 +161,10 @@ export default class FeedbackViewPane extends React.Component {
     }
 
     renderRatingList() {
-        return this.props.service.feedback.ratings.map((data) => (
+        return this.props.service.feedback.ratings.map((data, index) => (
             <RatingListItem
                 data={data}
+                key={index}
                 disabled={true}
                 width={this.props.width}
             />
