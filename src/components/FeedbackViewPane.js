@@ -40,7 +40,7 @@ export default class FeedbackViewPane extends React.Component {
         return (
             <div className="ViewFeedbackPane">
                 <HeaderBar
-                    primaryText={"Accessibility Rating"}
+                    primaryText={"Rate your Experience"}
                     secondaryText={null}
                     bannerName="housing"
                     alternateBackgroundColor={false}

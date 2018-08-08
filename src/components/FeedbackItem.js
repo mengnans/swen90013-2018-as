@@ -62,7 +62,7 @@ class FeedbackItem extends React.Component {
                     className="ColoredIcon"
                     aria-label="By public transport"
                 />
-                Accessibility Rating<br/>
+                Food Rating<br/>
                 {ratingValue + "  "}
                 <Star
                     rating={rating}
