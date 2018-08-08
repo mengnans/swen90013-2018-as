@@ -5,7 +5,7 @@ import webpack from "webpack";
 module.exports = new webpack.optimize.CommonsChunkPlugin({
     name: "runtime",
 
-    filename: "webpack-runtime-[hash].js",
+    filename: "webpack_runtime_[hash].js",
     // (Give the chunk a different name)
 
     minChunks: Infinity,
