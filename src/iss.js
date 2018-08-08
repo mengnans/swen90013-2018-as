@@ -591,6 +591,10 @@ export async function getService(
 export async function getFeedback(
     id: number
 ): Object {
+
+    // TODO: remove fake id
+    id = 1;
+
     // TODO: add cache here
 
     return await fetch(`${FEEDBACK_URL}/api/v3/service/${id}/feedback`, {
@@ -615,6 +619,9 @@ export async function getFeedback(
 export async function provideFeedback(
     id: number, feedbackJson
 ): Object {
+
+    // TODO: remove fake id
+    id = 1;
 
     // TODO: add cache here
 
