@@ -1,5 +1,6 @@
 GOOGLE_API_KEY = AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
 ISS_URL = http://localhost:5000
+FEEDBACK_URL = http://144.6.226.112/api
 
 APP = ask_izzy
 REPO = cis.unimelb.edu.au/$(APP)
@@ -14,6 +15,7 @@ FLAGS := -e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" \
 	-e ISS_URL="$(ISS_URL)" \
 	-e SELENIUM_BROWSER="phantomjs" \
 	-e ENVIRONMENT="staging" \
+	-e FEEDBACK_URL="http://144.6.226.112/api" \
 	$(NULL)
 
 build:
