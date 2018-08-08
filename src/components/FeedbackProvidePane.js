@@ -185,7 +185,7 @@ export default class FeedbackProvidePane extends React.Component {
         return (
             <div className="ProvideFeedbackPane">
                 <HeaderBar
-                    primaryText={"Provide Your Feedback"}
+                    primaryText={"Rate your Experience"}
                     secondaryText={null}
                     bannerName="housing"
                     alternateBackgroundColor={false}

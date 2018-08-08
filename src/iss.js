@@ -591,9 +591,6 @@ export async function getService(
 export async function getFeedback(
     id: number
 ): Object {
-    // TODO: remove fake id
-    id = 1;
-
     // TODO: add cache here
 
     return await fetch(`${FEEDBACK_URL}/api/v3/service/${id}/feedback`, {
@@ -601,7 +598,16 @@ export async function getFeedback(
     }).then((response) => {
         return response.json();
     }).then(feedback => {
-        return feedback;
+
+        // since we have multiple categories right now in the backend
+        // but we only need food for the front-end
+        // so in this case, I will only return the feedback for the
+        // food only
+        let foodFeedback = feedback.categories.food;
+        foodFeedback.overAllCount = feedback.overAllCount;
+
+        console.log(foodFeedback);
+        return foodFeedback;
     });
 
 }
@@ -609,8 +615,6 @@ export async function getFeedback(
 export async function provideFeedback(
     id: number, feedbackJson
 ): Object {
-    // TODO: remove fake id
-    id = 1;
 
     // TODO: add cache here
 
@@ -632,7 +636,7 @@ export async function provideFeedback(
 export function countCrisisResults(results: Array<Service>): number {
     const firstRegularServiceIdx = results.findIndex(
         ({crisis}) => !crisis
-    )
+    );
 
     if (firstRegularServiceIdx === -1) {
         // No regular services found; everything is a crisis service
