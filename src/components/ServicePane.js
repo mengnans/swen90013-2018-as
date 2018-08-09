@@ -25,6 +25,7 @@ import BoxedText from "./BoxedText";
 import Chevron from "../icons/Chevron";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import type {Service} from "../iss";
+import Clap from "./Clap";
 
 export default class ServicePane extends React.Component {
     props: {
@@ -126,6 +127,9 @@ export default class ServicePane extends React.Component {
                         <ContactMethods object={object} />
                         <Spacer />
                         <Feedback object={object} />
+                        <Spacer />
+                        <Clap />
+                        <Spacer />
                     </div>
                 </BoxedText>
 

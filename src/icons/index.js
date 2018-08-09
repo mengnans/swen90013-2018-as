@@ -7,6 +7,7 @@ import SvgIconAddiction from "./Addiction.js";
 import SvgIconAdvocacy from "./Advocacy.js";
 import SvgIconBlank from "./Blank.js";
 import SvgIconCar from "./Car.js";
+import SvgIconClap from "./Clap.js";
 import SvgIconCensus2016 from "./Census2016.js";
 import SvgIconCentrelink from "./Centrelink.js";
 import SvgIconCheckboxSelected from "./CheckboxSelected.js";
@@ -69,6 +70,7 @@ export default {
     Advocacy: SvgIconAdvocacy,
     Blank: SvgIconBlank,
     Car: SvgIconCar,
+    Clap: SvgIconClap,
     Census2016: SvgIconCensus2016,
     Centrelink: SvgIconCentrelink,
     CheckboxSelected: SvgIconCheckboxSelected,
