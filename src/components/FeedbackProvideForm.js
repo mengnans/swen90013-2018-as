@@ -64,7 +64,7 @@ export default class FeedbackProvideForm extends React.Component {
         return (
             <textarea
                 className={"InputTextArea"}
-                placeholder={"Please leave your comment here."}
+                placeholder={"Please leave your comment about the " + this.props.rating.ratingType.toString().toLowerCase() + "."}
                 value={this.state.comment || undefined}
                 onChange={this.onCommentBoxChange.bind(this)}
             >
@@ -118,7 +118,7 @@ export default class FeedbackProvideForm extends React.Component {
         } else {
             return (
                 <div className={"OverallStarLeftText"}>
-                    Not accessible
+                    Not good
                 </div>
             );
         }
@@ -132,7 +132,7 @@ export default class FeedbackProvideForm extends React.Component {
         } else {
             return (
                 <div className={"OverStarRightText"}>
-                    Very<br/>accessible
+                    Very<br/>good
                 </div>
             );
         }

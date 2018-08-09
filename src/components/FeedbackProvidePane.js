@@ -4,7 +4,6 @@ import React from "react";
 import type {Service} from "../iss";
 import FlatButton from "./FlatButton";
 import RatingListItem from "./RatingListItem";
-import Star from "./Stars";
 import iss from "../iss";
 import HeaderBar from "./HeaderBar";
 import FeedbackProvideForm from "./FeedbackProvideForm";
@@ -185,7 +184,7 @@ export default class FeedbackProvidePane extends React.Component {
         return (
             <div className="ProvideFeedbackPane">
                 <HeaderBar
-                    primaryText={"Rate your Experience"}
+                    primaryText={"Rate your experience"}
                     secondaryText={null}
                     bannerName="housing"
                     alternateBackgroundColor={false}

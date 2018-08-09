@@ -610,7 +610,6 @@ export async function getFeedback(
         let foodFeedback = feedback.categories.food;
         foodFeedback.overAllCount = feedback.overAllCount;
 
-        console.log(foodFeedback);
         return foodFeedback;
     });
 

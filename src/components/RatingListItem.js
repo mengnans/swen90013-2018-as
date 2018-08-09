@@ -37,21 +37,34 @@ class RatingListItem extends React.Component {
             if (width < this.minimalWidthForRatingListItemText) {
                 starSpacing = '1px';
                 starDimension = '24px';
+
+                return (
+                    <div>
+                        {ratingValue}
+                        <br/>
+                        <Star
+                            starSpacing={starSpacing}
+                            starDimension={starDimension}
+                            rating={rating}
+                        />
+                    </div>
+                );
             } else {
                 starSpacing = '5px';
                 starDimension = '28px';
+
+                return (
+                    <div>
+                        {ratingValue + "    "}
+                        <Star
+                            starSpacing={starSpacing}
+                            starDimension={starDimension}
+                            rating={rating}
+                        />
+                    </div>
+                );
             }
 
-            return (
-                <div>
-                    {ratingValue + "  "}
-                <Star
-                    starSpacing={starSpacing}
-                    starDimension={starDimension}
-                    rating={rating}
-                />
-                </div>
-            );
         }
     }
 
@@ -67,8 +80,8 @@ class RatingListItem extends React.Component {
 
     render() {
         let ratingType = this.props.data.ratingType;
+        // TODO: find suitable icons for food
         let icon = '';
-
         if (ratingType === "Wheelchair access") {
             icon = (<icons.Accessibility
                 className="ColoredIcon"
@@ -82,7 +95,7 @@ class RatingListItem extends React.Component {
             />);
 
         } else {
-            icon = (<icons.Tram
+            icon = (<icons.Food
                 className="ColoredIcon"
                 aria-label="By public transport"
             />);
