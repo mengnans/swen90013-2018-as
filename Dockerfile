@@ -1,6 +1,5 @@
 FROM debian:stretch
 
-ENV DEBIAN_FRONTEND noninteractive
 ENV NODE_ENV production
 
 # Pallet standard locations
@@ -56,8 +55,7 @@ RUN npm install && \
 # Install and build the app
 ADD . /app
 
-RUN git describe > public/VERSION && \
-    script/build-assets && \
+RUN script/build-assets && \
     script/build-gmaps-file && \
     chown -R app .
 

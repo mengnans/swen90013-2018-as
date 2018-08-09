@@ -41,7 +41,8 @@ personalisation-test:
 search-test:
 	docker run -t $(FLAGS) -- $(REPO):$(VERSION_TAG) search-test
 
-deploy:
-	docker run -Pt $(FLAGS) -- $(REPO):$(VERSION_TAG) serve
+serve:
+	docker run -t -p 9000:8000 $(FLAGS) -- $(REPO):$(VERSION_TAG) serve
+	@echo "Serving $(REPO):$(VERSION_TAG) at http://localhost:9000"
 
-.PHONY: build lint unit-test feature-test maps-test personalisation-test search-test deploy
+.PHONY: build lint unit-test feature-test maps-test personalisation-test search-test serve
