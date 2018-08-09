@@ -40,7 +40,7 @@ export default class FeedbackViewPane extends React.Component {
         return (
             <div className="ViewFeedbackPane">
                 <HeaderBar
-                    primaryText={"Rate your Experience"}
+                    primaryText={"Rate your experience"}
                     secondaryText={null}
                     bannerName="housing"
                     alternateBackgroundColor={false}
@@ -108,7 +108,7 @@ export default class FeedbackViewPane extends React.Component {
         if (windowsWidth < this.minimalWidthForStarText) {
             heading = "Overall: " + ratingValue;
         } else {
-            heading = "Overall accessibility rating: " + ratingValue;
+            heading = "Overall rating: " + ratingValue;
         }
 
         return (
@@ -139,7 +139,7 @@ export default class FeedbackViewPane extends React.Component {
         } else {
             return (
                 <div className={"OverallStarLeftText"}>
-                    Not<br/>accessible
+                    Not<br/>good
                 </div>
             );
         }
@@ -153,7 +153,7 @@ export default class FeedbackViewPane extends React.Component {
         } else {
             return (
                 <div className={"OverStarRightText"}>
-                    Very<br/>accessible
+                    Very<br/>good
                 </div>
             );
         }
