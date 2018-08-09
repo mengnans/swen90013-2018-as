@@ -73,7 +73,11 @@
     "underscore.string": "3.3.4",
     "webpack": "2.7.0",
     "webpack-dev-server": "2.9.3",
-    "yadda": "0.17.4"
+    "yadda": "0.17.4",
+    "mo-js": "0.288.2",
+    "polished": "1.9.2",
+    "react-transition-group": "2.2.1",
+    "styled-components": "3.4.0"
   },
   "devDependencies": {
     "husky": "0.14.3",
