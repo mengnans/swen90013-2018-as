@@ -6,6 +6,7 @@ import FlatButton from "./FlatButton";
 import RatingListItem from "./RatingListItem";
 import Star from "./Stars";
 import HeaderBar from "./HeaderBar";
+import StarTextItem from "./StarTextItem";
 
 export default class FeedbackViewPane extends React.Component {
 
@@ -36,6 +37,11 @@ export default class FeedbackViewPane extends React.Component {
         )
     }
 
+    onRatingChange() {
+        // do nothing
+        // since the rating here can't be changed
+    }
+
     render() {
         return (
             <div className="ViewFeedbackPane">
@@ -46,51 +52,15 @@ export default class FeedbackViewPane extends React.Component {
                     alternateBackgroundColor={false}
                 />
                 <div className={"PlaceHolder"}/>
-                {this.renderRating()}
+                {this.renderRatingList()}
+                {this.renderStarHeading()}
+                {this.renderRatingNum()}
+                <StarTextItem rating={this.props.service.feedback.overAllRating} width={this.props.width}/>
                 {this.renderFeedbackButtons()}
             </div>
         );
     }
 
-    renderRating() {
-        let windowsWidth = this.props.width;
-        let starDimension, starSpacing;
-
-        if (windowsWidth >= this.minimalWidthForStarText) {
-            starDimension = `${parseInt(windowsWidth / 8)}px`;
-            starSpacing = `${parseInt(windowsWidth / 80)}px`;
-            // define the maximum star dimension
-            if (windowsWidth > this.maximumWidth) {
-                starDimension = "120px";
-                starSpacing = "12px";
-            }
-        }
-        // text will be hidden, thus stars can be a little bit larger
-        else {
-            starDimension = `${parseInt(windowsWidth / 6)}px`;
-            starSpacing = `${parseInt(windowsWidth / 60)}px`;
-        }
-
-        const ratings = this.props.service.feedback.overAllRating;
-
-        return (
-            <div>
-                {this.renderRatingList()}
-                {this.renderStarHeading()}
-                {this.renderRatingNum()}
-                <div className={"OverallStarBlock"}>
-                    {this.renderLeftStarText()}
-                    <div className={"OverallStar"}>
-                        <Star
-                            starDimension={starDimension}
-                            starSpacing={starSpacing}
-                            rating={ratings}
-                        />
-                    </div>
-                    {this.renderRightStarText()}
-                </div>
-            </div>);
-    }
 
     renderStarHeading() {
         let windowsWidth = this.props.width;
@@ -129,35 +99,6 @@ export default class FeedbackViewPane extends React.Component {
                 {info}
             </div>
         );
-    }
-
-    renderLeftStarText() {
-        let windowsWidth = this.props.width;
-
-        if (windowsWidth < this.minimalWidthForStarText) {
-            return null
-        } else {
-            return (
-                <div className={"OverallStarLeftText"}>
-                    Not<br/>good
-                </div>
-            );
-        }
-    }
-
-    renderRightStarText() {
-        let windowsWidth = this.props.width;
-
-        if (windowsWidth < this.minimalWidthForStarText) {
-            return null
-        } else {
-            return (
-                <div className={"OverStarRightText"}>
-                    Very<br/>good
-                </div>
-            );
-        }
-
     }
 
     renderRatingList() {
