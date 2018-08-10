@@ -191,8 +191,8 @@ export default class FeedbackProvidePane extends React.Component {
                 />
                 <div className={"PlaceHolder"}/>
                 {this.categoryIsSelected() ?
-                    this.renderForm() :
-                    this.renderRatingList()
+                    this.renderForm()
+                    : this.renderRatingList()
                 }
             </div>
         ); 

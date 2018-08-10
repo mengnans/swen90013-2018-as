@@ -2,12 +2,9 @@
 
 import React from "react";
 import FlatButton from "./FlatButton";
-import Star from "./Stars";
+import StarTextItem from "./StarTextItem";
 
 export default class FeedbackProvideForm extends React.Component {
-
-    minimalWidthForStarText = 600;
-    maximumWidth = 1000;
 
     props: {
       onFeedbackSaved: Function,
@@ -53,7 +50,10 @@ export default class FeedbackProvideForm extends React.Component {
     render() {
         return (
             <div>
-                {this.renderStars()}
+                <StarTextItem onRatingChange={this.onRatingChange.bind(this)}
+                    width={this.props.width}
+                    rating={this.props.rating.rating}
+                />
                 {this.renderCommentBox()}
                 {this.renderButtons()}
             </div>
@@ -70,72 +70,6 @@ export default class FeedbackProvideForm extends React.Component {
             >
             </textarea>
         );
-    }
-
-    renderStars() {
-
-        // TODO: move this to it's own component
-        let windowsWidth = this.props.width;
-        let starDimension, starSpacing;
-
-        if (windowsWidth >= this.minimalWidthForStarText) {
-            starDimension = `${parseInt(windowsWidth / 8)}px`;
-            starSpacing = `${parseInt(windowsWidth / 80)}px`;
-            // define the maximum star dimension
-            if (windowsWidth > this.maximumWidth) {
-                starDimension = "120px";
-                starSpacing = "12px";
-            }
-        }
-        // text will be hidden, thus stars can be a little bit larger
-        else {
-            starDimension = `${parseInt(windowsWidth / 6)}px`;
-            starSpacing = `${parseInt(windowsWidth / 60)}px`;
-        }
-
-        return (
-            <div className={"OverallStarBlock"}>
-                {this.renderLeftStarText()}
-                <div className={"OverallStar"}>
-                    <Star
-                        starDimension={starDimension}
-                        starSpacing={starSpacing}
-                        rating={this.state.rating || undefined}
-                        changeRating={this.onRatingChange.bind(this)}
-                    />
-                </div>
-                {this.renderRightStarText()}
-            </div>
-        );
-    }
-
-
-    renderLeftStarText() {
-        let windowsWidth = this.props.width;
-
-        if (windowsWidth < this.minimalWidthForStarText) {
-            return null
-        } else {
-            return (
-                <div className={"OverallStarLeftText"}>
-                    Not good
-                </div>
-            );
-        }
-    }
-
-    renderRightStarText() {
-        let windowsWidth = this.props.width;
-
-        if (windowsWidth < this.minimalWidthForStarText) {
-            return null
-        } else {
-            return (
-                <div className={"OverStarRightText"}>
-                    Very<br/>good
-                </div>
-            );
-        }
     }
 
     renderButtons() {
