@@ -4,9 +4,14 @@ IFS=$'\n\t'
 PATH=$(npm bin):$PATH
 CHAI_JEST_SNAPSHOT_UPDATE_ALL=false
 
-if [ $# -gt 0 ] && [ "$1" = "--reset-snapshots" ]; then
-    CHAI_JEST_SNAPSHOT_UPDATE_ALL=true
-fi
+count=1
+for i in "$@" ; do
+    if [[ $i == "--reset-snapshots" ]] ; then
+        CHAI_JEST_SNAPSHOT_UPDATE_ALL=true
+        set -- "${@:1:count-1}" "${@:count+1}"
+    fi
+    (( count++ ))
+done
 
 export NODE_ENV=production
 export PORT=8010
