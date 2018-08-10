@@ -22,7 +22,9 @@ class RatingListItem extends React.Component {
     renderStar() {
         let width = this.props.width;
         let rating = this.props.data.rating;
-        let ratingValue = (rating !== null) ? rating.toLocaleString(
+        let ratingValue;
+
+        ratingValue = (rating !== null) ? rating.toLocaleString(
             undefined, // leave undefined to use the browser's locale,
             // or use a string like 'en-US' to override it.
             {
@@ -32,39 +34,29 @@ class RatingListItem extends React.Component {
         ) : "0.00";
 
         if (this.props.data.rating !== null) {
-            let starSpacing, starDimension;
+            let starSpacing, starDimension, br;
 
             if (width < this.minimalWidthForRatingListItemText) {
                 starSpacing = '1px';
                 starDimension = '24px';
-
-                return (
-                    <div>
-                        {ratingValue}
-                        <br/>
-                        <Star
-                            starSpacing={starSpacing}
-                            starDimension={starDimension}
-                            rating={rating}
-                        />
-                    </div>
-                );
+                br = <br/>
             } else {
                 starSpacing = '5px';
                 starDimension = '28px';
-
-                return (
-                    <div>
-                        {ratingValue + "    "}
-                        <Star
-                            starSpacing={starSpacing}
-                            starDimension={starDimension}
-                            rating={rating}
-                        />
-                    </div>
-                );
+                br = "   "
             }
 
+            return (
+                <div>
+                    {ratingValue}
+                    {br}
+                    <Star
+                        starSpacing={starSpacing}
+                        starDimension={starDimension}
+                        rating={rating}
+                    />
+                </div>
+            );
         }
     }
 
@@ -82,6 +74,7 @@ class RatingListItem extends React.Component {
         let ratingType = this.props.data.ratingType;
         // TODO: find suitable icons for food
         let icon = '';
+
         if (ratingType === "Wheelchair access") {
             icon = (<icons.Accessibility
                 className="ColoredIcon"
