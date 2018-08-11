@@ -33,9 +33,9 @@ ShallowWrapper {
             aria-label="By public transport"
             className="ColoredIcon"
           />
-          Accessibility Rating
+          Food Rating
           <br />
-          2.56  
+          2.6  
           <Star
             rating={2.555555}
             starDimension={5}
@@ -66,9 +66,9 @@ ShallowWrapper {
               aria-label="By public transport"
               className="ColoredIcon"
             />
-            Accessibility Rating
+            Food Rating
             <br />
-            2.56  
+            2.6  
             <Star
               rating={2.555555}
               starDimension={5}
@@ -98,9 +98,9 @@ ShallowWrapper {
                 aria-label="By public transport"
                 className="ColoredIcon"
               />,
-              "Accessibility Rating",
+              "Food Rating",
               <br />,
-              "2.56  ",
+              "2.6  ",
               <Star
                 rating={2.555555}
                 starDimension={5}
@@ -126,7 +126,7 @@ ShallowWrapper {
               "rendered": null,
               "type": [Function],
             },
-            "Accessibility Rating",
+            "Food Rating",
             Object {
               "instance": null,
               "key": undefined,
@@ -136,7 +136,7 @@ ShallowWrapper {
               "rendered": null,
               "type": "br",
             },
-            "2.56  ",
+            "2.6  ",
             Object {
               "instance": null,
               "key": undefined,
@@ -197,9 +197,9 @@ ShallowWrapper {
               aria-label="By public transport"
               className="ColoredIcon"
             />
-            Accessibility Rating
+            Food Rating
             <br />
-            2.56  
+            2.6  
             <Star
               rating={2.555555}
               starDimension={5}
@@ -230,9 +230,9 @@ ShallowWrapper {
                 aria-label="By public transport"
                 className="ColoredIcon"
               />
-              Accessibility Rating
+              Food Rating
               <br />
-              2.56  
+              2.6  
               <Star
                 rating={2.555555}
                 starDimension={5}
@@ -262,9 +262,9 @@ ShallowWrapper {
                   aria-label="By public transport"
                   className="ColoredIcon"
                 />,
-                "Accessibility Rating",
+                "Food Rating",
                 <br />,
-                "2.56  ",
+                "2.6  ",
                 <Star
                   rating={2.555555}
                   starDimension={5}
@@ -290,7 +290,7 @@ ShallowWrapper {
                 "rendered": null,
                 "type": [Function],
               },
-              "Accessibility Rating",
+              "Food Rating",
               Object {
                 "instance": null,
                 "key": undefined,
@@ -300,7 +300,7 @@ ShallowWrapper {
                 "rendered": null,
                 "type": "br",
               },
-              "2.56  ",
+              "2.6  ",
               Object {
                 "instance": null,
                 "key": undefined,
@@ -736,7 +736,7 @@ ShallowWrapper {
         <HeaderBar
           alternateBackgroundColor={false}
           bannerName="housing"
-          primaryText="Provide Your Feedback"
+          primaryText="Rate your experience"
           secondaryText={null}
         />,
         <div
@@ -808,7 +808,7 @@ ShallowWrapper {
         "props": Object {
           "alternateBackgroundColor": false,
           "bannerName": "housing",
-          "primaryText": "Provide Your Feedback",
+          "primaryText": "Rate your experience",
           "secondaryText": null,
         },
         "ref": null,
@@ -1025,7 +1025,7 @@ ShallowWrapper {
           <HeaderBar
             alternateBackgroundColor={false}
             bannerName="housing"
-            primaryText="Provide Your Feedback"
+            primaryText="Rate your experience"
             secondaryText={null}
           />,
           <div
@@ -1097,7 +1097,7 @@ ShallowWrapper {
           "props": Object {
             "alternateBackgroundColor": false,
             "bannerName": "housing",
-            "primaryText": "Provide Your Feedback",
+            "primaryText": "Rate your experience",
             "secondaryText": null,
           },
           "ref": null,
@@ -1396,13 +1396,13 @@ ShallowWrapper {
         <HeaderBar
           alternateBackgroundColor={false}
           bannerName="housing"
-          primaryText="Accessibility Rating"
+          primaryText="Rate your experience"
           secondaryText={null}
         />,
         <div
           className="PlaceHolder"
         />,
-        <div>
+        Array [
           <RatingListItem
             data={
               Object {
@@ -1413,7 +1413,7 @@ ShallowWrapper {
             }
             disabled={true}
             width={200}
-          />
+          />,
           <RatingListItem
             data={
               Object {
@@ -1424,7 +1424,7 @@ ShallowWrapper {
             }
             disabled={true}
             width={200}
-          />
+          />,
           <RatingListItem
             data={
               Object {
@@ -1435,31 +1435,22 @@ ShallowWrapper {
             }
             disabled={true}
             width={200}
-          />
-          <div
-            className="OverallStarHeading"
-          >
-            Overall: 2.10
-          </div>
-          <div
-            className="RatingNumHeading"
-          >
-            607 ratings
-          </div>
-          <div
-            className="OverallStarBlock"
-          >
-            <div
-              className="OverallStar"
-            >
-              <Star
-                rating={2.100937117940661}
-                starDimension="33px"
-                starSpacing="3px"
-              />
-            </div>
-          </div>
+          />,
+        ],
+        <div
+          className="OverallStarHeading"
+        >
+          Overall: 2.1
         </div>,
+        <div
+          className="RatingNumHeading"
+        >
+          607 ratings
+        </div>,
+        <StarTextItem
+          rating={2.100937117940661}
+          width={200}
+        />,
         <div
           className="ButtonPane"
         >
@@ -1481,7 +1472,7 @@ ShallowWrapper {
         "props": Object {
           "alternateBackgroundColor": false,
           "bannerName": "housing",
-          "primaryText": "Accessibility Rating",
+          "primaryText": "Rate your experience",
           "secondaryText": null,
         },
         "ref": null,
@@ -1501,204 +1492,90 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "count": "644",
+            "rating": 2.0574534161490683,
+            "ratingType": "Signage",
+          },
+          "disabled": true,
+          "width": 200,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "count": "343",
+            "rating": 2.110787172011662,
+            "ratingType": "Transport",
+          },
+          "disabled": true,
+          "width": 200,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "count": "431",
+            "rating": 2.1345707656612527,
+            "ratingType": "Wheelchair access",
+          },
+          "disabled": true,
+          "width": 200,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            Array [
-              <RatingListItem
-                data={
-                  Object {
-                    "count": "644",
-                    "rating": 2.0574534161490683,
-                    "ratingType": "Signage",
-                  }
-                }
-                disabled={true}
-                width={200}
-              />,
-              <RatingListItem
-                data={
-                  Object {
-                    "count": "343",
-                    "rating": 2.110787172011662,
-                    "ratingType": "Transport",
-                  }
-                }
-                disabled={true}
-                width={200}
-              />,
-              <RatingListItem
-                data={
-                  Object {
-                    "count": "431",
-                    "rating": 2.1345707656612527,
-                    "ratingType": "Wheelchair access",
-                  }
-                }
-                disabled={true}
-                width={200}
-              />,
-            ],
-            <div
-              className="OverallStarHeading"
-            >
-              Overall: 2.10
-            </div>,
-            <div
-              className="RatingNumHeading"
-            >
-              607 ratings
-            </div>,
-            <div
-              className="OverallStarBlock"
-            >
-              <div
-                className="OverallStar"
-              >
-                <Star
-                  rating={2.100937117940661}
-                  starDimension="33px"
-                  starSpacing="3px"
-                />
-              </div>
-            </div>,
-          ],
+          "children": "Overall: 2.1",
+          "className": "OverallStarHeading",
         },
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": "0",
-            "nodeType": "class",
-            "props": Object {
-              "data": Object {
-                "count": "644",
-                "rating": 2.0574534161490683,
-                "ratingType": "Signage",
-              },
-              "disabled": true,
-              "width": 200,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": "1",
-            "nodeType": "class",
-            "props": Object {
-              "data": Object {
-                "count": "343",
-                "rating": 2.110787172011662,
-                "ratingType": "Transport",
-              },
-              "disabled": true,
-              "width": 200,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": "2",
-            "nodeType": "class",
-            "props": Object {
-              "data": Object {
-                "count": "431",
-                "rating": 2.1345707656612527,
-                "ratingType": "Wheelchair access",
-              },
-              "disabled": true,
-              "width": 200,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Overall: 2.10",
-              "className": "OverallStarHeading",
-            },
-            "ref": null,
-            "rendered": "Overall: 2.10",
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "607 ratings",
-              "className": "RatingNumHeading",
-            },
-            "ref": null,
-            "rendered": "607 ratings",
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                null,
-                <div
-                  className="OverallStar"
-                >
-                  <Star
-                    rating={2.100937117940661}
-                    starDimension="33px"
-                    starSpacing="3px"
-                  />
-                </div>,
-                null,
-              ],
-              "className": "OverallStarBlock",
-            },
-            "ref": null,
-            "rendered": Array [
-              null,
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <Star
-                    rating={2.100937117940661}
-                    starDimension="33px"
-                    starSpacing="3px"
-                  />,
-                  "className": "OverallStar",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "rating": 2.100937117940661,
-                    "starDimension": "33px",
-                    "starSpacing": "3px",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                "type": "div",
-              },
-              null,
-            ],
-            "type": "div",
-          },
-        ],
+        "rendered": "Overall: 2.1",
         "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "607 ratings",
+          "className": "RatingNumHeading",
+        },
+        "ref": null,
+        "rendered": "607 ratings",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "rating": 2.100937117940661,
+          "width": 200,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
       },
       Object {
         "instance": null,
@@ -1741,13 +1618,13 @@ ShallowWrapper {
           <HeaderBar
             alternateBackgroundColor={false}
             bannerName="housing"
-            primaryText="Accessibility Rating"
+            primaryText="Rate your experience"
             secondaryText={null}
           />,
           <div
             className="PlaceHolder"
           />,
-          <div>
+          Array [
             <RatingListItem
               data={
                 Object {
@@ -1758,7 +1635,7 @@ ShallowWrapper {
               }
               disabled={true}
               width={200}
-            />
+            />,
             <RatingListItem
               data={
                 Object {
@@ -1769,7 +1646,7 @@ ShallowWrapper {
               }
               disabled={true}
               width={200}
-            />
+            />,
             <RatingListItem
               data={
                 Object {
@@ -1780,31 +1657,22 @@ ShallowWrapper {
               }
               disabled={true}
               width={200}
-            />
-            <div
-              className="OverallStarHeading"
-            >
-              Overall: 2.10
-            </div>
-            <div
-              className="RatingNumHeading"
-            >
-              607 ratings
-            </div>
-            <div
-              className="OverallStarBlock"
-            >
-              <div
-                className="OverallStar"
-              >
-                <Star
-                  rating={2.100937117940661}
-                  starDimension="33px"
-                  starSpacing="3px"
-                />
-              </div>
-            </div>
+            />,
+          ],
+          <div
+            className="OverallStarHeading"
+          >
+            Overall: 2.1
           </div>,
+          <div
+            className="RatingNumHeading"
+          >
+            607 ratings
+          </div>,
+          <StarTextItem
+            rating={2.100937117940661}
+            width={200}
+          />,
           <div
             className="ButtonPane"
           >
@@ -1826,7 +1694,7 @@ ShallowWrapper {
           "props": Object {
             "alternateBackgroundColor": false,
             "bannerName": "housing",
-            "primaryText": "Accessibility Rating",
+            "primaryText": "Rate your experience",
             "secondaryText": null,
           },
           "ref": null,
@@ -1846,204 +1714,90 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "data": Object {
+              "count": "644",
+              "rating": 2.0574534161490683,
+              "ratingType": "Signage",
+            },
+            "disabled": true,
+            "width": 200,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "data": Object {
+              "count": "343",
+              "rating": 2.110787172011662,
+              "ratingType": "Transport",
+            },
+            "disabled": true,
+            "width": 200,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "data": Object {
+              "count": "431",
+              "rating": 2.1345707656612527,
+              "ratingType": "Wheelchair access",
+            },
+            "disabled": true,
+            "width": 200,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              Array [
-                <RatingListItem
-                  data={
-                    Object {
-                      "count": "644",
-                      "rating": 2.0574534161490683,
-                      "ratingType": "Signage",
-                    }
-                  }
-                  disabled={true}
-                  width={200}
-                />,
-                <RatingListItem
-                  data={
-                    Object {
-                      "count": "343",
-                      "rating": 2.110787172011662,
-                      "ratingType": "Transport",
-                    }
-                  }
-                  disabled={true}
-                  width={200}
-                />,
-                <RatingListItem
-                  data={
-                    Object {
-                      "count": "431",
-                      "rating": 2.1345707656612527,
-                      "ratingType": "Wheelchair access",
-                    }
-                  }
-                  disabled={true}
-                  width={200}
-                />,
-              ],
-              <div
-                className="OverallStarHeading"
-              >
-                Overall: 2.10
-              </div>,
-              <div
-                className="RatingNumHeading"
-              >
-                607 ratings
-              </div>,
-              <div
-                className="OverallStarBlock"
-              >
-                <div
-                  className="OverallStar"
-                >
-                  <Star
-                    rating={2.100937117940661}
-                    starDimension="33px"
-                    starSpacing="3px"
-                  />
-                </div>
-              </div>,
-            ],
+            "children": "Overall: 2.1",
+            "className": "OverallStarHeading",
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "0",
-              "nodeType": "class",
-              "props": Object {
-                "data": Object {
-                  "count": "644",
-                  "rating": 2.0574534161490683,
-                  "ratingType": "Signage",
-                },
-                "disabled": true,
-                "width": 200,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": "1",
-              "nodeType": "class",
-              "props": Object {
-                "data": Object {
-                  "count": "343",
-                  "rating": 2.110787172011662,
-                  "ratingType": "Transport",
-                },
-                "disabled": true,
-                "width": 200,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": "2",
-              "nodeType": "class",
-              "props": Object {
-                "data": Object {
-                  "count": "431",
-                  "rating": 2.1345707656612527,
-                  "ratingType": "Wheelchair access",
-                },
-                "disabled": true,
-                "width": 200,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Overall: 2.10",
-                "className": "OverallStarHeading",
-              },
-              "ref": null,
-              "rendered": "Overall: 2.10",
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "607 ratings",
-                "className": "RatingNumHeading",
-              },
-              "ref": null,
-              "rendered": "607 ratings",
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  null,
-                  <div
-                    className="OverallStar"
-                  >
-                    <Star
-                      rating={2.100937117940661}
-                      starDimension="33px"
-                      starSpacing="3px"
-                    />
-                  </div>,
-                  null,
-                ],
-                "className": "OverallStarBlock",
-              },
-              "ref": null,
-              "rendered": Array [
-                null,
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": <Star
-                      rating={2.100937117940661}
-                      starDimension="33px"
-                      starSpacing="3px"
-                    />,
-                    "className": "OverallStar",
-                  },
-                  "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "rating": 2.100937117940661,
-                      "starDimension": "33px",
-                      "starSpacing": "3px",
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
-                  "type": "div",
-                },
-                null,
-              ],
-              "type": "div",
-            },
-          ],
+          "rendered": "Overall: 2.1",
           "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "607 ratings",
+            "className": "RatingNumHeading",
+          },
+          "ref": null,
+          "rendered": "607 ratings",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "rating": 2.100937117940661,
+            "width": 200,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,
@@ -2138,7 +1892,8 @@ ShallowWrapper {
           className="RatingListItemStar"
         >
           <div>
-            2.06  
+            2.1
+            <br />
             <Star
               rating={2.0574534161490683}
               starDimension="24px"
@@ -2201,7 +1956,8 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <div>
-            2.06  
+            2.1
+            <br />
             <Star
               rating={2.0574534161490683}
               starDimension="24px"
@@ -2217,7 +1973,8 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              "2.06  ",
+              "2.1",
+              <br />,
               <Star
                 rating={2.0574534161490683}
                 starDimension="24px"
@@ -2227,7 +1984,16 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            "2.06  ",
+            "2.1",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
             Object {
               "instance": null,
               "key": undefined,
@@ -2293,7 +2059,8 @@ ShallowWrapper {
             className="RatingListItemStar"
           >
             <div>
-              2.06  
+              2.1
+              <br />
               <Star
                 rating={2.0574534161490683}
                 starDimension="24px"
@@ -2356,7 +2123,8 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <div>
-              2.06  
+              2.1
+              <br />
               <Star
                 rating={2.0574534161490683}
                 starDimension="24px"
@@ -2372,7 +2140,8 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                "2.06  ",
+                "2.1",
+                <br />,
                 <Star
                   rating={2.0574534161490683}
                   starDimension="24px"
@@ -2382,7 +2151,16 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": Array [
-              "2.06  ",
+              "2.1",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
               Object {
                 "instance": null,
                 "key": undefined,
