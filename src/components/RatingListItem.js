@@ -8,6 +8,14 @@ class RatingListItem extends React.Component {
 
     minimalWidthForRatingListItemText = 400;
 
+    smallStarSpacing = '1px';
+    smallStarDimension = '24px';
+    largeBr = <br/>;
+
+    largeStarSpacing = '5px';
+    largeStarDimension = '28px';
+    largeBr = '   ';
+
     props: {
         width: number,
         data: object,
@@ -37,13 +45,13 @@ class RatingListItem extends React.Component {
             let starSpacing, starDimension, br;
 
             if (width < this.minimalWidthForRatingListItemText) {
-                starSpacing = '1px';
-                starDimension = '24px';
-                br = <br/>
+                starSpacing = this.smallStarSpacing;
+                starDimension = this.smallStarDimension;
+                br = this.smallBr;
             } else {
-                starSpacing = '5px';
-                starDimension = '28px';
-                br = "   "
+                starSpacing = this.largeStarSpacing;
+                starDimension = this.largeStarDimension;
+                br = this.largeBr;
             }
 
             return (
