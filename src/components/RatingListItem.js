@@ -10,7 +10,7 @@ class RatingListItem extends React.Component {
 
     smallStarSpacing = '1px';
     smallStarDimension = '24px';
-    largeBr = <br/>;
+    smallBr = <br/>;
 
     largeStarSpacing = '5px';
     largeStarDimension = '28px';
