@@ -64,7 +64,9 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     /**
-     * Destructs the erequested category from the location change
+     * Is called whenever the props change (including a location change).
+     * 
+     * Destructs the requested category from the location change
      * and sets it as the active category.
      *
      * @override
@@ -187,18 +189,12 @@ export default class FeedbackProvidePane extends React.Component {
             ratingData: ratingData,
         });
     }
-    
         
     /**
      * Returns to the category selection screen.
      */
     clearSelectedCategory() {
-        this.context.router.replace({
-            pathname: this.props.location.pathname,
-            state: {
-                selectedCategory: null
-            }
-        });
+        this.context.router.goBack();
     }
 
     render() {
