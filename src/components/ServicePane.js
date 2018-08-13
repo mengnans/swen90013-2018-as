@@ -129,7 +129,6 @@ export default class ServicePane extends React.Component {
                         <Feedback object={object} />
                         <Spacer />
                         <Clap />
-                        <Spacer />
                     </div>
                 </BoxedText>
 
