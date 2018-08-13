@@ -39,7 +39,7 @@ const ClapButton = styled.button`
     }
   `}
 
-  ${({theme: {primaryColor, secondaryColor, size}}) => css`
+  ${({theme: {size}}) => css`
     width: ${size}px;
     height: ${size}px;
     

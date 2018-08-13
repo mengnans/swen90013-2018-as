@@ -10,7 +10,7 @@ const ClapCount = styled.span`
   backface-visibility: hidden;
 
 
-  ${({theme: {secondaryColor, size}}) => {
+  ${({theme: {size}}) => {
     const half = `${size / 2}px`
     return css`
       height: ${half};

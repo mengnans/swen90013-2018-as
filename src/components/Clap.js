@@ -5,14 +5,11 @@ import icons from "../icons";
 import type { Service } from "../iss";
 import {ThemeProvider} from 'styled-components'
 
-import ClapWrap from './ClapWrap'
 import ClapButton from './ClapButton'
 import ClapCount from './ClapCount'
 import ClapCountTotal from './ClapCountTotal'
-import ClapIcon from './ClapIcon'
+
 const defaultTheme = {
-    primaryColor: 'rgb(0, 0, 0)',
-    secondaryColor: 'rgb(20, 20, 20)',
     size: 35
 }
 
@@ -23,27 +20,22 @@ export default class Clap extends React.Component {
             unclicked: true,
             count: this.props.count,
             countTotal: this.props.countTotal,
-            isClicked: props.count > 0,
+            isClicked: this.props.isClicked,
             isHover: false
         }
         this.onClick = this.onClick.bind(this)
-        this.onClickClear = this.onClickClear.bind(this)
     }
 
     props:{
         countTotal: number,
         count: number,
-        maxCount: number,
         isClicked: boolean,
-        iconComponent: icons.Clap
     }
 
     static defaultProps = {
         countTotal: 0,
         count: 0,
-        maxCount: 50,
         isClicked: false,
-        iconComponent: icons.Clap
     };
 
     componentDidMount () {
@@ -84,7 +76,7 @@ export default class Clap extends React.Component {
         });
 
         const countAnimation = new mojs.Html({
-            el: '#clap--count',
+            el: '#clap-count',
             isShowStart: false,
             isShowEnd: true,
             y: {0: -30},
@@ -99,7 +91,7 @@ export default class Clap extends React.Component {
         const opacityStart = 1
 
         const countTotalAnimation = new mojs.Html({
-            el: '#clap--count-total',
+            el: '#clap-count-total',
             isShowStart: false,
             isShowEnd: true,
             opacity: {[opacityStart]: 1},
@@ -136,48 +128,47 @@ export default class Clap extends React.Component {
 
 
     onClick () {
-        const {maxCount} = this.props
-        this.animationTimeline.replay();
+        const {isClicked} = this.state
+
 
         this.setState(({count, countTotal}) => {
-            if (count < maxCount) {
+            if (!isClicked) {
+                this.animationTimeline.replay();
                 return {
                     unclicked: false,
                     count: 1,
                     countTotal: countTotal + 1,
                     isClicked: true
                 }
+            } else {
+                return {
+                    unclicked: true,
+                    count: 0,
+                    countTotal: countTotal - 1,
+                    isClicked: false
+                }
             }
+
+
         });
     }
 
-    onClickClear () {
-        this.setState(({count, countTotal}) => {
-            return {
-                isClicked: false,
-                countTotal: countTotal - count,
-                count: 0
-            }
-        })
-    }
 
 
 
 
 
     render() {
-        const claps = this.props.numberOfClaps;
 
         return (
             <div>
-                {this.renderClaps(claps)}
+                {this.renderClaps()}
             </div>
         );
     }
 
-    renderClaps(claps){
+    renderClaps(){
         const {count, countTotal, isClicked, isHover} = this.state
-        let numberOfClaps = this.props.numberOfClaps;
         return (
             <div>
                 <h4>Clap for This Wonderful Service:</h4>
@@ -193,13 +184,13 @@ export default class Clap extends React.Component {
                             isHover={isHover && count === 0}
                         >
 
-                            <ClapIcon id='clap--icon' className="ColoredIcon" isClicked={isClicked} />
+                            <icons.Clap id='clap-icon' className="ColoredIcon" isClicked={isClicked} />
 
-                            <ClapCount id='clap--count'>
+                            <ClapCount id='clap-count'>
                                 +{count}
                             </ClapCount>
 
-                            <ClapCountTotal id='clap--count-total'>
+                            <ClapCountTotal id='clap-count-total'>
                                 {Number(countTotal).toLocaleString()}
                             </ClapCountTotal>
 
