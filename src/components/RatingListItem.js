@@ -26,8 +26,8 @@ class RatingListItem extends React.Component {
             undefined, // leave undefined to use the browser's locale,
             // or use a string like 'en-US' to override it.
             {
-                maximumFractionDigits: 2,
-                minimumFractionDigits: 2,
+                maximumFractionDigits: 1,
+                minimumFractionDigits: 1,
             },
         ) : "0.00";
 
