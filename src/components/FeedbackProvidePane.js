@@ -131,7 +131,7 @@ export default class FeedbackProvidePane extends React.Component {
         let path = "/service/";
 
         path += this.props.service.slug;
-        this.context.router.push(
+        this.context.router.replace(
             path
         );
     }

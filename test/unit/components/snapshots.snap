@@ -32,7 +32,6 @@ ShallowWrapper {
           <SvgIconAccessibility
             aria-label="By public transport"
             className="ColoredIcon"
-            iconType="wheelChair"
           />
           Accessibility Rating
           <br />
@@ -66,7 +65,6 @@ ShallowWrapper {
             <SvgIconAccessibility
               aria-label="By public transport"
               className="ColoredIcon"
-              iconType="wheelChair"
             />
             Accessibility Rating
             <br />
@@ -99,7 +97,6 @@ ShallowWrapper {
               <SvgIconAccessibility
                 aria-label="By public transport"
                 className="ColoredIcon"
-                iconType="wheelChair"
               />,
               "Accessibility Rating",
               <br />,
@@ -124,7 +121,6 @@ ShallowWrapper {
               "props": Object {
                 "aria-label": "By public transport",
                 "className": "ColoredIcon",
-                "iconType": "wheelChair",
               },
               "ref": null,
               "rendered": null,
@@ -200,7 +196,6 @@ ShallowWrapper {
             <SvgIconAccessibility
               aria-label="By public transport"
               className="ColoredIcon"
-              iconType="wheelChair"
             />
             Accessibility Rating
             <br />
@@ -234,7 +229,6 @@ ShallowWrapper {
               <SvgIconAccessibility
                 aria-label="By public transport"
                 className="ColoredIcon"
-                iconType="wheelChair"
               />
               Accessibility Rating
               <br />
@@ -267,7 +261,6 @@ ShallowWrapper {
                 <SvgIconAccessibility
                   aria-label="By public transport"
                   className="ColoredIcon"
-                  iconType="wheelChair"
                 />,
                 "Accessibility Rating",
                 <br />,
@@ -292,7 +285,6 @@ ShallowWrapper {
                 "props": Object {
                   "aria-label": "By public transport",
                   "className": "ColoredIcon",
-                  "iconType": "wheelChair",
                 },
                 "ref": null,
                 "rendered": null,
@@ -741,12 +733,21 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <HeaderBar
+          alternateBackgroundColor={false}
+          bannerName="housing"
+          primaryText="Provide Your Feedback"
+          secondaryText={null}
+        />,
+        <div
+          className="PlaceHolder"
+        />,
         <div>
           <RatingListItem
             data={
               Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Signage",
               }
             }
@@ -757,7 +758,7 @@ ShallowWrapper {
             data={
               Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Transport",
               }
             }
@@ -768,7 +769,7 @@ ShallowWrapper {
             data={
               Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Wheelchair access",
               }
             }
@@ -803,6 +804,31 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "alternateBackgroundColor": false,
+          "bannerName": "housing",
+          "primaryText": "Provide Your Feedback",
+          "secondaryText": null,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "PlaceHolder",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "host",
         "props": Object {
           "children": Array [
@@ -811,7 +837,7 @@ ShallowWrapper {
                 data={
                   Object {
                     "comment": null,
-                    "rating": -1,
+                    "rating": null,
                     "ratingType": "Signage",
                   }
                 }
@@ -822,7 +848,7 @@ ShallowWrapper {
                 data={
                   Object {
                     "comment": null,
-                    "rating": -1,
+                    "rating": null,
                     "ratingType": "Transport",
                   }
                 }
@@ -833,7 +859,7 @@ ShallowWrapper {
                 data={
                   Object {
                     "comment": null,
-                    "rating": -1,
+                    "rating": null,
                     "ratingType": "Wheelchair access",
                   }
                 }
@@ -871,7 +897,7 @@ ShallowWrapper {
             "props": Object {
               "data": Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Signage",
               },
               "onClickRatingListItem": [Function],
@@ -888,7 +914,7 @@ ShallowWrapper {
             "props": Object {
               "data": Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Transport",
               },
               "onClickRatingListItem": [Function],
@@ -905,7 +931,7 @@ ShallowWrapper {
             "props": Object {
               "data": Object {
                 "comment": null,
-                "rating": -1,
+                "rating": null,
                 "ratingType": "Wheelchair access",
               },
               "onClickRatingListItem": [Function],
@@ -996,12 +1022,21 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <HeaderBar
+            alternateBackgroundColor={false}
+            bannerName="housing"
+            primaryText="Provide Your Feedback"
+            secondaryText={null}
+          />,
+          <div
+            className="PlaceHolder"
+          />,
           <div>
             <RatingListItem
               data={
                 Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Signage",
                 }
               }
@@ -1012,7 +1047,7 @@ ShallowWrapper {
               data={
                 Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Transport",
                 }
               }
@@ -1023,7 +1058,7 @@ ShallowWrapper {
               data={
                 Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Wheelchair access",
                 }
               }
@@ -1058,6 +1093,31 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "alternateBackgroundColor": false,
+            "bannerName": "housing",
+            "primaryText": "Provide Your Feedback",
+            "secondaryText": null,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "PlaceHolder",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "host",
           "props": Object {
             "children": Array [
@@ -1066,7 +1126,7 @@ ShallowWrapper {
                   data={
                     Object {
                       "comment": null,
-                      "rating": -1,
+                      "rating": null,
                       "ratingType": "Signage",
                     }
                   }
@@ -1077,7 +1137,7 @@ ShallowWrapper {
                   data={
                     Object {
                       "comment": null,
-                      "rating": -1,
+                      "rating": null,
                       "ratingType": "Transport",
                     }
                   }
@@ -1088,7 +1148,7 @@ ShallowWrapper {
                   data={
                     Object {
                       "comment": null,
-                      "rating": -1,
+                      "rating": null,
                       "ratingType": "Wheelchair access",
                     }
                   }
@@ -1126,7 +1186,7 @@ ShallowWrapper {
               "props": Object {
                 "data": Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Signage",
                 },
                 "onClickRatingListItem": [Function],
@@ -1143,7 +1203,7 @@ ShallowWrapper {
               "props": Object {
                 "data": Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Transport",
                 },
                 "onClickRatingListItem": [Function],
@@ -1160,7 +1220,7 @@ ShallowWrapper {
               "props": Object {
                 "data": Object {
                   "comment": null,
-                  "rating": -1,
+                  "rating": null,
                   "ratingType": "Wheelchair access",
                 },
                 "onClickRatingListItem": [Function],
@@ -1333,6 +1393,15 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <HeaderBar
+          alternateBackgroundColor={false}
+          bannerName="housing"
+          primaryText="Accessibility Rating"
+          secondaryText={null}
+        />,
+        <div
+          className="PlaceHolder"
+        />,
         <div>
           <RatingListItem
             data={
@@ -1408,6 +1477,31 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "alternateBackgroundColor": false,
+          "bannerName": "housing",
+          "primaryText": "Accessibility Rating",
+          "secondaryText": null,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "PlaceHolder",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "host",
         "props": Object {
           "children": Array [
@@ -1475,7 +1569,7 @@ ShallowWrapper {
         "rendered": Array [
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "0",
             "nodeType": "class",
             "props": Object {
               "data": Object {
@@ -1492,7 +1586,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "1",
             "nodeType": "class",
             "props": Object {
               "data": Object {
@@ -1509,7 +1603,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "2",
             "nodeType": "class",
             "props": Object {
               "data": Object {
@@ -1644,6 +1738,15 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <HeaderBar
+            alternateBackgroundColor={false}
+            bannerName="housing"
+            primaryText="Accessibility Rating"
+            secondaryText={null}
+          />,
+          <div
+            className="PlaceHolder"
+          />,
           <div>
             <RatingListItem
               data={
@@ -1719,6 +1822,31 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "alternateBackgroundColor": false,
+            "bannerName": "housing",
+            "primaryText": "Accessibility Rating",
+            "secondaryText": null,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "PlaceHolder",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "host",
           "props": Object {
             "children": Array [
@@ -1786,7 +1914,7 @@ ShallowWrapper {
           "rendered": Array [
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "0",
               "nodeType": "class",
               "props": Object {
                 "data": Object {
@@ -1803,7 +1931,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "1",
               "nodeType": "class",
               "props": Object {
                 "data": Object {
@@ -1820,7 +1948,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "2",
               "nodeType": "class",
               "props": Object {
                 "data": Object {
@@ -1996,10 +2124,9 @@ ShallowWrapper {
         <div
           className="RatingListItemIcon"
         >
-          <SvgIconAccessibility
+          <SvgIconSignage
             aria-label="signage"
             className="ColoredIcon"
-            iconType="signage"
           />
         </div>,
         <div
@@ -2035,10 +2162,9 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <SvgIconAccessibility
+          "children": <SvgIconSignage
             aria-label="signage"
             className="ColoredIcon"
-            iconType="signage"
           />,
           "className": "RatingListItemIcon",
         },
@@ -2050,7 +2176,6 @@ ShallowWrapper {
           "props": Object {
             "aria-label": "signage",
             "className": "ColoredIcon",
-            "iconType": "signage",
           },
           "ref": null,
           "rendered": null,
@@ -2154,10 +2279,9 @@ ShallowWrapper {
           <div
             className="RatingListItemIcon"
           >
-            <SvgIconAccessibility
+            <SvgIconSignage
               aria-label="signage"
               className="ColoredIcon"
-              iconType="signage"
             />
           </div>,
           <div
@@ -2193,10 +2317,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <SvgIconAccessibility
+            "children": <SvgIconSignage
               aria-label="signage"
               className="ColoredIcon"
-              iconType="signage"
             />,
             "className": "RatingListItemIcon",
           },
@@ -2208,7 +2331,6 @@ ShallowWrapper {
             "props": Object {
               "aria-label": "signage",
               "className": "ColoredIcon",
-              "iconType": "signage",
             },
             "ref": null,
             "rendered": null,
