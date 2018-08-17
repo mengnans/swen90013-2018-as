@@ -10,13 +10,21 @@ export default class FeedbackProvideForm extends React.Component {
     maximumWidth = 1000;
 
     props: {
-      onRatingChange: Function,
-      onCommentBoxChange: Function,
+      onFeedbackSaved: Function,
       resetCurrentRating: Function,
       clearSelectedCategory: Function,
       rating: object,
       width: number
     };
+
+    constructor(props: Object) {
+        super(props);
+
+        this.state = {
+            rating: null,
+            comment: null
+        }
+    }
 
     // cancel provide feedback for sub-criteria
     onClickCancel() {
@@ -26,7 +34,20 @@ export default class FeedbackProvideForm extends React.Component {
 
     // provide feedback for sub-criteria
     onClickDone() {
+      this.props.onFeedbackSaved(this.state.rating, this.state.comment);
       this.props.clearSelectedCategory();
+    }
+
+    onCommentBoxChange(event) {
+        this.setState({
+            comment: event.target.value
+        });
+    }
+
+    onRatingChange(rating) {
+        this.setState({
+            rating
+        });
     }
 
     render() {
@@ -44,8 +65,8 @@ export default class FeedbackProvideForm extends React.Component {
             <textarea
                 className={"InputTextArea"}
                 placeholder={"Please leave your comment here."}
-                value={this.props.rating.comment || undefined}
-                onChange={this.props.onCommentBoxChange.bind(this)}
+                value={this.state.comment || undefined}
+                onChange={this.onCommentBoxChange.bind(this)}
             >
             </textarea>
         );
@@ -79,8 +100,8 @@ export default class FeedbackProvideForm extends React.Component {
                     <Star
                         starDimension={starDimension}
                         starSpacing={starSpacing}
-                        rating={this.props.rating.rating || undefined}
-                        changeRating={this.props.onRatingChange.bind(this)}
+                        rating={this.state.rating || undefined}
+                        changeRating={this.onRatingChange.bind(this)}
                     />
                 </div>
                 {this.renderRightStarText()}

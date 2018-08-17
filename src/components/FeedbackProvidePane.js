@@ -42,21 +42,14 @@ export default class FeedbackProvidePane extends React.Component {
         };
     }
 
-    onCommentBoxChange(event) {
+    onFeedbackSaved(rating, comment) {
         let ratingData = this.state.ratingData;
+
+        ratingData.ratings[this.state.selectedCategory].rating =
+            rating;
 
         ratingData.ratings[this.state.selectedCategory].comment =
-            event.target.value;
-
-        this.setState({
-            ratingData,
-        });
-    }
-
-    onRatingChange(newRating) {
-        let ratingData = this.state.ratingData;
-
-        ratingData.ratings[this.state.selectedCategory].rating = newRating;
+            comment;
 
         this.setState({
             ratingData,
@@ -219,8 +212,7 @@ export default class FeedbackProvidePane extends React.Component {
         return <FeedbackProvideForm
             rating={this.getSelectedRating()}
             width={this.props.width}
-            onCommentBoxChange={this.onCommentBoxChange.bind(this)}
-            onRatingChange={this.onRatingChange.bind(this)}
+            onFeedbackSaved={this.onFeedbackSaved.bind(this)}
             resetCurrentRating={this.resetCurrentRating.bind(this)}
             clearSelectedCategory={this.clearSelectedCategory.bind(this)}
         />
