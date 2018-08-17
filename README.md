@@ -17,6 +17,10 @@ and e.g. unit-test
 
 >make unit-test
 
+or run it locally
+
+>make serve
+
 the project. 
 You can change the ISS_URL or FEEDBACK_URL at the top of the Makefile.
 
@@ -26,9 +30,9 @@ It's a Work In Progress.
 For questions/issues regarding Docker please consult with the [Docker documentation](https://docs.docker.com/) or Ferdinand.
 
 Remaining bugs:
-- the main stylesheet is not applied until it is edited in the style editor of your browser
 - building an image probably takes longer than convenient
 - the nodejs packages are downloaded over an insecure link
+- hot loading of resources is not supported at the moment
 - you tell me ;)
 
 
