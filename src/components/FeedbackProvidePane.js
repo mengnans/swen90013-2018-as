@@ -117,16 +117,7 @@ export default class FeedbackProvidePane extends React.Component {
             console.log("error at FeedbackProvidePane");
         }
 
-        // TODO: do something here,
-        // inform the user the feedback has been submitted
-        // alert("submitted");
-        // go back to service page
-        let path = "/service/";
-
-        path += this.props.service.slug;
-        this.context.router.replace(
-            path
-        );
+        this.context.router.goBack();
     }
 
     // delete all the comments
