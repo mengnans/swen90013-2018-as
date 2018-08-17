@@ -31,7 +31,7 @@ export default class FeedbackProvidePane extends React.Component {
             let ratingItem = {};
 
             ratingItem.ratingType = rating.ratingType;
-            
+
             return this.resetRating(ratingItem);
         });
 
@@ -195,7 +195,7 @@ export default class FeedbackProvidePane extends React.Component {
                     : this.renderRatingList()
                 }
             </div>
-        ); 
+        );
     }
 
     renderForm() {
@@ -221,7 +221,9 @@ export default class FeedbackProvidePane extends React.Component {
 
         return (
             <div>
+                <div className={"RatingListItemProvideMode"}>
                 {list}
+                </div>
                 {this.renderFeedbackButtons()}
             </div>
         );
