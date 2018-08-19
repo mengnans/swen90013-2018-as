@@ -4,7 +4,7 @@ import ExtractTextPlugin from "extract-text-webpack-plugin";
 import cssLoaders from "./css-loaders";
 
 const cssExtractor = new ExtractTextPlugin({
-    filename: "[name]-[contenthash].css",
+    filename: "[name]_[contenthash].css",
     allChunks: true,
 });
 

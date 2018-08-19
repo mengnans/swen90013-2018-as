@@ -2,9 +2,43 @@
 
 ## SWEN90013 QUICKSTART
 
-In order to get the project running you will need to install [Node.js](https://nodejs.org/en/).
+### Docker All-Inclusive Package
+
+Please install [Docker Desktop](https://www.docker.com/products/docker-desktop). 
+Clone the project from Bitbucket or use your existing repo; make sure to have an up-to-date repo.
+Use the Makefile to build,
+
+>make build
+
+lint,
+>make lint
+
+and e.g. unit-test
+
+>make unit-test
+
+or run it locally
+
+>make serve
+
+the project. 
+You can change the ISS_URL or FEEDBACK_URL at the top of the Makefile.
+
+This setup doesn't launch the mock ISS server and the Docker container has to be rebuilt and run upon code changes. 
+It's a Work In Progress.
+
+For questions/issues regarding Docker please consult with the [Docker documentation](https://docs.docker.com/) or Ferdinand.
+
+Remaining bugs:
+- building an image probably takes longer than convenient
+- the nodejs packages are downloaded over an insecure link
+- hot loading of resources is not supported at the moment
+- you tell me ;)
+
 
 ### Windows Preparation
+
+In order to get the project running you will need to install [Node.js](https://nodejs.org/en/).
 
 For windows, you will need to install [Cygwin](https://cygwin.com/install.html).
 
@@ -34,6 +68,8 @@ $ dos2unix ./script/*
 See the [Project Installation](#markdown-header-project-installation) section below to continue.
 
 ### OSX Preparation
+
+In order to get the project running you will need to install [Node.js](https://nodejs.org/en/).
 
 You will need to install `gnu-sed` like follows (skip if using cygwin/msys/git-bash or linux):
 
@@ -129,7 +165,7 @@ Once the page JS loads:
 ## Ask Izzy Routes
 
 
-Here are the explict paths that AskIzzy supports:
+Here are the explicit paths that AskIzzy supports:
 
 ````
 /service/<service-id>
@@ -182,7 +218,7 @@ Ask Izzy uses Webpack to organize building JS / CSS.
 
 Webpack configuration is very powerful but unfortunately quite complex.
 The current configuration compiles javascript files using babel (for JSX and flow) and CSS files using sass,
-then writes the result to `public/static/main-<MD5>.<css|js>`. 
+then writes the result to `public/static/main_<MD5>.<css|js>`. 
 The file `server/webpack-stats.json` is also generated, so that our code can find the
 path to the files.
 
@@ -285,10 +321,7 @@ as the source of location autocomplete data.
 
 ## Outstanding issues
 
-The search implementation attempts to build a free-text query.
-This is fundamentally not really a workable approach but for 
-organisational and technical reasons it's very difficult to 
-make changes to ISS3 which serves the queries.
+See confluence and JIRA
 
 ## Tests
 All tests live in the `test` toplevel directory.
@@ -298,27 +331,6 @@ BDD features live in `test/features` with step definitions in `test/steps` invok
 Maps features live in `test/maps` with step definitions in `test/steps` invoked from `test/maps.js`. They use `yadda`.
 Personalisation features live in `test/personalisation` with step definitions in `test/steps` invoked from `test/personlisation.js`. They use `yadda`.
 Search features live in `test/search` with step definitions in `test/search-steps` invoked from `test/search.js`. They use `yadda`.
-
-### Forklift / docker
-
-The dockerfile can run the tests but there's currently 
-no development server in `invoke.sh` (should be easy to 
-fix but I don't use docker locally).
-
-If you're using [forklift](https://github.com/infoxchange/docker-forklift)
-then you can add a config file `~/.config/forklift/ask-izzy.yaml`:
-
-    environment:
-        ISS_URL: ...
-        # ISS_URL: http://localhost:5000
-        GOOGLE_API_KEY: ...
-
-And run:
-
-    forklift -- ./script/dev-server
-
-There's also a mock ISS server available as `./script/mock-iss`. This will
-start a server on `localhost:5000`.
 
 ### Adding new icons
 

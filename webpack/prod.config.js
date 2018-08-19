@@ -35,8 +35,8 @@ module.exports = {
     },
     output: {
         path: assetsPath,
-        filename: "[name]-[hash].js",
-        chunkFilename: "[name]-[chunkhash].js",
+        filename: "[name]_[hash].js",
+        chunkFilename: "[name]_[chunkhash].js",
         publicPath: "/static/",
     },
     module: {
