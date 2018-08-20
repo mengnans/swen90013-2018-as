@@ -743,39 +743,43 @@ ShallowWrapper {
           className="PlaceHolder"
         />,
         <div>
-          <RatingListItem
-            data={
-              Object {
-                "comment": null,
-                "rating": null,
-                "ratingType": "Signage",
+          <div
+            className="RatingListItemProvideMode"
+          >
+            <RatingListItem
+              data={
+                Object {
+                  "comment": null,
+                  "rating": null,
+                  "ratingType": "Signage",
+                }
               }
-            }
-            onClickRatingListItem={[Function]}
-            width={200}
-          />
-          <RatingListItem
-            data={
-              Object {
-                "comment": null,
-                "rating": null,
-                "ratingType": "Transport",
+              onClickRatingListItem={[Function]}
+              width={200}
+            />
+            <RatingListItem
+              data={
+                Object {
+                  "comment": null,
+                  "rating": null,
+                  "ratingType": "Transport",
+                }
               }
-            }
-            onClickRatingListItem={[Function]}
-            width={200}
-          />
-          <RatingListItem
-            data={
-              Object {
-                "comment": null,
-                "rating": null,
-                "ratingType": "Wheelchair access",
+              onClickRatingListItem={[Function]}
+              width={200}
+            />
+            <RatingListItem
+              data={
+                Object {
+                  "comment": null,
+                  "rating": null,
+                  "ratingType": "Wheelchair access",
+                }
               }
-            }
-            onClickRatingListItem={[Function]}
-            width={200}
-          />
+              onClickRatingListItem={[Function]}
+              width={200}
+            />
+          </div>
           <div
             className="ButtonPane"
           >
@@ -832,7 +836,9 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            Array [
+            <div
+              className="RatingListItemProvideMode"
+            >
               <RatingListItem
                 data={
                   Object {
@@ -843,7 +849,7 @@ ShallowWrapper {
                 }
                 onClickRatingListItem={[Function]}
                 width={200}
-              />,
+              />
               <RatingListItem
                 data={
                   Object {
@@ -854,7 +860,7 @@ ShallowWrapper {
                 }
                 onClickRatingListItem={[Function]}
                 width={200}
-              />,
+              />
               <RatingListItem
                 data={
                   Object {
@@ -865,8 +871,8 @@ ShallowWrapper {
                 }
                 onClickRatingListItem={[Function]}
                 width={200}
-              />,
-            ],
+              />
+            </div>,
             <div
               className="ButtonPane"
             >
@@ -892,54 +898,101 @@ ShallowWrapper {
         "rendered": Array [
           Object {
             "instance": null,
-            "key": "ratingListItem#0",
-            "nodeType": "class",
+            "key": undefined,
+            "nodeType": "host",
             "props": Object {
-              "data": Object {
-                "comment": null,
-                "rating": null,
-                "ratingType": "Signage",
-              },
-              "onClickRatingListItem": [Function],
-              "width": 200,
+              "children": Array [
+                <RatingListItem
+                  data={
+                    Object {
+                      "comment": null,
+                      "rating": null,
+                      "ratingType": "Signage",
+                    }
+                  }
+                  onClickRatingListItem={[Function]}
+                  width={200}
+                />,
+                <RatingListItem
+                  data={
+                    Object {
+                      "comment": null,
+                      "rating": null,
+                      "ratingType": "Transport",
+                    }
+                  }
+                  onClickRatingListItem={[Function]}
+                  width={200}
+                />,
+                <RatingListItem
+                  data={
+                    Object {
+                      "comment": null,
+                      "rating": null,
+                      "ratingType": "Wheelchair access",
+                    }
+                  }
+                  onClickRatingListItem={[Function]}
+                  width={200}
+                />,
+              ],
+              "className": "RatingListItemProvideMode",
             },
             "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": "ratingListItem#1",
-            "nodeType": "class",
-            "props": Object {
-              "data": Object {
-                "comment": null,
-                "rating": null,
-                "ratingType": "Transport",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "ratingListItem#0",
+                "nodeType": "class",
+                "props": Object {
+                  "data": Object {
+                    "comment": null,
+                    "rating": null,
+                    "ratingType": "Signage",
+                  },
+                  "onClickRatingListItem": [Function],
+                  "width": 200,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
               },
-              "onClickRatingListItem": [Function],
-              "width": 200,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": "ratingListItem#2",
-            "nodeType": "class",
-            "props": Object {
-              "data": Object {
-                "comment": null,
-                "rating": null,
-                "ratingType": "Wheelchair access",
+              Object {
+                "instance": null,
+                "key": "ratingListItem#1",
+                "nodeType": "class",
+                "props": Object {
+                  "data": Object {
+                    "comment": null,
+                    "rating": null,
+                    "ratingType": "Transport",
+                  },
+                  "onClickRatingListItem": [Function],
+                  "width": 200,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
               },
-              "onClickRatingListItem": [Function],
-              "width": 200,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
+              Object {
+                "instance": null,
+                "key": "ratingListItem#2",
+                "nodeType": "class",
+                "props": Object {
+                  "data": Object {
+                    "comment": null,
+                    "rating": null,
+                    "ratingType": "Wheelchair access",
+                  },
+                  "onClickRatingListItem": [Function],
+                  "width": 200,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
           },
           Object {
             "instance": null,
@@ -1032,39 +1085,43 @@ ShallowWrapper {
             className="PlaceHolder"
           />,
           <div>
-            <RatingListItem
-              data={
-                Object {
-                  "comment": null,
-                  "rating": null,
-                  "ratingType": "Signage",
+            <div
+              className="RatingListItemProvideMode"
+            >
+              <RatingListItem
+                data={
+                  Object {
+                    "comment": null,
+                    "rating": null,
+                    "ratingType": "Signage",
+                  }
                 }
-              }
-              onClickRatingListItem={[Function]}
-              width={200}
-            />
-            <RatingListItem
-              data={
-                Object {
-                  "comment": null,
-                  "rating": null,
-                  "ratingType": "Transport",
+                onClickRatingListItem={[Function]}
+                width={200}
+              />
+              <RatingListItem
+                data={
+                  Object {
+                    "comment": null,
+                    "rating": null,
+                    "ratingType": "Transport",
+                  }
                 }
-              }
-              onClickRatingListItem={[Function]}
-              width={200}
-            />
-            <RatingListItem
-              data={
-                Object {
-                  "comment": null,
-                  "rating": null,
-                  "ratingType": "Wheelchair access",
+                onClickRatingListItem={[Function]}
+                width={200}
+              />
+              <RatingListItem
+                data={
+                  Object {
+                    "comment": null,
+                    "rating": null,
+                    "ratingType": "Wheelchair access",
+                  }
                 }
-              }
-              onClickRatingListItem={[Function]}
-              width={200}
-            />
+                onClickRatingListItem={[Function]}
+                width={200}
+              />
+            </div>
             <div
               className="ButtonPane"
             >
@@ -1121,7 +1178,9 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              Array [
+              <div
+                className="RatingListItemProvideMode"
+              >
                 <RatingListItem
                   data={
                     Object {
@@ -1132,7 +1191,7 @@ ShallowWrapper {
                   }
                   onClickRatingListItem={[Function]}
                   width={200}
-                />,
+                />
                 <RatingListItem
                   data={
                     Object {
@@ -1143,7 +1202,7 @@ ShallowWrapper {
                   }
                   onClickRatingListItem={[Function]}
                   width={200}
-                />,
+                />
                 <RatingListItem
                   data={
                     Object {
@@ -1154,8 +1213,8 @@ ShallowWrapper {
                   }
                   onClickRatingListItem={[Function]}
                   width={200}
-                />,
-              ],
+                />
+              </div>,
               <div
                 className="ButtonPane"
               >
@@ -1181,54 +1240,101 @@ ShallowWrapper {
           "rendered": Array [
             Object {
               "instance": null,
-              "key": "ratingListItem#0",
-              "nodeType": "class",
+              "key": undefined,
+              "nodeType": "host",
               "props": Object {
-                "data": Object {
-                  "comment": null,
-                  "rating": null,
-                  "ratingType": "Signage",
-                },
-                "onClickRatingListItem": [Function],
-                "width": 200,
+                "children": Array [
+                  <RatingListItem
+                    data={
+                      Object {
+                        "comment": null,
+                        "rating": null,
+                        "ratingType": "Signage",
+                      }
+                    }
+                    onClickRatingListItem={[Function]}
+                    width={200}
+                  />,
+                  <RatingListItem
+                    data={
+                      Object {
+                        "comment": null,
+                        "rating": null,
+                        "ratingType": "Transport",
+                      }
+                    }
+                    onClickRatingListItem={[Function]}
+                    width={200}
+                  />,
+                  <RatingListItem
+                    data={
+                      Object {
+                        "comment": null,
+                        "rating": null,
+                        "ratingType": "Wheelchair access",
+                      }
+                    }
+                    onClickRatingListItem={[Function]}
+                    width={200}
+                  />,
+                ],
+                "className": "RatingListItemProvideMode",
               },
               "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": "ratingListItem#1",
-              "nodeType": "class",
-              "props": Object {
-                "data": Object {
-                  "comment": null,
-                  "rating": null,
-                  "ratingType": "Transport",
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "ratingListItem#0",
+                  "nodeType": "class",
+                  "props": Object {
+                    "data": Object {
+                      "comment": null,
+                      "rating": null,
+                      "ratingType": "Signage",
+                    },
+                    "onClickRatingListItem": [Function],
+                    "width": 200,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
                 },
-                "onClickRatingListItem": [Function],
-                "width": 200,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": "ratingListItem#2",
-              "nodeType": "class",
-              "props": Object {
-                "data": Object {
-                  "comment": null,
-                  "rating": null,
-                  "ratingType": "Wheelchair access",
+                Object {
+                  "instance": null,
+                  "key": "ratingListItem#1",
+                  "nodeType": "class",
+                  "props": Object {
+                    "data": Object {
+                      "comment": null,
+                      "rating": null,
+                      "ratingType": "Transport",
+                    },
+                    "onClickRatingListItem": [Function],
+                    "width": 200,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
                 },
-                "onClickRatingListItem": [Function],
-                "width": 200,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
+                Object {
+                  "instance": null,
+                  "key": "ratingListItem#2",
+                  "nodeType": "class",
+                  "props": Object {
+                    "data": Object {
+                      "comment": null,
+                      "rating": null,
+                      "ratingType": "Wheelchair access",
+                    },
+                    "onClickRatingListItem": [Function],
+                    "width": 200,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
             },
             Object {
               "instance": null,
