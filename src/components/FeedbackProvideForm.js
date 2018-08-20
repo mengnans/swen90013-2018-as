@@ -18,8 +18,8 @@ export default class FeedbackProvideForm extends React.Component {
         super(props);
 
         this.state = {
-            rating: null,
-            comment: null
+            rating: props.rating.rating,
+            comment: props.rating.comment
         }
     }
 
@@ -52,7 +52,7 @@ export default class FeedbackProvideForm extends React.Component {
             <div>
                 <StarTextItem onRatingChange={this.onRatingChange.bind(this)}
                     width={this.props.width}
-                    rating={this.props.rating.rating}
+                    rating={this.state.rating}
                 />
                 {this.renderCommentBox()}
                 {this.renderButtons()}
