@@ -96,7 +96,7 @@ export default (
         <Route
             path="/leader-board"
             component={LeaderBoardPage}
-            title="Terms of use"
+            title="Leader board"
         />
 
         <Route

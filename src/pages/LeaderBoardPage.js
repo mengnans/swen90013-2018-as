@@ -7,6 +7,7 @@ import type {Service} from "../iss";
 import components from "../components";
 import Loading from "../icons/Loading";
 import config from "../config";
+import LeaderBoardPane from "../components/LeaderBoardPane";
 
 class LeaderBoardPage extends React.Component {
 
@@ -110,9 +111,7 @@ class LeaderBoardPage extends React.Component {
                         title={"Leader board"}
                         onBackTouchTap={back}
                     />
-                    <div>
-                        leader board
-                    </div>
+                    <LeaderBoardPane/>
                 </div>
             );
         }
