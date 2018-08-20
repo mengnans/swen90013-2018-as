@@ -17,6 +17,8 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import AddServicePage from "./pages/AddServicePage";
 import TermsPage from "./pages/TermsPage";
+import LeaderBoardPage from "./pages/LeaderBoardPage";
+
 
 import HomelessSheltersStaticPage from "./pages/HomelessSheltersStaticPage";
 import FoodBanksStaticPage from "./pages/FoodBanksStaticPage";
@@ -90,6 +92,13 @@ export default (
             component={TermsPage}
             title="Terms of use"
         />
+
+        <Route
+            path="/leader-board"
+            component={LeaderBoardPage}
+            title="Terms of use"
+        />
+
         <Route
             path="/homeless-shelters"
             component={HomelessSheltersStaticPage}
