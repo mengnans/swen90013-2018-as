@@ -7,9 +7,9 @@ import type {Service} from "../iss";
 import components from "../components";
 import Loading from "../icons/Loading";
 import config from "../config";
-import LeaderBoardPane from "../components/LeaderBoardPane";
+import LeaderboardPane from "../components/LeaderboardPane";
 
-class LeaderBoardPage extends React.Component {
+class LeaderboardPage extends React.Component {
 
     state: {
         object?: Service,
@@ -106,12 +106,12 @@ class LeaderBoardPage extends React.Component {
             );
         } else {
             return (
-                <div className="LeaderBoardPage">
+                <div className="LeaderboardPage">
                     <components.AppBar
-                        title={"Leader board"}
+                        title={"Leaderboard"}
                         onBackTouchTap={back}
                     />
-                    <LeaderBoardPane/>
+                    <LeaderboardPane/>
                 </div>
             );
         }
@@ -119,4 +119,4 @@ class LeaderBoardPage extends React.Component {
 
 }
 
-export default LeaderBoardPage;
+export default LeaderboardPage;

@@ -17,7 +17,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import AddServicePage from "./pages/AddServicePage";
 import TermsPage from "./pages/TermsPage";
-import LeaderBoardPage from "./pages/LeaderBoardPage";
+import LeaderboardPage from "./pages/LeaderboardPage";
 
 
 import HomelessSheltersStaticPage from "./pages/HomelessSheltersStaticPage";
@@ -94,9 +94,9 @@ export default (
         />
 
         <Route
-            path="/leader-board"
-            component={LeaderBoardPage}
-            title="Leader board"
+            path="/leaderboard"
+            component={LeaderboardPage}
+            title="Leaderboard"
         />
 
         <Route

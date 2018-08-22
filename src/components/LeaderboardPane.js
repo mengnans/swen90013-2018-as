@@ -2,37 +2,37 @@
 
 import React from "react";
 import HeaderBar from "./HeaderBar";
-import LeaderBoardListItem from "./LeaderboardListItem";
+import LeaderboardListItem from "./LeaderboardListItem";
 
-export default class LeaderBoardPane extends React.Component {
+export default class LeaderboardPane extends React.Component {
 
-    mockLeaderBoardData = []
+    mockLeaderboardData = [];
 
     constructor(props) {
-        super(props)
+        super(props);
 
         // generate the mock data
         // TODO: put real data here and remove mock data
         for (let index = 0; index < 6; index++) {
 
-            let mockLeaderBoardItemData = {};
+            let mockLeaderboardItemData = {};
 
-            mockLeaderBoardItemData.serviceName = "Fake Service: " + index;
+            mockLeaderboardItemData.serviceName = "Fake Service: " + index;
 
-            mockLeaderBoardItemData.claps = 400 - 10 * index;
+            mockLeaderboardItemData.claps = 400 - 10 * index;
 
-            mockLeaderBoardItemData.slug = "111-my-housing-service";
+            mockLeaderboardItemData.slug = "111-my-housing-service";
 
-            this.mockLeaderBoardData.push(mockLeaderBoardItemData)
+            this.mockLeaderboardData.push(mockLeaderboardItemData)
         }
     }
 
     render() {
 
         return (
-            <div className={"LeaderBoardPane"}>
+            <div className={"LeaderboardPane"}>
                 <HeaderBar
-                    primaryText={"Leader board"}
+                    primaryText={"Leaderboard"}
                     secondaryText={null}
                     bannerName="housing"
                     alternateBackgroundColor={false}
@@ -44,8 +44,8 @@ export default class LeaderBoardPane extends React.Component {
 
     renderLeaderBoardList() {
 
-        return this.mockLeaderBoardData.map((data, index) => (
-            <LeaderBoardListItem
+        return this.mockLeaderboardData.map((data, index) => (
+            <LeaderboardListItem
                 data={data}
                 index={index}
             />

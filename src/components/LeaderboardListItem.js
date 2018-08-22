@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export default class LeaderBoardListItem extends React.Component {
+export default class LeaderboardListItem extends React.Component {
 
     props: {
         data: React.PropTypes.object,

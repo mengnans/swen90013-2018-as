@@ -27,7 +27,7 @@ class BrandedFooter extends React.Component {
                         <br/>
                         <li><Link to="/terms">Our terms of use</Link></li>
                         <li><a href={mailLink}>Leave feedback</a></li>
-                        <li><Link to="/leader-board">Leader board</Link></li>
+                        <li><Link to="/leaderboard">Leaderboard</Link></li>
                         <li><a href={donateLink}>Donate to us</a></li>
                     </ul>
                 </div>
