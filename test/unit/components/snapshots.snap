@@ -1,0 +1,604 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit tests LeaderboardListItem renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <LeaderboardListItem
+    data={
+      Object {
+        "claps": 100,
+        "serviceName": "test service",
+        "slug": "111-test-service",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        undefined,
+        100,
+        "test service",
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      undefined,
+      100,
+      "test service",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          undefined,
+          100,
+          "test service",
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        undefined,
+        100,
+        "test service",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Unit tests LeaderboardPage renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <LeaderboardPage
+    params={
+      Object {
+        "slug": "leaderboard",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <AppBar
+          onBackTouchTap={[Function]}
+          title="Leaderboard"
+        />,
+        <LeaderboardPane />,
+      ],
+      "className": "LeaderboardPage",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onBackTouchTap": [Function],
+          "title": "Leaderboard",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <AppBar
+            onBackTouchTap={[Function]}
+            title="Leaderboard"
+          />,
+          <LeaderboardPane />,
+        ],
+        "className": "LeaderboardPage",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "onBackTouchTap": [Function],
+            "title": "Leaderboard",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Unit tests LeaderboardPane renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <LeaderboardPane />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <HeaderBar
+          alternateBackgroundColor={false}
+          bannerName="housing"
+          primaryText="Leaderboard"
+          secondaryText={null}
+        />,
+        Array [
+          <LeaderboardListItem
+            data={
+              Object {
+                "claps": 400,
+                "serviceName": "Fake Service: 0",
+                "slug": "111-my-housing-service",
+              }
+            }
+            index={0}
+          />,
+          <LeaderboardListItem
+            data={
+              Object {
+                "claps": 390,
+                "serviceName": "Fake Service: 1",
+                "slug": "111-my-housing-service",
+              }
+            }
+            index={1}
+          />,
+          <LeaderboardListItem
+            data={
+              Object {
+                "claps": 380,
+                "serviceName": "Fake Service: 2",
+                "slug": "111-my-housing-service",
+              }
+            }
+            index={2}
+          />,
+          <LeaderboardListItem
+            data={
+              Object {
+                "claps": 370,
+                "serviceName": "Fake Service: 3",
+                "slug": "111-my-housing-service",
+              }
+            }
+            index={3}
+          />,
+          <LeaderboardListItem
+            data={
+              Object {
+                "claps": 360,
+                "serviceName": "Fake Service: 4",
+                "slug": "111-my-housing-service",
+              }
+            }
+            index={4}
+          />,
+          <LeaderboardListItem
+            data={
+              Object {
+                "claps": 350,
+                "serviceName": "Fake Service: 5",
+                "slug": "111-my-housing-service",
+              }
+            }
+            index={5}
+          />,
+        ],
+      ],
+      "className": "LeaderboardPane",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "alternateBackgroundColor": false,
+          "bannerName": "housing",
+          "primaryText": "Leaderboard",
+          "secondaryText": null,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "claps": 400,
+            "serviceName": "Fake Service: 0",
+            "slug": "111-my-housing-service",
+          },
+          "index": 0,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "claps": 390,
+            "serviceName": "Fake Service: 1",
+            "slug": "111-my-housing-service",
+          },
+          "index": 1,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "claps": 380,
+            "serviceName": "Fake Service: 2",
+            "slug": "111-my-housing-service",
+          },
+          "index": 2,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "claps": 370,
+            "serviceName": "Fake Service: 3",
+            "slug": "111-my-housing-service",
+          },
+          "index": 3,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "claps": 360,
+            "serviceName": "Fake Service: 4",
+            "slug": "111-my-housing-service",
+          },
+          "index": 4,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "claps": 350,
+            "serviceName": "Fake Service: 5",
+            "slug": "111-my-housing-service",
+          },
+          "index": 5,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <HeaderBar
+            alternateBackgroundColor={false}
+            bannerName="housing"
+            primaryText="Leaderboard"
+            secondaryText={null}
+          />,
+          Array [
+            <LeaderboardListItem
+              data={
+                Object {
+                  "claps": 400,
+                  "serviceName": "Fake Service: 0",
+                  "slug": "111-my-housing-service",
+                }
+              }
+              index={0}
+            />,
+            <LeaderboardListItem
+              data={
+                Object {
+                  "claps": 390,
+                  "serviceName": "Fake Service: 1",
+                  "slug": "111-my-housing-service",
+                }
+              }
+              index={1}
+            />,
+            <LeaderboardListItem
+              data={
+                Object {
+                  "claps": 380,
+                  "serviceName": "Fake Service: 2",
+                  "slug": "111-my-housing-service",
+                }
+              }
+              index={2}
+            />,
+            <LeaderboardListItem
+              data={
+                Object {
+                  "claps": 370,
+                  "serviceName": "Fake Service: 3",
+                  "slug": "111-my-housing-service",
+                }
+              }
+              index={3}
+            />,
+            <LeaderboardListItem
+              data={
+                Object {
+                  "claps": 360,
+                  "serviceName": "Fake Service: 4",
+                  "slug": "111-my-housing-service",
+                }
+              }
+              index={4}
+            />,
+            <LeaderboardListItem
+              data={
+                Object {
+                  "claps": 350,
+                  "serviceName": "Fake Service: 5",
+                  "slug": "111-my-housing-service",
+                }
+              }
+              index={5}
+            />,
+          ],
+        ],
+        "className": "LeaderboardPane",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "alternateBackgroundColor": false,
+            "bannerName": "housing",
+            "primaryText": "Leaderboard",
+            "secondaryText": null,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "data": Object {
+              "claps": 400,
+              "serviceName": "Fake Service: 0",
+              "slug": "111-my-housing-service",
+            },
+            "index": 0,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "data": Object {
+              "claps": 390,
+              "serviceName": "Fake Service: 1",
+              "slug": "111-my-housing-service",
+            },
+            "index": 1,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "data": Object {
+              "claps": 380,
+              "serviceName": "Fake Service: 2",
+              "slug": "111-my-housing-service",
+            },
+            "index": 2,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "data": Object {
+              "claps": 370,
+              "serviceName": "Fake Service: 3",
+              "slug": "111-my-housing-service",
+            },
+            "index": 3,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "data": Object {
+              "claps": 360,
+              "serviceName": "Fake Service: 4",
+              "slug": "111-my-housing-service",
+            },
+            "index": 4,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "data": Object {
+              "claps": 350,
+              "serviceName": "Fake Service: 5",
+              "slug": "111-my-housing-service",
+            },
+            "index": 5,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
