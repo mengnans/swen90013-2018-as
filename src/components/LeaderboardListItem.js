@@ -6,8 +6,9 @@ export default class LeaderboardListItem extends React.Component {
 
     props: {
         data: React.PropTypes.object,
-        index: Number,
-    }
+        key: Number,
+        onClickLeaderboardListItem: Function,
+    };
 
     constructor(props) {
         super(props);
@@ -16,8 +17,10 @@ export default class LeaderboardListItem extends React.Component {
     render() {
 
         return (
-            <div>
-                {this.props.index}
+            <div className={"LeaderboardListItem"}
+                onClick={this.props.onClickLeaderboardListItem}
+            >
+                {this.props.key}
                 {this.props.data.claps}
                 {this.props.data.serviceName}
             </div>

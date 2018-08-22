@@ -25,6 +25,10 @@ export default class LeaderboardPane extends React.Component {
 
     mockLeaderboardData = [];
 
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired,
+    };
+
     constructor(props) {
         super(props);
 
@@ -71,12 +75,29 @@ export default class LeaderboardPane extends React.Component {
         );
     }
 
+    /**
+     * Navigates to the service page
+     *
+     * @param index number
+     */
+    onClickLeaderboardListItem(data) {
+        let slug = data.slug;
+        let path = "/service/";
+
+        path += slug;
+        this.context.router.push(
+            path
+        );
+    }
+
     renderLeaderBoardList() {
 
         return this.mockLeaderboardData.map((data, index) => (
             <LeaderboardListItem
                 data={data}
-                index={index}
+                key={index}
+                onClickLeaderboardListItem
+                    ={this.onClickLeaderboardListItem.bind(this, data)}
             />
         ));
 
