@@ -3,7 +3,12 @@ import Enzyme from 'enzyme';
 import chaiJestSnapshot from 'chai-jest-snapshot';
 import Adapter from 'enzyme-adapter-react-15';
 
-const snapshotsFile = "/../unit/components/snapshots.snap";
+const snapshotsFile = '/../unit/components/snapshots.snap';
+const updateFlag = '--update-snapshots';
+
+if (process.argv.includes(updateFlag)) {
+    process.env.CHAI_JEST_SNAPSHOT_UPDATE_ALL = 'true';
+}
 
 chai.use(chaiJestSnapshot);
 
