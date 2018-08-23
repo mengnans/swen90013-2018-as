@@ -95,6 +95,7 @@ export default class LeaderboardPane extends React.Component {
         return this.mockLeaderboardData.map((data, index) => (
             <LeaderboardListItem
                 data={data}
+                index={index}
                 key={index}
                 onClickLeaderboardListItem
                     ={this.onClickLeaderboardListItem.bind(this, data)}
