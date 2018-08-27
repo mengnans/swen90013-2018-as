@@ -1,22 +1,13 @@
 GOOGLE_API_KEY = AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
-ISS_URL = http://localhost:5000
-FEEDBACK_URL = http://144.6.226.112/api
-
-APP = ask_izzy
-REPO = cis.unimelb.edu.au/$(APP)
+BACKEND_URL = http://localhost:3000
+APP = askizzy-frontend
+REPO = registry.gitlab.com/ferdinand-swoboda/$(APP)
 VERSION_TAG := $(shell git describe)
 
-# Allow multi-line assignments to include a `\` on the end of every
-# line (including the last one), which avoids the situation where you
-# have to touch two lines in order to add an item to the list.
-NULL=
-
 FLAGS := -e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" \
-	-e ISS_URL="$(ISS_URL)" \
+	-e ISS_URL="$(BACKEND_URL)" \
 	-e SELENIUM_BROWSER="phantomjs" \
-	-e ENVIRONMENT="staging" \
-	-e FEEDBACK_URL="http://144.6.226.112/api" \
-	$(NULL)
+	-e ENVIRONMENT="staging"
 
 build:
 	@test -z "`git status --porcelain`" || echo "WARNING: you have changes to your git repo not committed to this tag"
@@ -43,6 +34,5 @@ search-test:
 
 serve:
 	docker run -t -p 8000:8000 $(FLAGS) -- $(REPO):$(VERSION_TAG) serve
-	@echo "Serving $(REPO):$(VERSION_TAG) at http://localhost:8000"
 
 .PHONY: build lint unit-test feature-test maps-test personalisation-test search-test serve
