@@ -3,8 +3,19 @@
 import React from "react";
 import HeaderBar from "./HeaderBar";
 import LeaderboardListItem from "./LeaderboardListItem";
+import LeaderboardTab from "../components/LeaderboardTab";
 
 export default class LeaderboardPane extends React.Component {
+
+    state = {
+        activeTab: "left",
+    }
+
+    switchTab = tab => {
+        this.setState({
+            activeTab: tab,
+        })
+    }
 
     mockLeaderboardData = [];
 
@@ -36,6 +47,12 @@ export default class LeaderboardPane extends React.Component {
                     secondaryText={null}
                     bannerName="housing"
                     alternateBackgroundColor={false}
+                />
+                <LeaderboardTab
+                    left="App"
+                    right="Categories"
+                    activeTab={this.state.activeTab}
+                    switchTab={this.switchTab}
                 />
                 {this.renderLeaderBoardList()}
             </div>
