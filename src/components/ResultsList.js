@@ -31,8 +31,22 @@ class ResultsList extends React.Component {
     nonCrisisResults(): Array<Object> {
         return nonCrisisResults(this.props.results);
     }
-
+    onClickClapsSortingDescending(services : Array<Object>):void {
+        services.sort((service1, service2) => {
+            return service2.claps - service1.claps;
+        });
+    }
+    onClickClapsSortingAscending(services : Array<Object>):void {
+        services.sort((service1, service2) => {
+            return service1.claps - service2.claps;
+        });
+    }
     render() {
+        let nonCrisisServices = this.nonCrisisResults();
+
+        console.log(nonCrisisServices);
+        this.onClickClapsSortingDescending(nonCrisisServices);
+        console.log(nonCrisisServices);
         return (
             <div className="ResultList">
                 {
@@ -42,7 +56,7 @@ class ResultsList extends React.Component {
                     />
                 }
                 {this.crisisResults().map(this.renderCrisisResult.bind(this))}
-                {this.nonCrisisResults().map(this.renderResult.bind(this))}
+                {nonCrisisServices.map(this.renderResult.bind(this))}
             </div>
         );
     }
