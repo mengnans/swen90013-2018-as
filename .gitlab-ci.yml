@@ -16,7 +16,7 @@ variables:
     # When using dind, it's wise to use the overlayfs driver for
     # improved performance.
     DOCKER_DRIVER: overlay2
-    GOOGLE_API_KEY: AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
+    GOOGLE_API_KEY: ${GOOGLE_API_KEY}
     ISS_URL: BACKEND_URL \
     SELENIUM_BROWSER: phantomjs
     ENVIRONMENT: staging
