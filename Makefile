@@ -1,8 +1,14 @@
-GOOGLE_API_KEY = AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
-BACKEND_URL = http://localhost:3000
 APP = askizzy-frontend
-REPO = registry.gitlab.com/ferdinand-swoboda/$(APP)
+REGISTRY = registry.gitlab.com/ferdinand-swoboda
 VERSION_TAG := $(shell git describe)
+export CONTAINER_IMAGE = $(REGISTRY)/$(APP):${VERSION_TAG}
+export GOOGLE_API_KEY = AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
+
+# backend variables
+export BACKEND_IMAGE ?= $(REGISTRY)/askizzy-backend:vAS-1.0.0
+export POSTGRES_PASSWORD = example
+export POSTGRES_USER = askizzy
+export POSTGRES_DB = askizzy
 
 FLAGS := -e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" \
 	-e ISS_URL="$(BACKEND_URL)" \
@@ -11,28 +17,28 @@ FLAGS := -e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" \
 
 build:
 	@test -z "`git status --porcelain`" || echo "WARNING: you have changes to your git repo not committed to this tag"
-	docker build -t $(REPO):$(VERSION_TAG) .;
-	@echo "Successfully built $(REPO):$(VERSION_TAG)..."
+	docker build -t $(CONTAINER_IMAGE) .;
+    @echo "Successfully built $(CONTAINER_IMAGE)..."
 
 lint:
-	docker run -t $(FLAGS) -- $(REPO):$(VERSION_TAG) lint
+	docker run -t -- $(CONTAINER_IMAGE) lint
 
 unit-test:
-	docker run -t $(FLAGS) -- $(REPO):$(VERSION_TAG) unit-test
+	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) unit-test
 
 feature-test:
-	docker run -t $(FLAGS) -- $(REPO):$(VERSION_TAG) feature-test
+	export COMMAND=feature-test && docker-compose up --abort-on-container-exit
 
 maps-test:
-	docker run -t $(FLAGS) -- $(REPO):$(VERSION_TAG) maps-test
+	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) maps-test
 
 personalisation-test:
-	docker run -t $(FLAGS) -- $(REPO):$(VERSION_TAG) personalisation-test
+	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) personalisation-test
 
 search-test:
-	docker run -t $(FLAGS) -- $(REPO):$(VERSION_TAG) search-test
+	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) search-test
 
 serve:
-	docker run -t -p 8000:8000 $(FLAGS) -- $(REPO):$(VERSION_TAG) serve
+	docker run -t -p 8000:8000 $(FLAGS) -- $(CONTAINER_IMAGE) serve
 
 .PHONY: build lint unit-test feature-test maps-test personalisation-test search-test serve

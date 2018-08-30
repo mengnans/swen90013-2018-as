@@ -1,0 +1,46 @@
+version: '3'
+services:
+  postgres:
+    image: "postgres:10"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+    - ./scripts/db-scripts:/docker-entrypoint-initdb.d/
+    - "dbdata:/var/lib/postgresql/data"
+  backend:
+    image: ${BACKEND_IMAGE}
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+    - "3000:3000"
+    depends_on:
+    - postgres
+    entrypoint:
+    - ./wait-for-it.sh
+    - postgres:5432
+    - --
+    - ./invoke.sh
+    - serve
+  frontend:
+    image: ${CONTAINER_IMAGE}
+    environment:
+        GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+        ISS_URL: backend:3000
+    ports:
+        - "80:8000"
+    depends_on:
+        - backend
+    entrypoint:
+    - ./wait-for-it.sh
+    - backend:3000
+    - --
+    - ./invoke.sh
+    - ${COMMAND}
+
+volumes:
+  dbdata:

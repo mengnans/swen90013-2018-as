@@ -1,6 +1,6 @@
-FROM debian:stretch
+FROM node:8
 
-ENV NODE_ENV production
+MAINTAINER Ferdinand Swoboda
 
 # Pallet standard locations
 VOLUME ["/static", "/storage"]
@@ -53,7 +53,7 @@ RUN npm install && \
     $(npm bin)/bower install --allow-root
 
 # Install and build the app
-ADD . /app
+COPY . /app
 
 RUN script/build-assets && \
     script/build-gmaps-file && \
