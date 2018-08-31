@@ -32,6 +32,8 @@
     .ViewOnMapButton {
         background-color: $brand-bg-light;
         color: $brand-text-mid;
+        display: inline-block;
+        width:80%;
 
         .primaryText {
             font-size: 18px;
@@ -51,6 +53,20 @@
 
         & > div {
             padding-left: 58px;
+        }
+    }
+
+    .dropdown{
+        background-color: $brand-bg-light;
+        display: inline-block;
+        width: 20%;
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
     }
 
