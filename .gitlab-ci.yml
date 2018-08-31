@@ -1,10 +1,5 @@
 # Continuous deployment configuration
 # See http://doc.gitlab.com/ci/builds_configuration/README.html
-image: docker:latest
-
-services:
-- docker:dind
-
 stages:
     - build
     - test
@@ -13,9 +8,6 @@ stages:
     - deploy
 
 variables:
-    # When using dind, it's wise to use the overlayfs driver for
-    # improved performance.
-    DOCKER_DRIVER: overlay2
     CONTAINER_REGISTRY: "registry.gitlab.com/ferdinand-swoboda"
     APP: "askizzy-frontend"
     CONTAINER_TEST_IMAGE: ${CONTAINER_REGISTRY}/${APP}:${CI_COMMIT_SHA}
@@ -24,8 +16,6 @@ variables:
     SELENIUM_BROWSER: phantomjs
 
 before_script:
-    - apk add --no-cache python py2-pip
-    - pip install --no-cache-dir docker-compose
     - docker login -u gitlab-ci-token -p $ACCESS_TOKEN $CONTAINER_REGISTRY
 
 build:
