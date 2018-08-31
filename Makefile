@@ -10,11 +10,6 @@ export POSTGRES_PASSWORD = example
 export POSTGRES_USER = askizzy
 export POSTGRES_DB = askizzy
 
-FLAGS := -e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" \
-	-e ISS_URL="$(BACKEND_URL)" \
-	-e SELENIUM_BROWSER="phantomjs" \
-	-e ENVIRONMENT="staging"
-
 build:
 	@test -z "`git status --porcelain`" || echo "WARNING: you have changes to your git repo not committed to this tag"
 	docker build -t $(CONTAINER_IMAGE) .;
@@ -24,7 +19,7 @@ lint:
 	docker run -t -- $(CONTAINER_IMAGE) lint
 
 unit-test:
-	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) unit-test
+	docker run -t -e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" -e SELENIUM_BROWSER="phantomjs" -- $(CONTAINER_IMAGE) unit-test
 
 feature-test:
 	export COMMAND=feature-test && docker-compose up --abort-on-container-exit
