@@ -11,7 +11,7 @@ export default class LeaderboardPane extends React.Component {
         activeTab: "leftTab",
     }
 
-    switchTab = tab => {
+    switchTab(tab) {
         this.setState({
             activeTab: tab,
         })
@@ -21,6 +21,8 @@ export default class LeaderboardPane extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.switchTab = this.switchTab.bind(this);
 
         // generate the mock data
         // TODO: put real data here and remove mock data
