@@ -5,7 +5,7 @@ export CONTAINER_IMAGE = $(REGISTRY)/$(APP):${VERSION_TAG}
 export GOOGLE_API_KEY = AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
 
 # backend variables
-export BACKEND_IMAGE ?= $(REGISTRY)/askizzy-backend:vAS-1.0.0
+export BACKEND_IMAGE ?= $(REGISTRY)/askizzy-backend:vAS-1.1.1
 export POSTGRES_PASSWORD = example
 export POSTGRES_USER = askizzy
 export POSTGRES_DB = askizzy
@@ -34,6 +34,6 @@ search-test:
 	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) search-test
 
 serve:
-	docker run -t -p 8000:8000 $(FLAGS) -- $(CONTAINER_IMAGE) serve
+	docker run -t -p 8000:8000 -e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" -e ISS_URL=0.0.0.0:3000 -- $(CONTAINER_IMAGE) serve
 
 .PHONY: build lint unit-test feature-test maps-test personalisation-test search-test serve
