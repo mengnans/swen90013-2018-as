@@ -8,7 +8,7 @@ import LeaderboardTab from "../components/LeaderboardTab";
 export default class LeaderboardPane extends React.Component {
 
     state = {
-        activeTab: "left",
+        activeTab: "leftTab",
     }
 
     switchTab = tab => {
@@ -49,8 +49,8 @@ export default class LeaderboardPane extends React.Component {
                     alternateBackgroundColor={false}
                 />
                 <LeaderboardTab
-                    left="App"
-                    right="Categories"
+                    leftTabContent="App"
+                    rightTabContent="Categories"
                     activeTab={this.state.activeTab}
                     switchTab={this.switchTab}
                 />
