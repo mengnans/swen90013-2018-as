@@ -60,13 +60,24 @@
         background-color: $brand-bg-light;
         display: inline-block;
         width: 20%;
-
-        .dropdown-content {
+        height: 49.6px;
+        vertical-align:top;
+        .sort-bar{
+            width: 100px;
+        }
+        .sort-text{
+            font-size: 18px;
+        }
+        .dp-icon{
+        }
+        .dp-content{
+            font-size: 16px;
+            width: 160px;
+            background-color: $brand-bg-light;
+            color: $link-text-color;
+            z-index:999;
             display: none;
             position: absolute;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
         }
     }
 
