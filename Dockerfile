@@ -35,8 +35,14 @@ RUN npm install && \
 # Install and build the app
 COPY . /app
 
+ARG ENVIRONMENT=prod
+ENV ENVIRONMENT ${ENVIRONMENT}
+ARG ISS_URL
+ARG GOOGLE_API_KEY
+
 RUN script/build-assets && \
     script/build-gmaps-file && \
+    script/recreate-dev-env-file && \
     chown -R app .
 
 # forward request and error logs to docker log collector
