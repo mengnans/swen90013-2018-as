@@ -4,7 +4,6 @@ import React from "react";
 import type {Service} from "../iss";
 import FlatButton from "./FlatButton";
 import RatingListItem from "./RatingListItem";
-import Star from "./Stars";
 import HeaderBar from "./HeaderBar";
 import StarTextItem from "./StarTextItem";
 
@@ -55,7 +54,10 @@ export default class FeedbackViewPane extends React.Component {
                 {this.renderRatingList()}
                 {this.renderStarHeading()}
                 {this.renderRatingNum()}
-                <StarTextItem rating={this.props.service.feedback.overAllRating} width={this.props.width}/>
+                <StarTextItem
+                    rating={this.props.service.feedback.overAllRating}
+                    width={this.props.width}
+                />
                 {this.renderFeedbackButtons()}
             </div>
         );
@@ -69,10 +71,10 @@ export default class FeedbackViewPane extends React.Component {
             .toLocaleString(
                 undefined, // leave undefined to use the browser's locale,
                 // or use a string like 'en-US' to override it.
-                {
-                    maximumFractionDigits: 1,
-                    minimumFractionDigits: 1,
-                },
+            {
+                maximumFractionDigits: 1,
+                minimumFractionDigits: 1,
+            },
             );
 
         if (windowsWidth < this.minimalWidthForStarText) {

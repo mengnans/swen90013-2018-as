@@ -27,7 +27,6 @@ import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import type {Service} from "../iss";
 import FeedbackItem from "./FeedbackItem";
 import classnames from "classnames";
-import FlatButton from "./FlatButton";
 
 export default class ServicePane extends React.Component {
     props: {
@@ -59,7 +58,7 @@ export default class ServicePane extends React.Component {
     static sampleProps = {
         default: {
             service: ServiceFactory(fixtures.youthSupportNet),
-        }
+        },
     };
 
     async getSiblingServices(): Promise<void> {
@@ -149,7 +148,11 @@ export default class ServicePane extends React.Component {
                         <Spacer/>
                         <div
                             className=
-                                {classnames("GoogleMapsLink", "plain-text", "FeedbackItem")}
+                                {classnames(
+                                    "GoogleMapsLink",
+                                    "plain-text",
+                                    "FeedbackItem"
+                                )}
                             onClick={this.goToFeedbackViewPage.bind(this)}
                         >
                             <FeedbackItem
@@ -192,27 +195,29 @@ export default class ServicePane extends React.Component {
                 </div>
 
                 {/*<a*/}
-                    {/*className="suggestChange"*/}
-                    {/*onClick={this.recordSuggestChange.bind(this)}*/}
-                    {/*href={*/}
-                        {/*"mailto:database@infoxchange.org" +*/}
-                        {/*"?subject=" +*/}
-                        {/*encodeURIComponent(`Ask Izzy changes: ${object.id}`) +*/}
-                        {/*"&body=" +*/}
-                        {/*encodeURIComponent(*/}
-                            {/*`Contact name:*/}
+                {/*className="suggestChange"*/}
+                {/*onClick={this.recordSuggestChange.bind(this)}*/}
+                {/*href={*/}
+                {/*"mailto:database@infoxchange.org" +*/}
+                {/*"?subject=" +*/}
+                {/*encodeURIComponent(
+                            `Ask Izzy changes: ${object.id}`
+                        ) +*/}
+                {/*"&body=" +*/}
+                {/*encodeURIComponent(*/}
+                {/*`Contact name:*/}
 
-                            {/*Contact number:*/}
+                {/*Contact number:*/}
 
-                            {/*Contact email:*/}
+                {/*Contact email:*/}
 
-                            {/*Details of change:*/}
+                {/*Details of change:*/}
 
-                            {/*`.replace(/^ +/gm, "")*/}
-                        {/*)*/}
-                    {/*}*/}
+                {/*`.replace(/^ +/gm, "")*/}
+                {/*)*/}
+                {/*}*/}
                 {/*>*/}
-                    {/*Report an error*/}
+                {/*Report an error*/}
                 {/*</a>*/}
                 <DebugServiceRecord object={object}/>
             </div>

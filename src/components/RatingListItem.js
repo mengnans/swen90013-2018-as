@@ -42,22 +42,22 @@ class RatingListItem extends React.Component {
         ) : "0.00";
 
         if (this.props.data.rating !== null) {
-            let starSpacing, starDimension, br;
+            let starSpacing, starDimension, lineBr;
 
             if (width < this.minimalWidthForRatingListItemText) {
                 starSpacing = this.smallStarSpacing;
                 starDimension = this.smallStarDimension;
-                br = this.smallBr;
+                lineBr = this.smallBr;
             } else {
                 starSpacing = this.largeStarSpacing;
                 starDimension = this.largeStarDimension;
-                br = this.largeBr;
+                lineBr = this.largeBr;
             }
 
             return (
                 <div>
                     {ratingValue}
-                    {br}
+                    {lineBr}
                     <Star
                         starSpacing={starSpacing}
                         starDimension={starDimension}
@@ -87,25 +87,25 @@ class RatingListItem extends React.Component {
             icon = (<icons.Accessibility
                 className="ColoredIcon"
                 aria-label="Wheelchair"
-            />);
+                    />);
 
         } else if (ratingType === "Signage") {
             icon = (<icons.Signage
                 className="ColoredIcon"
                 aria-label="signage"
-            />);
+                    />);
 
         } else {
             icon = (<icons.Food
                 className="ColoredIcon"
                 aria-label="By public transport"
-            />);
+                    />);
         }
 
 
         return (
             <div className={"RatingListItem plain-text"}
-                 onClick={this.props.onClickRatingListItem}
+                onClick={this.props.onClickRatingListItem}
             >
                 <div className={"RatingListItemIcon"}>{icon}</div>
                 {this.renderRatingListItemText()}

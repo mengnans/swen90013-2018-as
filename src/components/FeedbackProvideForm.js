@@ -19,31 +19,31 @@ export default class FeedbackProvideForm extends React.Component {
 
         this.state = {
             rating: props.rating.rating,
-            comment: props.rating.comment
+            comment: props.rating.comment,
         }
     }
 
     // cancel provide feedback for sub-criteria
     onClickCancel() {
-      this.props.resetCurrentRating();
-      this.props.clearSelectedCategory();
+        this.props.resetCurrentRating();
+        this.props.clearSelectedCategory();
     }
 
     // provide feedback for sub-criteria
     onClickDone() {
-      this.props.onFeedbackSaved(this.state.rating, this.state.comment);
-      this.props.clearSelectedCategory();
+        this.props.onFeedbackSaved(this.state.rating, this.state.comment);
+        this.props.clearSelectedCategory();
     }
 
     onCommentBoxChange(event) {
         this.setState({
-            comment: event.target.value
+            comment: event.target.value,
         });
     }
 
     onRatingChange(rating) {
         this.setState({
-            rating
+            rating,
         });
     }
 
@@ -64,7 +64,11 @@ export default class FeedbackProvideForm extends React.Component {
         return (
             <textarea
                 className={"InputTextArea"}
-                placeholder={"Please leave your comment about the " + this.props.rating.ratingType.toString().toLowerCase() + "."}
+                placeholder={
+                    "Please leave your comment about the " +
+                    this.props.rating.ratingType.toString().toLowerCase() +
+                    "."
+                }
                 value={this.state.comment || undefined}
                 onChange={this.onCommentBoxChange.bind(this)}
             >
@@ -73,20 +77,20 @@ export default class FeedbackProvideForm extends React.Component {
     }
 
     renderButtons() {
-      return (
-        <div className={"ButtonPane1"}>
-            <FlatButton
-                className={"FeedbackButton FeedbackButtonDone"}
-                label={"Done"}
-                onClick={this.onClickDone.bind(this)}
-            />
-            <div className={"Separator"}/>
-            <FlatButton
-                className={"FeedbackButton FeedbackButtonCancel"}
-                label={"Cancel"}
-                onClick={this.onClickCancel.bind(this)}
-            />
-        </div>
-      );
+        return (
+            <div className={"ButtonPane1"}>
+                <FlatButton
+                    className={"FeedbackButton FeedbackButtonDone"}
+                    label={"Done"}
+                    onClick={this.onClickDone.bind(this)}
+                />
+                <div className={"Separator"}/>
+                <FlatButton
+                    className={"FeedbackButton FeedbackButtonCancel"}
+                    label={"Cancel"}
+                    onClick={this.onClickCancel.bind(this)}
+                />
+            </div>
+        );
     }
 }

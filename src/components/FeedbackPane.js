@@ -4,7 +4,6 @@ import React from "react";
 import type {Service} from "../iss";
 import FlatButton from "./FlatButton";
 import sendEvent from "../google-tag-manager";
-import icons from "../icons";
 
 export default class FeedbackPane extends React.Component {
     props: {
@@ -52,7 +51,9 @@ export default class FeedbackPane extends React.Component {
                     className={"FeedbackButtonAccess"}
                     label={"Provide Accessibility Feedback"}
                     iconType="accessibility_feedback"
-                    onClick={this.onClickProvideAccessibilityFeedback.bind(this)}
+                    onClick={
+                        this.onClickProvideAccessibilityFeedback.bind(this)
+                    }
                 />
                 <div className={"Separator"}/>
                 <a
@@ -61,7 +62,9 @@ export default class FeedbackPane extends React.Component {
                     href={
                         "mailto:database@infoxchange.org" +
                         "?subject=" +
-                        encodeURIComponent(`Ask Izzy changes: ${this.props.service.id}`) +
+                        encodeURIComponent(`
+                            Ask Izzy changes: ${this.props.service.id}
+                        `) +
                         "&body=" +
                         encodeURIComponent(
                             `Contact name:

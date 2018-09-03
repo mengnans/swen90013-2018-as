@@ -57,37 +57,39 @@ export default class FeedbackProvidePane extends React.Component {
 
     /**
      * Is called whenever the props change (including a location change).
-     * 
+     *
      * Destructs the requested category from the location change
      * and sets it as the active category.
      *
      * @override
-     * @param  object props
+     * @param  {object} props The updated props
      */
     componentWillReceiveProps(props) {
         let selectedCategory = (
             props.location.state &&
             props.location.state.selectedCategory !== undefined
         ) ?
-            props.location.state.selectedCategory :
-            null;
+            props.location.state.selectedCategory
+            : null;
 
         this.setState(Object.assign(this.state, {
-            selectedCategory
+            selectedCategory,
         }));
     }
 
     /**
-     * Navigates to the current path, passing the new selected category as state.
-     * 
-     * @param number index
+     * Navigates to the current path, passing the new selected category as
+     * state.
+     *
+     * @param {number} index The index of the list item that changed.
+     * @returns {undefined}
      */
     onClickRatingListItem(index) {
         this.context.router.push({
             pathname: this.props.location.pathname,
             state: {
-                selectedCategory: index
-            }
+                selectedCategory: index,
+            },
         });
     }
 
@@ -111,7 +113,7 @@ export default class FeedbackProvidePane extends React.Component {
         try {
             let responseJson = iss.provideFeedback(data.serviceId, data);
 
-            // console.log(responseJson);
+            console.log(responseJson);
         } catch (error) {
             console.log("error at FeedbackProvidePane");
         }
@@ -172,9 +174,10 @@ export default class FeedbackProvidePane extends React.Component {
             ratingData: ratingData,
         });
     }
-        
+
     /**
      * Returns to the category selection screen.
+     * @returns {undefined}
      */
     clearSelectedCategory() {
         this.context.router.goBack();
@@ -199,13 +202,13 @@ export default class FeedbackProvidePane extends React.Component {
     }
 
     renderForm() {
-        return <FeedbackProvideForm
+        return (<FeedbackProvideForm
             rating={this.getSelectedRating()}
             width={this.props.width}
             onFeedbackSaved={this.onFeedbackSaved.bind(this)}
             resetCurrentRating={this.resetCurrentRating.bind(this)}
             clearSelectedCategory={this.clearSelectedCategory.bind(this)}
-        />
+                />)
     }
 
     renderRatingList() {
@@ -222,7 +225,7 @@ export default class FeedbackProvidePane extends React.Component {
         return (
             <div>
                 <div className={"RatingListItemProvideMode"}>
-                {list}
+                    {list}
                 </div>
                 {this.renderFeedbackButtons()}
             </div>

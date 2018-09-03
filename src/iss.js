@@ -608,6 +608,7 @@ export async function getFeedback(
         // so in this case, I will only return the feedback for the
         // food only
         let foodFeedback = feedback.categories.food;
+
         foodFeedback.overAllCount = feedback.overAllCount;
 
         return foodFeedback;

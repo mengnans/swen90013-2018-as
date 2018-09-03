@@ -17,8 +17,7 @@ export default class StarTextItem extends React.Component {
     render() {
 
         let windowsWidth = this.props.width;
-        let starDimension, starSpacing;
-        let onRatingChange;
+        let starDimension, starSpacing, onRatingChange;
 
 
         if (windowsWidth >= this.minimalWidthForStarText) {
@@ -29,9 +28,8 @@ export default class StarTextItem extends React.Component {
                 starDimension = "120px";
                 starSpacing = "12px";
             }
-        }
+        } else {
         // text will be hidden
-        else {
             starDimension = `${parseInt(windowsWidth / 6)}px`;
             starSpacing = `${parseInt(windowsWidth / 60)}px`;
         }

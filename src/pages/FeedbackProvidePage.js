@@ -26,7 +26,7 @@ class FeedbackPage extends React.Component {
     };
 
     static contextTypes = {
-        router: React.PropTypes.object.isRequired
+        router: React.PropTypes.object.isRequired,
     };
 
     constructor(props: Object) {

@@ -3,7 +3,6 @@
 /* eslint-disable max-len */
 
 import React from "react";
-import classnames from "classnames";
 
 export default class SvgIconSignage extends React.Component {
     props: {
@@ -12,14 +11,7 @@ export default class SvgIconSignage extends React.Component {
     state: void;
 
     render() {
-        const {className, ...rest} = this.props;
-        const classes = classnames(
-            "AccessibilityIcon",
-            "disallow-override-color",
-            "Icon",
-            "SvgIcon",
-            className
-        );
+        const {...rest} = this.props;
 
         return (
             <span

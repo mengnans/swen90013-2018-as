@@ -87,7 +87,8 @@ class FeedbackPage extends React.Component {
                         onBackTouchTap={back}
                     />
                     <img className="head-img"
-                         src={headPngImageBase64}/>
+                        src={headPngImageBase64}
+                    />
                     <div className="ServicePane">
                         <main>
                             {
