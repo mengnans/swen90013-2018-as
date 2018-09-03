@@ -41,11 +41,26 @@ export default class LeaderboardPane extends React.Component {
 
             let mockLeaderboardItemData = {};
 
-            mockLeaderboardItemData.serviceName = "Fake Service: " + index;
-
             mockLeaderboardItemData.claps = 400 - 10 * index;
 
             mockLeaderboardItemData.slug = "111-my-housing-service";
+
+            if (index == 0) {
+                mockLeaderboardItemData.service_type = "Housing Service";
+                mockLeaderboardItemData.serviceName = "Housing Service";
+            } else if (index == 1) {
+                mockLeaderboardItemData.service_type = "Food";
+                mockLeaderboardItemData.serviceName = "Food";
+            } else if (index == 2) {
+                mockLeaderboardItemData.service_type = "Legal";
+                mockLeaderboardItemData.serviceName = "Legal";
+            } else if (index == 3) {
+                mockLeaderboardItemData.service_type = "Counselling";
+                mockLeaderboardItemData.serviceName = "Counselling";
+            } else {
+                mockLeaderboardItemData.service_type = "Other Service";
+                mockLeaderboardItemData.serviceName = "Other Service";
+            }
 
             this.mockLeaderboardData.push(mockLeaderboardItemData)
         }
@@ -86,7 +101,7 @@ export default class LeaderboardPane extends React.Component {
 
         path += slug;
         this.context.router.push(
-            path
+            path,
         );
     }
 

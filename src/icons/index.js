@@ -63,12 +63,16 @@ import SvgIconTick from "./Tick.js";
 import SvgIconTram from "./Tram.js";
 import SvgIconWalk from "./Walk.js";
 import SvgIconWebsite from "./Website.js";
+import SvgIconSilver from "./Silver";
+import SvgIconGold from "./Gold";
+import SvgIconBronze from "./Bronze";
 
 export default {
     Accessibility: SvgIconAccessibility,
     Addiction: SvgIconAddiction,
     Advocacy: SvgIconAdvocacy,
     Blank: SvgIconBlank,
+    Bronze: SvgIconBronze,
     Car: SvgIconCar,
     Clap: SvgIconClap,
     Census2016: SvgIconCensus2016,
@@ -98,6 +102,7 @@ export default {
     Facilities: SvgIconFacilities,
     Feedback: SvgIconFeedback,
     Food: SvgIconFood,
+    Gold: SvgIconGold,
     Health: SvgIconHealth,
     House: SvgIconHouse,
     Info: SvgIconInfo,
@@ -118,6 +123,7 @@ export default {
     RadioSelected: SvgIconRadioSelected,
     RadioUnselected: SvgIconRadioUnselected,
     Search: SvgIconSearch,
+    Silver: SvgIconSilver,
     Skills: SvgIconSkills,
     Support: SvgIconSupport,
     Tech: SvgIconTech,

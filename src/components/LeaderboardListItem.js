@@ -3,14 +3,15 @@
 import React from "react";
 import icons from "../icons";
 
-export default class LeaderboardListItem extends React.Component {
+type Props = {
+    data: React.PropTypes.object,
+    key: Number,
+    index: Number,
+    onClickLeaderboardListItem: Function,
+};
 
-    props: {
-        data: React.PropTypes.object,
-        key: Number,
-        index: Number,
-        onClickLeaderboardListItem: Function,
-    };
+
+export default class LeaderboardListItem extends React.Component<Props, void> {
 
     constructor(props) {
         super(props);
@@ -18,17 +19,19 @@ export default class LeaderboardListItem extends React.Component {
 
     render() {
         return (
-            <div className={"LeaderboardListItem plain-text"}
-                 onClick={this.props.onClickLeaderboardListItem}
+            <div
+                className={"LeaderboardListItem plain-text"}
+                onClick={this.props.onClickLeaderboardListItem}
             >
                 {this.renderRank()}
-                {this.renderIcon()}
-                {this.renderClap()}
+                {this.renderClapIcon()}
+                {this.renderClapNumber()}
                 {this.renderServiceName()}
                 {this.renderCategoryIcon()}
             </div>
         );
     }
+
 
     renderRank() {
         return (
@@ -47,22 +50,52 @@ export default class LeaderboardListItem extends React.Component {
     }
 
     renderCategoryIcon() {
+
+        let serviceType = this.props.data.service_type;
+        let icon;
+
+        if (serviceType === "Housing Service") {
+            icon = <icons.House className="ColoredIcon icon-fg-color big"/>;
+        } else if (serviceType === "Food") {
+            icon = <icons.Food className="ColoredIcon icon-fg-color big"/>;
+        } else if (serviceType === "Legal") {
+            icon = <icons.Legal className="ColoredIcon icon-fg-color big"/>;
+        } else if (serviceType === "Counselling") {
+            icon = <icons.Support className="ColoredIcon icon-fg-color big"/>;
+        } else {
+            icon = <icons.Things className="ColoredIcon icon-fg-color big"/>;
+        }
+
         return (
             <div className={"CategoryIcon"}>
-                <icons.House className="big"/>
+                {icon}
             </div>
         );
     }
 
-    renderIcon() {
+    renderClapIcon() {
+        let icon;
+
+        icon = <icons.Clap className="ColoredIcon icon-fg-color big"/>;
+
+        if (this.props.index === 0) {
+            icon = <icons.Gold className="ColoredIcon icon-fg-color big"/>;
+        } else if (this.props.index === 1) {
+            icon = <icons.Silver className="ColoredIcon icon-fg-color big"/>;
+        } else if (this.props.index === 2) {
+            icon = <icons.Bronze className="ColoredIcon icon-fg-color big"/>;
+        } else {
+            icon = <icons.Clap className="ColoredIcon icon-fg-color big"/>;
+        }
+
         return (
             <div className={"icon"}>
-                <icons.Clap className="big"/>
+                {icon}
             </div>
         );
     }
 
-    renderClap() {
+    renderClapNumber() {
         return (
             <div className={"clap"}>
                 {this.props.data.claps}
