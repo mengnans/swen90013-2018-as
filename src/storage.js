@@ -79,6 +79,25 @@ const Storage = {
         );
     },
 
+    setClapped(serviceId: number, state: boolean): void {
+        let claps = this.getJSON("claps") || {};
+
+        claps[serviceId] = {"date": Date.now(), "state": state};
+
+        this.setJSON("claps", claps);
+    },
+
+    hasClapped(serviceId: number, requiredWait: number): boolean {
+        let claps = this.getJSON("claps") || {};
+
+        claps[serviceId] = claps[serviceId] || {};
+        if (claps[serviceId].state) {
+            return !(Date.now() - claps[serviceId].date > requiredWait);
+        } else {
+            return false;
+        }
+    },
+
     getItem(key: string): ?(string|number|boolean) {
         return persistentStore.getItem(key);
     },

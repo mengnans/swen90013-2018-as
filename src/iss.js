@@ -587,6 +587,69 @@ export async function getService(
     return service;
 }
 
+
+export async function getClaps(
+    id: number
+): Object {
+
+    // TODO: remove fake id
+    id = 1;
+
+    // TODO: add cache here
+
+    return await fetch(`http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com/api/v3/service/${id}/getClaps`, {
+        method: 'GET',
+    }).then((response) => {
+        return response.json();
+    }).then(response => {
+        let clapNum = response.clap;
+
+        return clapNum;
+    });
+}
+
+export async function increaseClap(
+    id: number
+): Object {
+
+    // TODO: remove fake id
+    id = 1;
+
+    // TODO: add cache here
+
+    return await fetch(`http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com/api/v3/service/${id}/increaseClap`, {
+        method: 'POST',
+    }).then((response) => {
+        return response.json();
+    }).then(claps => {
+
+        return claps;
+    });
+}
+
+export async function decreaseClap(
+    id: number
+): Object {
+
+    // TODO: remove fake id
+    id = 1;
+
+    // TODO: add cache here
+
+    return await fetch(`http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com/api/v3/service/${id}/decreaseClap`, {
+        method: 'POST',
+    }).then((response) => {
+        return response.json();
+    }).then(claps => {
+
+        return claps;
+    });
+}
+
+
+
+
+
 export function countCrisisResults(results: Array<Service>): number {
     const firstRegularServiceIdx = results.findIndex(
         ({crisis}) => !crisis
@@ -616,6 +679,9 @@ export function nonCrisisResults(results: Array<Service>): Array<Service> {
 }
 
 export default {
+    getClaps: getClaps,
+    increaseClap: increaseClap,
+    decreaseClap: decreaseClap,
     search: search,
     getService: getService,
     request: request,

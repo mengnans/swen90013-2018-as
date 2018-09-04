@@ -68,6 +68,7 @@ export default class ServicePane extends React.Component {
         });
     }
 
+
     render() {
         const object = this.props.service;
 
@@ -128,7 +129,7 @@ export default class ServicePane extends React.Component {
                         <Spacer />
                         <Feedback object={object} />
                         <Spacer />
-                        <Clap />
+                        <Clap service={object}/>
                     </div>
                 </BoxedText>
 

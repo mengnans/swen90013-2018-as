@@ -8,28 +8,20 @@ import {ThemeProvider} from 'styled-components'
 import ClapButton from './ClapButton'
 import ClapCount from './ClapCount'
 import ClapCountTotal from './ClapCountTotal'
+import iss from "../iss";
+import Storage from '../storage'
 
 const defaultTheme = {
-    size: 35
+    size: 35,
 }
 
-export default class Clap extends React.Component {
-    constructor (props) {
-        super(props)
-        this.state = {
-            unclicked: true,
-            count: this.props.count,
-            countTotal: this.props.countTotal,
-            isClicked: this.props.isClicked,
-            isHover: false
-        }
-        this.onClick = this.onClick.bind(this)
-    }
+const expireTime = 60 * 60 * 24 * 1000;
 
+export default class Clap extends React.Component {
     props:{
-        countTotal: number,
         count: number,
         isClicked: boolean,
+        service: Service,
     }
 
     static defaultProps = {
@@ -37,8 +29,24 @@ export default class Clap extends React.Component {
         count: 0,
         isClicked: false,
     };
+    constructor(props) {
+        super(props);
+        let id = this.props.service.id;
+        let clickState = Storage.hasClapped(id, expireTime);
 
-    componentDidMount () {
+        this.state = {
+            unclicked: true,
+            count: this.props.count,
+            countTotal: this.props.service.clapNum,
+            isHover: false,
+            isClicked: clickState,
+            id: id,
+        };
+
+        this.onClick = this.onClick.bind(this);
+    }
+
+    componentDidMount() {
         const tlDuration = 300
         const mojs = require('mo-js');
         const triangleBurst = new mojs.Burst({
@@ -56,8 +64,8 @@ export default class Clap extends React.Component {
                 delay: 30,
                 speed: 0.2,
                 easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
-                duration: tlDuration
-            }
+                duration: tlDuration,
+            },
         });
 
         const circleBurst = new mojs.Burst({
@@ -71,8 +79,8 @@ export default class Clap extends React.Component {
                 delay: 30,
                 speed: 0.2,
                 radius: {3: 0},
-                easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
-            }
+                easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
+            },
         });
 
         const countAnimation = new mojs.Html({
@@ -81,11 +89,11 @@ export default class Clap extends React.Component {
             isShowEnd: true,
             y: {0: -30},
             opacity: {0: 1},
-            duration: tlDuration
+            duration: tlDuration,
         }).then({
             opacity: {1: 0},
             y: -80,
-            delay: tlDuration / 2
+            delay: tlDuration / 2,
         });
 
         const opacityStart = 1
@@ -97,7 +105,7 @@ export default class Clap extends React.Component {
             opacity: {[opacityStart]: 1},
             delay: 3 * tlDuration / 2,
             duration: tlDuration,
-            y: {0: -3}
+            y: {0: -3},
         });
 
 
@@ -106,46 +114,53 @@ export default class Clap extends React.Component {
             el: '#clap',
             duration: tlDuration,
             scale: {1.3: 1},
-            easing: mojs.easing.out
+            easing: mojs.easing.out,
         });
 
-        const clap = document.getElementById('clap')
-        clap.style.transform = 'scale(1, 1)'
+        const clap = document.getElementById('clap');
+
+        clap.style.transform = 'scale(1, 1)';
         this.animationTimeline = new mojs.Timeline()
         this.animationTimeline.add([
             countAnimation,
             countTotalAnimation,
             scaleButton,
             circleBurst,
-            triangleBurst
+            triangleBurst,
         ]);
     }
 
-    getTheme () {
+    getTheme() {
         const {theme = {}} = this.props
+
         return Object.assign({}, defaultTheme, theme)
     }
 
 
-    onClick () {
-        const {isClicked} = this.state
+    onClick() {
+        const {id} = this.state
 
+        let clickState = Storage.hasClapped(id, expireTime);
 
         this.setState(({count, countTotal}) => {
-            if (!isClicked) {
+            if (!clickState) {
+                Storage.setClapped(id, true);
                 this.animationTimeline.replay();
+                iss.increaseClap(this.props.service.id);
                 return {
                     unclicked: false,
                     count: 1,
                     countTotal: countTotal + 1,
-                    isClicked: true
+                    isClicked: true,
                 }
             } else {
+                Storage.setClapped(id, false);
+                iss.decreaseClap(this.props.service.id);
                 return {
                     unclicked: true,
                     count: 0,
                     countTotal: countTotal - 1,
-                    isClicked: false
+                    isClicked: false,
                 }
             }
 
@@ -167,30 +182,36 @@ export default class Clap extends React.Component {
         );
     }
 
-    renderClaps(){
+    renderClaps() {
         const {count, countTotal, isClicked, isHover} = this.state
+
         return (
             <div>
                 <h4>Clap for This Wonderful Service:</h4>
                 <br/>
                 <div className="Clap">
                     <ThemeProvider theme={this.getTheme()}>
-
                         <ClapButton
                             id="clap"
                             onClick={this.onClick}
-                            onMouseEnter={e => this.setState({isHover: true})}
-                            onMouseLeave={e => this.setState({isHover: false})}
-                            isHover={isHover && count === 0}
+                            onMouseEnter={
+                                event => this.setState({isHover: true})
+                            }
+                            onMouseLeave={
+                                event => this.setState({isHover: false})
+                            }
+                            isHover={isHover && !isClicked}
                         >
+                            <icons.Clap id="clap-icon"
+                                className="ColoredIcon"
+                                isClicked={isClicked}
+                            />
 
-                            <icons.Clap id='clap-icon' className="ColoredIcon" isClicked={isClicked} />
-
-                            <ClapCount id='clap-count'>
+                            <ClapCount id="clap-count">
                                 +{count}
                             </ClapCount>
 
-                            <ClapCountTotal id='clap-count-total'>
+                            <ClapCountTotal id="clap-count-total">
                                 {Number(countTotal).toLocaleString()}
                             </ClapCountTotal>
 

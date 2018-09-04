@@ -63,7 +63,9 @@ class ServicePage extends React.Component {
 
         try {
             let object = await iss.getService(this.id);
+            let claps = await iss.getClaps(this.id);
 
+            object.clapNum = claps;
             this.setState({object});
         } catch (error) {
             this.setState({error});
