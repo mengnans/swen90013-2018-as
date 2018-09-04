@@ -66,6 +66,7 @@ import SvgIconWebsite from "./Website.js";
 import SvgIconSilver from "./Silver";
 import SvgIconGold from "./Gold";
 import SvgIconBronze from "./Bronze";
+import SvgIconDown from "./Down";
 
 export default {
     Accessibility: SvgIconAccessibility,
@@ -96,6 +97,7 @@ export default {
     DemographicRecentlyArrived: SvgIconDemographicRecentlyArrived,
     DemographicTorresStrait: SvgIconDemographicTorresStrait,
     DemographicVeteran: SvgIconDemographicVeteran,
+    Down: SvgIconDown,
     Email: SvgIconEmail,
     Entertainment: SvgIconEntertainment,
     ExternalLink: SvgIconExternalLink,

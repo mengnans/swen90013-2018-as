@@ -5,14 +5,14 @@ import _ from "underscore";
 
 import ResultsList from "../components/ResultsList";
 import LoadingResultsHeader from
-    "../components/ResultsListPage/LoadingResultsHeader";
+        "../components/ResultsListPage/LoadingResultsHeader";
 import ViewOnMapButton from "../components/ViewOnMapButton";
 import SortDropdown from "../components/SortDropdown";
 import sendEvent from "../google-tag-manager";
 import storage from "../storage";
-import type { Service } from "../iss";
+import type {Service} from "../iss";
 
-type SearchOrCategory = {search: string} | {title: string};
+type SearchOrCategory = { search: string } | { title: string };
 
 class ResultsListPage extends React.Component {
     props: {
@@ -22,11 +22,20 @@ class ResultsListPage extends React.Component {
         personalisationComponents: Array<Object>,
         title: string,
         statusCode: number,
-        meta: {total_count: number},
+        meta: { total_count: number },
         loading: boolean,
         error: string,
     } & SearchOrCategory;
-    state: void;
+    state: {
+        sort: boolean,
+    };
+
+    setSort(sort) {
+        console.log(sort);
+        this.setState({
+            sort: sort,
+        });
+    }
 
     static propTypes = {
         objects: React.PropTypes.array,
@@ -63,7 +72,9 @@ class ResultsListPage extends React.Component {
                             onClick={this.recordMapClick.bind(this)}
                         />
                     }
-                    <SortDropdown/>
+                    <SortDropdown
+                        changeSort={this.setSort.bind(this)}
+                    />
                     <ResultsList
                         results={this.props.objects || []}
                     />
