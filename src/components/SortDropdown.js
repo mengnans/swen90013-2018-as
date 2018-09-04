@@ -73,14 +73,14 @@ export default class SortDropdown extends React.Component {
                     onMouseLeave={this.handleMouseOut}
                 >
                     <div>
-                        <p
+                        <button className="sort-relevant"
                             onClick={this.onClickRelevant}
-                        >Most relevant</p>
+                        >Most relevant</button>
                     </div>
                     <div>
-                        <p
+                        <button className="sort-claps"
                             onClick={this.onClickClaps}
-                        >Most claps</p>
+                        >Most claps</button>
                     </div>
                 </div>
             </div>

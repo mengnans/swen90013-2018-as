@@ -79,6 +79,16 @@
             display: none;
             position: absolute;
         }
+        .sort-relevant{
+            border: none;
+            background-color: $brand-bg-light;
+            margin-top: 15px;
+        }
+        .sort-claps{
+            border: none;
+            background-color: $brand-bg-light;
+            margin-top: 10px;
+        }
     }
 
     .MoreResultsButton {
