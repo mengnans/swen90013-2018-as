@@ -29,7 +29,10 @@ class ResultsListPage extends React.Component {
     state: {
         sort: boolean,
     };
-
+    constructor(props) {
+        super(props);
+        this.state = {sort: false};
+    }
     setSort(sort) {
         console.log(sort);
         this.setState({
@@ -77,6 +80,7 @@ class ResultsListPage extends React.Component {
                     />
                     <ResultsList
                         results={this.props.objects || []}
+                        sortState={this.state.sort}
                     />
                     {this.props.loadMore}
                 </div>

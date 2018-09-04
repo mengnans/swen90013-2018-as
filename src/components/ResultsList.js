@@ -21,6 +21,7 @@ const className = (elem: React$Element<any>) =>
 class ResultsList extends React.Component {
     props: {
         results: Array<Service>,
+        sortState: boolean,
     };
     state: void;
 
@@ -45,7 +46,9 @@ class ResultsList extends React.Component {
         let nonCrisisServices = this.nonCrisisResults();
 
         console.log(nonCrisisServices);
-        this.onClickClapsSortingDescending(nonCrisisServices);
+        if (this.props.sortState) {
+            this.onClickClapsSortingDescending(nonCrisisServices);
+        }
         console.log(nonCrisisServices);
         return (
             <div className="ResultList">
