@@ -91,11 +91,11 @@ const Storage = {
         let claps = this.getJSON("claps") || {};
 
         claps[serviceId] = claps[serviceId] || {};
-        if (claps[serviceId].state) {
-            return !(Date.now() - claps[serviceId].date > requiredWait);
-        } else {
-            return false;
-        }
+
+        return (
+            claps[serviceId].state &&
+            !(Date.now() - claps[serviceId].date > requiredWait)
+        );
     },
 
     getItem(key: string): ?(string|number|boolean) {
