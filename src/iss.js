@@ -597,7 +597,7 @@ export async function getClaps(
 
     // TODO: add cache here
 
-    return await fetch(`http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com/api/v3/service/${id}/getClaps`, {
+    return await fetch(`${ISS_URL}/api/v3/service/${id}/getClaps`, {
         method: 'GET',
     }).then((response) => {
         return response.json();
@@ -617,13 +617,10 @@ export async function increaseClap(
 
     // TODO: add cache here
 
-    return await fetch(`http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com/api/v3/service/${id}/increaseClap`, {
+    return await fetch(`${ISS_URL}/api/v3/service/${id}/increaseClap`, {
         method: 'POST',
     }).then((response) => {
         return response.json();
-    }).then(claps => {
-
-        return claps;
     });
 }
 
@@ -636,13 +633,10 @@ export async function decreaseClap(
 
     // TODO: add cache here
 
-    return await fetch(`http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com/api/v3/service/${id}/decreaseClap`, {
+    return await fetch(`${ISS_URL}/api/v3/service/${id}/decreaseClap`, {
         method: 'POST',
     }).then((response) => {
         return response.json();
-    }).then(claps => {
-
-        return claps;
     });
 }
 

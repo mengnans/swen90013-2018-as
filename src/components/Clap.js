@@ -16,6 +16,11 @@ const defaultTheme = {
 }
 
 const expireTime = 60 * 60 * 24 * 1000;
+const tlDuration = 300
+const triangleBurstDelay = 30;
+const triangleBurstCount = 5;
+const circleBurstDelay = 30;
+
 
 export default class Clap extends React.Component {
     props:{
@@ -46,77 +51,16 @@ export default class Clap extends React.Component {
         this.onClick = this.onClick.bind(this);
     }
 
+
+
     componentDidMount() {
-        const tlDuration = 300
+
         const mojs = require('mo-js');
-        const triangleBurst = new mojs.Burst({
-            parent: '#clap',
-            radius: {20: 30},
-            count: 5,
-            angle: 30,
-            children: {
-                shape: 'polygon',
-                radius: {5: 0},
-                scale: 1,
-                stroke: 'rgba(211,84,0 ,0.5)',
-                strokeWidth: 2,
-                angle: 210,
-                delay: 30,
-                speed: 0.2,
-                easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
-                duration: tlDuration,
-            },
-        });
-
-        const circleBurst = new mojs.Burst({
-            parent: '#clap',
-            radius: {50: 75},
-            angle: 25,
-            duration: tlDuration,
-            children: {
-                shape: 'circle',
-                fill: 'rgba(149,165,166 ,0.5)',
-                delay: 30,
-                speed: 0.2,
-                radius: {3: 0},
-                easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
-            },
-        });
-
-        const countAnimation = new mojs.Html({
-            el: '#clap-count',
-            isShowStart: false,
-            isShowEnd: true,
-            y: {0: -30},
-            opacity: {0: 1},
-            duration: tlDuration,
-        }).then({
-            opacity: {1: 0},
-            y: -80,
-            delay: tlDuration / 2,
-        });
-
-        const opacityStart = 1
-
-        const countTotalAnimation = new mojs.Html({
-            el: '#clap-count-total',
-            isShowStart: false,
-            isShowEnd: true,
-            opacity: {[opacityStart]: 1},
-            delay: 3 * tlDuration / 2,
-            duration: tlDuration,
-            y: {0: -3},
-        });
-
-
-
-        const scaleButton = new mojs.Html({
-            el: '#clap',
-            duration: tlDuration,
-            scale: {1.3: 1},
-            easing: mojs.easing.out,
-        });
-
+        const triangleBurst = this.initTriangleBurst();
+        const circleBurst = this.initCircleBurst();
+        const countAnimation = this.initCountAnimation();
+        const countTotalAnimation = this.initCountTotalAnimation();
+        const scaleButton = this.initScaleButton();
         const clap = document.getElementById('clap');
 
         clap.style.transform = 'scale(1, 1)';
@@ -129,6 +73,85 @@ export default class Clap extends React.Component {
             triangleBurst,
         ]);
     }
+
+    initScaleButton(): mojs.Html {
+        return new mojs.Html({
+            el: '#clap',
+            duration: tlDuration,
+            scale: {1.3: 1},
+            easing: mojs.easing.out,
+        });
+    }
+
+    initTriangleBurst(): mojs.Burst {
+        return new mojs.Burst({
+            parent: '#clap',
+            radius: {20: 30},
+            count: triangleBurstCount,
+            angle: 30,
+            children: {
+                shape: 'polygon',
+                radius: {5: 0},
+                scale: 1,
+                stroke: 'rgba(211,84,0 ,0.5)',
+                strokeWidth: 2,
+                angle: 210,
+                delay: triangleBurstDelay,
+                speed: 0.2,
+                easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
+                duration: tlDuration,
+            },
+        });
+    }
+
+
+    initCircleBurst(): mojs.Burst {
+        return new mojs.Burst({
+            parent: '#clap',
+            radius: {50: 75},
+            angle: 25,
+            duration: tlDuration,
+            children: {
+                shape: 'circle',
+                fill: 'rgba(149,165,166 ,0.5)',
+                delay: circleBurstDelay,
+                speed: 0.2,
+                radius: {3: 0},
+                easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
+            },
+        });
+    }
+
+    initCountAnimation(): mojs.Burst {
+        return new mojs.Html({
+            el: '#clap-count',
+            isShowStart: false,
+            isShowEnd: true,
+            y: {0: -30},
+            opacity: {0: 1},
+            duration: tlDuration,
+        }).then({
+            opacity: {1: 0},
+            y: -80,
+            delay: tlDuration / 2,
+        });
+    }
+
+
+    initCountTotalAnimation(): mojs.Burst {
+        const opacityStart = 1
+
+        return new mojs.Html({
+            el: '#clap-count-total',
+            isShowStart: false,
+            isShowEnd: true,
+            opacity: {[opacityStart]: 1},
+            delay: 3 * tlDuration / 2,
+            duration: tlDuration,
+            y: {0: -3},
+        });
+    }
+
 
     getTheme() {
         const {theme = {}} = this.props
