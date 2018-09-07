@@ -270,6 +270,20 @@ if (typeof window != "undefined") {
     window.IzzyServiceCache = serviceCache;
 }
 
+/**
+ * Get Bulks of clap
+ * @return {Array<Object>} The list of service claps information
+ */
+export async function getBulkClaps(): Array<Object> {
+    // mock data
+    let bulkClaps = [
+        {id: 111, clapNum: 200},
+        {id: 222, clapNum: 100},
+        {id: 333, clapNum: 150},
+        {id: 444, clapNum: 170}];
+
+    return bulkClaps;
+}
 export async function requestObjects(
     path: string,
     data: ?searchRequest,
@@ -282,7 +296,19 @@ export async function requestObjects(
     }
 
     let response = await request(path, data);
+    let clapList = await getBulkClaps();
 
+
+    for (let indexResponse = 0;
+         indexResponse < response.objects.length; indexResponse++) {
+        for (let indexClap = 0 ; indexClap < clapList.length; indexClap++) {
+            if (clapList[indexClap].id ==
+                response.objects[indexResponse].id) {
+                response.objects[indexResponse].claps =
+                    clapList[indexClap].clapNum;
+            }
+        }
+    }
     // convert objects to ISS search results
     const objects = response.objects.map(
         (object: issService): Service => new Service(object)
