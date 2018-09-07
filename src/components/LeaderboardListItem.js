@@ -11,7 +11,8 @@ type Props = {
 };
 
 
-export default class LeaderboardListItem extends React.Component<Props, void> {
+export default class LeaderboardListItem extends
+    React.Component<Props, void> {
 
     constructor(props) {
         super(props);
@@ -44,7 +45,7 @@ export default class LeaderboardListItem extends React.Component<Props, void> {
     renderServiceName() {
         return (
             <div className={"ServiceName"}>
-                <h2 className={"name"}>{this.props.data.serviceName}</h2>
+                <h2 className={"name"}>{this.props.data.name}</h2>
             </div>
         );
     }
@@ -54,7 +55,7 @@ export default class LeaderboardListItem extends React.Component<Props, void> {
         let serviceType = this.props.data.service_type;
         let icon;
 
-        if (serviceType === "Housing Service") {
+        if (serviceType === "Housing") {
             icon = <icons.House className="ColoredIcon icon-fg-color big"/>;
         } else if (serviceType === "Food") {
             icon = <icons.Food className="ColoredIcon icon-fg-color big"/>;
@@ -98,7 +99,7 @@ export default class LeaderboardListItem extends React.Component<Props, void> {
     renderClapNumber() {
         return (
             <div className={"clap"}>
-                {this.props.data.claps}
+                {this.props.data.clap}
             </div>
         );
     }
