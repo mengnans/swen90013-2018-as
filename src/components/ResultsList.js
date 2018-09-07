@@ -32,6 +32,14 @@ class ResultsList extends React.Component {
     nonCrisisResults(): Array<Object> {
         return nonCrisisResults(this.props.results);
     }
+
+    /**
+     * Sort the list in terms of the number of claps.
+     * @param {Array<Object>} services -- The list of services
+     * @param {boolean} ascending -- Dictate sorting
+     * in a ascending or descending order.
+     * @return {void}
+     */
     sortClaps(services : Array<Object>, ascending: boolean) : void {
         services.sort((service1, service2) => {
             return ascending ? (service2.claps - service1.claps)
@@ -39,6 +47,11 @@ class ResultsList extends React.Component {
         })
     }
     render() {
+        /**
+         * The list of non-crisis services.
+         * @type {Array<Object>}
+         * @var
+         */
         let nonCrisisServices = this.nonCrisisResults();
 
         console.log(nonCrisisServices);

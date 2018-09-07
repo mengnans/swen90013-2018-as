@@ -27,6 +27,11 @@ class ResultsListPage extends React.Component {
         error: string,
     } & SearchOrCategory;
     state: {
+        /**
+         * 'sort' dictates whether the sorting function
+         * should sort the list or not.
+         * @type {boolean}
+         */
         sort: boolean,
     };
     constructor(props) {

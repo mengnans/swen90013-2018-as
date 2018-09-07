@@ -308,6 +308,7 @@ export async function requestObjects(
         ).clap;
     });
 
+    //test data
     for (let index = 0; index < response.objects.length; index++) {
         response.objects[index].claps = 100 + index * 2;
     }
