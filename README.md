@@ -22,7 +22,7 @@ or run it locally
 >make serve
 
 the project. 
-You can change the ISS_URL or FEEDBACK_URL at the top of the Makefile.
+You can change the ISS_URL at the top of the Makefile.
 
 This setup doesn't launch the mock ISS server and the Docker container has to be rebuilt and run upon code changes. 
 It's a Work In Progress.
