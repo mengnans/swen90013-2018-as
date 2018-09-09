@@ -4,7 +4,7 @@
 # Use environment variables if told to, otherwise use these defaults.
 if [ "$1" != "--env" ]; then
 	ENVIRONMENT="staging"
-	ISS_URL="http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com:3000"
+	ISS_URL="http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com"
 	GOOGLE_API_KEY="AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU"
 fi
 
