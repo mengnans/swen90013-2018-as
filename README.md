@@ -24,7 +24,7 @@ or run it locally
 the project. 
 You can change the ISS_URL at the top of the Makefile.
 
-This setup doesn't launch the mock ISS server and the Docker container has to be rebuilt and run upon code changes. 
+This setup doesn't launch the mock ISS server and the Docker container has to be rebuilt and run upon code changes.
 It's a Work In Progress.
 
 For questions/issues regarding Docker please consult with the [Docker documentation](https://docs.docker.com/) or Ferdinand.
@@ -105,6 +105,22 @@ To run, issue this command from the __root directory of this project__.
 
 ```bash
 $ ./script/launch
+```
+
+This will launch the app with default values for the following environment
+values (see `launch.sh` for the specific values):
+
+```bash
+ENVIRONMENT
+ISS_URL
+GOOGLE_API_KEY
+```
+
+If you wish, you may set the above environment variables yourself and run the
+following command to launch the app with said variables:
+
+```bash
+$ ./script/launch --env
 ```
 
 Congratulations, check [http://localhost:8000](http://localhost:8000).
