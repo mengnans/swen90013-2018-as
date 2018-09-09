@@ -108,7 +108,7 @@ $ ./script/launch
 ```
 
 This will launch the app with default values for the following environment
-values (see `launch.sh` for the specific values):
+variables (see `launch.sh` for the specific values):
 
 ```bash
 ENVIRONMENT
