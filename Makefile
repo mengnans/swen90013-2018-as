@@ -6,7 +6,7 @@ export GOOGLE_API_KEY = AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
 export ISS_URL = 0.0.0.0:3000
 
 # backend variables
-export BACKEND_IMAGE ?= $(REGISTRY)/askizzy-backend:vAS-1.1.1
+export BACKEND_IMAGE ?= $(REGISTRY)/askizzy-backend:vAS-1.2.2
 export POSTGRES_PASSWORD = example
 export POSTGRES_USER = askizzy
 export POSTGRES_DB = askizzy
