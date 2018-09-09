@@ -43,8 +43,6 @@ export default class LeaderboardPane extends React.Component<void, State> {
         try {
             let leaderboardData = await iss.requestLeaderboard();
 
-            console.log(leaderboardData);
-
             this.setState({leaderboardData: leaderboardData});
         } catch (error) {
             this.setState({error: error});

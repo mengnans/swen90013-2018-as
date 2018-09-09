@@ -673,7 +673,7 @@ export async function decreaseClap(
 
 export async function requestLeaderboard(): Promise {
 
-    return await fetch(`${ISS_URL}/api/v3/service/leaderboard`, {
+    return await fetch(`${ISS_URL}/api/v3/service/leaderboard?size=6`, {
         method: 'GET',
     }).then((response) => {
         return response.json();
