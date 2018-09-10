@@ -62,8 +62,10 @@
         width: 20%;
         height: 49.6px;
         vertical-align:top;
+        position: relative;
         .sort-bar{
             width: 100px;
+            float:right;
         }
         .sort-text{
             font-size: 18px;
@@ -78,6 +80,7 @@
             z-index:999;
             display: none;
             position: absolute;
+            top: 30px;
         }
         .sort-relevant{
             border: none;

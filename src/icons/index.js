@@ -67,6 +67,7 @@ import SvgIconSilver from "./Silver";
 import SvgIconGold from "./Gold";
 import SvgIconBronze from "./Bronze";
 import SvgIconDown from "./Down";
+import SvgIconSelected from "./Selected";
 
 export default {
     Accessibility: SvgIconAccessibility,
@@ -125,6 +126,7 @@ export default {
     RadioSelected: SvgIconRadioSelected,
     RadioUnselected: SvgIconRadioUnselected,
     Search: SvgIconSearch,
+    Selected: SvgIconSelected,
     Silver: SvgIconSilver,
     Skills: SvgIconSkills,
     Support: SvgIconSupport,

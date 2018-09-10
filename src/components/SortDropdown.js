@@ -8,7 +8,8 @@ export default class SortDropdown extends React.Component {
         super(props);
         this.state = {
             isHover: 'none',
-            sortType: this.props.sortType,
+            sortByRelevant: false,
+            sortByClaps: false,
         }
         this.onClickRelevant = this.onClickRelevant.bind(this);
         this.onClickClaps = this.onClickClaps.bind(this);
@@ -18,15 +19,22 @@ export default class SortDropdown extends React.Component {
     }
 
     props: {
-        sortType: number,
         changeSort: Function,
     }
 
     onClickRelevant() {
         this.props.changeSort(true);
+        this.setState({
+            sortByRelevant: true,
+            sortByClaps: false,
+        })
     }
     onClickClaps() {
         this.props.changeSort(false);
+        this.setState({
+            sortByRelevant: false,
+            sortByClaps: true,
+        })
     }
 
     handleMouseHover() {
@@ -73,11 +81,13 @@ export default class SortDropdown extends React.Component {
                     onMouseLeave={this.handleMouseOut}
                 >
                     <div>
+                      <icons.Selected isSelected={this.state.sortByRelevant}/>
                         <button className="sort-relevant"
                             onClick={this.onClickRelevant}
                         >Most relevant</button>
                     </div>
                     <div>
+                        <icons.Selected isSelected={this.state.sortByClaps}/>
                         <button className="sort-claps"
                             onClick={this.onClickClaps}
                         >Most claps</button>
