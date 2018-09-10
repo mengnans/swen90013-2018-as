@@ -11,15 +11,32 @@ import ClapCountTotal from './ClapCountTotal'
 import iss from "../iss";
 import Storage from '../storage'
 
+//the theme for clap button
 const defaultTheme = {
     size: 35,
 }
 
+//defines the duration for the user to clap again.
 const expireTime = 60 * 60 * 24 * 1000;
+
+// defines the duration for claps motion
 const tlDuration = 300
-const triangleBurstDelay = 30;
+
+
+/*  defines the delay time for the element to show.
+ *  after this time, the triangle element for
+ *  clap component will show
+ */
+const triangleBurstDelayTime = 30;
+
+//defines how many triangle elements exist for clap component
 const triangleBurstCount = 5;
-const circleBurstDelay = 30;
+
+/*  defines the delay time for the element to show.
+ *  after this time, the circle element for
+ *  clap component will show
+ */
+const circleBurstDelayTime = 30;
 
 
 export default class Clap extends React.Component {
@@ -74,6 +91,11 @@ export default class Clap extends React.Component {
         ]);
     }
 
+    /**
+     * init clap scale button
+     *
+     * @returns {?mojs.Html} An object for mojs.
+     */
     initScaleButton(): mojs.Html {
         return new mojs.Html({
             el: '#clap',
@@ -83,6 +105,11 @@ export default class Clap extends React.Component {
         });
     }
 
+    /**
+     * init the triangle elements motion for clap component
+     *
+     * @returns {?mojs.Burst} An object for mojs.
+     */
     initTriangleBurst(): mojs.Burst {
         return new mojs.Burst({
             parent: '#clap',
@@ -96,7 +123,7 @@ export default class Clap extends React.Component {
                 stroke: 'rgba(211,84,0 ,0.5)',
                 strokeWidth: 2,
                 angle: 210,
-                delay: triangleBurstDelay,
+                delay: triangleBurstDelayTime,
                 speed: 0.2,
                 easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
                 duration: tlDuration,
@@ -104,7 +131,11 @@ export default class Clap extends React.Component {
         });
     }
 
-
+    /**
+     * init the circle elements motion for clap component
+     *
+     * @returns {?mojs.Burst} An object for mojs.
+     */
     initCircleBurst(): mojs.Burst {
         return new mojs.Burst({
             parent: '#clap',
@@ -114,7 +145,7 @@ export default class Clap extends React.Component {
             children: {
                 shape: 'circle',
                 fill: 'rgba(149,165,166 ,0.5)',
-                delay: circleBurstDelay,
+                delay: circleBurstDelayTime,
                 speed: 0.2,
                 radius: {3: 0},
                 easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
@@ -122,6 +153,11 @@ export default class Clap extends React.Component {
         });
     }
 
+    /**
+     * init counting motion for clap component
+     *
+     * @returns {?mojs.Burst} An object for mojs.
+     */
     initCountAnimation(): mojs.Burst {
         return new mojs.Html({
             el: '#clap-count',
@@ -137,7 +173,11 @@ export default class Clap extends React.Component {
         });
     }
 
-
+    /**
+     * init counting motion for clap component
+     *
+     * @returns {?mojs.Burst} An object for mojs.
+     */
     initCountTotalAnimation(): mojs.Burst {
         const opacityStart = 1
 
@@ -204,6 +244,7 @@ export default class Clap extends React.Component {
             </div>
         );
     }
+
 
     renderClaps() {
         const {count, countTotal, isClicked, isHover} = this.state

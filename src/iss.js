@@ -613,16 +613,17 @@ export async function getService(
     return service;
 }
 
-
+/**
+ * Get claps data from ISS.
+ *
+ * @param {?string} id - service id
+ *
+ * @returns {?number} claps result from ISS.
+ */
 export async function getClaps(
     id: number
 ): Object {
-
-    // TODO: remove fake id
-    id = 1;
-
     // TODO: add cache here
-
     return await fetch(`${ISS_URL}/api/v3/service/${id}/getClaps`, {
         method: 'GET',
     }).then((response) => {
@@ -634,15 +635,17 @@ export async function getClaps(
     });
 }
 
+/**
+ * Increase claps against ISS.
+ *
+ * @param {?string} id - service id
+ *
+ * @returns {?number} return status from ISS (whether succeed or fail).
+ */
 export async function increaseClap(
     id: number
 ): Object {
-
-    // TODO: remove fake id
-    id = 1;
-
     // TODO: add cache here
-
     return await fetch(`${ISS_URL}/api/v3/service/${id}/increaseClap`, {
         method: 'POST',
     }).then((response) => {
@@ -650,15 +653,17 @@ export async function increaseClap(
     });
 }
 
+/**
+ * Decrease claps against ISS.
+ *
+ * @param {?string} id - service id
+ *
+ * @returns {?number} return status from ISS (whether succeed or fail).
+ */
 export async function decreaseClap(
     id: number
 ): Object {
-
-    // TODO: remove fake id
-    id = 1;
-
     // TODO: add cache here
-
     return await fetch(`${ISS_URL}/api/v3/service/${id}/decreaseClap`, {
         method: 'POST',
     }).then((response) => {
