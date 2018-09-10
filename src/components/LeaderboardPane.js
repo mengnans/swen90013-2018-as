@@ -4,6 +4,7 @@ import React from "react";
 import HeaderBar from "./HeaderBar";
 import LeaderboardListItem from "./LeaderboardListItem";
 import LeaderboardTab from "../components/LeaderboardTab";
+import ChangeCategoryButton from "../components/ChangeCategoryButton";
 
 export default class LeaderboardPane extends React.Component {
 
@@ -50,6 +51,11 @@ export default class LeaderboardPane extends React.Component {
                     bannerName="housing"
                     alternateBackgroundColor={false}
                 />
+                <ChangeCategoryButton
+                    className = {"ChangeCategoryButton"}
+                    onClick = {() => this.ChangeCategoryClick()}
+                    children = {"Change Category"}
+                />
                 <LeaderboardTab
                     leftTabContent="App"
                     rightTabContent="Categories"
@@ -70,6 +76,12 @@ export default class LeaderboardPane extends React.Component {
             />
         ));
 
+    }
+
+    ChangeCategoryClick() {
+        this.setState({
+            activeTab: "rightTab",
+        })
     }
 
 }
