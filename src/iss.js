@@ -276,13 +276,14 @@ if (typeof window != "undefined") {
  */
 export async function getBulkClaps(): Array<Object> {
     // mock data
-    let bulkClaps = [
-        {id: 111, clapNum: 200},
-        {id: 222, clapNum: 100},
-        {id: 333, clapNum: 150},
-        {id: 444, clapNum: 170}];
+    return await fetch('http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com/api/v3/service/resultList',
+        {method: 'Get'}).then((response) => {
+            return response.json();
+        }).then(response => {
+            let result = response.resultList;
 
-    return bulkClaps;
+            return result;
+        })
 }
 export async function requestObjects(
     path: string,
@@ -298,14 +299,13 @@ export async function requestObjects(
     let response = await request(path, data);
     let clapList = await getBulkClaps();
 
-
     for (let indexResponse = 0;
          indexResponse < response.objects.length; indexResponse++) {
         for (let indexClap = 0 ; indexClap < clapList.length; indexClap++) {
             if (clapList[indexClap].id ==
                 response.objects[indexResponse].id) {
                 response.objects[indexResponse].claps =
-                    clapList[indexClap].clapNum;
+                    clapList[indexClap].clap;
             }
         }
     }
