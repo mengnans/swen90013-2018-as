@@ -6,6 +6,8 @@ import HeaderBar from "./HeaderBar";
 import LeaderboardListItem from "./LeaderboardListItem";
 import LeaderboardTab from "../components/LeaderboardTab";
 import ChangeCategoryButton from "../components/ChangeCategoryButton";
+import LeaderboardCategoryListItem from "./LeaderboardCategoryListItem";
+import categories from "../constants/categories";
 
 /**
  * The number of leaderboard results to display at a time.
@@ -16,7 +18,12 @@ const numResults = 6;
 type State = {
     leaderboardData: Array<Object>,
     error: Object,
-    activeTab: String
+    activeTab: String,
+    /**
+     * Dictates the category information.
+     * @type {String}
+     */
+    categoryFlag: String
 }
 
 export default class LeaderboardPane extends React.Component<void, State> {
@@ -36,6 +43,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.state = {
             leaderboardData: undefined,
             activeTab: "leftTab",
+            categoryFlag: "Category"
         }
 
     }
@@ -71,6 +79,9 @@ export default class LeaderboardPane extends React.Component<void, State> {
     }
 
     render() {
+        let list = this.state.activeTab == "leftTab" ?
+            this.renderLeaderBoardList()
+            : this.renderLeaderBoardCategoryList();
 
         return (
             <div className={"LeaderboardPane"}>
@@ -89,7 +100,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
                     activeTab={this.state.activeTab}
                     switchTab={this.switchTab}
                 />
-                {this.renderLeaderBoardList()}
+                {list}
             </div>
         );
     }
@@ -132,7 +143,29 @@ export default class LeaderboardPane extends React.Component<void, State> {
         ));
 
     }
+    setFlag(categoryInfo) {
+        this.setState({
+            categoryFlag: categoryInfo,
+        });
+    }
 
-
-
+    /**
+     * List all the category information on the leaderboard.
+     * @return {React.Component} The category list component
+     */
+    renderLeaderBoardCategoryList() {
+        return (
+            <div className="List categories">
+                {
+                    categories.map(category => {
+                        return (
+                            <LeaderboardCategoryListItem
+                                category={category}
+                                key={category.key}
+                                getCategory={this.setFlag.bind(this)}
+                            />
+                        );
+                    })
+                }</div>);
+    }
 }
