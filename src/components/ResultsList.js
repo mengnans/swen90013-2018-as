@@ -54,7 +54,6 @@ class ResultsList extends React.Component {
          */
         let nonCrisisServices = this.nonCrisisResults();
 
-        console.log(nonCrisisServices);
         if (this.props.sortState) {
             this.sortClaps(nonCrisisServices, true);
         }

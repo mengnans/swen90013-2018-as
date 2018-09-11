@@ -39,7 +39,6 @@ class ResultsListPage extends React.Component {
         this.state = {sort: false};
     }
     setSort(sort) {
-        console.log(sort);
         this.setState({
             sort: sort,
         });
