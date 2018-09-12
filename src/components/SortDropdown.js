@@ -8,7 +8,6 @@ export default class SortDropdown extends React.Component {
         super(props);
         this.state = {
             hover: 'none',
-            sortType: null,
             sortByRelevance: false,
             sortByClaps: false,
         }
