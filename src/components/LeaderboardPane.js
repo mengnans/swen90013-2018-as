@@ -46,6 +46,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
             activeTab: "leftTab",
             categoryFlag: "Category"
         }
+        this.switchTab = this.switchTab.bind(this);
 
     }
 
@@ -79,6 +80,12 @@ export default class LeaderboardPane extends React.Component<void, State> {
         })
     }
 
+    switchTab(tab) {
+        this.setState({
+            activeTab: tab,
+        })
+    }
+
     render() {
         let list = this.state.activeTab == "leftTab" ?
             this.renderLeaderBoardList()
@@ -96,7 +103,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
                     onClick = {this.onClickChangeCategory}
                 />
                 <LeaderboardTab
-                    leftTabContent="App"
+                    leftTabContent="All"
                     rightTabContent="Categories"
                     activeTab={this.state.activeTab}
                     switchTab={this.switchTab}
