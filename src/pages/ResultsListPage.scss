@@ -84,17 +84,19 @@
             position: absolute;
             top: 28px;
         }
-        .sort-relevant{
+        .sort-relevance{
             border: none;
             background-color: $brand-bg-light;
             position: relative;
             bottom: 5px;
+            outline: none;
         }
         .sort-claps{
             border: none;
             background-color: $brand-bg-light;
             position: relative;
             bottom: 5px;
+            outline: none;
         }
     }
 

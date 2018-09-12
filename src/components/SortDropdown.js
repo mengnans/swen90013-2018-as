@@ -7,11 +7,12 @@ export default class SortDropdown extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isHover: 'none',
-            sortByRelevant: false,
+            hover: 'none',
+            sortType: null,
+            sortByRelevance: false,
             sortByClaps: false,
         }
-        this.onClickRelevant = this.onClickRelevant.bind(this);
+        this.onClickRelevance = this.onClickRelevance.bind(this);
         this.onClickClaps = this.onClickClaps.bind(this);
         this.handleMouseHover = this.handleMouseHover.bind(this);
         this.handleMouseOut = this.handleMouseOut.bind(this);
@@ -22,50 +23,51 @@ export default class SortDropdown extends React.Component {
         changeSort: Function,
     }
 
-    onClickRelevant() {
+    /**
+     * change the sort type after clicking "Most relevant" button
+     * @return {void}
+     */
+    onClickRelevance() {
         this.props.changeSort(true);
         this.setState({
-            sortByRelevant: true,
+            sortByRelevance: true,
             sortByClaps: false,
         })
     }
+
+    /**
+     * change the sort type after clicking "Most claps" button
+     * @return {void}
+     */
     onClickClaps() {
         this.props.changeSort(false);
         this.setState({
-            sortByRelevant: false,
+            sortByRelevance: false,
             sortByClaps: true,
         })
     }
 
     handleMouseHover() {
         this.setState({
-            isHover: 'block',
+            hover: 'block',
         })
     }
 
     handleMouseOut() {
         this.setState({
-            isHover: 'none',
+            hover: 'none',
         })
     }
 
     handleMouseMenuHover() {
         this.setState({
-            isHover: 'block',
+            hover: 'block',
         })
     }
 
     render() {
         return (
             <div className="dropdown">
-                {this.renderDropdown()}
-            </div>
-        );
-    }
-
-    renderDropdown() {
-        return (
-            <div>
                 <div className="sort-bar"
                     onMouseEnter={this.handleMouseHover}
                     onMouseLeave={this.handleMouseOut}
@@ -76,21 +78,17 @@ export default class SortDropdown extends React.Component {
                 </span>
                 </div>
                 <div className="dp-content"
-                    style={{display: this.state.isHover}}
+                    style={{display: this.state.hover}}
                     onMouseEnter={this.handleMouseMenuHover}
                     onMouseLeave={this.handleMouseOut}
                 >
-                    <div>
-                      <icons.Selected isSelected={this.state.sortByRelevant}/>
-                        <button className="sort-relevant"
-                            onClick={this.onClickRelevant}
-                        >Most relevant</button>
+                    <div onClick={this.onClickRelevance}>
+                     <icons.Selected isSelected={this.state.sortByRelevance}/>
+                     <button className="sort-relevance">Most relevant</button>
                     </div>
-                    <div>
+                    <div onClick={this.onClickClaps}>
                         <icons.Selected isSelected={this.state.sortByClaps}/>
-                        <button className="sort-claps"
-                            onClick={this.onClickClaps}
-                        >Most claps</button>
+                        <button className="sort-claps">Most claps</button>
                     </div>
                 </div>
             </div>
