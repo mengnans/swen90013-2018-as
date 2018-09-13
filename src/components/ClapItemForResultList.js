@@ -9,18 +9,17 @@ import type{Service} from "../iss";
 class ClapItemForResultList extends React.Component {
     props: {
         service: Service,
-        clapNum: number,
     };
 
     static defaultProps = {
         clapNum: 100,
-    }
+    };
 
     constructor(props) {
         super(props);
         this.state = {
             //TODO: get data from back-end
-            clapNum: this.props.clapNum,
+            clapNum: this.props.service.clapNum,
         }
     }
 

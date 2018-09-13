@@ -276,7 +276,8 @@ if (typeof window != "undefined") {
  * @param {Array<number>} id The list of ids to retrieve.
  */
 export async function getBulkClaps(id): Array<Object> {
-    // mock data
+    id = id.join(',');
+
     return await fetch(`${ISS_URL}/api/v3/service/bulkClaps?id=${id}`,
         {method: 'Get'}).then((response) => {
             return response.json();
@@ -298,16 +299,13 @@ export async function requestObjects(
     }
 
     let response = await request(path, data);
-    let clapList = await getBulkClaps(
-        response.objects.map(obj => obj.id).join(',')
-    );
+    let clapList = await getBulkClaps(response.objects.map(obj => obj.id));
 
     response.objects.forEach(obj => {
         obj.claps = (
             clapList.find(clap => clap.serviceId == obj.id) || { clap: 0 }
         ).clap;
     });
-
 
     // convert objects to ISS search results
     const objects = response.objects.map(
