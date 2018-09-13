@@ -62,7 +62,6 @@ export default class Clap extends React.Component {
             : this.props.service.clapNum
 
         this.state = {
-            unclicked: true,
             countTotal,
             isHover: false,
             isClicked: clickState,
@@ -223,7 +222,6 @@ export default class Clap extends React.Component {
                 this.animationTimeline.replay();
                 iss.increaseClap(this.props.service.id);
                 return {
-                    unclicked: false,
                     countTotal: countTotal + 1,
                     isClicked: true,
                 }
@@ -231,7 +229,6 @@ export default class Clap extends React.Component {
                 Storage.setClapped(id, false);
                 iss.decreaseClap(this.props.service.id);
                 return {
-                    unclicked: true,
                     countTotal: countTotal - 1,
                     isClicked: false,
                 }

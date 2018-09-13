@@ -281,12 +281,14 @@ export async function getBulkClaps(id): Array<Object> {
     return await fetch(`${ISS_URL}/api/v3/service/bulkClaps?id=${id}`,
         {method: 'Get'}).then((response) => {
             return response.json();
-        }).then(response => {
-            let result = response.data;
+        }
+    ).then(response => {
+        let result = response.data;
 
-            return result;
-        })
+        return result;
+    })
 }
+
 export async function requestObjects(
     path: string,
     data: ?searchRequest,
@@ -303,7 +305,7 @@ export async function requestObjects(
 
     response.objects.forEach(obj => {
         obj.claps = (
-            clapList.find(clap => clap.serviceId == obj.id) || { clap: 0 }
+            clapList.find(clap => clap.serviceId == obj.id) || {clap: 0}
         ).clap;
     });
 
@@ -722,6 +724,91 @@ export function nonCrisisResults(results: Array<Service>): Array<Service> {
         results.length,
     )
 }
+
+/**
+ * Get claps data from ISS.
+ *
+ * @param {?string} id - service id
+ *
+ * @returns {?number} claps result from ISS.
+ */
+export async function getClaps(
+    id: number,
+): Object {
+    // TODO: add cache here
+    return await fetch(`${ISS_URL}/api/v3/service/${id}/getClaps`, {
+        method: 'GET',
+    }).then((response) => {
+        return response.json();
+    }).then(response => {
+
+        let clapNum = response.clap;
+
+        return clapNum;
+    });
+}
+
+/**
+ * Increase claps against ISS.
+ *
+ * @param {?string} id - service id
+ *
+ * @returns {?number} return status from ISS (whether succeed or fail).
+ */
+export async function increaseClap(
+    id: number,
+): Object {
+    // TODO: add cache here
+    return await fetch(`${ISS_URL}/api/v3/service/${id}/increaseClap`, {
+        method: 'POST',
+    }).then((response) => {
+        return response.json();
+    });
+}
+
+/**
+ * Decrease claps against ISS.
+ *
+ * @param {?string} id - service id
+ *
+ * @returns {?number} return status from ISS (whether succeed or fail).
+ */
+export async function decreaseClap(
+    id: number,
+): Object {
+    // TODO: add cache here
+    return await fetch(`${ISS_URL}/api/v3/service/${id}/decreaseClap`, {
+        method: 'POST',
+    }).then((response) => {
+        return response.json();
+    });
+}
+
+
+export async function requestLeaderboard(size, category): Promise {
+
+    let queryString = "";
+
+    if (size != null) {
+        queryString = "?size=" + size;
+        if (category != null) {
+            queryString = queryString + "&category=" + category;
+        }
+    }
+
+    return await fetch(
+        `${ISS_URL}/api/v3/service/leaderboard${queryString}`,
+        {
+            method: 'GET',
+        }).then((response) => {
+            return response.json();
+        }).then(response => {
+            return response.sortResult;
+        }
+    );
+
+}
+
 
 export default {
     getClaps: getClaps,

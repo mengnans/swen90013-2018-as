@@ -18,8 +18,7 @@ class ClapItemForResultList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            //TODO: get data from back-end
-            clapNum: this.props.service.clapNum,
+            clapNum: this.props.service.claps,
         }
     }
 
