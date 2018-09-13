@@ -299,16 +299,12 @@ export async function requestObjects(
     let response = await request(path, data);
     let clapList = await getBulkClaps();
 
-    for (let indexResponse = 0;
-         indexResponse < response.objects.length; indexResponse++) {
-        for (let indexClap = 0 ; indexClap < clapList.length; indexClap++) {
-            if (clapList[indexClap].id ==
-                response.objects[indexResponse].id) {
-                response.objects[indexResponse].claps =
-                    clapList[indexClap].clap;
-            }
-        }
-    }
+    response.objects.forEach(obj => {
+        obj.claps = (
+            clapList.find(clap => clap.id == obj.id) || { clap: 0 }
+        ).clap;
+    });
+
     // convert objects to ISS search results
     const objects = response.objects.map(
         (object: issService): Service => new Service(object)
