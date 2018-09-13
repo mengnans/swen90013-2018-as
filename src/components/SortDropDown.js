@@ -3,7 +3,7 @@
 import React from "react";
 import icons from "../icons";
 
-export default class SortDropdown extends React.Component {
+export default class SortDropDown extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

@@ -7,7 +7,7 @@ import ResultsList from "../components/ResultsList";
 import LoadingResultsHeader from
         "../components/ResultsListPage/LoadingResultsHeader";
 import ViewOnMapButton from "../components/ViewOnMapButton";
-import SortDropdown from "../components/SortDropdown";
+import SortDropDown from "../components/SortDropDown";
 import sendEvent from "../google-tag-manager";
 import storage from "../storage";
 import type {Service} from "../iss";
@@ -80,7 +80,7 @@ class ResultsListPage extends React.Component {
                             onClick={this.recordMapClick.bind(this)}
                         />
                     }
-                    <SortDropdown
+                    <SortDropDown
                         changeSort={this.setSort}
                     />
                     <ResultsList

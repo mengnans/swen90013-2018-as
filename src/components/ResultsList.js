@@ -47,6 +47,9 @@ class ResultsList extends React.Component {
         })
     }
     render() {
+
+        console.log(this.props.sortState);
+
         /**
          * The list of non-crisis services.
          * @type {Array<Object>}
