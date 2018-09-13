@@ -273,14 +273,15 @@ if (typeof window != "undefined") {
 /**
  * Get Bulks of clap
  * @return {Array<Object>} The list of service claps information
+ * @param {Array<number>} id The list of ids to retrieve.
  */
-export async function getBulkClaps(): Array<Object> {
+export async function getBulkClaps(id): Array<Object> {
     // mock data
-    return await fetch(`${ISS_URL}/api/v3/service/resultList`,
+    return await fetch(`${ISS_URL}/api/v3/service/bulkClaps?id=${id}`,
         {method: 'Get'}).then((response) => {
             return response.json();
         }).then(response => {
-            let result = response.resultList;
+            let result = response.data;
 
             return result;
         })
@@ -297,11 +298,13 @@ export async function requestObjects(
     }
 
     let response = await request(path, data);
-    let clapList = await getBulkClaps();
+    let clapList = await getBulkClaps(
+        response.objects.map(obj => obj.id).join(',')
+    );
 
     response.objects.forEach(obj => {
         obj.claps = (
-            clapList.find(clap => clap.id == obj.id) || { clap: 0 }
+            clapList.find(clap => clap.serviceId == obj.id) || { clap: 0 }
         ).clap;
     });
 
