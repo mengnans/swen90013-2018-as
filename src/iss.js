@@ -674,9 +674,6 @@ export async function decreaseClap(
 
 export async function requestLeaderboard(size, category): Promise {
 
-    console.log("size " + size);
-    console.log("category " + category);
-
     let queryString = "";
 
     if (size != null) {
@@ -693,7 +690,6 @@ export async function requestLeaderboard(size, category): Promise {
         }).then((response) => {
             return response.json();
         }).then(response => {
-
             return response.sortResult;
 
         });

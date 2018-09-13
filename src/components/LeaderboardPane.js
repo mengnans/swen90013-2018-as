@@ -150,60 +150,53 @@ export default class LeaderboardPane extends React.Component<void, State> {
         let categoryMode = this.state.categoryMode;
 
         /**
-         * Shouldhise indicates whether the Change Category button should
+         * shouldHide indicates whether the Change Category button should
          * be hidden. It should be hidden when not viewing a category.
          */
         let shouldHide = !categoryMode;
+        let listClassName = undefined;
 
-        if (this.state.activeTab == "leftTab" || categoryMode == true) {
+        if (this.state.activeTab === "leftTab" || categoryMode === true) {
+            listClassName = "LeaderboardListItemList";
             list = this.renderLeaderBoardList();
         } else {
+            listClassName = "LeaderboardCategoryList";
             list = this.renderLeaderBoardCategoryList();
         }
 
         return (
-            <div className={"LeaderboardPane"}>
+            <div className="LeaderboardPane">
                 <HeaderBar
-                    primaryText={"Leaderboard"}
+                    primaryText="Leaderboard"
                     secondaryText={null}
                     bannerName="housing"
                     alternateBackgroundColor={false}
                 />
                 <div className="TabBar">
                     <ChangeCategoryButton
-                        className = {"Left"}
+                        className = "Left"
                         shouldHide = {shouldHide}
                         onClick = {this.onClickChangeCategory}
-                        children = {"Change Category"}
+                        children = "Change Category"
                     />
                     <LeaderboardTab
-                        className= {"Middle"}
+                        className= "Middle"
                         leftTabContent="All"
                         rightTabContent="Categories"
                         activeTab={this.state.activeTab}
                         switchTab={this.switchTab}
                     />
-                    <div className={"Right"}/>
+                    <div className="Right"/>
                 </div>
-                {list}
+                <div className={listClassName}>
+                    {list}
+                </div>
             </div>
         );
     }
 
     onClickLeaderboardListItem(data: Object): void {
-        // the reason why I am using fake slug here is that
-        // our backend stores data for the original mock data
-        // of the mock iss, that is Housing Service and so on.
-        // However, currently, we are using the real data from
-        // the service seeker, so the data stored in the backend
-        // actually doesn't work
-        // We will fix this in sprint 4
-        // I can delete this comments before merging in, just
-        // want to let you guys know, we still need to fix
-        // this issue in the next sprint.
-        // TODO: use real data
-        // let slug = data.slug;
-        let slug = "848049-ronald-mcdonald-house-parkville-house";
+        let slug = data.service_slug;
         let path = "/service/";
 
         path += slug;
@@ -235,7 +228,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
      */
     renderLeaderBoardCategoryList() {
         return (
-            <div className="List categories LeaderboardCategory">
+            <div className="List categories">
                 {
                     categories.map(category => {
                         return (
