@@ -29,6 +29,8 @@ const ClapButton = styled.button`
     border-radius: 50%;
   }
 
+  transform: scale(1, 1) !important;
+
   &:hover {
     cursor: pointer;
   }

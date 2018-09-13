@@ -5,6 +5,7 @@
 
 import 'babel-polyfill';
 import './support/chai-jest-snapshot';
+import './support/mock-mojs';
 import Yadda from "yadda";
 
 describe("Unit tests", function() {

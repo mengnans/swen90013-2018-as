@@ -38,28 +38,32 @@ const triangleBurstCount = 5;
  */
 const circleBurstDelayTime = 30;
 
+/**
+ * Mo-js placeholder variable.
+ */
+let mojs = undefined;
 
 export default class Clap extends React.Component {
     props:{
-        count: number,
         isClicked: boolean,
         service: Service,
     }
 
     static defaultProps = {
         countTotal: 0,
-        count: 0,
         isClicked: false,
     };
     constructor(props) {
         super(props);
         let id = this.props.service.id;
         let clickState = Storage.hasClapped(id, expireTime);
+        let countTotal = isNaN(this.props.service.clapNum) ?
+              (clickState ? 1 : 0)
+            : this.props.service.clapNum
 
         this.state = {
             unclicked: true,
-            count: this.props.count,
-            countTotal: this.props.service.clapNum,
+            countTotal,
             isHover: false,
             isClicked: clickState,
             id: id,
@@ -72,15 +76,14 @@ export default class Clap extends React.Component {
 
     componentDidMount() {
 
-        const mojs = require('mo-js');
+        mojs = require('mo-js');
+
         const triangleBurst = this.initTriangleBurst();
         const circleBurst = this.initCircleBurst();
         const countAnimation = this.initCountAnimation();
         const countTotalAnimation = this.initCountTotalAnimation();
         const scaleButton = this.initScaleButton();
-        const clap = document.getElementById('clap');
 
-        clap.style.transform = 'scale(1, 1)';
         this.animationTimeline = new mojs.Timeline()
         this.animationTimeline.add([
             countAnimation,
@@ -212,7 +215,6 @@ export default class Clap extends React.Component {
                 iss.increaseClap(this.props.service.id);
                 return {
                     unclicked: false,
-                    count: 1,
                     countTotal: countTotal + 1,
                     isClicked: true,
                 }
@@ -221,7 +223,6 @@ export default class Clap extends React.Component {
                 iss.decreaseClap(this.props.service.id);
                 return {
                     unclicked: true,
-                    count: 0,
                     countTotal: countTotal - 1,
                     isClicked: false,
                 }
@@ -230,11 +231,6 @@ export default class Clap extends React.Component {
 
         });
     }
-
-
-
-
-
 
     render() {
 
@@ -245,9 +241,8 @@ export default class Clap extends React.Component {
         );
     }
 
-
     renderClaps() {
-        const {count, countTotal, isClicked, isHover} = this.state
+        const {countTotal, isClicked, isHover} = this.state
 
         return (
             <div>
@@ -272,7 +267,7 @@ export default class Clap extends React.Component {
                             />
 
                             <ClapCount id="clap-count">
-                                +{count}
+                                +1
                             </ClapCount>
 
                             <ClapCountTotal id="clap-count-total">
