@@ -20,10 +20,10 @@ type State = {
     error: Object,
     activeTab: String,
     /**
-     * Dictates the category information.
-     * @type {String}
+     * Dictates the category mode.
+     * @type {Boolean}
      */
-    categoryFlag: String
+    categoryMode: Boolean
 }
 
 export default class LeaderboardPane extends React.Component<void, State> {
@@ -44,7 +44,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.state = {
             leaderboardData: undefined,
             activeTab: "leftTab",
-            categoryFlag: "Category"
+            categoryMode: false,
         }
         this.switchTab = this.switchTab.bind(this);
 
@@ -56,46 +56,69 @@ export default class LeaderboardPane extends React.Component<void, State> {
 
     async loadService(): Promise<void> {
         // Unload previous service
-        this.setState({leaderboardData: undefined});
+        this.setState({
+            leaderboardData: undefined,
+        });
 
         try {
-            let leaderboardData = await iss.requestLeaderboard(numResults, null);
+            let leaderboardData = await iss.requestLeaderboard(numResults);
 
-            this.setState({leaderboardData: leaderboardData});
+            this.setState({
+                leaderboardData: leaderboardData,
+            });
         } catch (error) {
             this.setState({error: error});
         }
 
     }
 
-    switchTab(tab) {
+    async loadServicesWithCategory(category, tab): Promise<void> {
+        // Unload previous service
         this.setState({
-            activeTab: tab,
-        })
+            leaderboardData: undefined,
+            activeTab: undefined,
+            categoryMode: undefined,
+        });
+
+        try {
+            let leaderboardData = await iss.requestLeaderboard(numResults, category);
+
+            this.setState({
+                leaderboardData: leaderboardData,
+                activeTab: tab,
+                categoryMode: true,
+            });
+        } catch (error) {
+            this.setState({error: error});
+        }
+
     }
 
     onClickChangeCategory() {
         this.setState({
-            activeTab: "rightTab",
+            categoryMode: false,
         })
     }
 
     switchTab(tab) {
         this.setState({
             activeTab: tab,
+            categoryMode: false,
         })
     }
 
     render() {
 
-        let list, shouldHide;
+        let list;
 
-        if (this.state.activeTab == "leftTab") {
+        let categoryMode = this.state.categoryMode;
+
+        let shouldHide = this.state.activeTab == "leftTab";
+
+        if (this.state.activeTab == "leftTab" || categoryMode == true) {
             list = this.renderLeaderBoardList();
-            shouldHide = true;
         } else {
             list = this.renderLeaderBoardCategoryList();
-            shouldHide = false;
         }
 
         return (
@@ -193,6 +216,8 @@ export default class LeaderboardPane extends React.Component<void, State> {
                                 category={category}
                                 key={category.key}
                                 getCategory={this.setFlag}
+                                loadWithCategory=
+                                    {this.loadServicesWithCategory.bind(this)}
                             />
                         );
                     })

@@ -679,7 +679,7 @@ export async function requestLeaderboard(size, category): Promise {
     if (size != null) {
         queryString = "?size=" + size;
         if (category != null) {
-            queryString.append("&category=" + category);
+            queryString + "&category=" + category;
         }
     }
 

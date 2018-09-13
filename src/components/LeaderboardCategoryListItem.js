@@ -7,6 +7,7 @@ export default class LeaderboardCategoryListItem extends React.Component {
     props: {
         category: Category,
         getCategory: Function,
+        loadWithCategory: Function,
     };
     state: void;
     constructor(props) {
@@ -19,7 +20,8 @@ export default class LeaderboardCategoryListItem extends React.Component {
      * @return {void}
      */
     onClick() {
-        this.props.getCategory(this.props.category.name);
+        // this.props.getCategory(this.props.category.name);
+        this.props.loadWithCategory(this.props.category.name, "rightTab");
     }
     static sampleProps = {
         default: {
