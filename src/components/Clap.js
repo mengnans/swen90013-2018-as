@@ -87,9 +87,7 @@ export default class Clap extends React.Component {
         const countAnimation = this.initCountAnimation();
         const countTotalAnimation = this.initCountTotalAnimation();
         const scaleButton = this.initScaleButton();
-        const clap = document.getElementById('clap');
 
-        clap.style.transform = 'scale(1, 1)';
         this.animationTimeline = new mojs.Timeline()
         this.animationTimeline.add([
             countAnimation,
@@ -108,10 +106,15 @@ export default class Clap extends React.Component {
     initScaleButton(): mojs.Html {
         return new mojs.Html({
             el: '#clap',
+            duration: 0,
+            scale: {1: 1.3},
+            easing: mojs.easing.out,
+        })
+        .then({
             duration: tlDuration,
             scale: {1.3: 1},
-            easing: mojs.easing.out,
-        });
+            easing: mojs.easing.out
+        });;
     }
 
     /**
