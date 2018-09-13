@@ -276,7 +276,7 @@ if (typeof window != "undefined") {
  */
 export async function getBulkClaps(): Array<Object> {
     // mock data
-    return await fetch('http://ec2-54-252-243-193.ap-southeast-2.compute.amazonaws.com/api/v3/service/resultList',
+    return await fetch(`${ISS_URL}/api/v3/service/resultList`,
         {method: 'Get'}).then((response) => {
             return response.json();
         }).then(response => {
