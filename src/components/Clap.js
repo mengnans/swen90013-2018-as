@@ -2,6 +2,7 @@
 
 import React from "react";
 import icons from "../icons";
+import type {Service} from "../iss";
 import {ThemeProvider} from 'styled-components'
 
 import ClapButton from './ClapButton'
