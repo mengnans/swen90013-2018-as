@@ -1,3 +1,5 @@
+@import "../styles/colors.scss";
+
 .ChangeCategoryButton{
     float:left;
     button{
@@ -6,9 +8,6 @@
         background: rgba(0, 0, 0, 0.0);
         text-decoration: underline;
         border-style: none;
-        color: purple;
-    }
-    button:hover{
-        color: red;
+        color: $brand-pane-alt-dark;
     }
 }
