@@ -39,6 +39,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.onClickChangeCategory = this.onClickChangeCategory.bind(this);
         this.onClickLeaderboardListItem =
             this.onClickLeaderboardListItem.bind(this);
+        this.setFlag = this.setFlag.bind(this);
 
         this.state = {
             leaderboardData: undefined,
@@ -143,6 +144,14 @@ export default class LeaderboardPane extends React.Component<void, State> {
         ));
 
     }
+
+    /**
+     * Set the 'categoryFlag' to the category information, which is
+     * displayed on the clicked row in the leaderboard category list
+     * board.
+     * @param {String} categoryInfo - category information of the list item.
+     * @return {void}
+     */
     setFlag(categoryInfo) {
         this.setState({
             categoryFlag: categoryInfo,
@@ -162,7 +171,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
                             <LeaderboardCategoryListItem
                                 category={category}
                                 key={category.key}
-                                getCategory={this.setFlag.bind(this)}
+                                getCategory={this.setFlag}
                             />
                         );
                     })
