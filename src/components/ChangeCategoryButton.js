@@ -10,6 +10,9 @@ import React from "react";
 export default class ChangeCategoryButton extends React.Component {
     props: {
         onClick: Function,
+        className?: string,
+        children?: any,
+        shouldHide: boolean,
     };
     static propTypes = {
         onClick: React.PropTypes.func,
@@ -19,10 +22,16 @@ export default class ChangeCategoryButton extends React.Component {
     render() {
         const {
             onClick,
+            className,
+            children,
+            shouldHide,
         } = this.props;
 
+        let hiddenClass = shouldHide ? "hidden" : null;
+
         return (
-            <div className ={"ChangeCategoryButton"}>
+            <div className ={classnames("ChangeCategoryButton",
+                   className, hiddenClass)}>
                 <button
                     onClick= {onClick}
                 >

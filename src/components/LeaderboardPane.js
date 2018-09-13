@@ -87,9 +87,18 @@ export default class LeaderboardPane extends React.Component<void, State> {
     }
 
     render() {
-        let list = this.state.activeTab == "leftTab" ?
-            this.renderLeaderBoardList()
-            : this.renderLeaderBoardCategoryList();
+        // let list = this.state.activeTab == "leftTab" ?
+        //     this.renderLeaderBoardList()
+        //     : this.renderLeaderBoardCategoryList();
+        let list, shouldHide;
+
+        if (this.state.activeTab == "leftTab") {
+            list = this.renderLeaderBoardList();
+            shouldHide = true;
+        } else {
+            list = this.renderLeaderBoardCategoryList();
+            shouldHide = false;
+        }
 
         return (
             <div className={"LeaderboardPane"}>
@@ -101,6 +110,9 @@ export default class LeaderboardPane extends React.Component<void, State> {
                 />
                 <ChangeCategoryButton
                     onClick = {this.onClickChangeCategory}
+                    className = {"ChangeCategoryButton"}
+                    shouldHide = {shouldHide}
+                    children = {"Change Category"}
                 />
                 <LeaderboardTab
                     leftTabContent="All"

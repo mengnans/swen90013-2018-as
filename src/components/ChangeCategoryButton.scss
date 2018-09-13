@@ -10,4 +10,7 @@
         border-style: none;
         color: $brand-pane-alt-dark;
     }
+    &.hidden{
+        display:none;
+    }
 }
