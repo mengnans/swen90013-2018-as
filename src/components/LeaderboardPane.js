@@ -17,6 +17,11 @@ export default class LeaderboardPane extends React.Component {
             activeTab: tab,
         })
     }
+    ChangeCategoryClick() {
+        this.setState({
+            activeTab: "rightTab",
+        })
+    }
 
     mockLeaderboardData = [];
 
@@ -24,6 +29,7 @@ export default class LeaderboardPane extends React.Component {
         super(props);
 
         this.switchTab = this.switchTab.bind(this);
+        this.ChangeCategoryClick = this.ChangeCategoryClick.bind(this);
 
         // generate the mock data
         // TODO: put real data here and remove mock data
@@ -52,9 +58,7 @@ export default class LeaderboardPane extends React.Component {
                     alternateBackgroundColor={false}
                 />
                 <ChangeCategoryButton
-                    className = {"ChangeCategoryButton"}
-                    onClick = {() => this.ChangeCategoryClick()}
-                    children = {"Change Category"}
+                    onClick = {this.ChangeCategoryClick}
                 />
                 <LeaderboardTab
                     leftTabContent="App"
@@ -78,10 +82,6 @@ export default class LeaderboardPane extends React.Component {
 
     }
 
-    ChangeCategoryClick() {
-        this.setState({
-            activeTab: "rightTab",
-        })
-    }
+    
 
 }
