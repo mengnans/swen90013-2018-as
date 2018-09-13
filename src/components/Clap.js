@@ -113,8 +113,8 @@ export default class Clap extends React.Component {
         .then({
             duration: tlDuration,
             scale: {1.3: 1},
-            easing: mojs.easing.out
-        });;
+            easing: mojs.easing.out,
+        });
     }
 
     /**
