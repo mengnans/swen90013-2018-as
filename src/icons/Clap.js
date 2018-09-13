@@ -8,11 +8,12 @@ import classnames from "classnames";
 export default class SvgIconClap extends React.Component {
     props: {
         className?: string,
-        isClicked: boolean
+        isClicked: boolean,
+        iconType: string,
     };
 
     render() {
-        const {className, isClicked, ...rest} = this.props;
+        const {className, isClicked, iconType, ...rest} = this.props;
         const classes = classnames(
             "disallow-override-color",
             "Icon",
@@ -22,13 +23,19 @@ export default class SvgIconClap extends React.Component {
 
         let fill, stroke, strokeWidth;
 
-        if (isClicked) {
-            fill = "rgb(20, 20, 20)";
-            stroke = "white";
-            strokeWidth = "1px";
+        if (iconType == "service-page") {
+            if (isClicked) {
+                fill = "rgb(20, 20, 20)";
+                stroke = "white";
+                strokeWidth = "1px";
+            } else {
+                fill = "none";
+                stroke = "rgb(20, 20, 20)";
+                strokeWidth = "2px";
+            }
         } else {
             fill = "none";
-            stroke = "rgb(20, 20, 20)";
+            stroke = "rgb(70, 30, 168)";
             strokeWidth = "2px";
         }
 

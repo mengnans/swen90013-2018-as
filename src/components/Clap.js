@@ -2,7 +2,6 @@
 
 import React from "react";
 import icons from "../icons";
-import type { Service } from "../iss";
 import {ThemeProvider} from 'styled-components'
 
 import ClapButton from './ClapButton'
@@ -270,8 +269,10 @@ export default class Clap extends React.Component {
                             }
                             isHover={isHover && !isClicked}
                         >
-                            <icons.Clap id="clap-icon"
+                            <icons.Clap
+                                id="clap-icon"
                                 className="ColoredIcon"
+                                iconType="service-page"
                                 isClicked={isClicked}
                             />
 
