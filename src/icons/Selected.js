@@ -13,6 +13,7 @@ export default class SvgIconSelected extends React.Component {
     state: void;
 
     render() {
+        let path;
         const {className, isSelected, ...rest} = this.props;
         const classes = classnames(
             "SelectedIcon",
@@ -23,24 +24,17 @@ export default class SvgIconSelected extends React.Component {
         );
 
         if (isSelected) {
-            return (
-                <span
-                    {...rest}
-                    dangerouslySetInnerHTML={{__html: `
-                    <svg class='${classes}' version="1.0" xmlns="http://www.w3.org/2000/svg" width="8.000000pt" height="8.000000pt" viewBox="0 0 20.000000 20.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,20.000000) scale(0.100000,-0.100000)" fill="#4723a1" stroke="none"> <path d="M55 145 c-32 -31 -32 -59 0 -90 13 -14 33 -25 45 -25 27 0 70 43 70 70 0 27 -43 70 -70 70 -11 0 -32 -11 -45 -25z m70 -45 c0 -18 -6 -26 -23 -28 -13 -2 -25 3 -28 12 -10 26 4 48 28 44 17 -2 23 -10 23 -28z"/></g></svg>
-                `}}
-                />
-            );
+            path = "M55 145 c-32 -31 -32 -59 0 -90 13 -14 33 -25 45 -25 27 0 70 43 70 70 0 27 -43 70 -70 70 -11 0 -32 -11 -45 -25z m70 -45 c0 -18 -6 -26 -23 -28 -13 -2 -25 3 -28 12 -10 26 4 48 28 44 17 -2 23 -10 23 -28z";
         } else {
-            return (
-                <span
-                    {...rest}
-                    dangerouslySetInnerHTML={{__html: `
-                    <svg class='${classes}' version="1.0" xmlns="http://www.w3.org/2000/svg" width="8.000000pt" height="8.000000pt" viewBox="0 0 20.000000 20.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,20.000000) scale(0.100000,-0.100000)" fill="#4723a1" stroke="none"> <path d="M55 145 c-32 -31 -32 -59 0 -90 13 -14 33 -25 45 -25 27 0 70 43 70 70 0 27 -43 70 -70 70 -11 0 -32 -11 -45 -25z m75 -15 c11 -11 20 -24 20 -30 0 -13 -37 -50 -50 -50 -13 0 -50 37 -50 50 0 13 37 50 50 50 6 0 19 -9 30 -20z"/> </g> </svg>
-                `}}
-                />
-            );
+            path = "M55 145 c-32 -31 -32 -59 0 -90 13 -14 33 -25 45 -25 27 0 70 43 70 70 0 27 -43 70 -70 70 -11 0 -32 -11 -45 -25z m75 -15 c11 -11 20 -24 20 -30 0 -13 -37 -50 -50 -50 -13 0 -50 37 -50 50 0 13 37 50 50 50 6 0 19 -9 30 -20z";
         }
-
+        return (
+            <span
+                {...rest}
+                dangerouslySetInnerHTML={{__html: `
+                <svg class='${classes}' version="1.0" xmlns="http://www.w3.org/2000/svg" width="8.000000pt" height="8.000000pt" viewBox="0 0 20.000000 20.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,20.000000) scale(0.100000,-0.100000)" fill="#4723a1" stroke="none"> <path d="${path}'\`"/></g></svg>
+                `}}
+            />
+        );
     }
 }

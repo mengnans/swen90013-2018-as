@@ -37,6 +37,7 @@ class ResultsListPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {sort: false};
+        this.setSort = this.setSort.bind(this);
     }
     setSort(sort) {
         this.setState({
@@ -80,7 +81,7 @@ class ResultsListPage extends React.Component {
                         />
                     }
                     <SortDropdown
-                        changeSort={this.setSort.bind(this)}
+                        changeSort={this.setSort}
                     />
                     <ResultsList
                         results={this.props.objects || []}
