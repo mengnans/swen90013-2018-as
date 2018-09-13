@@ -175,6 +175,8 @@ export default class LeaderboardPane extends React.Component<void, State> {
                             />
                         );
                     })
-                }</div>);
+                }
+            </div>
+        );
     }
 }
