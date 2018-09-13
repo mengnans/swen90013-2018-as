@@ -6,7 +6,6 @@ import type {Category} from "../constants/categories";
 export default class LeaderboardCategoryListItem extends React.Component {
     props: {
         category: Category,
-        getCategory: Function,
         loadWithCategory: Function,
     };
     state: void;
@@ -14,15 +13,16 @@ export default class LeaderboardCategoryListItem extends React.Component {
         super(props);
         this.onClick = this.onClick.bind(this);
     }
+
     /**
      * Sets the category information of this row
      * to the state of the leaderboard pane.
      * @return {void}
      */
     onClick() {
-        // this.props.getCategory(this.props.category.name);
         this.props.loadWithCategory(this.props.category.name, "rightTab");
     }
+
     static sampleProps = {
         default: {
             category: {
@@ -32,6 +32,7 @@ export default class LeaderboardCategoryListItem extends React.Component {
                 icon: icons.Things,
             },
         }};
+
     render() {
         let Icon = this.props.category.icon || icons.House;
 

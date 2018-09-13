@@ -44,6 +44,11 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.state = {
             leaderboardData: undefined,
             activeTab: "leftTab",
+            /**
+             * This is set to true when currently viewing leaderboard results
+             * for a specific category.
+             * @type {boolean}
+             */
             categoryMode: false,
         }
         this.switchTab = this.switchTab.bind(this);
@@ -54,6 +59,10 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.loadService();
     }
 
+    /**
+     * Load all services from backend.
+     * @returns {Promise} the Promise
+     */
     async loadService(): Promise<void> {
         // Unload previous service
         this.setState({
@@ -67,16 +76,22 @@ export default class LeaderboardPane extends React.Component<void, State> {
             this.setState({
                 leaderboardData: leaderboardData,
             });
+
         } catch (error) {
             this.setState({error: error});
         }
 
     }
 
+
+    /**
+     * Load services from backend, filtered by category.
+     * @param {string} category - the category to filter by
+     * @param {string} tab - the tab that should be active
+     * @returns {Promise} the Promise
+     */
     async loadServicesWithCategory(category, tab): Promise<void> {
 
-        console.log(category);
-        console.log(tab);
         // Unload previous service
         this.setState({
             leaderboardData: undefined,
@@ -94,6 +109,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
             this.setState({
                 leaderboardData: leaderboardData,
                 activeTab: tab,
+                // Indicates that we are viewing a specific category
                 categoryMode: true,
             });
         } catch (error) {
@@ -108,12 +124,21 @@ export default class LeaderboardPane extends React.Component<void, State> {
         })
     }
 
+    /**
+     * Switches between the two tabs.
+     * @param {string} tab - the tab to switch to
+     * @return {void}
+     */
     switchTab(tab) {
+        // If switching to the left tab, all services are loaded
         if (tab == "leftTab") {
             this.loadService();
         }
+
         this.setState({
             activeTab: tab,
+            // Any time there is a switch of tab, no longer viewing
+            // a category
             categoryMode: false,
         })
     }
@@ -124,7 +149,11 @@ export default class LeaderboardPane extends React.Component<void, State> {
 
         let categoryMode = this.state.categoryMode;
 
-        let shouldHide = this.state.activeTab == "leftTab";
+        /**
+         * Shouldhise indicates whether the Change Category button should
+         * be hidden. It should be hidden when not viewing a category.
+         */
+        let shouldHide = !categoryMode;
 
         if (this.state.activeTab == "leftTab" || categoryMode == true) {
             list = this.renderLeaderBoardList();
@@ -201,19 +230,6 @@ export default class LeaderboardPane extends React.Component<void, State> {
     }
 
     /**
-     * Set the 'categoryFlag' to the category information, which is
-     * displayed on the clicked row in the leaderboard category list
-     * board.
-     * @param {String} categoryInfo - category information of the list item.
-     * @return {void}
-     */
-    setFlag(categoryInfo) {
-        this.setState({
-            categoryFlag: categoryInfo,
-        });
-    }
-
-    /**
      * List all the category information on the leaderboard.
      * @return {React.Component} The category list component
      */
@@ -226,7 +242,6 @@ export default class LeaderboardPane extends React.Component<void, State> {
                             <LeaderboardCategoryListItem
                                 category={category}
                                 key={category.key}
-                                getCategory={this.setFlag}
                                 loadWithCategory=
                                     {this.loadServicesWithCategory.bind(this)}
                             />
