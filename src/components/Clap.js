@@ -76,6 +76,10 @@ export default class Clap extends React.Component {
 
     componentDidMount() {
 
+        /**
+         * We need to require mo-js inside this method instead of at the
+         * beginning of the file because it does not play nicely with SSR.
+         */
         mojs = require('mo-js');
 
         const triangleBurst = this.initTriangleBurst();
