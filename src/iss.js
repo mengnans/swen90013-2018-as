@@ -674,12 +674,15 @@ export async function decreaseClap(
 
 export async function requestLeaderboard(size, category): Promise {
 
+    console.log("size " + size);
+    console.log("category " + category);
+
     let queryString = "";
 
     if (size != null) {
         queryString = "?size=" + size;
         if (category != null) {
-            queryString + "&category=" + category;
+            queryString = queryString + "&category=" + category;
         }
     }
 

@@ -10,10 +10,10 @@ import LeaderboardCategoryListItem from "./LeaderboardCategoryListItem";
 import categories from "../constants/categories";
 
 /**
- * The number of leaderboard results to display at a time.
+ * The number of leaderboard items to display at a time.
  * @type {number}
  */
-const numResults = 6;
+const numberOfLeaderboardItems = 6;
 
 type State = {
     leaderboardData: Array<Object>,
@@ -61,7 +61,8 @@ export default class LeaderboardPane extends React.Component<void, State> {
         });
 
         try {
-            let leaderboardData = await iss.requestLeaderboard(numResults);
+            let leaderboardData =
+                await iss.requestLeaderboard(numberOfLeaderboardItems);
 
             this.setState({
                 leaderboardData: leaderboardData,
@@ -73,6 +74,9 @@ export default class LeaderboardPane extends React.Component<void, State> {
     }
 
     async loadServicesWithCategory(category, tab): Promise<void> {
+
+        console.log(category);
+        console.log(tab);
         // Unload previous service
         this.setState({
             leaderboardData: undefined,
@@ -81,7 +85,11 @@ export default class LeaderboardPane extends React.Component<void, State> {
         });
 
         try {
-            let leaderboardData = await iss.requestLeaderboard(numResults, category);
+            let leaderboardData =
+                await iss.requestLeaderboard(
+                    numberOfLeaderboardItems,
+                    category
+                );
 
             this.setState({
                 leaderboardData: leaderboardData,
@@ -101,6 +109,9 @@ export default class LeaderboardPane extends React.Component<void, State> {
     }
 
     switchTab(tab) {
+        if (tab == "leftTab") {
+            this.loadService();
+        }
         this.setState({
             activeTab: tab,
             categoryMode: false,
