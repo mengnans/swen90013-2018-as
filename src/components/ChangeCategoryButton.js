@@ -31,11 +31,12 @@ export default class ChangeCategoryButton extends React.Component {
 
         return (
             <div className ={classnames("ChangeCategoryButton",
-                   className, hiddenClass)}>
+                   className)}>
                 <button
+                    className={hiddenClass}
                     onClick= {onClick}
                 >
-                {"Change Category"}
+                    {children}
                 </button>
             </div>
         )

@@ -108,18 +108,22 @@ export default class LeaderboardPane extends React.Component<void, State> {
                     bannerName="housing"
                     alternateBackgroundColor={false}
                 />
-                <ChangeCategoryButton
-                    onClick = {this.onClickChangeCategory}
-                    className = {"ChangeCategoryButton"}
-                    shouldHide = {shouldHide}
-                    children = {"Change Category"}
-                />
-                <LeaderboardTab
-                    leftTabContent="All"
-                    rightTabContent="Categories"
-                    activeTab={this.state.activeTab}
-                    switchTab={this.switchTab}
-                />
+                <div className="TabBar">
+                    <ChangeCategoryButton
+                        className = {"Left"}
+                        shouldHide = {shouldHide}
+                        onClick = {this.onClickChangeCategory}
+                        children = {"Change Category"}
+                    />
+                    <LeaderboardTab
+                        className= {"Middle"}
+                        leftTabContent="All"
+                        rightTabContent="Categories"
+                        activeTab={this.state.activeTab}
+                        switchTab={this.switchTab}
+                    />
+                    <div className={"Right"}/>
+                </div>
                 {list}
             </div>
         );
