@@ -235,7 +235,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
      */
     renderLeaderBoardCategoryList() {
         return (
-            <div className="List categories">
+            <div className="List categories LeaderboardCategory">
                 {
                     categories.map(category => {
                         return (
