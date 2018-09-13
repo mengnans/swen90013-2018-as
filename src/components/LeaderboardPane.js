@@ -59,7 +59,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.setState({leaderboardData: undefined});
 
         try {
-            let leaderboardData = await iss.requestLeaderboard(numResults);
+            let leaderboardData = await iss.requestLeaderboard(numResults, null);
 
             this.setState({leaderboardData: leaderboardData});
         } catch (error) {
@@ -87,9 +87,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
     }
 
     render() {
-        // let list = this.state.activeTab == "leftTab" ?
-        //     this.renderLeaderBoardList()
-        //     : this.renderLeaderBoardCategoryList();
+
         let list, shouldHide;
 
         if (this.state.activeTab == "leftTab") {

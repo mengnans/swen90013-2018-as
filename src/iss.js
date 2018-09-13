@@ -672,17 +672,28 @@ export async function decreaseClap(
 }
 
 
-export async function requestLeaderboard(size: number): Promise {
+export async function requestLeaderboard(size, category): Promise {
 
-    return await fetch(`${ISS_URL}/api/v3/service/leaderboard?size=${size}`, {
-        method: 'GET',
-    }).then((response) => {
-        return response.json();
-    }).then(response => {
+    let queryString = "";
 
-        return response.sortResult;
+    if (size != null) {
+        queryString = "?size=" + size;
+        if (category != null) {
+            queryString.append("&category=" + category);
+        }
+    }
 
-    });
+    return await fetch(
+        `${ISS_URL}/api/v3/service/leaderboard${queryString}`,
+        {
+            method: 'GET',
+        }).then((response) => {
+            return response.json();
+        }).then(response => {
+
+            return response.sortResult;
+
+        });
 
 }
 
