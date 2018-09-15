@@ -7,6 +7,12 @@ import LeaderboardListItem from "./LeaderboardListItem";
 import LeaderboardTab from "../components/LeaderboardTab";
 import ChangeCategoryButton from "../components/ChangeCategoryButton";
 
+/**
+ * The number of leaderboard results to display at a time.
+ * @type {number}
+ */
+const numResults = 6;
+
 type State = {
     leaderboardData: Array<Object>,
     error: Object,
@@ -21,13 +27,15 @@ export default class LeaderboardPane extends React.Component<void, State> {
 
     constructor(props) {
         super(props);
-        
+
         this.switchTab = this.switchTab.bind(this);
-        this.changeCategoryClick = this.changeCategoryClick.bind(this);
+        this.onClickChangeCategory = this.onClickChangeCategory.bind(this);
+        this.onClickLeaderboardListItem =
+            this.onClickLeaderboardListItem.bind(this);
 
         this.state = {
             leaderboardData: undefined,
-            activeTab: "leftTab"
+            activeTab: "leftTab",
         }
 
     }
@@ -41,7 +49,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.setState({leaderboardData: undefined});
 
         try {
-            let leaderboardData = await iss.requestLeaderboard();
+            let leaderboardData = await iss.requestLeaderboard(numResults);
 
             this.setState({leaderboardData: leaderboardData});
         } catch (error) {
@@ -56,7 +64,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
         })
     }
 
-    changeCategoryClick() {
+    onClickChangeCategory() {
         this.setState({
             activeTab: "rightTab",
         })
@@ -73,7 +81,7 @@ export default class LeaderboardPane extends React.Component<void, State> {
                     alternateBackgroundColor={false}
                 />
                 <ChangeCategoryButton
-                    onClick = {this.changeCategoryClick}
+                    onClick = {this.onClickChangeCategory}
                 />
                 <LeaderboardTab
                     leftTabContent="App"
@@ -119,13 +127,12 @@ export default class LeaderboardPane extends React.Component<void, State> {
                 data={data}
                 index={index}
                 key={index}
-                onClickLeaderboardListItem
-                    ={this.onClickLeaderboardListItem.bind(this, data)}
+                onClickLeaderboardListItem={this.onClickLeaderboardListItem}
             />
         ));
 
     }
 
-    
+
 
 }

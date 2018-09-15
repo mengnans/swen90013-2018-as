@@ -671,9 +671,9 @@ export async function decreaseClap(
 }
 
 
-export async function requestLeaderboard(): Promise {
+export async function requestLeaderboard(size: number): Promise {
 
-    return await fetch(`${ISS_URL}/api/v3/service/leaderboard?size=6`, {
+    return await fetch(`${ISS_URL}/api/v3/service/leaderboard?size=${size}`, {
         method: 'GET',
     }).then((response) => {
         return response.json();
