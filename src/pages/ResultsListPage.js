@@ -89,7 +89,7 @@ class ResultsListPage extends React.Component {
                     }
                     <ResultsList
                         results={this.props.objects || []}
-                        sortState={this.state.sort}
+                        sort={this.state.sort}
                     />
                     {this.props.loadMore}
                 </div>
