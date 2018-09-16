@@ -76,6 +76,7 @@ ShallowWrapper {
             >
               <SvgIconClap
                 className="ColoredIcon"
+                iconType="service-page"
                 id="clap-icon"
                 isClicked={undefined}
               />
@@ -124,6 +125,7 @@ ShallowWrapper {
               >
                 <SvgIconClap
                   className="ColoredIcon"
+                  iconType="service-page"
                   id="clap-icon"
                   isClicked={undefined}
                 />
@@ -185,6 +187,7 @@ ShallowWrapper {
               >
                 <SvgIconClap
                   className="ColoredIcon"
+                  iconType="service-page"
                   id="clap-icon"
                   isClicked={undefined}
                 />
@@ -217,6 +220,7 @@ ShallowWrapper {
               >
                 <SvgIconClap
                   className="ColoredIcon"
+                  iconType="service-page"
                   id="clap-icon"
                   isClicked={undefined}
                 />
@@ -244,6 +248,7 @@ ShallowWrapper {
                 "children": Array [
                   <SvgIconClap
                     className="ColoredIcon"
+                    iconType="service-page"
                     id="clap-icon"
                     isClicked={undefined}
                   />,
@@ -272,6 +277,7 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "className": "ColoredIcon",
+                    "iconType": "service-page",
                     "id": "clap-icon",
                     "isClicked": undefined,
                   },
@@ -345,6 +351,7 @@ ShallowWrapper {
               >
                 <SvgIconClap
                   className="ColoredIcon"
+                  iconType="service-page"
                   id="clap-icon"
                   isClicked={undefined}
                 />
@@ -393,6 +400,7 @@ ShallowWrapper {
                 >
                   <SvgIconClap
                     className="ColoredIcon"
+                    iconType="service-page"
                     id="clap-icon"
                     isClicked={undefined}
                   />
@@ -454,6 +462,7 @@ ShallowWrapper {
                 >
                   <SvgIconClap
                     className="ColoredIcon"
+                    iconType="service-page"
                     id="clap-icon"
                     isClicked={undefined}
                   />
@@ -486,6 +495,7 @@ ShallowWrapper {
                 >
                   <SvgIconClap
                     className="ColoredIcon"
+                    iconType="service-page"
                     id="clap-icon"
                     isClicked={undefined}
                   />
@@ -513,6 +523,7 @@ ShallowWrapper {
                   "children": Array [
                     <SvgIconClap
                       className="ColoredIcon"
+                      iconType="service-page"
                       id="clap-icon"
                       isClicked={undefined}
                     />,
@@ -541,6 +552,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "className": "ColoredIcon",
+                      "iconType": "service-page",
                       "id": "clap-icon",
                       "isClicked": undefined,
                     },
@@ -626,16 +638,138 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        undefined,
-        100,
-        "test service",
+        <div
+          className="ranking"
+        >
+          NaN
+        </div>,
+        <div
+          className="icon"
+        >
+          <SvgIconClap
+            className="ColoredIcon icon-fg-color big"
+          />
+        </div>,
+        <div
+          className="clap"
+        />,
+        <div
+          className="ServiceName"
+        >
+          <h2
+            className="name"
+          />
+        </div>,
+        <div
+          className="CategoryIcon"
+        >
+          <SvgIconThings
+            className="ColoredIcon icon-fg-color big"
+          />
+        </div>,
       ],
+      "className": "LeaderboardListItem plain-text",
+      "onClick": undefined,
     },
     "ref": null,
     "rendered": Array [
-      undefined,
-      100,
-      "test service",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": NaN,
+          "className": "ranking",
+        },
+        "ref": null,
+        "rendered": NaN,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <SvgIconClap
+            className="ColoredIcon icon-fg-color big"
+          />,
+          "className": "icon",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "ColoredIcon icon-fg-color big",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+          "className": "clap",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <h2
+            className="name"
+          />,
+          "className": "ServiceName",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+            "className": "name",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h2",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <SvgIconThings
+            className="ColoredIcon icon-fg-color big"
+          />,
+          "className": "CategoryIcon",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "ColoredIcon icon-fg-color big",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
     ],
     "type": "div",
   },
@@ -646,16 +780,138 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          undefined,
-          100,
-          "test service",
+          <div
+            className="ranking"
+          >
+            NaN
+          </div>,
+          <div
+            className="icon"
+          >
+            <SvgIconClap
+              className="ColoredIcon icon-fg-color big"
+            />
+          </div>,
+          <div
+            className="clap"
+          />,
+          <div
+            className="ServiceName"
+          >
+            <h2
+              className="name"
+            />
+          </div>,
+          <div
+            className="CategoryIcon"
+          >
+            <SvgIconThings
+              className="ColoredIcon icon-fg-color big"
+            />
+          </div>,
         ],
+        "className": "LeaderboardListItem plain-text",
+        "onClick": undefined,
       },
       "ref": null,
       "rendered": Array [
-        undefined,
-        100,
-        "test service",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": NaN,
+            "className": "ranking",
+          },
+          "ref": null,
+          "rendered": NaN,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <SvgIconClap
+              className="ColoredIcon icon-fg-color big"
+            />,
+            "className": "icon",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "ColoredIcon icon-fg-color big",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+            "className": "clap",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <h2
+              className="name"
+            />,
+            "className": "ServiceName",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+              "className": "name",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h2",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <SvgIconThings
+              className="ColoredIcon icon-fg-color big"
+            />,
+            "className": "CategoryIcon",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "ColoredIcon icon-fg-color big",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
       ],
       "type": "div",
     },
@@ -814,68 +1070,16 @@ ShallowWrapper {
           primaryText="Leaderboard"
           secondaryText={null}
         />,
-        Array [
-          <LeaderboardListItem
-            data={
-              Object {
-                "claps": 400,
-                "serviceName": "Fake Service: 0",
-                "slug": "111-my-housing-service",
-              }
-            }
-            index={0}
-          />,
-          <LeaderboardListItem
-            data={
-              Object {
-                "claps": 390,
-                "serviceName": "Fake Service: 1",
-                "slug": "111-my-housing-service",
-              }
-            }
-            index={1}
-          />,
-          <LeaderboardListItem
-            data={
-              Object {
-                "claps": 380,
-                "serviceName": "Fake Service: 2",
-                "slug": "111-my-housing-service",
-              }
-            }
-            index={2}
-          />,
-          <LeaderboardListItem
-            data={
-              Object {
-                "claps": 370,
-                "serviceName": "Fake Service: 3",
-                "slug": "111-my-housing-service",
-              }
-            }
-            index={3}
-          />,
-          <LeaderboardListItem
-            data={
-              Object {
-                "claps": 360,
-                "serviceName": "Fake Service: 4",
-                "slug": "111-my-housing-service",
-              }
-            }
-            index={4}
-          />,
-          <LeaderboardListItem
-            data={
-              Object {
-                "claps": 350,
-                "serviceName": "Fake Service: 5",
-                "slug": "111-my-housing-service",
-              }
-            }
-            index={5}
-          />,
-        ],
+        <ChangeCategoryButton
+          onClick={[Function]}
+        />,
+        <LeaderboardTab
+          activeTab="leftTab"
+          leftTabContent="App"
+          rightTabContent="Categories"
+          switchTab={[Function]}
+        />,
+        <div />,
       ],
       "className": "LeaderboardPane",
     },
@@ -900,12 +1104,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "data": Object {
-            "claps": 400,
-            "serviceName": "Fake Service: 0",
-            "slug": "111-my-housing-service",
-          },
-          "index": 0,
+          "onClick": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -916,12 +1115,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "data": Object {
-            "claps": 390,
-            "serviceName": "Fake Service: 1",
-            "slug": "111-my-housing-service",
-          },
-          "index": 1,
+          "activeTab": "leftTab",
+          "leftTabContent": "App",
+          "rightTabContent": "Categories",
+          "switchTab": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -930,66 +1127,11 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "data": Object {
-            "claps": 380,
-            "serviceName": "Fake Service: 2",
-            "slug": "111-my-housing-service",
-          },
-          "index": 2,
-        },
+        "nodeType": "host",
+        "props": Object {},
         "ref": null,
         "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "data": Object {
-            "claps": 370,
-            "serviceName": "Fake Service: 3",
-            "slug": "111-my-housing-service",
-          },
-          "index": 3,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "data": Object {
-            "claps": 360,
-            "serviceName": "Fake Service: 4",
-            "slug": "111-my-housing-service",
-          },
-          "index": 4,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "data": Object {
-            "claps": 350,
-            "serviceName": "Fake Service: 5",
-            "slug": "111-my-housing-service",
-          },
-          "index": 5,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
     ],
     "type": "div",
@@ -1007,68 +1149,16 @@ ShallowWrapper {
             primaryText="Leaderboard"
             secondaryText={null}
           />,
-          Array [
-            <LeaderboardListItem
-              data={
-                Object {
-                  "claps": 400,
-                  "serviceName": "Fake Service: 0",
-                  "slug": "111-my-housing-service",
-                }
-              }
-              index={0}
-            />,
-            <LeaderboardListItem
-              data={
-                Object {
-                  "claps": 390,
-                  "serviceName": "Fake Service: 1",
-                  "slug": "111-my-housing-service",
-                }
-              }
-              index={1}
-            />,
-            <LeaderboardListItem
-              data={
-                Object {
-                  "claps": 380,
-                  "serviceName": "Fake Service: 2",
-                  "slug": "111-my-housing-service",
-                }
-              }
-              index={2}
-            />,
-            <LeaderboardListItem
-              data={
-                Object {
-                  "claps": 370,
-                  "serviceName": "Fake Service: 3",
-                  "slug": "111-my-housing-service",
-                }
-              }
-              index={3}
-            />,
-            <LeaderboardListItem
-              data={
-                Object {
-                  "claps": 360,
-                  "serviceName": "Fake Service: 4",
-                  "slug": "111-my-housing-service",
-                }
-              }
-              index={4}
-            />,
-            <LeaderboardListItem
-              data={
-                Object {
-                  "claps": 350,
-                  "serviceName": "Fake Service: 5",
-                  "slug": "111-my-housing-service",
-                }
-              }
-              index={5}
-            />,
-          ],
+          <ChangeCategoryButton
+            onClick={[Function]}
+          />,
+          <LeaderboardTab
+            activeTab="leftTab"
+            leftTabContent="App"
+            rightTabContent="Categories"
+            switchTab={[Function]}
+          />,
+          <div />,
         ],
         "className": "LeaderboardPane",
       },
@@ -1093,12 +1183,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "data": Object {
-              "claps": 400,
-              "serviceName": "Fake Service: 0",
-              "slug": "111-my-housing-service",
-            },
-            "index": 0,
+            "onClick": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -1109,12 +1194,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "data": Object {
-              "claps": 390,
-              "serviceName": "Fake Service: 1",
-              "slug": "111-my-housing-service",
-            },
-            "index": 1,
+            "activeTab": "leftTab",
+            "leftTabContent": "App",
+            "rightTabContent": "Categories",
+            "switchTab": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -1123,66 +1206,11 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "data": Object {
-              "claps": 380,
-              "serviceName": "Fake Service: 2",
-              "slug": "111-my-housing-service",
-            },
-            "index": 2,
-          },
+          "nodeType": "host",
+          "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "data": Object {
-              "claps": 370,
-              "serviceName": "Fake Service: 3",
-              "slug": "111-my-housing-service",
-            },
-            "index": 3,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "data": Object {
-              "claps": 360,
-              "serviceName": "Fake Service: 4",
-              "slug": "111-my-housing-service",
-            },
-            "index": 4,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "data": Object {
-              "claps": 350,
-              "serviceName": "Fake Service: 5",
-              "slug": "111-my-housing-service",
-            },
-            "index": 5,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
       ],
       "type": "div",
