@@ -669,7 +669,7 @@ ShallowWrapper {
         </div>,
       ],
       "className": "LeaderboardListItem plain-text",
-      "onClick": undefined,
+      "onClick": [Function],
     },
     "ref": null,
     "rendered": Array [
@@ -811,7 +811,7 @@ ShallowWrapper {
           </div>,
         ],
         "className": "LeaderboardListItem plain-text",
-        "onClick": undefined,
+        "onClick": [Function],
       },
       "ref": null,
       "rendered": Array [
@@ -1070,16 +1070,32 @@ ShallowWrapper {
           primaryText="Leaderboard"
           secondaryText={null}
         />,
-        <ChangeCategoryButton
-          onClick={[Function]}
-        />,
-        <LeaderboardTab
-          activeTab="leftTab"
-          leftTabContent="App"
-          rightTabContent="Categories"
-          switchTab={[Function]}
-        />,
-        <div />,
+        <div
+          className="TabBar"
+        >
+          <ChangeCategoryButton
+            className="Left"
+            onClick={[Function]}
+            shouldHide={true}
+          >
+            Change Category
+          </ChangeCategoryButton>
+          <LeaderboardTab
+            activeTab="leftTab"
+            className="Middle"
+            leftTabContent="All"
+            rightTabContent="Categories"
+            switchTab={[Function]}
+          />
+          <div
+            className="Right"
+          />
+        </div>,
+        <div
+          className="LeaderboardListItemList"
+        >
+          <div />
+        </div>,
       ],
       "className": "LeaderboardPane",
     },
@@ -1102,35 +1118,92 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "host",
         "props": Object {
-          "onClick": [Function],
+          "children": Array [
+            <ChangeCategoryButton
+              className="Left"
+              onClick={[Function]}
+              shouldHide={true}
+            >
+              Change Category
+            </ChangeCategoryButton>,
+            <LeaderboardTab
+              activeTab="leftTab"
+              className="Middle"
+              leftTabContent="All"
+              rightTabContent="Categories"
+              switchTab={[Function]}
+            />,
+            <div
+              className="Right"
+            />,
+          ],
+          "className": "TabBar",
         },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "activeTab": "leftTab",
-          "leftTabContent": "App",
-          "rightTabContent": "Categories",
-          "switchTab": [Function],
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Change Category",
+              "className": "Left",
+              "onClick": [Function],
+              "shouldHide": true,
+            },
+            "ref": null,
+            "rendered": "Change Category",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "activeTab": "leftTab",
+              "className": "Middle",
+              "leftTabContent": "All",
+              "rightTabContent": "Categories",
+              "switchTab": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "Right",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+        ],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
-        "props": Object {},
+        "props": Object {
+          "children": <div />,
+          "className": "LeaderboardListItemList",
+        },
         "ref": null,
-        "rendered": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
         "type": "div",
       },
     ],
@@ -1149,16 +1222,32 @@ ShallowWrapper {
             primaryText="Leaderboard"
             secondaryText={null}
           />,
-          <ChangeCategoryButton
-            onClick={[Function]}
-          />,
-          <LeaderboardTab
-            activeTab="leftTab"
-            leftTabContent="App"
-            rightTabContent="Categories"
-            switchTab={[Function]}
-          />,
-          <div />,
+          <div
+            className="TabBar"
+          >
+            <ChangeCategoryButton
+              className="Left"
+              onClick={[Function]}
+              shouldHide={true}
+            >
+              Change Category
+            </ChangeCategoryButton>
+            <LeaderboardTab
+              activeTab="leftTab"
+              className="Middle"
+              leftTabContent="All"
+              rightTabContent="Categories"
+              switchTab={[Function]}
+            />
+            <div
+              className="Right"
+            />
+          </div>,
+          <div
+            className="LeaderboardListItemList"
+          >
+            <div />
+          </div>,
         ],
         "className": "LeaderboardPane",
       },
@@ -1181,35 +1270,92 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "host",
           "props": Object {
-            "onClick": [Function],
+            "children": Array [
+              <ChangeCategoryButton
+                className="Left"
+                onClick={[Function]}
+                shouldHide={true}
+              >
+                Change Category
+              </ChangeCategoryButton>,
+              <LeaderboardTab
+                activeTab="leftTab"
+                className="Middle"
+                leftTabContent="All"
+                rightTabContent="Categories"
+                switchTab={[Function]}
+              />,
+              <div
+                className="Right"
+              />,
+            ],
+            "className": "TabBar",
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "activeTab": "leftTab",
-            "leftTabContent": "App",
-            "rightTabContent": "Categories",
-            "switchTab": [Function],
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Change Category",
+                "className": "Left",
+                "onClick": [Function],
+                "shouldHide": true,
+              },
+              "ref": null,
+              "rendered": "Change Category",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "activeTab": "leftTab",
+                "className": "Middle",
+                "leftTabContent": "All",
+                "rightTabContent": "Categories",
+                "switchTab": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "Right",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+          ],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
-          "props": Object {},
+          "props": Object {
+            "children": <div />,
+            "className": "LeaderboardListItemList",
+          },
           "ref": null,
-          "rendered": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
           "type": "div",
         },
       ],
