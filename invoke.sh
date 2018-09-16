@@ -41,7 +41,9 @@ case "$1" in
     serve)
         shift 1
 
+        ./script/build-assets
         ./script/build-gmaps-file
+        ./script/recreate-dev-env-file
         exec ./script/run-nginx
         ;;
 

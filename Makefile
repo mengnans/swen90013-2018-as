@@ -13,7 +13,7 @@ export POSTGRES_DB = askizzy
 
 build:
 	@test -z "`git status --porcelain`" || echo "WARNING: you have changes to your git repo not committed to this tag"
-	docker build --build-arg GOOGLE_API_KEY=${GOOGLE_API_KEY} --build-arg ISS_URL=${ISS_URL} -t $(CONTAINER_IMAGE) .;
+	docker build -t $(CONTAINER_IMAGE) .;
     @echo "Successfully built $(CONTAINER_IMAGE)..."
 
 lint:
@@ -35,6 +35,6 @@ search-test:
 	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) search-test
 
 serve:
-	docker run -t -p 8000:8000 -- $(CONTAINER_IMAGE) serve
+	docker run -t -p 8000:8000 -e ENVIRONMENT=prod -e GOOGLE_API_KEY=${GOOGLE_API_KEY} -e ISS_URL=${ISS_URL} -- $(CONTAINER_IMAGE) serve
 
 .PHONY: build lint unit-test feature-test maps-test personalisation-test search-test serve
