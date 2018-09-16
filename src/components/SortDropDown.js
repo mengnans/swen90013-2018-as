@@ -3,13 +3,12 @@
 import React from "react";
 import icons from "../icons";
 
-export default class SortDropdown extends React.Component {
+export default class SortDropDown extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             hover: 'none',
-            sortByRelevance: false,
-            sortByClaps: false,
+            sort: false,
         }
         this.onClickRelevance = this.onClickRelevance.bind(this);
         this.onClickClaps = this.onClickClaps.bind(this);
@@ -27,10 +26,9 @@ export default class SortDropdown extends React.Component {
      * @return {void}
      */
     onClickRelevance() {
-        this.props.changeSort(true);
+        this.props.changeSort(false);
         this.setState({
-            sortByRelevance: true,
-            sortByClaps: false,
+            sort: false,
         })
     }
 
@@ -39,10 +37,9 @@ export default class SortDropdown extends React.Component {
      * @return {void}
      */
     onClickClaps() {
-        this.props.changeSort(false);
+        this.props.changeSort(true);
         this.setState({
-            sortByRelevance: false,
-            sortByClaps: true,
+            sort: true,
         })
     }
 
@@ -82,11 +79,11 @@ export default class SortDropdown extends React.Component {
                     onMouseLeave={this.handleMouseOut}
                 >
                     <div onClick={this.onClickRelevance}>
-                     <icons.Selected isSelected={this.state.sortByRelevance}/>
+                     <icons.Selected isSelected={!this.state.sort}/>
                      <button className="sort-relevance">Most relevant</button>
                     </div>
                     <div onClick={this.onClickClaps}>
-                        <icons.Selected isSelected={this.state.sortByClaps}/>
+                        <icons.Selected isSelected={this.state.sort}/>
                         <button className="sort-claps">Most claps</button>
                     </div>
                 </div>

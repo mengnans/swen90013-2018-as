@@ -7,7 +7,7 @@ import ResultsList from "../components/ResultsList";
 import LoadingResultsHeader from
         "../components/ResultsListPage/LoadingResultsHeader";
 import ViewOnMapButton from "../components/ViewOnMapButton";
-import SortDropdown from "../components/SortDropdown";
+import SortDropDown from "../components/SortDropDown";
 import sendEvent from "../google-tag-manager";
 import storage from "../storage";
 import type {Service} from "../iss";
@@ -75,17 +75,21 @@ class ResultsListPage extends React.Component {
                 <div className="List results">
                     {
                         _.isEmpty(this.props.objects) ||
-                        <ViewOnMapButton
-                            to={path}
-                            onClick={this.recordMapClick.bind(this)}
-                        />
+                        (
+                            <div>
+                                <ViewOnMapButton
+                                    to={path}
+                                    onClick={this.recordMapClick.bind(this)}
+                                />
+                                <SortDropDown
+                                    changeSort={this.setSort}
+                                />
+                            </div>
+                        )
                     }
-                    <SortDropdown
-                        changeSort={this.setSort}
-                    />
                     <ResultsList
                         results={this.props.objects || []}
-                        sortState={this.state.sort}
+                        sort={this.state.sort}
                     />
                     {this.props.loadMore}
                 </div>

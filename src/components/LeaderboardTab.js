@@ -16,7 +16,7 @@ export default class LeaderboardTab extends React.Component {
         const leftActive = activeTab === "leftTab" ? "active" : "";
 
         return (
-            <div className="twoTab">
+            <div className={`twoTab ${this.props.className}`}>
                 <button
                     className={`left ${leftActive}`}
                     onClick={() => this.props.switchTab("leftTab")}

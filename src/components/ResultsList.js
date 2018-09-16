@@ -21,7 +21,7 @@ const className = (elem: React$Element<any>) =>
 class ResultsList extends React.Component {
     props: {
         results: Array<Service>,
-        sortState: boolean,
+        sort: boolean,
     };
     state: void;
 
@@ -42,11 +42,12 @@ class ResultsList extends React.Component {
      */
     sortClaps(services : Array<Object>, ascending: boolean) : void {
         services.sort((service1, service2) => {
-            return ascending ? (service2.claps - service1.claps)
-                : (service1.claps - service2.claps);
-        })
+            return ascending ? (service1.claps - service2.claps)
+                : (service2.claps - service1.claps);
+        });
     }
     render() {
+
         /**
          * The list of non-crisis services.
          * @type {Array<Object>}
@@ -54,9 +55,10 @@ class ResultsList extends React.Component {
          */
         let nonCrisisServices = this.nonCrisisResults();
 
-        if (this.props.sortState) {
-            this.sortClaps(nonCrisisServices, true);
+        if (this.props.sort) {
+            this.sortClaps(nonCrisisServices, false);
         }
+
         return (
             <div className="ResultList">
                 {
@@ -71,14 +73,15 @@ class ResultsList extends React.Component {
         );
     }
 
-    renderCrisisResult(object: Object, index: number) {
+    renderCrisisResult(object: Object) {
         const elem: React$Element<any> = object.staticText ?
             <StaticTextLine object={object} />
           : <CrisisLineItem object={object} />;
+        const id = object.id;
 
         return (
             <div
-                key={`crisis-${index}`}
+                key={`crisis-${id}`}
                 className={className(elem)}
             >
                 {elem}
@@ -86,12 +89,13 @@ class ResultsList extends React.Component {
         );
     }
 
-    renderResult(object: Object, index: number) {
+    renderResult(object: Object) {
         const elem = <ResultListItem object={object} />;
+        const id = object.id;
 
         return (
             <div
-                key={`regular-${index}`}
+                key={`regular-${id}`}
                 className={className(elem)}
             >
                 {elem}

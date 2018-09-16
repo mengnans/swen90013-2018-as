@@ -32,7 +32,7 @@ export default class SvgIconSelected extends React.Component {
             <span
                 {...rest}
                 dangerouslySetInnerHTML={{__html: `
-                <svg class='${classes}' version="1.0" xmlns="http://www.w3.org/2000/svg" width="8.000000pt" height="8.000000pt" viewBox="0 0 20.000000 20.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,20.000000) scale(0.100000,-0.100000)" fill="#4723a1" stroke="none"> <path d="${path}'\`"/></g></svg>
+                <svg class='${classes}' version="1.0" xmlns="http://www.w3.org/2000/svg" width="8.000000pt" height="8.000000pt" viewBox="0 0 20.000000 20.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,20.000000) scale(0.100000,-0.100000)" fill="#4723a1" stroke="none"> <path d="${path}"/></g></svg>
                 `}}
             />
         );

@@ -10,20 +10,20 @@ import LeaderboardCategoryListItem from "./LeaderboardCategoryListItem";
 import categories from "../constants/categories";
 
 /**
- * The number of leaderboard results to display at a time.
+ * The number of leaderboard items to display at a time.
  * @type {number}
  */
-const numResults = 6;
+const numberOfLeaderboardItems = 6;
 
 type State = {
     leaderboardData: Array<Object>,
     error: Object,
     activeTab: String,
     /**
-     * Dictates the category information.
-     * @type {String}
+     * Dictates the category mode.
+     * @type {Boolean}
      */
-    categoryFlag: String
+    categoryMode: Boolean
 }
 
 export default class LeaderboardPane extends React.Component<void, State> {
@@ -39,12 +39,16 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.onClickChangeCategory = this.onClickChangeCategory.bind(this);
         this.onClickLeaderboardListItem =
             this.onClickLeaderboardListItem.bind(this);
-        this.setFlag = this.setFlag.bind(this);
 
         this.state = {
             leaderboardData: undefined,
             activeTab: "leftTab",
-            categoryFlag: "Category"
+            /**
+             * This is set to true when currently viewing leaderboard results
+             * for a specific category.
+             * @type {boolean}
+             */
+            categoryMode: false,
         }
 
     }
@@ -53,73 +57,144 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.loadService();
     }
 
+    /**
+     * Load all services from backend.
+     * @returns {Promise} the Promise
+     */
     async loadService(): Promise<void> {
         // Unload previous service
-        this.setState({leaderboardData: undefined});
+        this.setState({
+            leaderboardData: undefined,
+        });
 
         try {
-            let leaderboardData = await iss.requestLeaderboard(numResults);
+            let leaderboardData =
+                await iss.requestLeaderboard(numberOfLeaderboardItems);
 
-            this.setState({leaderboardData: leaderboardData});
+            this.setState({
+                leaderboardData: leaderboardData,
+            });
+
         } catch (error) {
             this.setState({error: error});
         }
 
     }
 
-    switchTab(tab) {
+
+    /**
+     * Load services from backend, filtered by category.
+     * @param {string} category - the category to filter by
+     * @param {string} tab - the tab that should be active
+     * @returns {Promise} the Promise
+     */
+    async loadServicesWithCategory(category, tab): Promise<void> {
+
+        // Unload previous service
         this.setState({
-            activeTab: tab,
-        })
+            leaderboardData: undefined,
+            activeTab: undefined,
+            categoryMode: undefined,
+        });
+
+        try {
+            let leaderboardData =
+                await iss.requestLeaderboard(
+                    numberOfLeaderboardItems,
+                    category
+                );
+
+            this.setState({
+                leaderboardData: leaderboardData,
+                activeTab: tab,
+                // Indicates that we are viewing a specific category
+                categoryMode: true,
+            });
+        } catch (error) {
+            this.setState({error: error});
+        }
+
     }
 
     onClickChangeCategory() {
         this.setState({
-            activeTab: "rightTab",
+            categoryMode: false,
+        })
+    }
+
+    /**
+     * Switches between the two tabs.
+     * @param {string} tab - the tab to switch to
+     * @return {void}
+     */
+    switchTab(tab) {
+        // If switching to the left tab, all services are loaded
+        if (tab == "leftTab") {
+            this.loadService();
+        }
+
+        this.setState({
+            activeTab: tab,
+            // Any time there is a switch of tab, no longer viewing
+            // a category
+            categoryMode: false,
         })
     }
 
     render() {
-        let list = this.state.activeTab == "leftTab" ?
-            this.renderLeaderBoardList()
-            : this.renderLeaderBoardCategoryList();
+
+        let list;
+
+        let categoryMode = this.state.categoryMode;
+
+        /**
+         * shouldHide indicates whether the Change Category button should
+         * be hidden. It should be hidden when not viewing a category.
+         */
+        let shouldHide = !categoryMode;
+        let listClassName = undefined;
+
+        if (this.state.activeTab === "leftTab" || categoryMode === true) {
+            listClassName = "LeaderboardListItemList";
+            list = this.renderLeaderBoardList();
+        } else {
+            listClassName = "LeaderboardCategoryList";
+            list = this.renderLeaderBoardCategoryList();
+        }
 
         return (
-            <div className={"LeaderboardPane"}>
+            <div className="LeaderboardPane">
                 <HeaderBar
-                    primaryText={"Leaderboard"}
+                    primaryText="Leaderboard"
                     secondaryText={null}
                     bannerName="housing"
                     alternateBackgroundColor={false}
                 />
-                <ChangeCategoryButton
-                    onClick = {this.onClickChangeCategory}
-                />
-                <LeaderboardTab
-                    leftTabContent="App"
-                    rightTabContent="Categories"
-                    activeTab={this.state.activeTab}
-                    switchTab={this.switchTab}
-                />
-                {list}
+                <div className="TabBar">
+                    <ChangeCategoryButton
+                        className = "Left"
+                        shouldHide = {shouldHide}
+                        onClick = {this.onClickChangeCategory}
+                        children = "Change Category"
+                    />
+                    <LeaderboardTab
+                        className= "Middle"
+                        leftTabContent="All"
+                        rightTabContent="Categories"
+                        activeTab={this.state.activeTab}
+                        switchTab={this.switchTab}
+                    />
+                    <div className="Right"/>
+                </div>
+                <div className={listClassName}>
+                    {list}
+                </div>
             </div>
         );
     }
 
     onClickLeaderboardListItem(data: Object): void {
-        // the reason why I am using fake slug here is that
-        // our backend stores data for the original mock data
-        // of the mock iss, that is Housing Service and so on.
-        // However, currently, we are using the real data from
-        // the service seeker, so the data stored in the backend
-        // actually doesn't work
-        // We will fix this in sprint 4
-        // I can delete this comments before merging in, just
-        // want to let you guys know, we still need to fix
-        // this issue in the next sprint.
-        // TODO: use real data
-        // let slug = data.slug;
-        let slug = "848049-ronald-mcdonald-house-parkville-house";
+        let slug = data.service_slug;
         let path = "/service/";
 
         path += slug;
@@ -146,19 +221,6 @@ export default class LeaderboardPane extends React.Component<void, State> {
     }
 
     /**
-     * Set the 'categoryFlag' to the category information, which is
-     * displayed on the clicked row in the leaderboard category list
-     * board.
-     * @param {String} categoryInfo - category information of the list item.
-     * @return {void}
-     */
-    setFlag(categoryInfo) {
-        this.setState({
-            categoryFlag: categoryInfo,
-        });
-    }
-
-    /**
      * List all the category information on the leaderboard.
      * @return {React.Component} The category list component
      */
@@ -171,7 +233,8 @@ export default class LeaderboardPane extends React.Component<void, State> {
                             <LeaderboardCategoryListItem
                                 category={category}
                                 key={category.key}
-                                getCategory={this.setFlag}
+                                loadWithCategory=
+                                    {this.loadServicesWithCategory.bind(this)}
                             />
                         );
                     })
