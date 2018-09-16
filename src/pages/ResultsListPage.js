@@ -75,14 +75,18 @@ class ResultsListPage extends React.Component {
                 <div className="List results">
                     {
                         _.isEmpty(this.props.objects) ||
-                        <ViewOnMapButton
-                            to={path}
-                            onClick={this.recordMapClick.bind(this)}
-                        />
+                        (
+                            <div>
+                                <ViewOnMapButton
+                                    to={path}
+                                    onClick={this.recordMapClick.bind(this)}
+                                />
+                                <SortDropDown
+                                    changeSort={this.setSort}
+                                />
+                            </div>
+                        )
                     }
-                    <SortDropDown
-                        changeSort={this.setSort}
-                    />
                     <ResultsList
                         results={this.props.objects || []}
                         sortState={this.state.sort}
