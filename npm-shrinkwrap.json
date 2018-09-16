@@ -3448,7 +3448,7 @@
     },
     "eslint": {
       "version": "2.13.1",
-      "resolved": "https://registry.npmjs.org/eslint/-/eslint-2.13.1.tgz",
+      "resolved": "http://registry.npmjs.org/eslint/-/eslint-2.13.1.tgz",
       "integrity": "sha1-5MyPoPAJ+4KaquI4VaKTYL4fbBE=",
       "requires": {
         "chalk": "1.1.3",
