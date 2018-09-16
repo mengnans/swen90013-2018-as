@@ -22,7 +22,9 @@ export default class LeaderboardListItem extends
         return (
             <div
                 className={"LeaderboardListItem plain-text"}
-                onClick={this.props.onClickLeaderboardListItem}
+                onClick={() =>
+                    this.props.onClickLeaderboardListItem(this.props.data)
+                }
             >
                 {this.renderRank()}
                 {this.renderClapIcon()}

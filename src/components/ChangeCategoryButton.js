@@ -1,11 +1,12 @@
 /* @flow */
 
 import React from "react";
+import classnames from "classnames";
 
 /**
  * Change category Button
  * a button to return from category leaderboard to category list
- * @param onClick React.PropTypes.func The state change function
+ * @param {React.PropTypes.func} onClick The state change function
  */
 export default class ChangeCategoryButton extends React.Component {
     props: {
