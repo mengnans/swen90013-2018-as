@@ -39,7 +39,6 @@ export default class LeaderboardPane extends React.Component<void, State> {
         this.onClickChangeCategory = this.onClickChangeCategory.bind(this);
         this.onClickLeaderboardListItem =
             this.onClickLeaderboardListItem.bind(this);
-        this.setFlag = this.setFlag.bind(this);
 
         this.state = {
             leaderboardData: undefined,
@@ -51,7 +50,6 @@ export default class LeaderboardPane extends React.Component<void, State> {
              */
             categoryMode: false,
         }
-        this.switchTab = this.switchTab.bind(this);
 
     }
 
