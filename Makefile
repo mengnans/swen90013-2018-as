@@ -3,7 +3,7 @@ REGISTRY = registry.gitlab.com/ferdinand-swoboda
 VERSION_TAG := $(shell git describe)
 export CONTAINER_IMAGE = $(REGISTRY)/$(APP):${VERSION_TAG}
 export GOOGLE_API_KEY = AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
-export ISS_URL = 0.0.0.0:3000
+export ISS_URL = http://0.0.0.0:3000
 
 # backend variables
 export BACKEND_IMAGE ?= $(REGISTRY)/askizzy-backend:vAS-1.2.2
