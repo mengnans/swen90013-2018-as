@@ -20,7 +20,7 @@ before_script:
 build:
     stage: build
     script:
-    - docker build --build-arg GOOGLE_API_KEY=${GOOGLE_API_KEY} --build-arg ISS_URL=${ISS_URL} --pull -t $CONTAINER_TEST_IMAGE .
+    - docker build --pull -t $CONTAINER_TEST_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE
 
 unit-test:
@@ -48,7 +48,7 @@ deploy:
     - export CONTAINER_IMAGE=${CONTAINER_RELEASE_IMAGE}
     - docker stop frontend
     - docker rm frontend
-    - docker run -d -p 80:8000 -e GOOGLE_API_KEY="${GOOGLE_API_KEY}" -e ISS_URL=${ISS_URL} --name frontend -- ${CONTAINER_IMAGE} serve
+    - docker run -d -p 80:8000 -e ENVIRONMENT=prod -e GOOGLE_API_KEY=${GOOGLE_API_KEY} -e ISS_URL=${ISS_URL} --name frontend -- ${CONTAINER_IMAGE} serve
     after_script:
     - eval $(docker-machine env --unset)
     when: manual
