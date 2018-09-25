@@ -29,76 +29,85 @@
         padding: 0;
     }
 
-    .ViewOnMapButton {
-        background-color: $brand-bg-light;
-        color: $brand-text-mid;
-        display: inline-block;
-        width:80%;
+    .TransitionalZone{
+        width: 100%;
+        height: 55px;
+        .ViewOnMapButton {
+            background-color: $brand-bg-light;
+            color: $brand-text-mid;
+            display: inline-block;
+            width:75%;
+            height: 54px;
 
-        .primaryText {
-            font-size: 18px;
-            line-height: 18px;
+            .primaryText {
+                font-size: 18px;
+                line-height: 18px;
+            }
+
+            .MapIcon {
+                width: 40px;
+                height: 40px;
+                margin-top: -9px;
+                margin-left: -2px;
+            }
+
+            .rightIcon {
+                top: 6px;
+            }
+
+            & > div {
+                padding-left: 58px;
+            }
         }
 
-        .MapIcon {
-            width: 40px;
-            height: 40px;
-            margin-top: -9px;
-            margin-left: -2px;
-        }
+        .dropdown{
+            background-color: $brand-bg-light;
+            display: inline-block;
+            width: 25%;
+            height: 55px;
+            vertical-align:top;
+            position: relative;
+            float: right;
+            .sort-bar{
+                width: 100%;
+                padding-top: 5%;
+                .sort-text{
+                    font-size: 15px;
+                    padding-left:10%;
+                }
+                .dp-icon{
+                    position: relative;
+                    top: 8px;
+                }
+            }
 
-        .rightIcon {
-            top: 6px;
-        }
-
-        & > div {
-            padding-left: 58px;
+            .dp-content{
+                font-size: 16px;
+                width: 160px;
+                background-color: $brand-bg-light;
+                color: $link-text-color;
+                z-index:999;
+                display: none;
+                position: absolute;
+                top: 28px;
+            }
+            .sort-relevance{
+                border: none;
+                background-color: $brand-bg-light;
+                position: relative;
+                bottom: 5px;
+                outline: none;
+            }
+            .sort-claps{
+                border: none;
+                background-color: $brand-bg-light;
+                position: relative;
+                bottom: 5px;
+                outline: none;
+            }
         }
     }
 
-    .dropdown{
-        background-color: $brand-bg-light;
-        display: inline-block;
-        width: 20%;
-        height: 49.6px;
-        vertical-align:top;
-        position: relative;
-        .sort-bar{
-            width: 100px;
-            float:right;
-        }
-        .sort-text{
-            font-size: 18px;
-        }
-        .dp-icon{
-            position: relative;
-            top: 5px;
-        }
-        .dp-content{
-            font-size: 16px;
-            width: 160px;
-            background-color: $brand-bg-light;
-            color: $link-text-color;
-            z-index:999;
-            display: none;
-            position: absolute;
-            top: 28px;
-        }
-        .sort-relevance{
-            border: none;
-            background-color: $brand-bg-light;
-            position: relative;
-            bottom: 5px;
-            outline: none;
-        }
-        .sort-claps{
-            border: none;
-            background-color: $brand-bg-light;
-            position: relative;
-            bottom: 5px;
-            outline: none;
-        }
-    }
 
     .MoreResultsButton {
         border-right: 10px solid $brand-bg-light;

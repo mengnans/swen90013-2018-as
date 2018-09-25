@@ -76,7 +76,7 @@ class ResultsListPage extends React.Component {
                     {
                         _.isEmpty(this.props.objects) ||
                         (
-                            <div>
+                            <div className= "TransitionalZone">
                                 <ViewOnMapButton
                                     to={path}
                                     onClick={this.recordMapClick.bind(this)}
