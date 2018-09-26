@@ -57,7 +57,9 @@ export default class Clap extends React.Component {
     constructor(props) {
         super(props);
         let id = this.props.service.id;
-        //get click state (indicate whether the clap button has been clicked).
+
+        //get click state
+        //indicate whether the clap button has been clicked for a service.
         let clickState = Storage.hasClapped(id, expireTime);
         //the total claps number
         let countTotal = isNaN(this.props.service.clapNum) ?
@@ -224,6 +226,9 @@ export default class Clap extends React.Component {
     /**
      * After clicking the clap button,
      * the states of this component will be changed.
+     * If a user can clap for a service,
+     * then increase claps number and change the click state.
+     * Otherwise, decrease the claps number and change the click state.
      * @return {void}
      */
     onClick() {
