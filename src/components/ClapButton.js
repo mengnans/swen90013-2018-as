@@ -1,3 +1,6 @@
+/**
+ * This button is used for claps in service page.
+ */
 import styled, {css, keyframes} from 'styled-components'
 
 const shockwave = ({theme: {secondaryColor}}) => keyframes`

@@ -1,4 +1,6 @@
-/* @flow */
+/**
+ * This component is used for service page to clap.
+ */
 
 import React from "react";
 import icons from "../icons";
