@@ -8,13 +8,12 @@ export default class SortDropDown extends React.Component {
         super(props);
         this.state = {
             hover: 'none',
+            isClicked: false,
             sort: false,
         }
         this.onClickRelevance = this.onClickRelevance.bind(this);
         this.onClickClaps = this.onClickClaps.bind(this);
-        this.handleMouseHover = this.handleMouseHover.bind(this);
-        this.handleMouseOut = this.handleMouseOut.bind(this);
-        this.handleMouseMenuHover = this.handleMouseMenuHover.bind(this);
+        this.onClickSort = this.onClickSort.bind(this);
     }
 
     props: {
@@ -43,30 +42,30 @@ export default class SortDropDown extends React.Component {
         })
     }
 
-    handleMouseHover() {
+    /**
+     * open or close the drop-down menu after clicking sort-by button
+     * @return {void}
+     */
+    onClickSort() {
         this.setState({
-            hover: 'block',
+            isClicked: !this.state.isClicked,
         })
-    }
-
-    handleMouseOut() {
-        this.setState({
-            hover: 'none',
-        })
-    }
-
-    handleMouseMenuHover() {
-        this.setState({
-            hover: 'block',
-        })
+        if (this.state.isClicked) {
+            this.setState({
+                hover: 'block',
+            })
+        } else {
+            this.setState({
+                hover: 'none',
+            })
+        }
     }
 
     render() {
         return (
             <div className="dropdown">
                 <div className="sort-bar"
-                    onMouseEnter={this.handleMouseHover}
-                    onMouseLeave={this.handleMouseOut}
+                    onClick={this.onClickSort}
                 >
                     <label className="sort-text">Sort by</label>
                     <span className="dp-icon">
@@ -75,8 +74,6 @@ export default class SortDropDown extends React.Component {
                 </div>
                 <div className="dp-content"
                     style={{display: this.state.hover}}
-                    onMouseEnter={this.handleMouseMenuHover}
-                    onMouseLeave={this.handleMouseOut}
                 >
                     <div onClick={this.onClickRelevance}>
                      <icons.Selected isSelected={!this.state.sort}/>
