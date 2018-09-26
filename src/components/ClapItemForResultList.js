@@ -1,3 +1,4 @@
+/* @flow */
 /**
  * This component is used to show claps information in result list page.
  */

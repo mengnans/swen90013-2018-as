@@ -1,3 +1,4 @@
+/* @flow */
 /**
  * This component is used for service page to clap.
  */

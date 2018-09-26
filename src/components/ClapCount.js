@@ -1,3 +1,4 @@
+/* @flow */
 /**
  * This component is used to show the claps number of changes
  */

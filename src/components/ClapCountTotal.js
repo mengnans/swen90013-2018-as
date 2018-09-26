@@ -1,3 +1,4 @@
+/* @flow */
 /**
  * This component is used to show
  * the total claps number for a specific service.

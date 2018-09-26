@@ -1,3 +1,4 @@
+/* @flow */
 /**
  * This button is used for claps in service page.
  */
