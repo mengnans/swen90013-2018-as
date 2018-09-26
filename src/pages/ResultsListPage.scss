@@ -31,13 +31,13 @@
 
     .TransitionalZone{
         width: 100%;
-        height: 55px;
+        height: 45px;
         .ViewOnMapButton {
             background-color: $brand-bg-light;
             color: $brand-text-mid;
             display: inline-block;
             width:75%;
-            height: 54px;
+            height: 100%;
 
             .primaryText {
                 font-size: 18px;
@@ -64,46 +64,63 @@
             background-color: $brand-bg-light;
             display: inline-block;
             width: 25%;
-            height: 55px;
+            height: 100%;
             vertical-align:top;
             position: relative;
             float: right;
             .sort-bar{
                 width: 100%;
-                padding-top: 5%;
-                .sort-text{
-                    font-size: 15px;
-                    padding-left:10%;
+                padding-top: 3%;
+
+              .sort-text {
+                color: rgb(60, 60, 60);
+                position: absolute;
+                margin-top: 3.3%;
+                margin-left: 3.3%;
+              }
+              @media screen and (min-width: 801px) {
+                .sort-text {
+                  font-size: 18px;
                 }
+              }
+
+              @media screen and (max-width: 800px) {
+                .sort-text {
+                  font-size: 20px;
+                }
+              }
+
                 .dp-icon{
-                    position: relative;
-                    top: 8px;
+                  position: relative;
+                  left:70px;
+                  top: 6px;
                 }
             }
 
             .dp-content{
-                font-size: 16px;
-                width: 160px;
+                font-size: 15px;
+                width: 100%;
                 background-color: $brand-bg-light;
                 color: $link-text-color;
                 z-index:999;
                 display: none;
-                position: absolute;
-                top: 28px;
-            }
-            .sort-relevance{
+                position: relative;
+                top: 10px;
+
+              .sort-relevance{
                 border: none;
                 background-color: $brand-bg-light;
                 position: relative;
                 bottom: 5px;
                 outline: none;
-            }
-            .sort-claps{
+              }
+              .sort-claps{
                 border: none;
                 background-color: $brand-bg-light;
                 position: relative;
                 bottom: 5px;
                 outline: none;
+              }
             }
         }
     }
