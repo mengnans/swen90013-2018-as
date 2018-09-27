@@ -94,12 +94,12 @@ const Storage = {
     },
 
     /**
-     * check whether the clap button can be clicked again.
+     * indicate whether a user has clapped for a service.
      * @param {?number} serviceId - service id.
      * @param {?number} requiredWait - the expire time
-     * (if a user clicked the button,
-     * after this duration, he can click again).
-     * @returns {*|boolean} - indicate whether a user can clap for a service.
+     * (if a user clapped for a service,
+     * after this duration, he can clap again).
+     * @returns {?boolean} - clap state.
      */
     hasClapped(serviceId: number, requiredWait: number): boolean {
         let claps = this.getJSON("claps") || {};
