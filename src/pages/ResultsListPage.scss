@@ -107,12 +107,16 @@
                 position: relative;
                 top: 30px;
 
-              .sort-relevance{
-                border: none;
-                background-color: $brand-bg-light;
-                position: relative;
-                bottom: 5px;
-                outline: none;
+                .sort-relevance {
+                  border: none;
+                  background-color: $brand-bg-light;
+                  position: relative;
+                  bottom: 5px;
+                  outline: none;
+                }
+
+              @media screen and (max-width: 800px) {
+                font-size: 1.7vw;
               }
               .sort-claps{
                 border: none;
