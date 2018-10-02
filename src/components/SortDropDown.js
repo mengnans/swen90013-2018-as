@@ -28,6 +28,7 @@ export default class SortDropDown extends React.Component {
         this.props.changeSort(false);
         this.setState({
             sort: false,
+            hover: 'none',
         })
     }
 
@@ -39,6 +40,7 @@ export default class SortDropDown extends React.Component {
         this.props.changeSort(true);
         this.setState({
             sort: true,
+            hover: 'none',
         })
     }
 
