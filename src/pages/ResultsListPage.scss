@@ -36,7 +36,7 @@
             background-color: $brand-bg-light;
             color: $brand-text-mid;
             display: inline-block;
-            width:70%;
+            width:60%;
             height: 100%;
 
             .primaryText {
@@ -63,7 +63,7 @@
         .dropdown{
             background-color: $brand-bg-light;
             display: inline-block;
-            width: 30%;
+            width: 40%;
             height: 100%;
             vertical-align:top;
             position: relative;
@@ -75,7 +75,7 @@
               .sort-text {
                 color: rgb(60, 60, 60);
                 position: absolute;
-                margin-top: 3.3%;
+                margin-top: 2%;
                 right: 25px;
               }
               @media screen and (min-width: 801px) {
@@ -104,7 +104,7 @@
                 color: $link-text-color;
                 z-index:999;
                 display: none;
-                position: relative;
+                float: right;
                 top: 30px;
 
                 .sort-relevance {
@@ -114,9 +114,14 @@
                   bottom: 5px;
                   outline: none;
                 }
-
+              @media screen and (min-width: 801px) {
+                width: 70%;
+                position: relative;
+                top: 32px;
+                left: 23px;
+              }
               @media screen and (max-width: 800px) {
-                font-size: 1.7vw;
+                font-size: 3vw;
               }
               .sort-claps{
                 border: none;
