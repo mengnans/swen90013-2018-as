@@ -48,9 +48,15 @@ export default class SortDropDown extends React.Component {
      * @return {void}
      */
     onClickSort() {
-        this.setState({
-            hover: 'block',
-        })
+        if (this.state.hover == 'none') {
+            this.setState({
+                hover: 'block',
+            })
+        } else {
+            this.setState({
+                hover: 'none',
+            })
+        }
     }
 
     render() {
