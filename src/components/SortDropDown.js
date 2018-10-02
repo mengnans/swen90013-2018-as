@@ -8,7 +8,6 @@ export default class SortDropDown extends React.Component {
         super(props);
         this.state = {
             hover: 'none',
-            isClicked: false,
             sort: false,
         }
         this.onClickRelevance = this.onClickRelevance.bind(this);
@@ -50,17 +49,8 @@ export default class SortDropDown extends React.Component {
      */
     onClickSort() {
         this.setState({
-            isClicked: !this.state.isClicked,
+            hover: 'block',
         })
-        if (this.state.isClicked) {
-            this.setState({
-                hover: 'block',
-            })
-        } else {
-            this.setState({
-                hover: 'none',
-            })
-        }
     }
 
     render() {
