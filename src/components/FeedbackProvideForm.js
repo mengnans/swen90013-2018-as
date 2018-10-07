@@ -4,14 +4,40 @@ import React from "react";
 import FlatButton from "./FlatButton";
 import StarTextItem from "./StarTextItem";
 
+/**
+ * This component encapsulates the form that allows users to submit feedback
+ * on a given service.
+ */
 export default class FeedbackProvideForm extends React.Component {
 
     props: {
-      onFeedbackSaved: Function,
-      resetCurrentRating: Function,
-      clearSelectedCategory: Function,
-      rating: object,
-      width: number
+        /**
+         * The function to be called when the "Done" button is pressed.
+         *
+         * @type {Function}
+         */
+        onFeedbackSaved: Function,
+
+        /**
+         * The function to be called when the "Cancel" button is pressed.
+         * @type {Function}
+         */
+        resetCurrentRating: Function,
+
+        /**
+         * The function to be called when we are done submitting feedback
+         * and want to return to the category selection page.
+         *
+         * @type {Function}
+         */
+        clearSelectedCategory: Function,
+
+        /**
+         * The
+         * @type {[type]}
+         */
+        rating: object,
+        width: number
     };
 
     constructor(props: Object) {
@@ -23,30 +49,65 @@ export default class FeedbackProvideForm extends React.Component {
         }
     }
 
-    // cancel provide feedback for sub-criteria
+    /**
+     * Called when the "Cancel" button is clicked.
+     *
+     * Will reset the data stored in this component's state and clear
+     * the selected category of the parent component.
+     *
+     * @return {undefined}
+     */
     onClickCancel() {
         this.props.resetCurrentRating();
         this.props.clearSelectedCategory();
     }
 
-    // provide feedback for sub-criteria
+    /**
+     * Called when the "Done" button is clicked.
+     *
+     * Will save the form data in the parent component and also
+     * clear the selected category, so the application returns
+     * to the category selection screen.
+     *
+     * @return {undefined}
+     */
     onClickDone() {
         this.props.onFeedbackSaved(this.state.rating, this.state.comment);
         this.props.clearSelectedCategory();
     }
 
+    /**
+     * Triggered when the comment box value changes. Will save
+     * This method will save the updated value to state.
+     *
+     * @param  {Event} event The text area update event.
+     * @return {undefined}
+     */
     onCommentBoxChange(event) {
         this.setState({
             comment: event.target.value,
         });
     }
 
-    onRatingChange(rating) {
+    /**
+     * Triggered when the user clicks on a star to rate the service.
+     * This method will save the updated value to state.
+     *
+     * @param  {number} rating  The updated rating value.
+     * @return {undefined}
+     */
+    onRatingChange(rating: number) {
         this.setState({
             rating,
         });
     }
 
+    /**
+     * Renders the stars, the comment box and the buttons used to
+     * control the form.
+     *
+     * @override
+     */
     render() {
         return (
             <div>
@@ -60,6 +121,12 @@ export default class FeedbackProvideForm extends React.Component {
         );
     }
 
+    /**
+     * Renders the comment box field used for entering a comment on the
+     * quality of the service.
+     *
+     * @return {ReactDOM.Element}   The rendered text area element.
+     */
     renderCommentBox() {
         return (
             <textarea
@@ -76,6 +143,11 @@ export default class FeedbackProvideForm extends React.Component {
         );
     }
 
+    /**
+     * Renders the "Cancel" and "Done" buttons used to control the form.
+     *
+     * @return {ReactDOM.Element}   A div containing both of the buttons.
+     */
     renderButtons() {
         return (
             <div className={"ButtonPane1"}>

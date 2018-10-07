@@ -7,13 +7,33 @@ import RatingListItem from "./RatingListItem";
 import HeaderBar from "./HeaderBar";
 import StarTextItem from "./StarTextItem";
 
+/**
+ * The component responsible for listing the ratings for each
+ * category pertaining to a service.
+ */
 export default class FeedbackViewPane extends React.Component {
 
+    /**
+     * The minimum viewport width required in order to render the
+     * text that accompanies the stars (i.e "Needs Improvement" and
+     * "Excellent").
+     *
+     * @type {Number}
+     */
     minimalWidthForStarText = 600;
-    maximumWidth = 1000;
 
     props: {
+        /**
+         * A reference to the service we're showing feedback for.
+         *
+         * @type {Service}
+         */
         service: Service,
+
+        /**
+         * The actual viewport width.
+         * @type {Number}
+         */
         width: number,
     };
 
@@ -21,11 +41,17 @@ export default class FeedbackViewPane extends React.Component {
         router: React.PropTypes.object.isRequired,
     };
 
+
     constructor(props: Object) {
         super(props);
     }
 
-
+    /**
+     * Triggered when the user clicks the "Provide Feedback" button.
+     * Will redirect the application to the Feedback Provision page.
+     *
+     * @return {undefined}
+     */
     onClickProvideYourFeedbackButton(): void {
         let path = "/service/";
 
@@ -36,11 +62,9 @@ export default class FeedbackViewPane extends React.Component {
         )
     }
 
-    onRatingChange() {
-        // do nothing
-        // since the rating here can't be changed
-    }
-
+    /**
+     * @override
+     */
     render() {
         return (
             <div className="ViewFeedbackPane">
@@ -63,7 +87,11 @@ export default class FeedbackViewPane extends React.Component {
         );
     }
 
-
+    /**
+     * Renders the overall rating for the service.
+     *
+     * @return {ReactDOM.Element}   A div containing the overall rating.
+     */
     renderStarHeading() {
         let windowsWidth = this.props.width;
         let heading;
@@ -75,7 +103,7 @@ export default class FeedbackViewPane extends React.Component {
                 maximumFractionDigits: 1,
                 minimumFractionDigits: 1,
             },
-            );
+        );
 
         if (windowsWidth < this.minimalWidthForStarText) {
             heading = "Overall: " + ratingValue;
@@ -90,12 +118,19 @@ export default class FeedbackViewPane extends React.Component {
         );
     }
 
+    /**
+     * Renders the total number of individual ratings that have been
+     * submitted for the given service.
+     *
+     * @return {ReactDOM.Element}   A div containing the total number of
+     *                              ratings for this service.
+     */
     renderRatingNum() {
         let info;
         let ratingNum = this.props.service.feedback.overAllCount;
 
-        // ratingNum = 150;
         info = ratingNum + " ratings";
+
         return (
             <div className={"RatingNumHeading"}>
                 {info}
@@ -103,6 +138,12 @@ export default class FeedbackViewPane extends React.Component {
         );
     }
 
+    /**
+     * Renders the list of RatingListItem elements. Each of which displays
+     * a category and its corresponding rating.
+     *
+     * @return {ReactDOM.Element[]} The list of rendered RatingListItems.
+     */
     renderRatingList() {
         return this.props.service.feedback.ratings.map((data, index) => (
             <RatingListItem
@@ -114,9 +155,12 @@ export default class FeedbackViewPane extends React.Component {
         ));
     }
 
-
+    /**
+     * Renders the "Provide Your Feedback" button.
+     *
+     * @return {ReactDOM.Element}   A wrapped FlatButton.
+     */
     renderFeedbackButtons() {
-
         return (
             <div className={"ButtonPane"}>
                 <FlatButton
@@ -124,9 +168,7 @@ export default class FeedbackViewPane extends React.Component {
                     label={"Provide Your Feedback"}
                     onClick={this.onClickProvideYourFeedbackButton.bind(this)}
                 />
-
             </div>
-
         );
     }
 }
