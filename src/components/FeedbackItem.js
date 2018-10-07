@@ -5,13 +5,44 @@ import classnames from "classnames";
 import icons from "../icons";
 import Star from "./Stars";
 
+/**
+ * This component displays the overall rating
+ * of a service (including the stars).
+ */
 class FeedbackItem extends React.Component {
 
     props: {
+        /**
+         * Whether or not this component is compact.
+         * If this value is set to true, the "View All"
+         * text will not be rendered.
+         *
+         * @type {boolean}
+         */
         compact: boolean,
+
+        /**
+         * The number of individual ratings this service has received.
+         * @type {number}
+         */
         numberOfRatings: number,
+
+        /**
+         * The overall rating value for this service (between 0 and 3).
+         * @type {number}
+         */
         rating: number,
+
+        /**
+         * How large each star should be when rendered (px).
+         * @type {number}
+         */
         starDimension: number,
+
+        /**
+         * How much space should be added between stars (px).
+         * @type {[type]}
+         */
         starSpacing: number
     };
 
@@ -20,13 +51,10 @@ class FeedbackItem extends React.Component {
         numberOfRatings: 0,
     };
 
-    constructor() {
-        super();
-    }
-
+    /**
+     * @override
+     */
     render() {
-        const rating = this.props.rating;
-
         return (
             <div>
                 <div
@@ -35,14 +63,20 @@ class FeedbackItem extends React.Component {
                         {compact: this.props.compact},
                     )}
                 >
-                    {this.renderStars(rating)}
+                    {this.renderStars()}
                     {this.renderViewAllAccessibility()}
                 </div>
             </div>
         );
     }
 
-    renderStars(rating) {
+    /**
+     * Renders the stars, the number of ratings and the overall rating value
+     * for this service.
+     *
+     * @return {ReactDOM.Element}   The rendered rating information (a div).
+     */
+    renderStars() {
 
         let ratingValue = rating.toLocaleString(
             undefined, // leave undefined to use the browser's locale,
@@ -65,7 +99,7 @@ class FeedbackItem extends React.Component {
                 Food Rating<br/>
                 {ratingValue + "  "}
                 <Star
-                    rating={rating}
+                    rating={this.props.rating}
                     starDimension={this.props.starDimension}
                     starSpacing={this.props.starSpacing}
                 />
@@ -76,6 +110,12 @@ class FeedbackItem extends React.Component {
         );
     }
 
+    /**
+     * Renders the "View All" text below the main rating information if the
+     * compact prop is set to false.
+     *
+     * @return {ReactDOM.Element} The "View All" text.
+     */
     renderViewAllAccessibility() {
         if (!this.props.compact) {
             return (
