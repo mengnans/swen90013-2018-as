@@ -1,5 +1,7 @@
 /* @flow */
-
+/**
+ * This component is used by leaderboard page
+ */
 import React from "react";
 import iss from "../iss";
 import HeaderBar from "./HeaderBar";
@@ -18,6 +20,9 @@ const numberOfLeaderboardItems = 6;
 type State = {
     leaderboardData: Array<Object>,
     error: Object,
+    /**
+     * Indicates which tab is active
+     */
     activeTab: String,
     /**
      * Dictates the category mode.
@@ -34,13 +39,15 @@ export default class LeaderboardPane extends React.Component<void, State> {
 
     constructor(props) {
         super(props);
-
         this.switchTab = this.switchTab.bind(this);
         this.onClickChangeCategory = this.onClickChangeCategory.bind(this);
         this.onClickLeaderboardListItem =
             this.onClickLeaderboardListItem.bind(this);
 
         this.state = {
+            /**
+             * This data includes all list items for the leaderboard.
+             */
             leaderboardData: undefined,
             activeTab: "leftTab",
             /**
@@ -116,6 +123,12 @@ export default class LeaderboardPane extends React.Component<void, State> {
 
     }
 
+    /**
+     * This function is used for ChangeCategoryButton.
+     * After click this button, the boolean variable categoryMode
+     * will turn to false.
+     * @returns {void}
+     */
     onClickChangeCategory() {
         this.setState({
             categoryMode: false,
@@ -141,6 +154,14 @@ export default class LeaderboardPane extends React.Component<void, State> {
         })
     }
 
+    /**
+     * Render the leaderboard pane component.
+     * (It is made up of ChangeCategoryButton component,
+     * LeaderboardTab component, LeaderboardListItem
+     * and LeaderboardCategoryListItem).
+     *
+     * @returns {React.Component} The leaderboard pane component
+     */
     render() {
 
         let list;
@@ -193,6 +214,12 @@ export default class LeaderboardPane extends React.Component<void, State> {
         );
     }
 
+    /**
+     * This function is used for LeaderboardListItem Component.
+     * After click the item, the page will be routed to service detail page.
+     * @param {?Object} data - A Service object
+     * @returns {void}
+     */
     onClickLeaderboardListItem(data: Object): void {
         let slug = data.service_slug;
         let path = "/service/";
@@ -203,6 +230,10 @@ export default class LeaderboardPane extends React.Component<void, State> {
         );
     }
 
+    /**
+     * This function is used to render the leaderboard list for services.
+     * @returns {React.Component} The leaderboard list component
+     */
     renderLeaderBoardList() {
 
         if (this.state.leaderboardData === undefined) {

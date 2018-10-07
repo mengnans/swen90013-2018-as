@@ -80,9 +80,11 @@ const Storage = {
     },
 
     /**
-     * set the click state of the clap button for a service.
+     * set the clap state of the clap button for a service.
      * @param {?number} serviceId - service id.
-     * @param {?boolean} state - indicate the click state.
+     * @param {?boolean} state - indicate the click state
+     * (if it is true, then the user gives a clap for a service.
+     * If it is false, then the user unclaps for a service).
      * @return {void}
      */
     setClapped(serviceId: number, state: boolean): void {
@@ -99,7 +101,11 @@ const Storage = {
      * @param {?number} requiredWait - the expire time
      * (if a user clapped for a service,
      * after this duration, he can clap again).
-     * @returns {?boolean} - clap state.
+     *
+     * @returns {?boolean} - clap state
+     * (If it is true, this indicates that
+     * this user has given a clap for this service and he can't clap again.
+     * If it is false, then this user can give a clap for this service).
      */
     hasClapped(serviceId: number, requiredWait: number): boolean {
         let claps = this.getJSON("claps") || {};

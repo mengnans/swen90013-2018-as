@@ -1,5 +1,7 @@
 /* @flow */
-
+/**
+ * The leaderboard list is made up by this component
+ */
 import React from "react";
 import icons from "../icons";
 
@@ -7,6 +9,9 @@ type Props = {
     data: React.PropTypes.object,
     key: Number,
     index: Number,
+    /**
+     * This function is passed in from LeaderboardPane component
+     */
     onClickLeaderboardListItem: Function,
 };
 
@@ -18,6 +23,11 @@ export default class LeaderboardListItem extends
         super(props);
     }
 
+    /**
+     * Render the LeaderboardListItem component
+     *
+     * @returns {React.Component} The LeaderboardListItem component
+     */
     render() {
         return (
             <div
@@ -35,7 +45,10 @@ export default class LeaderboardListItem extends
         );
     }
 
-
+    /**
+     * Render the rank for a service according to the clap number
+     * @returns {React.Element} The rank element
+     */
     renderRank() {
         return (
             <div className={"ranking"}>
@@ -44,6 +57,10 @@ export default class LeaderboardListItem extends
         );
     }
 
+    /**
+     * Render service name in the item
+     * @returns {React.Element} The element which is used to show service name
+     */
     renderServiceName() {
         return (
             <div className={"ServiceName"}>
@@ -52,6 +69,12 @@ export default class LeaderboardListItem extends
         );
     }
 
+    /**
+     * Render the category icon for a service
+     *
+     * @returns {React.Element} - The element which is used to
+     * show the category of a service
+     */
     renderCategoryIcon() {
 
         let serviceType = this.props.data.service_type;
@@ -76,6 +99,15 @@ export default class LeaderboardListItem extends
         );
     }
 
+    /**
+     * Render the clap icon in the list item.
+     * (There are totally four different icons.
+     * Top three services will use three different
+     * icons according to their rank.
+     * All services after the third rank will use only the same icon).
+     *
+     * @returns {React.Element} The element for clap icon
+     */
     renderClapIcon() {
         let icon;
 
@@ -98,6 +130,10 @@ export default class LeaderboardListItem extends
         );
     }
 
+    /**
+     * Render the clap number for a service
+     * @returns {React.Element} The element to show the clap number
+     */
     renderClapNumber() {
         return (
             <div className={"clap"}>
