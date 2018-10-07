@@ -31,8 +31,8 @@ export default class FeedbackViewPane extends React.Component {
         service: Service,
 
         /**
-         * The actual viewport width.
-         * @type {Number}
+         * The actual viewport width (px).
+         * @type {number}
          */
         width: number,
     };
@@ -40,11 +40,6 @@ export default class FeedbackViewPane extends React.Component {
     static contextTypes = {
         router: React.PropTypes.object.isRequired,
     };
-
-
-    constructor(props: Object) {
-        super(props);
-    }
 
     /**
      * Triggered when the user clicks the "Provide Feedback" button.

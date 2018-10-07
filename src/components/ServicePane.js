@@ -193,32 +193,6 @@ export default class ServicePane extends React.Component {
                     {this.renderServiceProvisions()}
                     {this.renderSiblings()}
                 </div>
-
-                {/*<a*/}
-                {/*className="suggestChange"*/}
-                {/*onClick={this.recordSuggestChange.bind(this)}*/}
-                {/*href={*/}
-                {/*"mailto:database@infoxchange.org" +*/}
-                {/*"?subject=" +*/}
-                {/*encodeURIComponent(
-                            `Ask Izzy changes: ${object.id}`
-                        ) +*/}
-                {/*"&body=" +*/}
-                {/*encodeURIComponent(*/}
-                {/*`Contact name:*/}
-
-                {/*Contact number:*/}
-
-                {/*Contact email:*/}
-
-                {/*Details of change:*/}
-
-                {/*`.replace(/^ +/gm, "")*/}
-                {/*)*/}
-                {/*}*/}
-                {/*>*/}
-                {/*Report an error*/}
-                {/*</a>*/}
                 <DebugServiceRecord object={object}/>
             </div>
         );

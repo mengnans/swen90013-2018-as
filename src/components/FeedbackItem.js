@@ -41,7 +41,7 @@ class FeedbackItem extends React.Component {
 
         /**
          * How much space should be added between stars (px).
-         * @type {[type]}
+         * @type {number}
          */
         starSpacing: number
     };

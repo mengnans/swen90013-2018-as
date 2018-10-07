@@ -14,29 +14,37 @@ export default class FeedbackProvideForm extends React.Component {
         /**
          * The function to be called when the "Done" button is pressed.
          *
-         * @type {Function}
+         * @type {function}
          */
-        onFeedbackSaved: Function,
+        onFeedbackSaved: (number, string) => void,
 
         /**
          * The function to be called when the "Cancel" button is pressed.
-         * @type {Function}
+         * @type {function}
          */
-        resetCurrentRating: Function,
+        resetCurrentRating: () => void,
 
         /**
          * The function to be called when we are done submitting feedback
          * and want to return to the category selection page.
          *
-         * @type {Function}
+         * @type {function}
          */
-        clearSelectedCategory: Function,
+        clearSelectedCategory: () => void,
 
         /**
-         * The
-         * @type {[type]}
+         * The object containing the user's existing rating information for
+         * this category.
+         *
+         * @type {object}
          */
         rating: object,
+
+        /**
+         * The actual width of the viewport (px).
+         *
+         * @type {number}
+         */
         width: number
     };
 

@@ -36,7 +36,7 @@ export default class StarTextItem extends React.Component {
         /**
          * The callback to call if the star value is changed.
          */
-        onRatingChange: Function,
+        onRatingChange: (number) => void,
         /**
          * The width of the viewport.
          */

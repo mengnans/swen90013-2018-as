@@ -587,6 +587,12 @@ export async function getService(
     return service;
 }
 
+/**
+ * Retrieves the feedback information for a given service.
+ *
+ * @param  {number} id  The id of the service to retrieve feedback for.
+ * @return {Promise<object>} A promise resolving to the feedback object.
+ */
 export async function getFeedback(
     id: number
 ): Object {
@@ -615,8 +621,15 @@ export async function getFeedback(
 
 }
 
+/**
+ * Provides feedback to the ISS server for a given service.
+ *
+ * @param  {number} id The id of the service to provide feedback for.
+ * @param  {object} feedbackJson The object containing the feedback.
+ * @return {Promise<object>} A promise resolving to a status object.
+ */
 export async function provideFeedback(
-    id: number, feedbackJson
+    id: number, feedbackJson: object
 ): Object {
 
     // TODO: remove fake id
