@@ -7,7 +7,7 @@ export default class SortDropDown extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hover: 'none',
+            sortSelected: false,
             sort: false,
         }
         this.onClickRelevance = this.onClickRelevance.bind(this);
@@ -27,7 +27,7 @@ export default class SortDropDown extends React.Component {
         this.props.changeSort(false);
         this.setState({
             sort: false,
-            hover: 'none',
+            sortSelected: false,
         })
     }
 
@@ -39,7 +39,7 @@ export default class SortDropDown extends React.Component {
         this.props.changeSort(true);
         this.setState({
             sort: true,
-            hover: 'none',
+            sortSelected: false,
         })
     }
 
@@ -48,18 +48,14 @@ export default class SortDropDown extends React.Component {
      * @return {void}
      */
     onClickSort() {
-        if (this.state.hover == 'none') {
-            this.setState({
-                hover: 'block',
-            })
-        } else {
-            this.setState({
-                hover: 'none',
-            })
-        }
+        this.setState({
+            sortSelected: !this.state.sortSelected,
+        })
     }
 
     render() {
+        const sortDisplayStyle = this.state.sortSelected ? "block" : "none";
+
         return (
             <div className="dropdown">
                 <div className="sort-bar"
@@ -71,7 +67,7 @@ export default class SortDropDown extends React.Component {
                 </span>
                 </div>
                 <div className="dp-content"
-                    style={{display: this.state.hover}}
+                    style={{display: sortDisplayStyle}}
                 >
                     <div onClick={this.onClickRelevance}>
                      <icons.Selected isSelected={!this.state.sort}/>
