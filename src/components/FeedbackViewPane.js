@@ -90,7 +90,7 @@ export default class FeedbackViewPane extends React.Component {
     renderStarHeading() {
         let windowsWidth = this.props.width;
         let heading;
-        let ratingValue = this.props.service.feedback.overAllRating
+        let ratingValue = this.props.service.feedback.overAllRating.toFixed(1)
             .toLocaleString(
                 undefined, // leave undefined to use the browser's locale,
                 // or use a string like 'en-US' to override it.
