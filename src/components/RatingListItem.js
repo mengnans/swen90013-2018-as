@@ -95,7 +95,8 @@ class RatingListItem extends React.Component {
         let rating = this.props.data.rating;
         let ratingValue;
 
-        ratingValue = (rating !== null) ? rating.toLocaleString(
+        ratingValue = (rating !== null) ? rating.toFixed(1)
+            .toLocaleString(
             undefined, // leave undefined to use the browser's locale,
             // or use a string like 'en-US' to override it.
             {
