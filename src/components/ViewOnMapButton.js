@@ -20,9 +20,9 @@ export default class ViewOnMapButton extends React.Component {
     }
 
     render() {
-        if (!this.state.maps) {
-            return null;
-        }
+        // if (!this.state.maps) {
+        //     return null;
+        // }
 
         return (
             <LinkListItem

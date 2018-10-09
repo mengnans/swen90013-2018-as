@@ -7,14 +7,12 @@ export default class SortDropDown extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hover: 'none',
+            sortSelected: false,
             sort: false,
         }
         this.onClickRelevance = this.onClickRelevance.bind(this);
         this.onClickClaps = this.onClickClaps.bind(this);
-        this.handleMouseHover = this.handleMouseHover.bind(this);
-        this.handleMouseOut = this.handleMouseOut.bind(this);
-        this.handleMouseMenuHover = this.handleMouseMenuHover.bind(this);
+        this.onClickSort = this.onClickSort.bind(this);
     }
 
     props: {
@@ -29,6 +27,7 @@ export default class SortDropDown extends React.Component {
         this.props.changeSort(false);
         this.setState({
             sort: false,
+            sortSelected: false,
         })
     }
 
@@ -40,33 +39,27 @@ export default class SortDropDown extends React.Component {
         this.props.changeSort(true);
         this.setState({
             sort: true,
+            sortSelected: false,
         })
     }
 
-    handleMouseHover() {
+    /**
+     * open or close the drop-down menu after clicking sort-by button
+     * @return {void}
+     */
+    onClickSort() {
         this.setState({
-            hover: 'block',
-        })
-    }
-
-    handleMouseOut() {
-        this.setState({
-            hover: 'none',
-        })
-    }
-
-    handleMouseMenuHover() {
-        this.setState({
-            hover: 'block',
+            sortSelected: !this.state.sortSelected,
         })
     }
 
     render() {
+        const sortDisplayStyle = this.state.sortSelected ? "block" : "none";
+
         return (
             <div className="dropdown">
                 <div className="sort-bar"
-                    onMouseEnter={this.handleMouseHover}
-                    onMouseLeave={this.handleMouseOut}
+                    onClick={this.onClickSort}
                 >
                     <label className="sort-text">Sort by</label>
                     <span className="dp-icon">
@@ -74,9 +67,7 @@ export default class SortDropDown extends React.Component {
                 </span>
                 </div>
                 <div className="dp-content"
-                    style={{display: this.state.hover}}
-                    onMouseEnter={this.handleMouseMenuHover}
-                    onMouseLeave={this.handleMouseOut}
+                    style={{display: sortDisplayStyle}}
                 >
                     <div onClick={this.onClickRelevance}>
                      <icons.Selected isSelected={!this.state.sort}/>
