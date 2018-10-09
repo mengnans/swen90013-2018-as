@@ -4,7 +4,7 @@
 # Use environment variables if told to, otherwise use these defaults.
 if [ "$1" != "--env" ]; then
 	ENVIRONMENT="staging"
-	ISS_URL="http://localhost:5000"
+	ISS_URL="http://3A75611ECCCD15EEEDDDE535E2BBE8B198E339954A916D4CACECCA74A3@askizzy.refiness.org:3000"
 	GOOGLE_API_KEY="AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU"
 fi
 
