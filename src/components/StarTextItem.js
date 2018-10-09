@@ -6,8 +6,8 @@ import Star from "./Stars";
  * What to divide the star dimensions by depending on screen size.
  */
 const starDimensionDivisor = {
-    small: 8,
-    large: 6,
+    small: 6,
+    large: 8,
     max: 120,
 }
 
@@ -15,8 +15,8 @@ const starDimensionDivisor = {
  * What to divide the star spacing by depending on screen size.
  */
 const starSpacingDivisor = {
-    small: 80,
-    large: 60,
+    small: 60,
+    large: 80,
     max: 12,
 }
 
@@ -72,7 +72,7 @@ export default class StarTextItem extends React.Component {
                 windowsWidth / starDimensionDivisor.large
             )}px`;
             starSpacing = `${parseInt(
-                windowsWidth / starDimensionDivisor.large
+                windowsWidth / starSpacingDivisor.large
             )}px`;
         }
 
