@@ -1,3 +1,8 @@
+/* @flow */
+/**
+ * This component is used to show
+ * the total claps number for a specific service.
+ */
 import styled, {css} from 'styled-components'
 
 const ClapCountTotal = styled.span`

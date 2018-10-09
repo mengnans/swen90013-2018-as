@@ -9,6 +9,7 @@ export default class SvgIconClap extends React.Component {
     props: {
         className?: string,
         isClicked: boolean,
+        //indicate which page uses this icon
         iconType: string,
     };
 
@@ -23,6 +24,7 @@ export default class SvgIconClap extends React.Component {
 
         let fill, stroke, strokeWidth;
 
+        //check iconType, if this icon is used in service page, then we will use service-page configuration.
         if (iconType == "service-page") {
             if (isClicked) {
                 fill = "rgb(20, 20, 20)";

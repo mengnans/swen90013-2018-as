@@ -1,4 +1,7 @@
 /* @flow */
+/**
+ * This component is used for service page to clap.
+ */
 
 import React from "react";
 import icons from "../icons";
@@ -45,26 +48,33 @@ let mojs = undefined;
 
 export default class Clap extends React.Component {
     props:{
-        isClicked: boolean,
         service: Service,
     }
 
     static defaultProps = {
         countTotal: 0,
-        isClicked: false,
     };
     constructor(props) {
         super(props);
         let id = this.props.service.id;
+
+        //get click state
+        //indicate whether the clap button has been clicked for a service.
         let clickState = Storage.hasClapped(id, expireTime);
+        //the total claps number
         let countTotal = isNaN(this.props.service.clapNum) ?
               (clickState ? 1 : 0)
             : this.props.service.clapNum
 
         this.state = {
             countTotal,
+
+            /*check whether the mouse hovers on the button.
+             *The default value is false.
+             */
             isHover: false,
             isClicked: clickState,
+            //indicate the service id.
             id: id,
         };
 
@@ -203,30 +213,46 @@ export default class Clap extends React.Component {
         });
     }
 
-
+    /**
+     * get theme configuration for this claps component.
+     * @return {?Object} return theme configuration.
+     */
     getTheme() {
-        const {theme = {}} = this.props
+        const {theme = {}} = this.props;
 
-        return Object.assign({}, defaultTheme, theme)
+        return Object.assign({}, defaultTheme, theme);
     }
 
-
+    /**
+     * After clicking the clap button,
+     * the states of this component will be changed.
+     * If a user can clap for a service,
+     * then increase claps number and change the click state.
+     * Otherwise, decrease the claps number and change the click state.
+     * @return {void}
+     */
     onClick() {
         const {id} = this.state
 
+        //check the click state. Indicating whether a user can clap again.
         let clickState = Storage.hasClapped(id, expireTime);
 
         this.setState(({count, countTotal}) => {
             if (!clickState) {
+                //change click state
                 Storage.setClapped(id, true);
+                //play animation
                 this.animationTimeline.replay();
+                //increase claps number
                 iss.increaseClap(this.props.service.id);
                 return {
                     countTotal: countTotal + 1,
                     isClicked: true,
                 }
             } else {
+                //change click state
                 Storage.setClapped(id, false);
+                //decrease claps number
                 iss.decreaseClap(this.props.service.id);
                 return {
                     countTotal: countTotal - 1,
@@ -247,6 +273,7 @@ export default class Clap extends React.Component {
         );
     }
 
+    //render all claps components.
     renderClaps() {
         const {countTotal, isClicked, isHover} = this.state
 

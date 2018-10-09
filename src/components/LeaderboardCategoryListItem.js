@@ -1,3 +1,4 @@
+/* @flow */
 import React from "react";
 import LinkListItem from "./LinkListItem";
 import icons from "../icons";
@@ -5,7 +6,13 @@ import type {Category} from "../constants/categories";
 
 export default class LeaderboardCategoryListItem extends React.Component {
     props: {
+        /**
+         * Indicate the service category
+         */
         category: Category,
+        /**
+         * This function is passed in from LeaderboardPane component
+         */
         loadWithCategory: Function,
     };
     state: void;
@@ -17,6 +24,8 @@ export default class LeaderboardCategoryListItem extends React.Component {
     /**
      * Sets the category information of this row
      * to the state of the leaderboard pane.
+     * (After clicking this item, it will
+     * load all services in this category).
      * @return {void}
      */
     onClick() {
@@ -33,6 +42,10 @@ export default class LeaderboardCategoryListItem extends React.Component {
             },
         }};
 
+    /**
+     * Render the LeaderboardCategpryListItem component
+     * @returns {React.Component} The LeaderboardCategpryListItem component
+     */
     render() {
         let Icon = this.props.category.icon || icons.House;
 
