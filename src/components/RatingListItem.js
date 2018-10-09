@@ -29,7 +29,7 @@ class RatingListItem extends React.Component {
      * Star sizing to use on small screens (px).
      * @type {String}
      */
-    smallStarDimension = '24px';
+    smallStarDimension = '16px';
 
     /**
      * The break used to separate the star graphic and the text
@@ -157,7 +157,6 @@ class RatingListItem extends React.Component {
      */
     render() {
         let ratingType = this.props.data.ratingType;
-        // TODO: find suitable icons for food
         let icon = '';
 
         if (ratingType === "Wheelchair access") {
