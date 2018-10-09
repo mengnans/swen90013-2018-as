@@ -36,14 +36,24 @@
             background-color: $brand-bg-light;
             color: $brand-text-mid;
             display: inline-block;
-            width:65%;
+            width:67%;
             height: 100%;
 
             .primaryText {
-                font-size: 18px;
                 line-height: 18px;
             }
 
+          @media screen and (min-width: 801px){
+            .primaryText {
+              font-size: 18px;
+            }
+          }
+
+          @media screen and (max-width: 800px){
+            .primaryText {
+              font-size: 15px;
+            }
+          }
             .MapIcon {
                 width: 40px;
                 height: 40px;
@@ -63,7 +73,7 @@
         .dropdown{
             background-color: $brand-bg-light;
             display: inline-block;
-            width: 35%;
+            width: 33%;
             height: 100%;
             vertical-align:top;
             position: relative;
@@ -87,7 +97,7 @@
 
               @media screen and (max-width: 800px) {
                 .sort-text {
-                  font-size: 20px;
+                  font-size: 15px;
                 }
               }
 
