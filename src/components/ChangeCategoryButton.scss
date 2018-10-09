@@ -1,0 +1,13 @@
+@import "../styles/colors.scss";
+
+.ChangeCategoryButton{
+    float:left;
+    button{
+        width: 180px;
+        height: 35px;
+        background: rgba(0, 0, 0, 0.0);
+        text-decoration: underline;
+        border-style: none;
+        color: $brand-pane-alt-dark;
+    }
+}

@@ -15,6 +15,7 @@ import Accessibility from "./Accessibility";
 import OpeningTimes from "./OpeningTimes";
 import Ndis from "./Ndis";
 import TransportTime from "./TransportTime";
+import ClapItemForResultList from "./ClapItemForResultList"
 import sendEvent from "../google-tag-manager";
 import IndigenousServiceIcon from "./IndigenousServiceIcon";
 import { titleize } from "underscore.string";
@@ -113,6 +114,8 @@ class ResultListItem extends React.Component {
                     compact={true}
                     location={object.Location()}
                 />
+
+                <ClapItemForResultList service={object}/>
 
                 <IndigenousServiceIcon object={object} />
                 {this.props.nServiceProvisions > 0 ?

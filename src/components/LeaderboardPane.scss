@@ -1,0 +1,35 @@
+.LeaderboardPane{
+    .TabBar {
+        display: flex;
+        margin: 20px;
+        .Left{
+            display:flex;
+            flex:1;
+            justify-content: flex-start;
+            align-items: center;
+            .hidden{
+                display:none;
+            }
+        }
+        .Middle{
+            display:flex;
+            flex:1;
+            justify-content: center;
+            align-items: center;
+        }
+        .Right{
+            display:flex;
+            flex:1;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+
+    .LeaderboardCategoryList {
+        border-top: 1px solid rgb(237, 236, 233);;
+    }
+
+    .LeaderboardListItemList {
+        border-top: 1px solid #C2C1BE;
+    }
+}

@@ -5,13 +5,14 @@ import _ from "underscore";
 
 import ResultsList from "../components/ResultsList";
 import LoadingResultsHeader from
-    "../components/ResultsListPage/LoadingResultsHeader";
+        "../components/ResultsListPage/LoadingResultsHeader";
 import ViewOnMapButton from "../components/ViewOnMapButton";
+import SortDropDown from "../components/SortDropDown";
 import sendEvent from "../google-tag-manager";
 import storage from "../storage";
-import type { Service } from "../iss";
+import type {Service} from "../iss";
 
-type SearchOrCategory = {search: string} | {title: string};
+type SearchOrCategory = { search: string } | { title: string };
 
 class ResultsListPage extends React.Component {
     props: {
@@ -21,11 +22,28 @@ class ResultsListPage extends React.Component {
         personalisationComponents: Array<Object>,
         title: string,
         statusCode: number,
-        meta: {total_count: number},
+        meta: { total_count: number },
         loading: boolean,
         error: string,
     } & SearchOrCategory;
-    state: void;
+    state: {
+        /**
+         * 'sort' dictates whether the sorting function
+         * should sort the list or not.
+         * @type {boolean}
+         */
+        sort: boolean,
+    };
+    constructor(props) {
+        super(props);
+        this.state = {sort: false};
+        this.setSort = this.setSort.bind(this);
+    }
+    setSort(sort) {
+        this.setState({
+            sort: sort,
+        });
+    }
 
     static propTypes = {
         objects: React.PropTypes.array,
@@ -57,13 +75,21 @@ class ResultsListPage extends React.Component {
                 <div className="List results">
                     {
                         _.isEmpty(this.props.objects) ||
-                        <ViewOnMapButton
-                            to={path}
-                            onClick={this.recordMapClick.bind(this)}
-                        />
+                        (
+                            <div className= "TransitionalZone">
+                                <ViewOnMapButton
+                                    to={path}
+                                    onClick={this.recordMapClick.bind(this)}
+                                />
+                                <SortDropDown
+                                    changeSort={this.setSort}
+                                />
+                            </div>
+                        )
                     }
                     <ResultsList
                         results={this.props.objects || []}
+                        sort={this.state.sort}
                     />
                     {this.props.loadMore}
                 </div>

@@ -1,0 +1,57 @@
+.LeaderboardListItem{
+    background-color: #EDECE9;
+    border-bottom: 1px solid #C2C1BE;
+    height: 82px;
+    width: 100%;
+    display: table;
+    vertical-align: middle;
+
+    .ranking {
+        font-size: 18px;
+        width: 48px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .icon {
+        width: 64px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .clap {
+        font-size: 14px;
+        width: 48px;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .ServiceName{
+        font-size: 18px;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .CategoryIcon {
+        height: 82px;
+        width: 64px;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .name {
+        margin: 0;
+        margin-left: 8px;
+        color: #4d13af;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 125%;
+    }
+
+}

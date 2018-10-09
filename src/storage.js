@@ -79,6 +79,45 @@ const Storage = {
         );
     },
 
+    /**
+     * set the clap state of the clap button for a service.
+     * @param {?number} serviceId - service id.
+     * @param {?boolean} state - indicate the click state
+     * (if it is true, then the user gives a clap for a service.
+     * If it is false, then the user unclaps for a service).
+     * @return {void}
+     */
+    setClapped(serviceId: number, state: boolean): void {
+        let claps = this.getJSON("claps") || {};
+
+        claps[serviceId] = {"date": Date.now(), "state": state};
+
+        this.setJSON("claps", claps);
+    },
+
+    /**
+     * indicate whether a user has clapped for a service.
+     * @param {?number} serviceId - service id.
+     * @param {?number} requiredWait - the expire time
+     * (if a user clapped for a service,
+     * after this duration, he can clap again).
+     *
+     * @returns {?boolean} - clap state
+     * (If it is true, this indicates that
+     * this user has given a clap for this service and he can't clap again.
+     * If it is false, then this user can give a clap for this service).
+     */
+    hasClapped(serviceId: number, requiredWait: number): boolean {
+        let claps = this.getJSON("claps") || {};
+
+        claps[serviceId] = claps[serviceId] || {};
+
+        return (
+            claps[serviceId].state &&
+            !(Date.now() - claps[serviceId].date > requiredWait)
+        );
+    },
+
     getItem(key: string): ?(string|number|boolean) {
         return persistentStore.getItem(key);
     },

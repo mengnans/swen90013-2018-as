@@ -1,42 +1,57 @@
 # Continuous deployment configuration
 # See http://doc.gitlab.com/ci/builds_configuration/README.html
+stages:
+    - build
+    - test
+    - integration-test
+    - release
+    - deploy
 
 variables:
-    GOOGLE_API_KEY: AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
-    ENVIRONMENT: development
-
+    CONTAINER_REGISTRY: "registry.gitlab.com/ferdinand-swoboda"
+    APP: "askizzy-frontend"
+    CONTAINER_TEST_IMAGE: ${CONTAINER_REGISTRY}/${APP}:${CI_COMMIT_SHA}
+    CONTAINER_RELEASE_IMAGE: ${CONTAINER_REGISTRY}/${APP}:${CI_COMMIT_TAG}
+    GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+    ISS_URL: http://ec2-54-206-116-52.ap-southeast-2.compute.amazonaws.com:3000
 before_script:
-    - hostname
-    - docker version
-    - docker info
+    - docker login -u gitlab-ci-token -p $ACCESS_TOKEN $CONTAINER_REGISTRY
 
 build:
     stage: build
-    script: make build
-
-lint:
-    stage: test
-    script: make lint
+    script:
+    - docker build --build-arg GOOGLE_API_KEY=${GOOGLE_API_KEY} --build-arg ISS_URL=${ISS_URL} --pull -t $CONTAINER_TEST_IMAGE .
+    - docker push $CONTAINER_TEST_IMAGE
 
 unit-test:
     stage: test
-    script: make unit-test
+    variables:
+      SELENIUM_BROWSER: phantomjs
+    script:
+    - docker run -t -e SELENIUM_BROWSER=${SELENIUM_BROWSER} -- ${CONTAINER_TEST_IMAGE} unit-test
 
-feature-test:
-    stage: test
-    script: make feature-test
+release:
+    stage: release
+    script:
+    - docker pull $CONTAINER_TEST_IMAGE
+    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+    - docker rmi $CONTAINER_TEST_IMAGE
+    - docker push $CONTAINER_RELEASE_IMAGE
+    only:
+    - tags
 
-maps-test:
-    stage: test
-    script: make maps-test
-
-personalisation-test:
-    stage: test
-    script: make personalisation-test
-
-# Deploy to test environment when tagged
 deploy:
     stage: deploy
-    script: make build dockerpush release-dev release-test
+    before_script:
+    - eval $(docker-machine env deployment-target)
+    script:
+    - export CONTAINER_IMAGE=${CONTAINER_RELEASE_IMAGE}
+    - docker stop frontend
+    - docker rm frontend
+    - docker run -d -p 80:8000 -e GOOGLE_API_KEY="${GOOGLE_API_KEY}" -e ISS_URL=${ISS_URL} --name frontend -- ${CONTAINER_IMAGE} serve
+    after_script:
+    - eval $(docker-machine env --unset)
+    when: manual
+    allow_failure: false
     only:
-        - tags
+    - tags

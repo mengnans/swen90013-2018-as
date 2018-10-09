@@ -1,5 +1,8 @@
+/* @flow */
+/**
+ * This component is used to show the claps number of changes
+ */
 import styled, {css} from 'styled-components'
-
 
 const ClapCount = styled.span`
   position:relative;
@@ -10,9 +13,10 @@ const ClapCount = styled.span`
   backface-visibility: hidden;
 
 
-  ${({theme: {secondaryColor, size}}) => {
-    const half = `${size / 2}px`
-    return css`
+  ${({theme: {size}}) => {
+      const half = `${size / 2}px`;
+
+      return css`
       height: ${half};
       width: ${half};
       line-height: ${half};

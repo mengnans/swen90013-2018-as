@@ -10,3 +10,9 @@
 /public/static/*.js.map
 /src/server/webpack-stats.json
 phantomjsdriver.log
+.idea/
+
+# MacOS stuff
+.DS_Store
+.AppleDouble
+.LSOverride

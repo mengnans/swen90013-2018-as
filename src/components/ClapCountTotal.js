@@ -1,3 +1,8 @@
+/* @flow */
+/**
+ * This component is used to show
+ * the total claps number for a specific service.
+ */
 import styled, {css} from 'styled-components'
 
 const ClapCountTotal = styled.span`
@@ -5,11 +10,11 @@ const ClapCountTotal = styled.span`
   transform: scale(1);
   text-align: center;
   top: -22px;
-  left: 12px;
+  left: 13px;
 
-  ${({theme: {primaryColor, size}}) => css`
+  ${({theme: {size}}) => css`
     top: -22px;
-    color: ${primaryColor};
+    color: 'rgb(0, 0, 0)';
     width: ${size}px;
   `}
 `

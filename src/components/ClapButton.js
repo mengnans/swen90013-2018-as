@@ -1,3 +1,7 @@
+/* @flow */
+/**
+ * This button is used for claps in service page.
+ */
 import styled, {css, keyframes} from 'styled-components'
 
 const shockwave = ({theme: {secondaryColor}}) => keyframes`
@@ -39,7 +43,7 @@ const ClapButton = styled.button`
     }
   `}
 
-  ${({theme: {primaryColor, secondaryColor, size}}) => css`
+  ${({theme: {size}}) => css`
     width: ${size}px;
     height: ${size}px;
     

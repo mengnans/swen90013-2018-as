@@ -29,6 +29,9 @@
 @import "../components/HeaderBar";
 @import "../components/IconButton";
 @import "../components/InputListItem";
+@import "../components/LeaderboardListItem";
+@import "../components/LeaderboardPane";
+@import "../components/LeaderboardTab";
 @import "../components/ListItem";
 @import "../components/LogoWithShadow";
 @import "../components/NavBar";
@@ -43,12 +46,15 @@
 @import "../components/Spacer";
 @import "../components/SvgIcon";
 @import "../components/TransportTime";
+@import "../components/ClapItemForResultList";
 @import "../icons/icons";
 @import "../pages/AddServicePage";
 @import "../pages/BasePage";
 @import "../pages/BasePersonalisationPage";
 @import "../pages/CensusStaticPage";
 @import "../pages/HomePage";
+@import "../pages/LeaderboardPage";
 @import "../pages/personalisation/ServicePage";
 @import "../pages/ResultsListPage";
 @import "../pages/StaticPage";
+@import "../components/ChangeCategoryButton";

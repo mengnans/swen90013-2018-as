@@ -1,107 +1,40 @@
-APP = ask_izzy
-REPO = contyard.office.infoxchange.net.au/$(APP)
+APP = askizzy-frontend
+REGISTRY = registry.gitlab.com/ferdinand-swoboda
 VERSION_TAG := $(shell git describe)
-TAG := $(shell if [ -z "$(CI)" ]; then echo $(VERSION_TAG); else echo "$(VERSION_TAG)-ci"; fi)
-FORKLIFT := docker run -t
+export CONTAINER_IMAGE = $(REGISTRY)/$(APP):${VERSION_TAG}
+export GOOGLE_API_KEY = AIzaSyChNlerDt3cxNWvSylVdCsUkJ-3l87qojU
+export ISS_URL = 0.0.0.0:3000
 
-# Allow multi-line assignments to include a `\` on the end of every
-# line (including the last one), which avoids the situation where you
-# have to touch two lines in order to add an item to the list.
-NULL=
-
-# Default flags for Forklift
-FORKLIFT_FLAGS ?=
-TEST_FLAGS ?=
-
-# Flags used by Forklift for CI (N.B. you must pass in ISS_URL)
-CI_FORKLIFT_FLAGS := $(FORKLIFT_FLAGS) \
-	-e CI="$(CI)" \
-	-e GOOGLE_API_KEY="$(GOOGLE_API_KEY)" \
-	-e ISS_URL="$(ISS_URL)" \
-	-e SELENIUM_BROWSER="phantomjs" \
-	$(NULL)
-
-CI_TEST_FLAGS := $(TEST_FLAGS) \
-	$(NULL)
+# backend variables
+export BACKEND_IMAGE ?= $(REGISTRY)/askizzy-backend:vAS-1.2.2
+export POSTGRES_PASSWORD = example
+export POSTGRES_USER = askizzy
+export POSTGRES_DB = askizzy
 
 build:
 	@test -z "`git status --porcelain`" || echo "WARNING: you have changes to your git repo not committed to this tag"
-	@if [ -z "$(CI)" ]; then \
-		docker build -t $(REPO):$(TAG) .; \
-	else \
-		docker build --target test -t $(REPO):$(TAG) .; \
-	fi
-	@echo "Successfully built $(REPO):$(TAG)..."
-	@if [ -n "$(CI)" ]; then \
-		docker push $(REPO):$(TAG); \
-	fi
-
-dockerpush:
-	@if [ -n "$(CI)" ]; then \
-		docker tag $(REPO):$(TAG) $(REPO):$(VERSION_TAG); \
-		docker rmi $(REPO):$(TAG); \
-	fi
-	docker push $(REPO):$(VERSION_TAG)
-
-push: dockerpush
-	@if git describe --exact-match 2> /dev/null; then \
-		for remote in `git remote`; do git push $$remote $(TAG); done; \
-	fi
+	docker build --build-arg GOOGLE_API_KEY=${GOOGLE_API_KEY} --build-arg ISS_URL=${ISS_URL} -t $(CONTAINER_IMAGE) .;
+    @echo "Successfully built $(CONTAINER_IMAGE)..."
 
 lint:
-	$(FORKLIFT) $(CI_FORKLIFT_FLAGS) -- $(REPO):$(TAG) lint
+	docker run -t -- $(CONTAINER_IMAGE) lint
 
 unit-test:
-	$(FORKLIFT) $(CI_FORKLIFT_FLAGS) -- $(REPO):$(TAG) unit-test $(CI_TEST_FLAGS)
+	docker run -t -e SELENIUM_BROWSER="phantomjs" -- $(CONTAINER_IMAGE) unit-test
 
 feature-test:
-	$(FORKLIFT) $(CI_FORKLIFT_FLAGS) -- $(REPO):$(TAG) feature-test $(CI_TEST_FLAGS)
+	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) feature-test
 
 maps-test:
-	$(FORKLIFT) $(CI_FORKLIFT_FLAGS) -- $(REPO):$(TAG) maps-test $(CI_TEST_FLAGS)
+	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) maps-test
 
 personalisation-test:
-	$(FORKLIFT) $(CI_FORKLIFT_FLAGS) -- $(REPO):$(TAG) personalisation-test $(CI_TEST_FLAGS)
+	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) personalisation-test
 
 search-test:
-	$(FORKLIFT) $(CI_FORKLIFT_FLAGS) -- $(REPO):$(TAG) search-test $(CI_TEST_FLAGS)
-
-deploy:
-	$(FORKLIFT) -- $(REPO):$(TAG) deploy
+	docker run -t $(FLAGS) -- $(CONTAINER_IMAGE) search-test
 
 serve:
-	$(FORKLIFT) -- $(REPO):$(TAG) serve
+	docker run -t -p 8000:8000 -- $(CONTAINER_IMAGE) serve
 
-release:
-	@if ! git describe --exact-match 2>/dev/null; then \
-		while [ -z "$$CONTINUE" ]; do \
-			read -r -p "Release not tagged. Release anyway? y/N " CONTINUE; \
-		done ; \
-		[ $$CONTINUE = "y" ] || [ $$CONTINUE = "Y" ] || (echo "Exiting."; exit 1;) \
-	fi
-
-	rm -rf tags_repo
-	git clone \
-		--single-branch \
-		--depth 1 \
-		git@gitlab.office.infoxchange.net.au:devops/tags.git tags_repo
-	cd tags_repo && \
-		./update_tag "$(APPNAME)" "$(VERSION_TAG)" && \
-		git commit -am "Release $(APP) $(VERSION_TAG) to $(APPNAME)" &&\
-		git push
-	rm -rf tags_repo
-
-release-dev:
-	$(MAKE) release APPNAME=askizzy.docker.dev CONTINUE=y
-
-release-test:
-	$(MAKE) release APPNAME=askizzy-test.docker.dev CONTINUE=y
-
-release-uat:
-	$(MAKE) release APPNAME=askizzy-uat.askizzy.org.au CONTINUE=y
-
-release-prod:
-	$(MAKE) release APPNAME=askizzy.org.au
-
-.PHONY: build push test deploy serve \
-	release-dev release-test release-uat release-prod
+.PHONY: build lint unit-test feature-test maps-test personalisation-test search-test serve

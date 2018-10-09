@@ -10,28 +10,24 @@ case "$1" in
     unit-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/unit-test
         ;;
 
     feature-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/feature-test
         ;;
 
     maps-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/maps-test
         ;;
 
     personalisation-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/personalisation-test
         ;;
 
@@ -39,24 +35,13 @@ case "$1" in
     search-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/search-test
-        ;;
-
-    deploy)
-        shift 1
-
-        set -x # Logs
-        ./script/generate-env-vars > /static/env-$(cat public/VERSION).js
-        ./script/build-gmaps-file
-        cp ./public/static/google-maps-api.js ./public/static/google-maps-api-$(cat public/VERSION).js
-        cp ./public/static/scripts/request-interceptor.js ./public/static/scripts/request-interceptor-$(cat public/VERSION).js
-        cp -r ./public/static/* /static/
         ;;
 
     serve)
         shift 1
 
+        ./script/build-gmaps-file
         exec ./script/run-nginx
         ;;
 

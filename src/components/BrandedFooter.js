@@ -24,8 +24,10 @@ class BrandedFooter extends React.Component {
                 <div>
                     <ul className="footer-list about">
                         <li><Link to="/about">About Ask Izzy</Link></li>
+                        <br/>
                         <li><Link to="/terms">Our terms of use</Link></li>
                         <li><a href={mailLink}>Leave feedback</a></li>
+                        <li><Link to="/leaderboard">Leaderboard</Link></li>
                         <li><a href={donateLink}>Donate to us</a></li>
                     </ul>
                 </div>
@@ -63,6 +65,7 @@ class BrandedFooter extends React.Component {
                             <li><a href="http://www.newscorpaustralia.com">News Corp Australia</a></li>
                         </ul>
                     </div>
+
                 </div>
                 <hr />
                 <div>

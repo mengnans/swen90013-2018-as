@@ -7,7 +7,7 @@
 
 import xhr from "axios";
 import url from "url";
-import { slugify } from "underscore.string";
+import {slugify} from "underscore.string";
 import _ from "underscore";
 import lru from "lru-cache";
 
@@ -27,7 +27,7 @@ declare var ISS_URL: string;
 
 export type searchResultMerger = (
     original: searchResults,
-    alternate: searchResults
+    alternate: searchResults,
 ) => searchResults;
 
 export type searchRequest = {
@@ -43,7 +43,7 @@ export type searchRequest = {
     age_group?: Array<string>,
     client_gender?: Array<string>,
 
-    catchment?: "prefer"|"true"|"false",
+    catchment?: "prefer" | "true" | "false",
     is_bulk_billing?: boolean,
     healthcare_card_holders?: boolean,
 
@@ -212,7 +212,7 @@ export function mungeUrlQuery(url_: string, data: ?Object): string {
 
 export async function request(
     path: string,
-    data: ?searchRequest
+    data: ?searchRequest,
 ): Promise<Object> {
     const url_ = mungeUrlQuery(url.resolve(ISS_URL, path), data);
 
@@ -232,7 +232,7 @@ export async function request(
  * and adds it to the given Service instances
  */
 async function attachTransportTimes(
-    services: Array<Service>
+    services: Array<Service>,
 ): Promise<Array<Service>> {
     if (typeof window == "undefined") {
         // Google maps api doesn't work outside the browser.
@@ -248,11 +248,11 @@ async function attachTransportTimes(
         let travelTimes = await Timeout(3000, maps.travelTime(services
             .filter((service) => !service.Location().isConfidential())
             // flow:disable isConfidential checks location.point
-            .map(({location}) => formatPoint(location.point))
+            .map(({location}) => formatPoint(location.point)),
         ));
 
         services.filter((service) => !service.Location().isConfidential())
-            // eslint-disable-next-line no-return-assign
+        // eslint-disable-next-line no-return-assign
             .map((service) => service.travelTime = travelTimes.shift());
     }
 
@@ -270,6 +270,25 @@ if (typeof window != "undefined") {
     window.IzzyServiceCache = serviceCache;
 }
 
+/**
+ * Get Bulks of clap
+ * @return {Array<Object>} The list of service claps information
+ * @param {Array<number>} id The list of ids to retrieve.
+ */
+export async function getBulkClaps(id): Array<Object> {
+    id = id.join(',');
+
+    return await fetch(`${ISS_URL}/api/v3/service/bulkClaps?id=${id}`,
+        {method: 'Get'}).then((response) => {
+            return response.json();
+        }
+    ).then(response => {
+        let result = response.data;
+
+        return result;
+    })
+}
+
 export async function requestObjects(
     path: string,
     data: ?searchRequest,
@@ -282,20 +301,27 @@ export async function requestObjects(
     }
 
     let response = await request(path, data);
+    let clapList = await getBulkClaps(response.objects.map(obj => obj.id));
+
+    response.objects.forEach(obj => {
+        obj.claps = (
+            clapList.find(clap => clap.serviceId == obj.id) || {clap: 0}
+        ).clap;
+    });
 
     // convert objects to ISS search results
     const objects = response.objects.map(
-        (object: issService): Service => new Service(object)
+        (object: issService): Service => new Service(object),
     );
 
     response.objects = await TryWithDefault(
         3000,
         attachTransportTimes(objects),
-        objects
+        objects,
     )
 
     response.objects.forEach((service) =>
-        serviceCache.set(service.id, service)
+        serviceCache.set(service.id, service),
     )
     requestObjectsCache.revise(url_, response);
 
@@ -356,7 +382,7 @@ export class Service {
 
             return (classification ==
                 'Mainstream who cater for Aboriginal (indigenous)') ||
-                   classification == 'Aboriginal (indigenous) specific';
+                classification == 'Aboriginal (indigenous) specific';
         }
 
         return false;
@@ -464,7 +490,7 @@ export class Service {
      */
     get descriptionRemainder(): Array<string> {
         return this.descriptionSentences().slice(
-            this.shortDescription.length
+            this.shortDescription.length,
         );
     }
 
@@ -503,7 +529,7 @@ export class Service {
         };
         let {objects, meta} = await requestObjects(
             "/api/v3/search/",
-            request_
+            request_,
         );
 
         // Don't mutate what comes back from
@@ -567,7 +593,7 @@ export async function search(
 }
 
 export async function getService(
-    id: number
+    id: number,
 ): Promise<Service> {
     let cached = serviceCache.get(id);
 
@@ -587,9 +613,10 @@ export async function getService(
     return service;
 }
 
+
 export function countCrisisResults(results: Array<Service>): number {
     const firstRegularServiceIdx = results.findIndex(
-        ({crisis}) => !crisis
+        ({crisis}) => !crisis,
     )
 
     if (firstRegularServiceIdx === -1) {
@@ -604,21 +631,110 @@ export function countCrisisResults(results: Array<Service>): number {
 export function crisisResults(results: Array<Service>): Array<Service> {
     return results.slice(
         0,
-        countCrisisResults(results)
+        countCrisisResults(results),
     );
 }
 
 export function nonCrisisResults(results: Array<Service>): Array<Service> {
     return results.slice(
         countCrisisResults(results),
-        results.length
+        results.length,
     )
 }
 
+/**
+ * Get claps data from ISS.
+ *
+ * @param {?string} id - service id
+ *
+ * @returns {?number} claps result from ISS.
+ */
+export async function getClaps(
+    id: number,
+): Object {
+    // TODO: add cache here
+    return await fetch(`${ISS_URL}/api/v3/service/${id}/getClaps`, {
+        method: 'GET',
+    }).then((response) => {
+        return response.json();
+    }).then(response => {
+
+        let clapNum = response.clap;
+
+        return clapNum;
+    });
+}
+
+/**
+ * Increase claps against ISS.
+ *
+ * @param {?string} id - service id
+ *
+ * @returns {?number} return status from ISS (whether succeed or fail).
+ */
+export async function increaseClap(
+    id: number,
+): Object {
+    // TODO: add cache here
+    return await fetch(`${ISS_URL}/api/v3/service/${id}/increaseClap`, {
+        method: 'POST',
+    }).then((response) => {
+        return response.json();
+    });
+}
+
+/**
+ * Decrease claps against ISS.
+ *
+ * @param {?string} id - service id
+ *
+ * @returns {?number} return status from ISS (whether succeed or fail).
+ */
+export async function decreaseClap(
+    id: number,
+): Object {
+    // TODO: add cache here
+    return await fetch(`${ISS_URL}/api/v3/service/${id}/decreaseClap`, {
+        method: 'POST',
+    }).then((response) => {
+        return response.json();
+    });
+}
+
+
+export async function requestLeaderboard(size, category): Promise {
+
+    let queryString = "";
+
+    if (size != null) {
+        queryString = "?size=" + size;
+        if (category != null) {
+            queryString = queryString + "&category=" + category;
+        }
+    }
+
+    return await fetch(
+        `${ISS_URL}/api/v3/service/leaderboard${queryString}`,
+        {
+            method: 'GET',
+        }).then((response) => {
+            return response.json();
+        }).then(response => {
+            return response.sortResult;
+        }
+    );
+
+}
+
+
 export default {
+    getClaps: getClaps,
+    increaseClap: increaseClap,
+    decreaseClap: decreaseClap,
     search: search,
     getService: getService,
     request: request,
     requestObjects: requestObjects,
+    requestLeaderboard: requestLeaderboard,
     Service: Service,
 };

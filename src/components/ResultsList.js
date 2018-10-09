@@ -21,6 +21,7 @@ const className = (elem: React$Element<any>) =>
 class ResultsList extends React.Component {
     props: {
         results: Array<Service>,
+        sort: boolean,
     };
     state: void;
 
@@ -32,7 +33,32 @@ class ResultsList extends React.Component {
         return nonCrisisResults(this.props.results);
     }
 
+    /**
+     * Sort the list in terms of the number of claps.
+     * @param {Array<Object>} services -- The list of services
+     * @param {boolean} ascending -- Dictate sorting
+     * in a ascending or descending order.
+     * @return {void}
+     */
+    sortClaps(services : Array<Object>, ascending: boolean) : void {
+        services.sort((service1, service2) => {
+            return ascending ? (service1.claps - service2.claps)
+                : (service2.claps - service1.claps);
+        });
+    }
     render() {
+
+        /**
+         * The list of non-crisis services.
+         * @type {Array<Object>}
+         * @var
+         */
+        let nonCrisisServices = this.nonCrisisResults();
+
+        if (this.props.sort) {
+            this.sortClaps(nonCrisisServices, false);
+        }
+
         return (
             <div className="ResultList">
                 {
@@ -42,19 +68,20 @@ class ResultsList extends React.Component {
                     />
                 }
                 {this.crisisResults().map(this.renderCrisisResult.bind(this))}
-                {this.nonCrisisResults().map(this.renderResult.bind(this))}
+                {nonCrisisServices.map(this.renderResult.bind(this))}
             </div>
         );
     }
 
-    renderCrisisResult(object: Object, index: number) {
+    renderCrisisResult(object: Object) {
         const elem: React$Element<any> = object.staticText ?
             <StaticTextLine object={object} />
           : <CrisisLineItem object={object} />;
+        const id = object.id;
 
         return (
             <div
-                key={`crisis-${index}`}
+                key={`crisis-${id}`}
                 className={className(elem)}
             >
                 {elem}
@@ -62,12 +89,13 @@ class ResultsList extends React.Component {
         );
     }
 
-    renderResult(object: Object, index: number) {
+    renderResult(object: Object) {
         const elem = <ResultListItem object={object} />;
+        const id = object.id;
 
         return (
             <div
-                key={`regular-${index}`}
+                key={`regular-${id}`}
                 className={className(elem)}
             >
                 {elem}

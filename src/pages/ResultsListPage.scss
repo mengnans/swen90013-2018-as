@@ -29,30 +29,133 @@
         padding: 0;
     }
 
-    .ViewOnMapButton {
-        background-color: $brand-bg-light;
-        color: $brand-text-mid;
+    .TransitionalZone{
+        width: 100%;
+        height: 45px;
+        .ViewOnMapButton {
+            background-color: $brand-bg-light;
+            color: $brand-text-mid;
+            display: inline-block;
+            width:67%;
+            height: 100%;
 
-        .primaryText {
-            font-size: 18px;
-            line-height: 18px;
+            .primaryText {
+                line-height: 18px;
+            }
+
+          @media screen and (min-width: 801px){
+            .primaryText {
+              font-size: 18px;
+            }
+          }
+
+          @media screen and (max-width: 800px){
+            .primaryText {
+              font-size: 15px;
+            }
+          }
+            .MapIcon {
+                width: 40px;
+                height: 40px;
+                margin-top: -9px;
+                margin-left: -2px;
+            }
+
+            .rightIcon {
+                top: 6px;
+            }
+
+            & > div {
+                padding-left: 58px;
+            }
         }
 
-        .MapIcon {
-            width: 40px;
-            height: 40px;
-            margin-top: -9px;
-            margin-left: -2px;
-        }
+        .dropdown{
+            background-color: $brand-bg-light;
+            display: inline-block;
+            width: 33%;
+            height: 100%;
+            vertical-align:top;
+            position: relative;
+            float: right;
+            .sort-bar{
+                width: 100%;
+                padding-top: 3%;
 
-        .rightIcon {
-            top: 6px;
-        }
+              .sort-text {
+                color: rgb(60, 60, 60);
+                position: absolute;
+                right: 25px;
+              }
+              
+              @media screen and (min-width: 801px) {
+                .sort-text {
+                  font-size: 18px;
+                  margin-top: 2%;
+                }
+              }
 
-        & > div {
-            padding-left: 58px;
+              @media screen and (max-width: 800px) {
+                .sort-text {
+                  font-size: 15px;
+                  margin-top: 9%;
+                }
+              }
+
+                .dp-icon{
+                  position: relative;
+                  float: right;
+                }
+
+              @media screen and (min-width: 801px){
+                .dp-icon{
+                  top: 6px;
+                }
+              }
+              @media screen and (max-width: 800px) {
+                .dp-icon{
+                  top: 10px;
+                }
+              }
+            }
+
+            .dp-content{
+                font-size: 15px;
+                width: 100%;
+                background-color: $brand-bg-light;
+                color: $link-text-color;
+                z-index:999;
+                display: none;
+                float: right;
+                top: 30px;
+
+                .sort-relevance {
+                  border: none;
+                  background-color: $brand-bg-light;
+                  position: relative;
+                  bottom: 5px;
+                  outline: none;
+                }
+              @media screen and (min-width: 801px) {
+                width: 70%;
+                position: relative;
+                top: 32px;
+                left: 23px;
+              }
+              @media screen and (max-width: 800px) {
+                font-size: 3vw;
+              }
+              .sort-claps{
+                border: none;
+                background-color: $brand-bg-light;
+                position: relative;
+                bottom: 5px;
+                outline: none;
+              }
+            }
         }
     }
+
 
     .MoreResultsButton {
         border-right: 10px solid $brand-bg-light;

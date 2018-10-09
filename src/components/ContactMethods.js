@@ -65,6 +65,7 @@ class ContactMethods extends React.Component {
     }
 
     render() {
+        this.props = ContactMethods.sampleProps["two numbers"];
         let assignComponent = (component) =>
             (record) =>
                 Object.assign({ component: component }, record);
