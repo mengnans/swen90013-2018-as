@@ -48,7 +48,7 @@ deploy:
     - export CONTAINER_IMAGE=${CONTAINER_RELEASE_IMAGE}
     - docker stop frontend
     - docker rm frontend
-    - docker run -d -p 443:8000 -e ENVIRONMENT=prod -e GOOGLE_API_KEY=${GOOGLE_API_KEY} -e ISS_URL=${ISS_URL} --name frontend -- ${CONTAINER_IMAGE} serve
+    - docker run -d -p 80:8000 -e ENVIRONMENT=prod -e GOOGLE_API_KEY=${GOOGLE_API_KEY} -e ISS_URL=${ISS_URL} --name frontend -- ${CONTAINER_IMAGE} serve
     after_script:
     - eval $(docker-machine env --unset)
     when: manual
