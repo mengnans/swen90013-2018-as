@@ -212,17 +212,18 @@ export function mungeUrlQuery(url_: string, data: ?Object): string {
 
 export async function request(
     path: string,
-    data: ?searchRequest
+    data: ?searchRequest,
+    options: ?XhrOptions
 ): Promise<Object> {
     const url_ = mungeUrlQuery(url.resolve(ISS_URL, path), data);
 
-    let response = await _request({
+    let response = await _request(Object.assign({}, options, {
         url: url_,
         headers: {
             "Content-type": "application/json",
             Accept: "application/json",
         },
-    });
+    }));
 
     return response.data;
 }
@@ -602,10 +603,8 @@ export async function getFeedback(
 
     // TODO: add cache here
 
-    return await fetch(`${ISS_URL}/api/v3/service/${id}/feedback`, {
+    return await request(`/api/v3/service/${id}/feedback`, {}, {
         method: 'GET',
-    }).then((response) => {
-        return response.json();
     }).then(feedback => {
 
         // since we have multiple categories right now in the backend
@@ -637,19 +636,12 @@ export async function provideFeedback(
 
     // TODO: add cache here
 
-    return await fetch(`${ISS_URL}/api/v3/service/${id}/feedback`, {
+    return await request(`/api/v3/service/${id}/feedback`, {}, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(feedbackJson),
-    }).then((response) => {
-        return response.json();
+        data: feedbackJson,
     }).then(response => {
         return response;
     });
-
-
 }
 
 export function countCrisisResults(results: Array<Service>): number {
