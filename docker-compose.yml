@@ -35,7 +35,7 @@ services:
         GOOGLE_API_KEY: ${GOOGLE_API_KEY}
         ISS_URL: backend:3000
     ports:
-        - "80:8000"
+        - "443:8000"
     depends_on:
         - backend
     entrypoint:
