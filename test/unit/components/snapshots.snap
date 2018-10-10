@@ -2002,7 +2002,7 @@ ShallowWrapper {
             <br />
             <Star
               rating={2.0574534161490683}
-              starDimension="24px"
+              starDimension="16px"
               starSpacing="1px"
             />
           </div>
@@ -2066,7 +2066,7 @@ ShallowWrapper {
             <br />
             <Star
               rating={2.0574534161490683}
-              starDimension="24px"
+              starDimension="16px"
               starSpacing="1px"
             />
           </div>,
@@ -2083,7 +2083,7 @@ ShallowWrapper {
               <br />,
               <Star
                 rating={2.0574534161490683}
-                starDimension="24px"
+                starDimension="16px"
                 starSpacing="1px"
               />,
             ],
@@ -2106,7 +2106,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "rating": 2.0574534161490683,
-                "starDimension": "24px",
+                "starDimension": "16px",
                 "starSpacing": "1px",
               },
               "ref": null,
@@ -2169,7 +2169,7 @@ ShallowWrapper {
               <br />
               <Star
                 rating={2.0574534161490683}
-                starDimension="24px"
+                starDimension="16px"
                 starSpacing="1px"
               />
             </div>
@@ -2233,7 +2233,7 @@ ShallowWrapper {
               <br />
               <Star
                 rating={2.0574534161490683}
-                starDimension="24px"
+                starDimension="16px"
                 starSpacing="1px"
               />
             </div>,
@@ -2250,7 +2250,7 @@ ShallowWrapper {
                 <br />,
                 <Star
                   rating={2.0574534161490683}
-                  starDimension="24px"
+                  starDimension="16px"
                   starSpacing="1px"
                 />,
               ],
@@ -2273,7 +2273,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "rating": 2.0574534161490683,
-                  "starDimension": "24px",
+                  "starDimension": "16px",
                   "starSpacing": "1px",
                 },
                 "ref": null,
@@ -2357,8 +2357,8 @@ ShallowWrapper {
           <Star
             changeRating={[Function]}
             rating={3}
-            starDimension="125px"
-            starSpacing="12px"
+            starDimension="166px"
+            starSpacing="16px"
           />
         </div>,
         <div
@@ -2391,8 +2391,8 @@ ShallowWrapper {
           "children": <Star
             changeRating={[Function]}
             rating={3}
-            starDimension="125px"
-            starSpacing="12px"
+            starDimension="166px"
+            starSpacing="16px"
           />,
           "className": "OverallStar",
         },
@@ -2404,8 +2404,8 @@ ShallowWrapper {
           "props": Object {
             "changeRating": [Function],
             "rating": 3,
-            "starDimension": "125px",
-            "starSpacing": "12px",
+            "starDimension": "166px",
+            "starSpacing": "16px",
           },
           "ref": null,
           "rendered": null,
@@ -2446,8 +2446,8 @@ ShallowWrapper {
             <Star
               changeRating={[Function]}
               rating={3}
-              starDimension="125px"
-              starSpacing="12px"
+              starDimension="166px"
+              starSpacing="16px"
             />
           </div>,
           <div
@@ -2480,8 +2480,8 @@ ShallowWrapper {
             "children": <Star
               changeRating={[Function]}
               rating={3}
-              starDimension="125px"
-              starSpacing="12px"
+              starDimension="166px"
+              starSpacing="16px"
             />,
             "className": "OverallStar",
           },
@@ -2493,8 +2493,8 @@ ShallowWrapper {
             "props": Object {
               "changeRating": [Function],
               "rating": 3,
-              "starDimension": "125px",
-              "starSpacing": "12px",
+              "starDimension": "166px",
+              "starSpacing": "16px",
             },
             "ref": null,
             "rendered": null,
