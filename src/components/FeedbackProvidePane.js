@@ -8,19 +8,41 @@ import iss from "../iss";
 import HeaderBar from "./HeaderBar";
 import FeedbackProvideForm from "./FeedbackProvideForm";
 
+/**
+ * Encapsulates the entire Feedback Provision pane (including listing
+ * all of the rating items).
+ */
 export default class FeedbackProvidePane extends React.Component {
 
+
     props: {
+        /**
+         * The service we're providing feedback for.
+         */
         service: Service,
+
+        /**
+         * The viewport width.
+         */
         width: number,
+
+        /**
+         * The current app location (required to navigate without changing
+         * the location).
+         */
         location: object
     };
 
+    /**
+     * The router is required to navigate upon feedback submission.
+     */
     static contextTypes = {
         router: React.PropTypes.object.isRequired,
     };
 
-
+    /**
+     * @override
+     */
     constructor(props: Object) {
         super(props);
 
@@ -41,7 +63,15 @@ export default class FeedbackProvidePane extends React.Component {
         };
     }
 
-    onFeedbackSaved(rating, comment) {
+    /**
+     * Updates the feedback state with the newly entered rating value and
+     * comment.
+     *
+     * @param {number} rating The rating value.
+     * @param {string} comment The rating comment.
+     * @returns {undefined}
+     */
+    onFeedbackSaved(rating: number, comment: string): void {
         let ratingData = this.state.ratingData;
 
         ratingData.ratings[this.state.selectedCategory].rating =
@@ -57,42 +87,49 @@ export default class FeedbackProvidePane extends React.Component {
 
     /**
      * Is called whenever the props change (including a location change).
-     * 
+     *
      * Destructs the requested category from the location change
      * and sets it as the active category.
      *
      * @override
-     * @param  object props
+     * @param  {object} props The updated props
      */
-    componentWillReceiveProps(props) {
+    componentWillReceiveProps(props: object): void {
         let selectedCategory = (
             props.location.state &&
             props.location.state.selectedCategory !== undefined
         ) ?
-            props.location.state.selectedCategory :
-            null;
+            props.location.state.selectedCategory
+            : null;
 
         this.setState(Object.assign(this.state, {
-            selectedCategory
+            selectedCategory,
         }));
     }
 
     /**
-     * Navigates to the current path, passing the new selected category as state.
-     * 
-     * @param number index
+     * Navigates to the current path, passing the new selected category as
+     * state.
+     *
+     * @param {number} index The index of the list item that changed.
+     * @returns {undefined}
      */
-    onClickRatingListItem(index) {
+    onClickRatingListItem(index: number): void {
         this.context.router.push({
             pathname: this.props.location.pathname,
             state: {
-                selectedCategory: index
-            }
+                selectedCategory: index,
+            },
         });
     }
 
-    // submit feedback
-    onClickSubmit() {
+    /**
+     * Submits the saved feedback to the ISS and navigates back to the
+     * feedback selection screen.
+     *
+     * @return {undefined}
+     */
+    onClickSubmit(): void {
         let data = this.state.ratingData;
         let validRatings = data.ratings.filter((ratingItem) => {
             let rating = ratingItem.rating;
@@ -111,7 +148,7 @@ export default class FeedbackProvidePane extends React.Component {
         try {
             let responseJson = iss.provideFeedback(data.serviceId, data);
 
-            // console.log(responseJson);
+            console.log(responseJson);
         } catch (error) {
             console.log("error at FeedbackProvidePane");
         }
@@ -119,8 +156,13 @@ export default class FeedbackProvidePane extends React.Component {
         this.context.router.goBack();
     }
 
-    // delete all the comments
-    onClickDelete() {
+    /**
+     * Deletes all of the saved feedback data this user is in the process
+     * of entering.
+     *
+     * @returns {undefined}
+     */
+    onClickDelete(): void {
         let ratingData = this.state.ratingData;
 
         ratingData.ratings = ratingData.ratings.map(ratingItem =>
@@ -132,11 +174,21 @@ export default class FeedbackProvidePane extends React.Component {
         });
     }
 
-    categoryIsSelected() {
+    /**
+     * Determins if a category is currently selected.
+     *
+     * @returns {boolean} Whether or not a category is selected.
+     */
+    categoryIsSelected(): boolean {
         return this.state.selectedCategory !== null;
     }
 
-    getSelectedRating() {
+    /**
+     * Returns the currently selected rating.
+     *
+     * @returns {object} The currently selected rating.
+     */
+    getSelectedRating(): object {
         if (this.categoryIsSelected()) {
             return this.state.ratingData.ratings[
                 this.state.selectedCategory
@@ -146,22 +198,35 @@ export default class FeedbackProvidePane extends React.Component {
         return undefined;
     }
 
-    resetRating(ratingItem) {
+    /**
+     * Resets the rating for a given category.
+     * @param {object} ratingItem The rating item for a given category.
+     * @returns {undefined}
+     */
+    resetRating(ratingItem: object): void {
         ratingItem.rating = null;
         ratingItem.comment = null;
 
         return ratingItem;
     }
 
-    ratingIsEmpty(ratingItem) {
+    /**
+     * Determines if a rating has been entered for a given category.
+     * @param {object} ratingItem The rating item for a given category.
+     * @returns {boolean} Whether or not the rating is empty.
+     */
+    ratingIsEmpty(ratingItem: object): boolean {
         return (
             ratingItem.comment == null &&
             ratingItem.rating == null
         );
     }
 
-    // cancel provide feedback for sub-criteria
-    resetCurrentRating() {
+    /**
+     * Clears the data for the current selected category.
+     * @returns {undefined}
+     */
+    resetCurrentRating(): void {
         let ratingData = this.state.ratingData;
 
         let index = this.state.selectedCategory;
@@ -172,14 +237,18 @@ export default class FeedbackProvidePane extends React.Component {
             ratingData: ratingData,
         });
     }
-        
+
     /**
      * Returns to the category selection screen.
+     * @returns {undefined}
      */
-    clearSelectedCategory() {
+    clearSelectedCategory(): void {
         this.context.router.goBack();
     }
 
+    /**
+     * @override
+     */
     render() {
         return (
             <div className="ProvideFeedbackPane">
@@ -198,16 +267,24 @@ export default class FeedbackProvidePane extends React.Component {
         );
     }
 
+    /**
+     * Renders the form that allows the user to provide feedback.
+     * @returns {ReactDOM.Element} The rendered form.
+     */
     renderForm() {
-        return <FeedbackProvideForm
+        return (<FeedbackProvideForm
             rating={this.getSelectedRating()}
             width={this.props.width}
             onFeedbackSaved={this.onFeedbackSaved.bind(this)}
             resetCurrentRating={this.resetCurrentRating.bind(this)}
             clearSelectedCategory={this.clearSelectedCategory.bind(this)}
-        />
+                />)
     }
 
+    /**
+     * Renders the rating for a given category.
+     * @returns  {ReactDOM.Element} The rendered RatingListItem.
+     */
     renderRatingList() {
         let list = this.state.ratingData.ratings.map((data, index) => (
             <RatingListItem
@@ -222,13 +299,18 @@ export default class FeedbackProvidePane extends React.Component {
         return (
             <div>
                 <div className={"RatingListItemProvideMode"}>
-                {list}
+                    {list}
                 </div>
                 {this.renderFeedbackButtons()}
             </div>
         );
     }
 
+    /**
+     * Renders the buttons allowing you to clear / submit feedback.
+     * @returns  {ReactDOM.Element} The rendered pair of buttons
+     *                              (wrapped in a div)
+     */
     renderFeedbackButtons() {
         let ratings = this.state.ratingData.ratings;
         let disabled = true;

@@ -10,25 +10,48 @@ import components from "../components";
 import Loading from "../icons/Loading";
 import config from "../config";
 
-class FeedbackPage extends React.Component {
+/**
+ * The page that allows users to submit feedback on a service.
+ */
+class FeedbackProvidePage extends React.Component {
     props: {
+        /**
+         * The parameters passed through React Router.
+         * @type {object}
+         */
         params: {
+            /**
+             * The service slug (i.e community-lunch-centre)
+             * @type {string}
+             */
             slug: string,
         },
     };
+
     state: {
+        /**
+         * The service the user will be providing feedback on.
+         *
+         * @type {Service}
+         */
         object?: Service,
+
+        /**
+         * The error object. This will be set if there is an error whilst
+         * retrieving the service.
+         *
+         * @type {object}
+         */
         error?: Object,
     };
 
-    static propTypes = {
-        params: React.PropTypes.object,
-    };
-
     static contextTypes = {
-        router: React.PropTypes.object.isRequired
+        router: React.PropTypes.object.isRequired,
     };
 
+    /**
+     * @override
+     */
     constructor(props: Object) {
         super(props);
         this.state = {
@@ -37,22 +60,46 @@ class FeedbackPage extends React.Component {
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
 
+    /**
+     * Loads the service and updates the window dimensions one time when
+     * this component mounts.
+     *
+     * Also registers an event listener that will be run every time the
+     * window is resized in the future.
+     * @override
+     */
     componentDidMount(): void {
         this.loadService();
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
     }
 
+    /**
+     * Loads the service and updates the window dimensions one time when
+     * this component mounts.
+     *
+     * Also un-registers the event listener that runs on window resize.
+     * @override
+     */
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
     }
 
+    /**
+     * Updates the window width in the state.
+     * @returns {undefined}
+     */
     updateWindowDimensions() {
         this.setState({
             width: window.innerWidth,
         });
     }
 
+    /**
+     * Loads the service if a different service slug is detected in
+     * the URL.
+     * @override
+     */
     componentDidUpdate(prevProps: Object, prevState: Object): void {
         if (prevProps.params.slug != this.props.params.slug) {
             this.loadService();
@@ -60,7 +107,9 @@ class FeedbackPage extends React.Component {
     }
 
     /**
-     * Pull out the ID (leading digits) from the slug
+     * Pull out the ID (leading digits) from the slug.
+     *
+     * @return {number} The id of the service.
      */
     get id(): number {
         const leadingDigits = /^\d+/;
@@ -73,6 +122,13 @@ class FeedbackPage extends React.Component {
         throw new Error("Bad URL (/service/[service-id must be a number]")
     }
 
+    /**
+     * Loads the service associated with the id of the sug passed to
+     * this component. Also requests the feedback and attaches it to the
+     * Service object.
+     *
+     * @return {undefined}
+     */
     async loadService(): Promise<void> {
         // Unload previous service
         this.setState({object: undefined});
@@ -90,6 +146,9 @@ class FeedbackPage extends React.Component {
 
     }
 
+    /**
+     * @override
+     */
     render() {
         let {
             object,
@@ -152,4 +211,4 @@ class FeedbackPage extends React.Component {
 
 }
 
-export default FeedbackPage;
+export default FeedbackProvidePage;

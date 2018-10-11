@@ -424,7 +424,7 @@ ShallowWrapper {
         />
         <a
           className="suggestChange"
-          href="mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
+          href="mailto:database@infoxchange.org?subject=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Ask%20Izzy%20changes%3A%20111%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
           onClick={[Function]}
         >
           <FlatButton
@@ -453,7 +453,7 @@ ShallowWrapper {
           />,
           <a
             className="suggestChange"
-            href="mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
+            href="mailto:database@infoxchange.org?subject=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Ask%20Izzy%20changes%3A%20111%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
             onClick={[Function]}
           >
             <FlatButton
@@ -501,7 +501,7 @@ ShallowWrapper {
               label="Provide General Feedback"
             />,
             "className": "suggestChange",
-            "href": "mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A",
+            "href": "mailto:database@infoxchange.org?subject=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Ask%20Izzy%20changes%3A%20111%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A",
             "onClick": [Function],
           },
           "ref": null,
@@ -544,7 +544,7 @@ ShallowWrapper {
           />
           <a
             className="suggestChange"
-            href="mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
+            href="mailto:database@infoxchange.org?subject=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Ask%20Izzy%20changes%3A%20111%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
             onClick={[Function]}
           >
             <FlatButton
@@ -573,7 +573,7 @@ ShallowWrapper {
             />,
             <a
               className="suggestChange"
-              href="mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
+              href="mailto:database@infoxchange.org?subject=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Ask%20Izzy%20changes%3A%20111%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A"
               onClick={[Function]}
             >
               <FlatButton
@@ -621,7 +621,7 @@ ShallowWrapper {
                 label="Provide General Feedback"
               />,
               "className": "suggestChange",
-              "href": "mailto:database@infoxchange.org?subject=Ask%20Izzy%20changes%3A%20111&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A",
+              "href": "mailto:database@infoxchange.org?subject=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Ask%20Izzy%20changes%3A%20111%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&body=Contact%20name%3A%0A%0AContact%20number%3A%0A%0AContact%20email%3A%0A%0ADetails%20of%20change%3A%0A%0A",
               "onClick": [Function],
             },
             "ref": null,
@@ -2002,7 +2002,7 @@ ShallowWrapper {
             <br />
             <Star
               rating={2.0574534161490683}
-              starDimension="24px"
+              starDimension="16px"
               starSpacing="1px"
             />
           </div>
@@ -2066,7 +2066,7 @@ ShallowWrapper {
             <br />
             <Star
               rating={2.0574534161490683}
-              starDimension="24px"
+              starDimension="16px"
               starSpacing="1px"
             />
           </div>,
@@ -2083,7 +2083,7 @@ ShallowWrapper {
               <br />,
               <Star
                 rating={2.0574534161490683}
-                starDimension="24px"
+                starDimension="16px"
                 starSpacing="1px"
               />,
             ],
@@ -2106,7 +2106,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "rating": 2.0574534161490683,
-                "starDimension": "24px",
+                "starDimension": "16px",
                 "starSpacing": "1px",
               },
               "ref": null,
@@ -2169,7 +2169,7 @@ ShallowWrapper {
               <br />
               <Star
                 rating={2.0574534161490683}
-                starDimension="24px"
+                starDimension="16px"
                 starSpacing="1px"
               />
             </div>
@@ -2233,7 +2233,7 @@ ShallowWrapper {
               <br />
               <Star
                 rating={2.0574534161490683}
-                starDimension="24px"
+                starDimension="16px"
                 starSpacing="1px"
               />
             </div>,
@@ -2250,7 +2250,7 @@ ShallowWrapper {
                 <br />,
                 <Star
                   rating={2.0574534161490683}
-                  starDimension="24px"
+                  starDimension="16px"
                   starSpacing="1px"
                 />,
               ],
@@ -2273,7 +2273,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "rating": 2.0574534161490683,
-                  "starDimension": "24px",
+                  "starDimension": "16px",
                   "starSpacing": "1px",
                 },
                 "ref": null,
@@ -2303,6 +2303,215 @@ ShallowWrapper {
             "rendered": null,
             "type": [Function],
           },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Unit tests StarTextItem renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <StarTextItem
+    onRatingChange={[Function]}
+    rating={3}
+    width={1000}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="OverallStarLeftText"
+        >
+          Poor
+        </div>,
+        <div
+          className="OverallStar"
+        >
+          <Star
+            changeRating={[Function]}
+            rating={3}
+            starDimension="166px"
+            starSpacing="16px"
+          />
+        </div>,
+        <div
+          className="OverStarRightText"
+        >
+          Exceptional
+        </div>,
+      ],
+      "className": "OverallStarBlock",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Poor",
+          "className": "OverallStarLeftText",
+        },
+        "ref": null,
+        "rendered": "Poor",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Star
+            changeRating={[Function]}
+            rating={3}
+            starDimension="166px"
+            starSpacing="16px"
+          />,
+          "className": "OverallStar",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "changeRating": [Function],
+            "rating": 3,
+            "starDimension": "166px",
+            "starSpacing": "16px",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Exceptional",
+          "className": "OverStarRightText",
+        },
+        "ref": null,
+        "rendered": "Exceptional",
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="OverallStarLeftText"
+          >
+            Poor
+          </div>,
+          <div
+            className="OverallStar"
+          >
+            <Star
+              changeRating={[Function]}
+              rating={3}
+              starDimension="166px"
+              starSpacing="16px"
+            />
+          </div>,
+          <div
+            className="OverStarRightText"
+          >
+            Exceptional
+          </div>,
+        ],
+        "className": "OverallStarBlock",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Poor",
+            "className": "OverallStarLeftText",
+          },
+          "ref": null,
+          "rendered": "Poor",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Star
+              changeRating={[Function]}
+              rating={3}
+              starDimension="166px"
+              starSpacing="16px"
+            />,
+            "className": "OverallStar",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "changeRating": [Function],
+              "rating": 3,
+              "starDimension": "166px",
+              "starSpacing": "16px",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Exceptional",
+            "className": "OverStarRightText",
+          },
+          "ref": null,
+          "rendered": "Exceptional",
           "type": "div",
         },
       ],

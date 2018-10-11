@@ -10,28 +10,24 @@ case "$1" in
     unit-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/unit-test
         ;;
 
     feature-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/feature-test
         ;;
 
     maps-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/maps-test
         ;;
 
     personalisation-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/personalisation-test
         ;;
 
@@ -39,14 +35,15 @@ case "$1" in
     search-test)
         shift 1
 
-        echo "ISS server: $ISS_URL"
         exec ./script/search-test
         ;;
 
     serve)
         shift 1
 
+        ./script/build-assets
         ./script/build-gmaps-file
+        ./script/recreate-dev-env-file
         exec ./script/run-nginx
         ;;
 

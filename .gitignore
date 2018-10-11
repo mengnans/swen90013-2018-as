@@ -12,3 +12,8 @@
 .idea/*
 phantomjsdriver.log
 .idea/
+
+# MacOS stuff
+.DS_Store
+.AppleDouble
+.LSOverride

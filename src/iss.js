@@ -24,7 +24,6 @@ import {
 } from "./timeout";
 
 declare var ISS_URL: string;
-declare var FEEDBACK_URL: string;
 
 export type searchResultMerger = (
     original: searchResults,
@@ -213,17 +212,18 @@ export function mungeUrlQuery(url_: string, data: ?Object): string {
 
 export async function request(
     path: string,
-    data: ?searchRequest
+    data: ?searchRequest,
+    options: ?XhrOptions
 ): Promise<Object> {
     const url_ = mungeUrlQuery(url.resolve(ISS_URL, path), data);
 
-    let response = await _request({
+    let response = await _request(Object.assign({}, options, {
         url: url_,
         headers: {
             "Content-type": "application/json",
             Accept: "application/json",
         },
-    });
+    }));
 
     return response.data;
 }
@@ -588,6 +588,12 @@ export async function getService(
     return service;
 }
 
+/**
+ * Retrieves the feedback information for a given service.
+ *
+ * @param  {number} id  The id of the service to retrieve feedback for.
+ * @return {Promise<object>} A promise resolving to the feedback object.
+ */
 export async function getFeedback(
     id: number
 ): Object {
@@ -597,10 +603,8 @@ export async function getFeedback(
 
     // TODO: add cache here
 
-    return await fetch(`${FEEDBACK_URL}/api/v3/service/${id}/feedback`, {
+    return await request(`/api/v3/service/${id}/feedback`, {}, {
         method: 'GET',
-    }).then((response) => {
-        return response.json();
     }).then(feedback => {
 
         // since we have multiple categories right now in the backend
@@ -608,6 +612,7 @@ export async function getFeedback(
         // so in this case, I will only return the feedback for the
         // food only
         let foodFeedback = feedback.categories.food;
+
         foodFeedback.overAllCount = feedback.overAllCount;
 
         return foodFeedback;
@@ -615,8 +620,15 @@ export async function getFeedback(
 
 }
 
+/**
+ * Provides feedback to the ISS server for a given service.
+ *
+ * @param  {number} id The id of the service to provide feedback for.
+ * @param  {object} feedbackJson The object containing the feedback.
+ * @return {Promise<object>} A promise resolving to a status object.
+ */
 export async function provideFeedback(
-    id: number, feedbackJson
+    id: number, feedbackJson: object
 ): Object {
 
     // TODO: remove fake id
@@ -624,19 +636,12 @@ export async function provideFeedback(
 
     // TODO: add cache here
 
-    return await fetch(`${FEEDBACK_URL}/api/v3/service/${id}/feedback`, {
+    return await request(`/api/v3/service/${id}/feedback`, {}, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(feedbackJson),
-    }).then((response) => {
-        return response.json();
+        data: feedbackJson,
     }).then(response => {
         return response;
     });
-
-
 }
 
 export function countCrisisResults(results: Array<Service>): number {
